@@ -2,9 +2,25 @@ import Head from 'next/head'
 import Select from "../components/Select";
 import Input from "../components/Input";
 import EventCard from "../components/Events/EventCard";
-import Header from "../components/Header";
 import MainLayout from "../layouts/MainLayout";
 import FilterBuildings from "../components/FilterBuildings";
+
+const events = [
+    {
+        id: 1,
+        title: '  Декада первокурсника',
+        description: 'описание мероприятия',
+        date: new Date(),
+        duration: '2 часа',
+        direction: 'IT',
+        watches: 0,
+        manager: {
+            name: 'Василий Анатольевич Пупкин',
+            number: '+7-932-256-36-78'
+        },
+        format: 'Онлайн'
+    }
+]
 
 export default function Home() {
   return (
@@ -17,6 +33,7 @@ export default function Home() {
                   <FilterBuildings clickHandler={(i) => console.log(i)} />
                   <div className='flex w-full mb-4'>
                       <div className="flex flex-col w-3/5 sm:w-full">
+                          {events.map(event => < EventCard event={event} />)}
                           <EventCard />
                           <EventCard />
                           <EventCard />
