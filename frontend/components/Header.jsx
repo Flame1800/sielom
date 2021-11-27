@@ -14,7 +14,7 @@ const Header = () => {
                     <Link href="/">
                         <a className="text-gray-700 mr-4">Календарь мероприятий</a>
                     </Link>
-                    <Link href="/documentation">
+                    <Link href="/rules">
                         <a className="text-gray-700">Учебные материалы</a>
                     </Link>
                 </div>

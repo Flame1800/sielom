@@ -19,9 +19,6 @@ export default function PostPage({post}) {
                         </div>
                         <div className='flex w-full mb-4'>
                             <div className="flex flex-col w-3/5 sm:w-full">
-                                <div className="flex w-full">
-                                    {/*<div className="h-72 w-72 bg-blue-300 rounded-xl my-4 mr-8"> </div>*/}
-                                </div>
                                 <div className="mt-8">
                                     <div className="text-md leading-8">
                                         <OutEditorText data={post.body} />
@@ -37,6 +34,6 @@ export default function PostPage({post}) {
 }
 
 PostPage.getInitialProps = async ctx => {
-    const { data } = await API.getPost(ctx.query.slug)
+    const { data } = await API.getRule(ctx.query.slug)
     return { post: data }
 }

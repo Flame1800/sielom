@@ -1,5 +1,5 @@
 import React from 'react'
-import OutputComponent from 'editorjs-react-renderer'
+import Output from "editorjs-react-renderer"
 
 const OutEditorText = ({ data }) => {
     if (!data) {
@@ -9,7 +9,7 @@ const OutEditorText = ({ data }) => {
     return (
         <>
             {Object.keys(data).length > 0 && (
-                <OutputComponent data={data} />
+                <Output data={data} />
             )}
         </>
     )

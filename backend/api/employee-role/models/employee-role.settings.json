@@ -1,9 +1,8 @@
 {
   "kind": "collectionType",
-  "collectionName": "categories",
+  "collectionName": "employee_roles",
   "info": {
-    "name": "category",
-    "description": ""
+    "name": "Employee role"
   },
   "options": {
     "increments": true,
@@ -14,6 +13,14 @@
   "attributes": {
     "name": {
       "type": "string"
+    },
+    "tasks": {
+      "via": "executors",
+      "collection": "task"
+    },
+    "rules": {
+      "via": "roles",
+      "collection": "rule"
     }
   }
 }

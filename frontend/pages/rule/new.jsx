@@ -4,7 +4,7 @@ import dynamic from "next/dynamic";
 import React from "react";
 import router from 'next/router'
 import {useAppDispatch, useAppSelector} from "../../redux/hooks";
-import { fetchCreatePost } from "../../redux/slices/posts";
+import {fetchCreateRule} from "../../redux/slices/rules";
 import Editor from "../../components/Editor/Editor";
 
 
@@ -21,7 +21,7 @@ export default function NewPost() {
         setError(false)
 
         if (title && body) {
-            dispatch(fetchCreatePost({ title, body }))
+            dispatch(fetchCreateRule({ title, body }))
             setStatus('success')
         }
         else {
@@ -57,7 +57,7 @@ export default function NewPost() {
                 <main className="flex w-full flex-1 max-w-screen-xl border-l border-r border-black">
                     <div className='flex flex-col w-full mb-4'>
                         <h1 className="text-4xl flex items-center font-bold border-b border-black pl-4 h-16">
-                            Новый пост
+                            Новый регламент
                         </h1>
                         <div className="flex flex-wrap flex-col sm:w-full items-center relative">
                             {status === 'process' ? <>

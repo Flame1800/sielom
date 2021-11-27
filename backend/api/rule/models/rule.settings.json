@@ -1,8 +1,8 @@
 {
   "kind": "collectionType",
-  "collectionName": "categories",
+  "collectionName": "rules",
   "info": {
-    "name": "category",
+    "name": "Rule",
     "description": ""
   },
   "options": {
@@ -12,8 +12,16 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "name": {
+    "title": {
       "type": "string"
+    },
+    "body": {
+      "type": "json"
+    },
+    "roles": {
+      "collection": "employee-role",
+      "via": "rules",
+      "dominant": true
     }
   }
 }

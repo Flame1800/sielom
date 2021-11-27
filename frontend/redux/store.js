@@ -1,11 +1,11 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit'
-import { postReducer } from './slices/posts';
+import { ruleReducer} from './slices/rules';
 
 
 export function makeStore() {
     return configureStore({
         reducer: {
-            posts: postReducer
+            rules: ruleReducer
         },
         devTools: process.env.NODE_ENV !== 'production'
     })
