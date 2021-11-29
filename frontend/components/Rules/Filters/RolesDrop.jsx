@@ -26,8 +26,6 @@ export default function RolesDrop({ roles }) {
   React.useEffect(() => {
     if (defaultRoles[0].name !== selected.name) {
       dispatch(filterRulesByRole(selected));
-    } else {
-      dispatch(clearRules());
     }
   }, [selected]);
 

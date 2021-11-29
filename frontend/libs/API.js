@@ -1,7 +1,8 @@
 import axios from "axios";
 
 export const API = {}
-const url = 'http://localhost:1337'
+
+const url = process.env.API_HOST
 
 API.createRule = (post) => axios.post(`${url}/rules`, post)
 API.getRules = () => axios(`${url}/rules`)
