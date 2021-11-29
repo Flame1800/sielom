@@ -10,7 +10,6 @@ class MyDocument extends Document {
         return (
             <Html>
                 <Head>
-                    <title>Сургутский институт экономики, управления и права</title>
                     <link rel="icon" href="/favicon.ico" />
                     <link rel="preconnect" href="https://fonts.googleapis.com" />
                     <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />

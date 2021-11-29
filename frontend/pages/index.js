@@ -56,7 +56,7 @@ export default function Home() {
                       </div>
                       <FilterBuildings clickHandler={(i) => console.log(i)} />
                       <div className="flex flex-col w-3/5 sm:w-full">
-                          {events.map(event => <EventCard event={event} />)}
+                          {events.map(event => <EventCard key={event.id} event={event} />)}
                       </div>
                   </div>
                     <div className='w-3/12'>

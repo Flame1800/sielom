@@ -1,13 +1,4 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { API } from "../../libs/API";
-
-export const fetchCreateRule = createAsyncThunk(
-  "rules/fetchCreatePost",
-  async (data) => {
-    const response = await API.createRule(data);
-    return response.data;
-  }
-);
+import { createSlice } from "@reduxjs/toolkit";
 
 const rulesSlice = createSlice({
   name: "rules",
