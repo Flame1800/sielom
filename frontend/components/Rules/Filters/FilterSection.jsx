@@ -4,9 +4,9 @@ import moment from "moment";
 import "moment/locale/ru";
 import { searchRules, setRules } from "../../../redux/slices/rules";
 import { useAppDispatch } from "../../../redux/hooks";
-import RolesDrop from "./RolesDrop";
+import RolesDrop from "./FilterByRoles";
 
-export default function Filter({ rules, cards, roles }) {
+export default function FilterSection({ rules, cards, roles }) {
   const [searchValue, setSearchValue] = React.useState("");
   const dispatch = useAppDispatch();
 

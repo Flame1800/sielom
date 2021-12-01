@@ -5,7 +5,7 @@ import React from "react";
 import {setRules} from "../redux/slices/rules";
 import RuleCard from "../components/Rules/Card";
 import {API} from "../libs/API";
-import Filter from "../components/Rules/Filters/Filter";
+import FilterSection from "../components/Rules/Filters/FilterSection";
 
 export default function Rules({ rules, roles }) {
     const dispatch = useAppDispatch()
@@ -31,7 +31,7 @@ export default function Rules({ rules, roles }) {
                                 bg-gradient-to-r hover:from-red-400 hover:to-yellow-500">Новый регламент</a>
                             </Link>
                         </div>
-                        <Filter rules={rules} cards={cards} roles={roles} />
+                        <FilterSection rules={rules} cards={cards} roles={roles} />
                         <div className="flex flex-wrap sm:w-full border-separate">
                             {cards.map(rule => <RuleCard key={rule.id} rule={rule} />)}
                         </div>
