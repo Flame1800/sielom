@@ -3,7 +3,7 @@ import axios from "axios";
 export const API = {}
 
 const prodHost = process.env.API_HOST_PROD
-const devHost = 'http://localhost:1337'
+const devHost = process.env.API_HOST_DEV
 
 const url = process.env.NODE_ENV === 'production' ? prodHost : devHost
 
