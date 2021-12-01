@@ -2,22 +2,18 @@ import MainLayout from "../layouts/MainLayout";
 import Link from "next/link";
 import {useAppDispatch, useAppSelector} from "../redux/hooks";
 import React from "react";
-import {searchRules, setRules} from "../redux/slices/rules";
+import {setRules} from "../redux/slices/rules";
 import RuleCard from "../components/Rules/Card";
 import {API} from "../libs/API";
 import Filter from "../components/Rules/Filters/Filter";
-import axios from "axios";
 
 export default function Rules({ rules, roles }) {
     const dispatch = useAppDispatch()
     const cards = useAppSelector(state => state.rules.entities)
 
-
     React.useEffect(async () => {
         const data = await API.getRules()
-        console.log(data)
     })
-
 
     React.useEffect(() => {
         dispatch(setRules(rules))
@@ -50,8 +46,8 @@ export default function Rules({ rules, roles }) {
 
 
 Rules.getInitialProps = async () => {
-    // const { data } = await API.getRules()
-    // const roles = await API.getEmployeeRoles()
-    // return { rules: data, roles: roles.data }
-    return { rules: [], roles: [] }
+    const { data } = await API.getRules()
+    const roles = await API.getEmployeeRoles()
+    return { rules: data, roles: roles.data }
+    // return { rules: [], roles: [] }
 }

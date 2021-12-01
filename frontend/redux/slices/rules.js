@@ -1,4 +1,10 @@
-import { createSlice } from "@reduxjs/toolkit";
+import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
+import {API} from "../../libs/API";
+
+export const fetchCreateRule = createAsyncThunk('posts/fetchPosts', async (post) => {
+  const response = await API.createRule(post)
+  return response.data
+})
 
 const rulesSlice = createSlice({
   name: "rules",
@@ -8,7 +14,7 @@ const rulesSlice = createSlice({
     loading: "idle",
     error: null,
     filter: {
-      searchResults: [],
+      searchString: [],
       role: null,
       task: null,
     },
@@ -18,13 +24,21 @@ const rulesSlice = createSlice({
       state.entities = action.payload;
       state.defaultItems = action.payload;
     },
-    clearRules(state, action) {
+    clearFilterRules(state, action) {
       state.entities = state.defaultItems;
     },
     filterRulesByRole(state, action) {
-      const role = action.payload.name;
+      const needed = action.payload.id;
       state.entities = state.defaultItems.filter(
-        (rule) => rule.roles.map((i) => i.name).indexOf(role) !== -1
+        (rule) => rule.roles.filter(role => role.id === needed).length > 0
+      );
+
+      return state;
+    },
+    filterRulesByTask(state, action) {
+      const needed = action.payload.id;
+      state.entities = state.entities.filter(
+          (rule) => rule.roles.filter(role => role.id === needed).length > 0
       );
 
       return state;
@@ -56,6 +70,6 @@ const rulesSlice = createSlice({
   },
 });
 
-export const { setRules, searchRules, filterRulesByRole, clearRules } =
+export const { setRules, searchRules, filterRulesByRole, clearFilterRules } =
   rulesSlice.actions;
 export const ruleReducer = rulesSlice.reducer;

@@ -2,17 +2,15 @@
 import { Fragment, useState } from "react";
 import { Listbox, Transition } from "@headlessui/react";
 import { SelectorIcon } from "@heroicons/react/solid";
-import { useAppDispatch } from "../../../redux/hooks";
+import {useAppDispatch, useAppSelector} from "../../../redux/hooks";
 import React from "react";
-import { filterRulesByRole, clearRules44r } from "../../../redux/slices/rules";
+import {filterRulesByRole, clearFilterRules} from "../../../redux/slices/rules";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
 export default function RolesDrop({ roles }) {
-  const dispatch = useAppDispatch();
-
   const defaultRoles = [
     {
       id: 1234567,
@@ -21,13 +19,17 @@ export default function RolesDrop({ roles }) {
     ...roles,
   ];
 
+  const dispatch = useAppDispatch();
   const [selected, setSelected] = useState(defaultRoles[0]);
 
   React.useEffect(() => {
     if (defaultRoles[0].name !== selected.name) {
-      dispatch(filterRulesByRole(selected));
+      return dispatch(filterRulesByRole(selected));
     }
+
+    return dispatch(clearFilterRules())
   }, [selected]);
+
 
   return (
     <Listbox value={selected} onChange={setSelected}>
