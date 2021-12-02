@@ -28,18 +28,25 @@ const rulesSlice = createSlice({
       state.entities = state.defaultItems;
     },
     filterRulesByRole(state, action) {
-      const needed = action.payload.id;
-      state.entities = state.defaultItems.filter(
-        (rule) => rule.roles.filter(role => role.id === needed).length > 0
-      );
+      const neededRole = action.payload;
+      state.entities = state.defaultItems
+          .filter((rule) => rule.attributes.roles.data.filter(role => role.id === neededRole.id).length > 0);
+
+      state.filter.role = neededRole
 
       return state;
     },
     filterRulesByTask(state, action) {
-      const needed = action.payload.id;
-      state.entities = state.entities.filter(
-          (rule) => rule.roles.filter(role => role.id === needed).length > 0
-      );
+      const neededTask = action.payload;
+      const neededRole = state.filter.role;
+      state.entities = state.defaultItems.filter((rule) => {
+          const hasRole = rule.attributes.roles.data.filter(r => r.id === neededRole.id).length > 0
+          const hasTask = rule.attributes.tasks.data.filter(t => t.id === neededTask.id).length > 0
+
+          return !!(hasRole && hasTask)
+      })
+
+      state.filter.task = neededTask
 
       return state;
     },
@@ -70,6 +77,6 @@ const rulesSlice = createSlice({
   },
 });
 
-export const { setRules, searchRules, filterRulesByRole, clearFilterRules } =
+export const { setRules, searchRules, filterRulesByRole, filterRulesByTask, clearFilterRules } =
   rulesSlice.actions;
 export const ruleReducer = rulesSlice.reducer;

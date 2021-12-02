@@ -1,14 +1,16 @@
-import Link from "next/link";
 import React from "react";
-import moment from "moment";
 import "moment/locale/ru";
 import { searchRules, setRules } from "../../../redux/slices/rules";
-import { useAppDispatch } from "../../../redux/hooks";
+import {useAppDispatch, useAppSelector} from "../../../redux/hooks";
 import RolesDrop from "./FilterByRoles";
+import FilterByTasks from "./FilterByTasks";
 
 export default function FilterSection({ rules, cards, roles }) {
-  const [searchValue, setSearchValue] = React.useState("");
   const dispatch = useAppDispatch();
+  const [searchValue, setSearchValue] = React.useState("");
+  const rulesFilter = useAppSelector(state => state.rules.filter)
+
+  console.log(rulesFilter)
 
   React.useEffect(() => {
     if (searchValue.length === 0) {
@@ -52,6 +54,7 @@ export default function FilterSection({ rules, cards, roles }) {
     <div className="w-full w-4/6 mx-auto mb-10">
       <div className="w-full">
         <RolesDrop roles={roles} />
+        {rulesFilter.role !== null && <FilterByTasks tasks={rulesFilter.role.attributes.tasks} />}
       </div>
       {cards.length === 0 && (
         <div className="mt-20">

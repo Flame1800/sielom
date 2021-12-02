@@ -19,6 +19,12 @@
       "relation": "manyToMany",
       "target": "api::rule.rule",
       "inversedBy": "roles"
+    },
+    "tasks": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::task.task",
+      "inversedBy": "roles"
     }
   }
 }

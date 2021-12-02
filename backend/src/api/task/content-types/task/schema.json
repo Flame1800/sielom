@@ -4,7 +4,8 @@
   "info": {
     "singularName": "task",
     "pluralName": "tasks",
-    "displayName": "Tasks"
+    "displayName": "Tasks",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -18,6 +19,12 @@
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::rule.rule",
+      "inversedBy": "tasks"
+    },
+    "roles": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::employee-role.employee-role",
       "inversedBy": "tasks"
     }
   }

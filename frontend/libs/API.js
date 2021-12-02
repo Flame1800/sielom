@@ -7,8 +7,8 @@ const devHost = process.env.API_HOST_DEV
 
 const url = process.env.NODE_ENV === 'production' ? prodHost : devHost
 
-API.createRule = (post) => axios.post(`${url}/rules`, post)
-API.getRules = () => axios(`${url}/rules`)
+API.createRule = (post) => axios.post(`${url}/rules`, { data: post })
+API.getRules = () => axios(`${url}/rules?populate=*`)
 API.getRule = (id) => axios(`${url}/rules/${id}`)
 
-API.getEmployeeRoles = () => axios(`${url}/employee-roles`)
+API.getEmployeeRoles = () => axios(`${url}/employee-roles?populate=*`)

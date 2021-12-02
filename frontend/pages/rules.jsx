@@ -11,13 +11,11 @@ export default function Rules({ rules, roles }) {
     const dispatch = useAppDispatch()
     const cards = useAppSelector(state => state.rules.entities)
 
-    React.useEffect(async () => {
-        const data = await API.getRules()
-    })
 
     React.useEffect(() => {
         dispatch(setRules(rules))
     }, [])
+
 
     return (
         <MainLayout>
@@ -33,7 +31,7 @@ export default function Rules({ rules, roles }) {
                         </div>
                         <FilterSection rules={rules} cards={cards} roles={roles} />
                         <div className="flex flex-wrap sm:w-full border-separate">
-                            {cards.map(rule => <RuleCard key={rule.id} rule={rule} />)}
+                            {cards.map(rule => <RuleCard key={rule.id} rule={rule.attributes} />)}
                         </div>
                     </div>
 
@@ -46,8 +44,7 @@ export default function Rules({ rules, roles }) {
 
 
 Rules.getInitialProps = async () => {
-    const { data } = await API.getRules()
+    const rules = await API.getRules()
     const roles = await API.getEmployeeRoles()
-    return { rules: data, roles: roles.data }
-    // return { rules: [], roles: [] }
+    return { rules: rules.data.data, roles: roles.data.data }
 }

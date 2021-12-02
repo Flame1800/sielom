@@ -12,7 +12,7 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "name": {
+    "title": {
       "type": "string"
     },
     "body": {
@@ -22,13 +22,13 @@
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::employee-role.employee-role",
-      "inversedBy": "rules"
+      "mappedBy": "rules"
     },
     "tasks": {
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::task.task",
-      "inversedBy": "rules"
+      "mappedBy": "rules"
     }
   }
 }
