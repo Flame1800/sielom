@@ -10,7 +10,6 @@ export default function FilterSection({ rules, cards, roles }) {
   const [searchValue, setSearchValue] = React.useState("");
   const rulesFilter = useAppSelector(state => state.rules.filter)
 
-  console.log(rulesFilter)
 
   React.useEffect(() => {
     if (searchValue.length === 0) {

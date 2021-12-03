@@ -6,6 +6,9 @@ export const fetchCreateRule = createAsyncThunk('posts/fetchPosts', async (post)
   return response.data
 })
 
+const filterbyEntity = (arr, entity) => arr
+
+
 const rulesSlice = createSlice({
   name: "rules",
   initialState: {
@@ -29,9 +32,14 @@ const rulesSlice = createSlice({
     },
     filterRulesByRole(state, action) {
       const neededRole = action.payload;
-      state.entities = state.defaultItems
-          .filter((rule) => rule.attributes.roles.data.filter(role => role.id === neededRole.id).length > 0);
+      if (neededRole.id === 'all') {
+        state.entities = state.defaultItems
+        state.filter.role = null
+        return state
+      }
 
+      state.entities = state.defaultItems
+          .filter((rule) => rule.attributes.roles.data.filter(role => role.id === neededRole.id).length > 0)
       state.filter.role = neededRole
 
       return state;
@@ -39,6 +47,15 @@ const rulesSlice = createSlice({
     filterRulesByTask(state, action) {
       const neededTask = action.payload;
       const neededRole = state.filter.role;
+
+      if (neededTask.id === 'all') {
+        state.entities = state.defaultItems
+            .filter((rule) => rule.attributes.roles.data.filter(role => role.id === neededRole.id).length > 0)
+        state.filter.task = null
+        return state
+      }
+
+
       state.entities = state.defaultItems.filter((rule) => {
           const hasRole = rule.attributes.roles.data.filter(r => r.id === neededRole.id).length > 0
           const hasTask = rule.attributes.tasks.data.filter(t => t.id === neededTask.id).length > 0

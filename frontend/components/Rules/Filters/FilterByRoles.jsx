@@ -2,7 +2,7 @@
 import { Fragment, useState } from "react";
 import { Listbox, Transition } from "@headlessui/react";
 import { SelectorIcon } from "@heroicons/react/solid";
-import {useAppDispatch, useAppSelector} from "../../../redux/hooks";
+import { useAppDispatch } from "../../../redux/hooks";
 import React from "react";
 import {filterRulesByRole, clearFilterRules} from "../../../redux/slices/rules";
 
@@ -13,9 +13,12 @@ function classNames(...classes) {
 export default function RolesDrop({ roles }) {
   const defaultRoles = [
     {
-      id: 1234567,
+      id: 'all',
       attributes: {
-        name: "Специальность не выбранна",
+        name: "Все специальности",
+        tasks: {
+          data: []
+        }
       }
     },
     ...roles,
@@ -25,11 +28,7 @@ export default function RolesDrop({ roles }) {
   const [selected, setSelected] = useState(defaultRoles[0]);
 
   React.useEffect(() => {
-    if (defaultRoles[0].attributes.name !== selected.attributes.name) {
       return dispatch(filterRulesByRole(selected));
-    }
-
-    return dispatch(clearFilterRules())
   }, [selected]);
 
 

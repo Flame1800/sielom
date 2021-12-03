@@ -1,6 +1,10 @@
-import MainLayout from "../layouts/MainLayout";
+import MainLayout from "../../layouts/MainLayout";
+import {API} from "../../libs/API";
+import Events from "./index";
 
-export default function Home() {
+export default function Home(props) {
+
+    console.log(props)
     return (
         <MainLayout>
             <div className='bg-gray-50 w-full'>
@@ -8,7 +12,7 @@ export default function Home() {
                     <main className="flex flex-col w-full flex-1 px-20 max-w-screen-lg pt-4">
                         <div className="flex border-b justify-between items-center">
                             <h1 className="text-4xl font-bold mt-8  pb-4">
-                                Декада первокурсника - 30 октября
+
                             </h1>
                         </div>
                         <div className='flex w-full mb-4'>
@@ -59,4 +63,12 @@ export default function Home() {
             </div>
         </MainLayout>
     )
+}
+
+Events.getInitialProps = async ctx => {
+    // const { data } = await API.getEvent(ctx.query.id)
+    // return { event: data }
+
+    const { data } = await API.getEvents()
+    return { event: ctx }
 }

@@ -1,13 +1,13 @@
-import MainLayout from "../layouts/MainLayout";
+import MainLayout from "../../layouts/MainLayout";
 import Link from "next/link";
-import {useAppDispatch, useAppSelector} from "../redux/hooks";
+import {useAppDispatch, useAppSelector} from "../../redux/hooks";
 import React from "react";
-import {setRules} from "../redux/slices/rules";
-import RuleCard from "../components/Rules/Card";
-import {API} from "../libs/API";
-import FilterSection from "../components/Rules/Filters/FilterSection";
+import {setRules} from "../../redux/slices/rules";
+import RuleCard from "../../components/Rules/Card";
+import {API} from "../../libs/API";
+import FilterSection from "../../components/Rules/Filters/FilterSection";
 
-export default function Rules({ rules, roles }) {
+export default function Index({ rules, roles }) {
     const dispatch = useAppDispatch()
     const cards = useAppSelector(state => state.rules.entities)
 
@@ -24,14 +24,14 @@ export default function Rules({ rules, roles }) {
                     <div className='flex flex-col w-full mb-4'>
                         <div className="flex flex-col my-5 items-center justify-between h-16">
                             <div className="font-bold text-4xl">Регламенты</div>
-                            <Link href="/rule/new">
+                            <Link href="/rules/new">
                                 <a className="flex mt-3 justify-center items-center text-xl w-1/6 border-black h-full
                                 bg-gradient-to-r hover:from-red-400 hover:to-yellow-500">Новый регламент</a>
                             </Link>
                         </div>
                         <FilterSection rules={rules} cards={cards} roles={roles} />
                         <div className="flex flex-wrap sm:w-full border-separate">
-                            {cards.map(rule => <RuleCard key={rule.id} rule={rule.attributes} />)}
+                            {cards.map(rule => <RuleCard key={rule.id} rule={rule} />)}
                         </div>
                     </div>
 
@@ -43,7 +43,7 @@ export default function Rules({ rules, roles }) {
 
 
 
-Rules.getInitialProps = async () => {
+Index.getInitialProps = async () => {
     const rules = await API.getRules()
     const roles = await API.getEmployeeRoles()
     return { rules: rules.data.data, roles: roles.data.data }
