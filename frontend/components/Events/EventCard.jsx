@@ -1,18 +1,6 @@
 import Link from 'next/link'
 import moment from "moment";
 
-const colors = {
-    IT: 'blue',
-    Дизайн: 'yellow',
-    Общее: 'red'
-}
-
-const icons = {
-    IT: 'it',
-    Дизайн: 'pencil',
-    Общее: 'theme'
-}
-
 
 const EventCard = ({event}) => {
     const date = moment(event.attributes.start_date).calendar()

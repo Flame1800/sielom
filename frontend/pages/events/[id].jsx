@@ -1,10 +1,16 @@
 import MainLayout from "../../layouts/MainLayout";
+import router from "next/router";
 import {API} from "../../libs/API";
-import Events from "./index";
+import OutEditorText from "../../components/Editor/OutEditorText";
+import moment from "moment";
+import 'moment/locale/ru'
 
-export default function Home(props) {
+export default function Rule({event}) {
+    console.log(event)
 
-    console.log(props)
+    const {attributes} = event
+    const date = moment(attributes.start_date).calendar()
+
     return (
         <MainLayout>
             <div className='bg-gray-50 w-full'>
@@ -12,52 +18,34 @@ export default function Home(props) {
                     <main className="flex flex-col w-full flex-1 px-20 max-w-screen-lg pt-4">
                         <div className="flex border-b justify-between items-center">
                             <h1 className="text-4xl font-bold mt-8  pb-4">
-
+                                {attributes.title}
                             </h1>
                         </div>
                         <div className='flex w-full mb-4'>
                             <div className="flex flex-col w-3/5 sm:w-full">
-                                <div className="flex w-full">
-                                    {/*<div className="h-72 w-72 bg-blue-300 rounded-xl my-4 mr-8"> </div>*/}
-                                </div>
+                                {attributes.cover.data && <div className="flex w-full">
+                                    <img
+                                    src={`http://localhost:1337${attributes.cover.data.attributes.url}`}
+                                    alt={'Не удалось заргуить изображение'}
+                                        className="max-w-full h-96 rounded-xl my-4 mr-8" />
+                                </div>}
                                 <   div className="flex items-center my-4 mt-4">
                                     <div className="pb-2 mr-20">
                                         <div className="text-md text-gray-500">Когда</div>
-                                        <div className="text-2xl text-blue-900">5 ноября</div>
+                                        <div className="text-2xl text-blue-900">{date}</div>
                                     </div>
                                     <div className="pb-2 mr-20">
                                         <div className="text-md text-gray-500">Где</div>
-                                        <div className="text-2xl text-blue-900">Онлайн</div>
-                                    </div>
-                                    <div className="flex justify-center items-center rounded-xl text-blue-50 text-lg bg-blue-800 w-48 cursor-pointer px-8 py-4">
-                                        Учавствовать
+                                        <div className="text-2xl text-blue-900">{attributes.place}</div>
                                     </div>
                                 </div>
                                 <div className="mt-8">
                                     <div className="text-md leading-8">
-                                        1 октября в 17:00 по московскому времени
-
-                                        В ходе семинара будут обсуждаться следующие вопросы:
-
-                                        Как изменилось представление искусственного интеллекта в современном обществе, по сравнению со старым пониманием.
-                                        Дальнейшие перспективы развития технологий искусственного интеллекта.
-                                        Практическое использование искусственного интеллекта.
-                                        Участники: Научные работники, заведующие отделами и лабораториями ФИЦ ИУ РАН, ИПМ им М.В. Келдыша РАН.
-
-                                        В обсуждении примут участие:
-
-                                        Орлов Ю.Н., зав. отделом ИПМ им М.В. Келдыша РАН, д.ф.-м.н.;
-                                        Хачумов В.М., зав. лабораторией ФИЦ ИУ РАН, д.т.н., профессор;
-                                        Смирнов И.В., зав. лабораторией ФИЦ ИУ РАН, к.ф.-м.н., доцент;
-                                        Стефанюк В.Л., действительный член Европейского координационного совета Искусственного интеллекта, вице-президент Российской ассоциации искусственного интеллекта, д.т.н., профессор
+                                        {attributes.description}
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <h1 className="text-4xl font-bold mt-8 pb-4 mb-2">
-                            Другие мероприятия
-                        </h1>
-                        <div className="text-lg mb-10">Сдесь будут отображаться другие мероприятия</div>
                     </main>
                 </div>
             </div>
@@ -65,10 +53,7 @@ export default function Home(props) {
     )
 }
 
-Events.getInitialProps = async ctx => {
-    // const { data } = await API.getEvent(ctx.query.id)
-    // return { event: data }
-
-    const { data } = await API.getEvents()
-    return { event: ctx }
+Rule.getInitialProps = async ctx => {
+    const { data } = await API.getEvent(ctx.query.id)
+    return { event: data.data }
 }

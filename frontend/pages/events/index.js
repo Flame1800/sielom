@@ -7,42 +7,6 @@ import FilterBuildings from "../../components/FilterBuildings";
 import {API} from "../../libs/API";
 import PostPage from "../rules/[id]";
 
-const eventsPlaceholders = [
-    {
-        id: 1,
-        title: 'Всероссийский форум студенческих спортивных клубов России',
-        description: 'описание мероприятия',
-        date: '2 октября 13:00',
-        duration: '2 часа',
-        direction: 'Общее',
-        division: 'Мелик-Карамова 18/1',
-        watches: 0,
-        manager: {
-            name: 'Василий Анатольевич Пупкин',
-            number: '+7-932-256-36-78'
-        },
-        format: 'Онлайн',
-        place: 'Онлайн',
-        image: 'http://sielom.ru/upload/000/u19/7/e/7e9cfaba.jpg'
-    },
-    {
-        id: 2,
-        title: 'Что то интересное',
-        description: 'описание мероприятия',
-        date: '5 октября 09:00',
-        duration: '1.5 часа',
-        direction: 'Дизайн',
-        division: 'Мелик-Карамова 18/1',
-        watches: 20,
-        manager: {
-            name: 'Василий Анатольевич Пупкин',
-            number: '+7-932-256-36-78'
-        },
-        format: 'Мелик-карамова 18/1',
-        place: 'Мелик-карамова 18/1',
-        image: null
-    },
-]
 
 export default function Events({ events }) {
   return (
@@ -76,7 +40,7 @@ export default function Events({ events }) {
   )
 }
 
-Events.getInitialProps = async ctx => {
+Events.getInitialProps = async () => {
     const { data } = await API.getEvents()
     return { events: data.data }
 }
