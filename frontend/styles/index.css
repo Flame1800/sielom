@@ -1,0 +1,39 @@
+
+.noise {
+    background: url("/img/noise.png");
+    padding-top: 130px;
+}
+
+.bg-gray {
+    background-color: #373737;
+}
+
+.text-gray {
+    color: #373737;
+}
+
+.bg-yellow {
+    background-color: #FAC145;
+}
+
+.text-yellow {
+    color: #FAC145;
+}
+
+.bg-blue {
+    background-color: #0D0C4D;
+}
+
+.text-blue {
+    color: #0D0C4D;
+}
+
+.main-cont {
+    max-width: 1120px;
+    width: 100%;
+}
+
+.banner-gradient-1 {
+    top: 100px;
+    right: 10%;
+}
