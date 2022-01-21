@@ -14,4 +14,7 @@ API.getRule = (id) => axios(`${url}/rules/${id}`)
 API.getEvents = () => axios(`${url}/events?populate=*`)
 API.getEvent = (id) => axios(`${url}/events/${id}?populate=*`)
 
+API.getNews = () => axios(`${url}/news?populate=*`)
+API.getNewPost = (id) => axios(`${url}/news/${id}?populate=*`)
+
 API.getEmployeeRoles = () => axios(`${url}/employee-roles?populate=*`)

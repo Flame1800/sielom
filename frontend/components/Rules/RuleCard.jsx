@@ -1,29 +1,26 @@
-import Link from 'next/link'
+import Link from "next/link";
+import React from "react";
 import moment from "moment";
+import 'moment/locale/ru'
 import styled from "styled-components";
 import {baseTheme} from "../../styles/theme";
 
+export default function RuleCard({ rule }) {
+    console.log(rule)
 
-const EventCard = ({event}) => {
-    const date = moment(event.attributes.start_date).calendar()
-
+    const date = moment(rule.attributes.published_at).calendar()
     return (
         <Wrapper>
-            <Link href={`/events/${event.id}`}>
+            <Link href={`/rules/${rule.id}`}>
                 <a>
-            <div className='head'>
-                <div className='category'>Дизайн</div>
-            </div>
                     <div>
-                        <div className='title'>{event.attributes.title}</div>
+                        <div className='title'>{rule.attributes.title}</div>
+                        <p className="text-md overflow-hidden max-h-24 line-clamp-4">
+                            {rule.attributes.body?.blocks ? rule.attributes.body.blocks[0].data.text : ''}
+                        </p>
                         <div className='info-block'>
                             <div className='info-item'>
-                                <img src='/img/clock.png' />
                                 <div>{date}</div>
-                            </div>
-                            <div className='info-item'>
-                                <img src='/img/map-pin-icon.png' />
-                                <div>{event.attributes.place}</div>
                             </div>
                         </div>
                     </div>
@@ -38,16 +35,16 @@ const Wrapper = styled.div`
   border: 1px solid ${baseTheme.colors.light};
   padding: 30px;
   background: #fff;
-
-  &:hover {
-    background: rgb(255, 254, 248);
-    border: 1px solid ${baseTheme.colors.gold};
+  
+  p {
+    margin-top: 10px;
+    max-width: 600px;
   }
-
+  
   .head {
     display: flex;
     margin-bottom: 20px;
-
+    
     .category {
       font-weight: bold;
       font-size: 14px;
@@ -55,7 +52,7 @@ const Wrapper = styled.div`
       color: ${baseTheme.colors.gold};
     }
   }
-
+  
   .title {
     font-weight: 600;
     font-size: 18px;
@@ -63,22 +60,20 @@ const Wrapper = styled.div`
     letter-spacing: -0.01em;
     max-width: 530px;
   }
-
+  
   .info-block {
     display: flex;
     max-width: 530px;
     width: 100%;
     margin-top: 50px;
   }
-
+  
   .info-item {
     display: flex;
     width: 100%;
-
+    
     img {
       margin-right: 8px;
     }
   }
 `
-
-export default EventCard

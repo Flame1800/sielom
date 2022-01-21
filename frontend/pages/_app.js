@@ -1,4 +1,3 @@
-import "tailwindcss/tailwind.css";
 import { Provider } from "react-redux";
 import "../styles/index.css";
 

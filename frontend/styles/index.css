@@ -1,39 +1,17 @@
 
-.noise {
-    background: url("/img/noise.png");
-    padding-top: 130px;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
 }
 
-.bg-gray {
-    background-color: #373737;
+body {
+    transition: background 0.4s ease;
 }
 
-.text-gray {
-    color: #373737;
+a {
+    text-decoration: none;
+    color: black;
 }
 
-.bg-yellow {
-    background-color: #FAC145;
-}
-
-.text-yellow {
-    color: #FAC145;
-}
-
-.bg-blue {
-    background-color: #0D0C4D;
-}
-
-.text-blue {
-    color: #0D0C4D;
-}
-
-.main-cont {
-    max-width: 1120px;
-    width: 100%;
-}
-
-.banner-gradient-1 {
-    top: 100px;
-    right: 10%;
-}

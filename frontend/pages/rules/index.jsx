@@ -3,9 +3,13 @@ import Link from "next/link";
 import {useAppDispatch, useAppSelector} from "../../redux/hooks";
 import React from "react";
 import {setRules} from "../../redux/slices/rules";
-import RuleCard from "../../components/Rules/Card";
+import RuleCard from "../../components/Rules/RuleCard";
 import {API} from "../../libs/API";
 import FilterSection from "../../components/Rules/Filters/FilterSection";
+import MainHeader from "../../components/Shared/MainHeader";
+import ArrowButton from "../../components/Shared/ArrowButton";
+import Button from "../../components/Shared/Button";
+import styled from "styled-components";
 
 export default function Index({ rules, roles }) {
     const dispatch = useAppDispatch()
@@ -19,28 +23,18 @@ export default function Index({ rules, roles }) {
 
     return (
         <MainLayout>
-            <div className="flex flex-col items-center justify-center min-h-screen font-sans">
-                <main className="flex w-full flex-1 max-w-screen-xl">
-                    <div className='flex flex-col w-full mb-4'>
-                        <div className="flex flex-col my-5 items-center justify-between h-16">
-                            <div className="font-bold text-4xl">Регламенты</div>
-                            <Link href="/rules/new">
-                                <a className="flex mt-3 justify-center items-center text-xl w-1/6 border-black h-full
-                                bg-gradient-to-r hover:from-red-400 hover:to-yellow-500">Новый регламент</a>
-                            </Link>
-                        </div>
-                        <FilterSection rules={rules} cards={cards} roles={roles} />
-                        <div className="flex flex-wrap sm:w-full border-separate">
-                            {cards.map(rule => <RuleCard key={rule.id} rule={rule} />)}
-                        </div>
-                    </div>
-
-                </main>
-            </div>
+            <MainHeader>Регламенты</MainHeader>
+            <Btn><Link href="/rules/new"><Button>Новый регламент</Button></Link></Btn>
+            <FilterSection rules={rules} cards={cards} roles={roles} />
+            {cards.map(rule => <RuleCard key={rule.id} rule={rule} />)}
         </MainLayout>
     )
 }
 
+
+const Btn = styled.div`
+  margin-top: 30px;
+`
 
 
 Index.getInitialProps = async () => {

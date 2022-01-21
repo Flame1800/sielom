@@ -4,31 +4,22 @@ import styled from "styled-components";
 import {baseTheme} from "../../styles/theme";
 
 
-const EventCard = ({event}) => {
-    const date = moment(event.attributes.start_date).calendar()
+const NewsCard = ({post}) => {
+    const date = moment(post.attributes.start_date).calendar()
 
     return (
         <Wrapper>
-            <Link href={`/events/${event.id}`}>
+            <Link href={`/events/${post.id}`}>
                 <a>
-            <div className='head'>
-                <div className='category'>Дизайн</div>
-            </div>
                     <div>
-                        <div className='title'>{event.attributes.title}</div>
+                        <div className='title'>{post.attributes.title}</div>
                         <div className='info-block'>
-                            <div className='info-item'>
-                                <img src='/img/clock.png' />
-                                <div>{date}</div>
-                            </div>
-                            <div className='info-item'>
-                                <img src='/img/map-pin-icon.png' />
-                                <div>{event.attributes.place}</div>
-                            </div>
+                            <div>{date}</div>
                         </div>
                     </div>
                 </a>
             </Link>
+            <img width={334} height={227} src={`${process.env.HOST_DEV}${post.attributes.images.data[0].attributes.url}`} />
         </Wrapper>
     )
 }
@@ -36,26 +27,26 @@ const EventCard = ({event}) => {
 const Wrapper = styled.div`
   margin-top: -1px;
   border: 1px solid ${baseTheme.colors.light};
-  padding: 30px;
+  display: flex;
+  align-items: center;
   background: #fff;
 
-  &:hover {
-    background: rgb(255, 254, 248);
-    border: 1px solid ${baseTheme.colors.gold};
+  a {
+    padding: 20px;
   }
-
+  
   .head {
     display: flex;
     margin-bottom: 20px;
-
+    
     .category {
       font-weight: bold;
       font-size: 14px;
       line-height: 17px;
-      color: ${baseTheme.colors.gold};
+      color: #5C91CE;
     }
   }
-
+  
   .title {
     font-weight: 600;
     font-size: 18px;
@@ -63,22 +54,22 @@ const Wrapper = styled.div`
     letter-spacing: -0.01em;
     max-width: 530px;
   }
-
+  
   .info-block {
     display: flex;
     max-width: 530px;
     width: 100%;
     margin-top: 50px;
   }
-
+  
   .info-item {
     display: flex;
     width: 100%;
-
+    
     img {
       margin-right: 8px;
     }
   }
 `
 
-export default EventCard
+export default NewsCard

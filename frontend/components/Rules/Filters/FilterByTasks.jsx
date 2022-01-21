@@ -1,6 +1,8 @@
 import React from "react"
 import {useAppDispatch} from "../../../redux/hooks";
 import {clearFilterRules, filterRulesByTask} from "../../../redux/slices/rules";
+import TagButton from "../../Shared/TagButton";
+import styled from "styled-components";
 
 export default function FilterByTasks({tasks}) {
     const links = [
@@ -23,14 +25,20 @@ export default function FilterByTasks({tasks}) {
     }
 
     return (
-        <div className="flex flex-wrap py-5">
+        <Wrapper>
             {links.map(task => {
                 return <div
                         key={task.id}
-                        className={`text-lg ${selected.id === task.id ? "text-red-500" : "text-blue-500"}  mr-3 cursor-pointer`}
-                        onClick={() => selectTask(task)}>{task.attributes.name}
+                        onClick={() => selectTask(task)}>
+                    <TagButton active={task.id === selected.id} >{task.attributes.name}</TagButton>
                     </div>
             })}
-        </div>
+        </Wrapper>
     )
 }
+
+
+const Wrapper = styled.div`
+  display: flex;
+  margin-bottom: 35px;
+`

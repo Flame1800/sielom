@@ -1,11 +1,13 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit'
 import { ruleReducer} from './slices/rules';
+import {navReducer} from "./slices/nav";
 
 
 export function makeStore() {
     return configureStore({
         reducer: {
-            rules: ruleReducer
+            rules: ruleReducer,
+            nav: navReducer
         },
         devTools: process.env.NODE_ENV !== 'production'
     })

@@ -1,5 +1,6 @@
 import React from "react";
-import cn from 'classnames'
+import TagButton from "./Shared/TagButton";
+import styled from "styled-components";
 
 const buildings = [
     {
@@ -33,21 +34,20 @@ const FilterBuildings = ({clickHandler}) => {
     }
 
     return (
-        <div className='flex w-full h-10 divide-x divide-black border-b border-black'>
+        <Wrapper>
             {buildings.map(({id, name}) => {
-                const  btnClass = cn('flex w-full justify-center items-center px-1 py-2 cursor-pointer text-gray-800 hover:bg-blue-100', {
-                    'bg-blue-400': activeFilter === id
-                });
-
-                return <div
-                    onClick={() => selectFilter(id)}
-                    key={id}
-                    className={btnClass}>
-                    {name}
-                </div>
+                return (<div onClick={() => selectFilter()}>
+                    <TagButton>{name}</TagButton>
+                </div>)
             })}
-        </div>
+        </Wrapper>
     )
 }
+
+const Wrapper = styled.div`
+  display: flex;
+  margin-top: 50px;
+  margin-bottom: 35px;
+`
 
 export default FilterBuildings

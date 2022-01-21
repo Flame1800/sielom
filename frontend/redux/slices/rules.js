@@ -6,9 +6,6 @@ export const fetchCreateRule = createAsyncThunk('posts/fetchPosts', async (post)
   return response.data
 })
 
-const filterbyEntity = (arr, entity) => arr
-
-
 const rulesSlice = createSlice({
   name: "rules",
   initialState: {
