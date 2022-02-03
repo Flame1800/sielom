@@ -20,9 +20,6 @@
       "relation": "oneToMany",
       "target": "api::event.event",
       "mappedBy": "division"
-    },
-    "test": {
-      "type": "richtext"
     }
   }
 }
