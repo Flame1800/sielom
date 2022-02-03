@@ -17,4 +17,12 @@ API.getEvent = (id) => axios(`${url}/events/${id}?populate=*`)
 API.getNews = () => axios(`${url}/news?populate=*`)
 API.getNewPost = (id) => axios(`${url}/news/${id}?populate=*`)
 
+API.getSpecialties = () => axios(`${url}/specialties?populate=*`)
+API.getSpecialty = (id) => axios(`${url}/specialties/${id}?populate=*`)
+
 API.getEmployeeRoles = () => axios(`${url}/employee-roles?populate=*`)
+
+API.getPost = (id) => axios(`${url}/posts/${id}?populate=*`)
+
+
+API.getSvedens = () => axios(`${url}/posts?filters[category][slug][$eq]=sveden&populate=*`)

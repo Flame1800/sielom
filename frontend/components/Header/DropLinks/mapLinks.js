@@ -5,9 +5,12 @@ const mapLinks = [
         link: makeLink("Абитуренту", "entrant"),
         content: [
             {
-                main: makeLink("", "/"),
+                main: makeLink("Основная страница", "/"),
                 links: [
                     makeLink("Программы обучения", "/specialties"),
+                    makeLink("Приемная кампания", "/specialties"),
+                    makeLink("Приемная комиссия", "/specialties"),
+                    makeLink("Архив приемных кампаний", "/specialties"),
                 ]
             }
         ],
@@ -15,17 +18,16 @@ const mapLinks = [
     {
         link: makeLink("Сутденту", "student"),
         content: [
-
             {
                 main: makeLink("Рассписание занятий", "/"),
                 links: [
-                    makeLink("Очная фома обучения", "/"),
-                    makeLink("Заочная фома обучения", "/"),
-                    makeLink("Очно-заочная фома обучения", "/"),
+                    makeLink("Очная форма обучения", "/"),
+                    makeLink("Заочная форма обучения", "/"),
+                    makeLink("Очно-заочная форма обучения", "/"),
                 ]
             },
             {
-                main: makeLink("УЧЕБНЫЙ ПРОЦЕСС", "/"),
+                main: makeLink("УЧЕБНЫЙ ПРОЦЕСС", "/student"),
                 links: [
                     makeLink("Табели успеваемости", "/"),
                     makeLink("Табели посещяемости", "/"),
@@ -49,31 +51,28 @@ const mapLinks = [
         link: makeLink("Выпускнику", "graduate"),
         content: [
             {
-                main: makeLink("Колонка", "/"),
+                main: makeLink("Основная страница", "/graduate"),
                 links: [
-                    makeLink("Ссылка", "/"),
+                    makeLink("Курсовые работы", "/"),
+                    makeLink("Практика", "/"),
+                    makeLink("Выпускные квалифиционные работы", "/"),
+                    makeLink("Итоговая государственная аттестация", "/"),
+                    makeLink("Трудоустройство", "/"),
+                    makeLink("Сотрудничество с Тюмгу", "/"),
                 ]
             }
         ],
     },
     {
-        link: makeLink("Родителю", "parent"),
+        link: makeLink("Институт", "employer"),
         content: [
             {
-                main: makeLink("Колонка", "/"),
+                main: makeLink("Основные сведения", "/"),
                 links: [
-                    makeLink("Ссылка", "/"),
-                ]
-            }
-        ],
-    },
-    {
-        link: makeLink("Работодателю", "employer"),
-        content: [
-            {
-                main: makeLink("Колонка", "/"),
-                links: [
-                    makeLink("Ссылка", "/"),
+                    makeLink("Сведения об образовательной организации", "/sveden"),
+                    makeLink("Об институте", "/"),
+                    makeLink("Контакты", "/"),
+                    makeLink("Работодателю", "/"),
                 ]
             }
         ],
@@ -82,15 +81,30 @@ const mapLinks = [
         link: makeLink("Медиа", "media"),
         content: [
             {
-                main: makeLink(null, "/"),
+                main: makeLink("", "/"),
                 links: [
                     makeLink("Новости", "/news"),
                     makeLink("Календарь мероприятий", "/events"),
-                    makeLink("Полезное", "/"),
+                    makeLink("Обьявления", "/"),
+                    makeLink("Регламенты", "/rules"),
                 ]
             },
         ]
-    }
+    },
+    {
+        link: makeLink("ДПО", "parent"),
+        content: [
+            {
+                main: makeLink("Дополнительное образование", "/"),
+                links: [
+                    makeLink("Перечень документов для поступления", "/"),
+                    makeLink("Повышение квалификации", "/"),
+                    makeLink("Профессиональная переподготовка", "/"),
+                    makeLink("Семинары", "/"),
+                ]
+            }
+        ],
+    },
 ];
 
 export default mapLinks

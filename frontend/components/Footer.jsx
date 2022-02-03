@@ -5,7 +5,7 @@ import {baseTheme} from "../styles/theme";
 const sections = {
     one: [
         {
-            src: "/timetable",
+            src: "/schedule",
             name: "Расписание",
         },
         {

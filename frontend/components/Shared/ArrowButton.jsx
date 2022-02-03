@@ -5,7 +5,7 @@ import {useRouter} from "next/router";
 const ArrowButton = ({children, back}) => {
     const router = useRouter()
 
-        return <Wrapper onClick={() => router.back()}>
+        return <Wrapper onClick={() => back ? router.back() : null}>
             {back
                 ? (<><img src='/img/arrow-button-back.png' />
                 {children}</>)

@@ -24,7 +24,7 @@ export default function Index({ rules, roles }) {
     return (
         <MainLayout>
             <MainHeader>Регламенты</MainHeader>
-            <Btn><Link href="/rules/new"><Button>Новый регламент</Button></Link></Btn>
+            <Btn><Link href="/rules/new"><a><Button>Новый регламент</Button></a></Link></Btn>
             <FilterSection rules={rules} cards={cards} roles={roles} />
             {cards.map(rule => <RuleCard key={rule.id} rule={rule} />)}
         </MainLayout>

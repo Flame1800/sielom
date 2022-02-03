@@ -6,6 +6,9 @@ import router from 'next/router'
 import {useAppDispatch, useAppSelector} from "../../redux/hooks";
 import {fetchCreateRule} from "../../redux/slices/rules";
 import Editor from "../../components/Editor/Editor";
+import Button from "../../components/Shared/Button";
+import PostLayout from "../../layouts/PostLayout";
+import styled from "styled-components";
 
 
 
@@ -40,56 +43,82 @@ export default function NewPost() {
         editorJS.current = instance
     }, [])
 
-    const succesBlock = (
-        <div className='mt-10'>
-            <div className="text-4xl font-bold">
+    const successBlock = (
+            <Success>
                 Статья опубликованна!
-            </div>
-            <div className='mt-5 p-5 flex justify-center cursor-pointer border border-green-500 text-green-500' onClick={() => router.back()}>
-                Вернутся назад
-            </div>
-        </div>
+            </Success>
     )
 
     return (
         <MainLayout>
-            <div className="flex flex-col items-center justify-center min-h-screen font-sans">
-                <main className="flex w-full flex-1 max-w-screen-xl border-l border-r border-black">
-                    <div className='flex flex-col w-full mb-4'>
-                        <h1 className="text-4xl flex items-center font-bold border-b border-black pl-4 h-16">
-                            Новый регламент
-                        </h1>
-                        <div className="flex flex-wrap flex-col sm:w-full items-center relative">
-                            {status === 'process' ? <>
-                                {error &&
-                                <div className='mt-4'>
-                                    <div className="text-red-500 text-lg">Заполните заголовок и саму статью прежде чем опубликовать!</div>
-                                </div>}
-                                <div className="max-w-screen-lg px-20 w-full mt-20 flex flex-col">
-                                    <textarea
-                                           placeholder="Заголовок - Начите писать здесь"
-                                           onChange={e => setTitle(e.target.value)}
-                                           value={title}
-                                           className='text-4xl ml-24 pl-2 mb-4 h-auto font-bold text-black w-full outline-none'
-                                    />
-                                    <Editor data={body} instanceRef={editorJS} handleSave={handleSave} init={handleInitialize} />
-                                </div>
-                            </> : succesBlock}
+            <PostLayout>
+                    <Title>
+                        Новый регламент
+                    </Title>
+                    <div>
+                        {status === 'process' ? <>
+                            {error && <Error>Заполните заголовок и саму статью прежде чем опубликовать!</Error>}
+                            <Textarea
+                                placeholder="Заголовок - Начите писать здесь"
+                                onChange={e => setTitle(e.target.value)}
+                                value={title}
+                            />
+                            <EditorWrapper>
+                                <Editor data={body} instanceRef={editorJS} handleSave={handleSave} init={handleInitialize} />
+                            </EditorWrapper>
+                        </> : successBlock}
 
-                            {status !== 'success' &&
-                            <div className="w-full max-w-screen-xl flex justify-between border fixed bottom-0 border-black bg-white z-10 h-20">
-                                    <a onClick={() => router.back()} className='h-full w-80 flex justify-center items-center text-xl cursor-pointer border-r border-black'>
-                                        Назад
-                                    </a>
-                                <div onClick={() => createPostHandle()} className='h-full w-80 flex justify-center items-center text-xl bg-blue-300 cursor-pointer border-l border-black'>
-                                    Опубликовать
-                                </div>
-                            </div>}
-                        </div>
+                        {status !== 'success' &&
+                        <div onClick={() => createPostHandle()} >
+                            <Button>Опубликовать</Button>
+                        </div>}
                     </div>
-
-                </main>
-            </div>
+            </PostLayout>
         </MainLayout>
     )
 }
+
+const Title = styled.div`
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 36px;
+  letter-spacing: -1px;
+  margin-top: -10px;
+  margin-bottom: 40px;
+  color: #3E3E3E;
+`
+
+const Textarea = styled.textarea`
+  border: none;
+  width: 100%;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 38px;
+  letter-spacing: -0.01em;
+  color: #3E3E3E;
+  outline: none;
+  
+  &::placeholder {
+    color: #3E3E3E;
+  }
+`
+
+const Error = styled.div`
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 20px;
+  color: red;
+`
+
+const Success = styled.div`
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 20px;
+  color: green;
+  font-weight: 500;
+`
+
+const EditorWrapper = styled.div`
+  margin-left: -80px;
+`

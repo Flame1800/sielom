@@ -9,7 +9,7 @@ const NewsCard = ({post}) => {
 
     return (
         <Wrapper>
-            <Link href={`/events/${post.id}`}>
+            <Link href={`/news/${post.id}`}>
                 <a>
                     <div>
                         <div className='title'>{post.attributes.title}</div>
@@ -28,6 +28,7 @@ const Wrapper = styled.div`
   margin-top: -1px;
   border: 1px solid ${baseTheme.colors.light};
   display: flex;
+  justify-content: space-between;
   align-items: center;
   background: #fff;
 
@@ -60,6 +61,7 @@ const Wrapper = styled.div`
     max-width: 530px;
     width: 100%;
     margin-top: 50px;
+    font-size: .7em;
   }
   
   .info-item {

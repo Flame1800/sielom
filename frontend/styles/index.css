@@ -15,3 +15,26 @@ a {
     color: black;
 }
 
+.post-md {
+    font-size: 17px;
+    line-height: 27px;
+}
+
+.post-md a {
+    color: -webkit-link;
+    text-decoration: underline;
+    line-height: 30px;
+    font-weight: 500;
+}
+
+.post-md p {
+    margin-top: 10px;
+}
+
+.post-md li {
+    margin-left: 40px;
+}
+
+.post-md table {
+    font-size: 12px;
+}

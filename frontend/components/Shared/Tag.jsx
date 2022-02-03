@@ -1,10 +1,8 @@
 import styled from "styled-components";
 import {baseTheme} from "../../styles/theme";
 
-const Tag = ({children}) => {
-
-
-    return <Wrapper>{children}</Wrapper>
+const Tag = ({children, white}) => {
+    return white ? <WhiteWrapper>{children}</WhiteWrapper> : <Wrapper>{children}</Wrapper>
 }
 
 const Wrapper = styled.div`
@@ -21,6 +19,11 @@ const Wrapper = styled.div`
   padding: 10px 15px;
   height: 33px;
   margin-bottom: 10px;
+`
+
+const WhiteWrapper = styled(Wrapper)`
+  color: #fff;
+  border: #fff 2px solid;
 `
 
 

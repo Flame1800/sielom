@@ -73,10 +73,15 @@ const Wrapper = styled.div`
 
   .info-item {
     display: flex;
+    align-items: center;
     width: 100%;
+    font-size: .8em;
 
     img {
       margin-right: 8px;
+      width: 30px;
+      height: 30px;
+      object-fit: none;
     }
   }
 `

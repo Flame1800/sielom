@@ -1,23 +1,17 @@
-import Head from 'next/head'
-import Select from "../../components/Select";
-import Input from "../../components/Input";
-import EventCard from "../../components/Events/EventCard";
 import MainLayout from "../../layouts/MainLayout";
-import FilterBuildings from "../../components/FilterBuildings";
 import {API} from "../../libs/API";
-import PostPage from "../rules/[id]";
 import MainHeader from "../../components/Shared/MainHeader";
 import SpecCard from "../../components/Specialties/SpecCard";
 import styled from "styled-components";
 import {baseTheme} from "../../styles/theme";
 
 
-export default function Events({ events }) {
+export default function Specialties({ specialties }) {
     return (
         <MainLayout>
             <MainHeader>ПРОГРАММЫ ОБУЧЕНИЯ</MainHeader>
             <Content>
-                {events.map(event => <SpecCard key={event.id} event={event} />)}
+                {specialties.map(item => <SpecCard key={item.id} item={item.attributes} />)}
             </Content>
         </MainLayout>
     )
@@ -32,7 +26,7 @@ const Content = styled.div`
   padding-top: 20px;
 `
 
-Events.getInitialProps = async () => {
-    const { data } = await API.getEvents()
-    return { events: data.data }
+Specialties.getInitialProps = async () => {
+    const { data } = await API.getSpecialties()
+    return { specialties: data.data }
 }

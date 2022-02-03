@@ -1,125 +1,94 @@
 import EventCard from "../components/Events/EventCard";
 import { API } from "../libs/API";
 import React from "react";
-import Button from "../components/Shared/Button";
 import {
-    DefaultSection, Title, SubTitle, Banner, MainParagraph,
-    FastLinks, AbiturentInfo, EventsAndNews, Specialties, Infographics, Partners
+    DefaultSection, Title, EventsAndNews, Specialties, Infographics, Partners, HeroBlock
 } from '../styles/homeStyle'
 import NewsCard from "../components/News/NewsCard";
 import ArrowButton from "../components/Shared/ArrowButton";
 import SpecCard from "../components/Specialties/SpecCard";
 import TagButton from "../components/Shared/TagButton";
+import Head from 'next/head'
+import MainLayout from "../layouts/MainLayout";
+import { Swiper, SwiperSlide } from "swiper/react";
+import SwiperCore, {
+    Navigation, Autoplay
+} from 'swiper';
+
+import "swiper/css";
+import "swiper/css/navigation"
+import "swiper/css/autoplay"
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer";
-import Head from 'next/head'
 
+SwiperCore.use([Navigation, Autoplay]);
 
-export default function Home({events, news}) {
+export default function Home({events, news, specialties}) {
 
-    React.useEffect(() => {
-        const section1 = document.querySelector('body')
-
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 1900) {
-                if (window.scrollY >= 2600) {
-                    section1.style.backgroundColor = `#fffefb`
-                } else {
-                    section1.style.backgroundColor = `#EABC5D`
-                }
-            }
-            else {
-                section1.style.backgroundColor = `rgb(255, 255, 255)`
-            }
-        })
-
-    }, [])
+    console.log(specialties)
 
   return (
-    <div>
+    <>
+        <Header />
         <Head>
             <title>Сургутский институт
                 экономики, управления и права</title>
         </Head>
-        <Header />
       {/* -------------------- Баннер -------------------- */}
-      <Banner>
-          <div className="bg"></div>
-          <div className='empty-column' />
-          <div className='content'>
-          <MainParagraph>
-              <div>
-                  <div className="part-text swap-text">
-                      <span className="light-text">БУДУ</span>ЩЕЕ
-                  </div>
-                  <div className="part-text">
-                      <img src="/img/stars.png" className='stars' />
-                      НАЧИНАЕТСЯ
-                  </div>
-                  <div className="part-text swap-text-2">
-                      <span className="light-text">ЗДЕСЬ</span>
-                  </div>
-              </div>
-              <div className="banner-footer">
-                  <div>
-                      <div className="sub-title">
-                          Сургутский институт <br />
-                          экономики, управления  и права
-                      </div>
-                      <FastLinks>
-                          <TagButton>Расписание</TagButton>
-                          <TagButton>Студенческая жизнь</TagButton>
-                          <TagButton>Специальности</TagButton>
-                          <TagButton>Об интстуте</TagButton>
-                      </FastLinks>
-                  </div>
-                  <div className="video-wrapper">
-                      <a target="_blank" href='https://youtu.be/PaF4DCwq0JA'>
-                          <div className="video">
-                              <div className="cover">
-                                  <div className="btn">
-                                      <img src="/img/btn-play-video.png" className='icon'/>
-                                  </div>
-                              </div>
-                          </div>
-                      </a>
-                  </div>
-              </div>
-        </MainParagraph>
+      <HeroBlock>
+          <div className="slider">
+              <Swiper
+                  navigation={true}
+                  loop={true}
+                  // autoplay={{delay: 10000}}
+              >
+                  <SwiperSlide>
+                      <img src='/img/1-20211220-085630-0000.png'  />
+                      <div className="title">WordSkills Югра - Болеем за наших</div>
+                  </SwiperSlide>
+                  <SwiperSlide>
+                      <img src='/img/students-bg.jpg'  />
+                      <div className="title">Поступай в наш институт</div>
+                  </SwiperSlide>
+              </Swiper>
           </div>
-      </Banner>
+
+          <div className="video-and-news">
+              <div className="video">
+                  <a href='https://youtu.be/PaF4DCwq0JA' target='_blank'>
+                      <div className="button">
+                          <div className="play">
+                              PLAY
+                              <img src="/img/play-icon.png" alt="play"/>
+                          </div>
+                      </div>
+                  </a>
+              </div>
+              <div className="news">
+                  <div className="item">
+                      <div className="post">
+                          <div className="title">SIELOM</div>
+                          <div className="body">
+                              Инстиутут экономики управления и права обрел новое назввание и стиль
+                          </div>
+                      </div>
+                      <ArrowButton>Подробнее</ArrowButton>
+                  </div>
+                  <div className="item">
+                      <div className="post">
+                          <div className="title">День открытых дверей</div>
+                          <div className="body">
+                              29 января 2022 года. Регистрация открыта!
+                          </div>
+                      </div>
+                      <ArrowButton>Подробнее</ArrowButton>
+                  </div>
+              </div>
+          </div>
+
+      </HeroBlock>
       {/* -------------------- Конец секции -------------------- */}
 
-        {/* ------ Секция поступления в институт ----- */}
-        <AbiturentInfo>
-            <DefaultSection>
-                <div>
-                    <Title>У нас есть все для построения успешной карьеры</Title>
-                    <SubTitle>
-                        В институте действует программа целевого обучения — программа, при которой студент обучается
-                        за счет работодателя. после окончания обучения должен по договору отработать не менее 3-х лет
-                        в организации направившей его на обучение.
-                    </SubTitle>
-                </div>
-                <div>
-                    <div className='card'>
-                        <div className="card-title">
-                            МЫ ЗАИНТЕРЕСОВАННЫ В ВАШЕМ ТРУДОУСТРОЙСТВЕ
-                        </div>
-                        <div className="card-subtitle">
-                            Одним из приоритетных направлений развития института
-                            является подготовка высококвалифицированных специалистов для предприятий-партнеров.
-                        </div>
-                        <img src='/img/students.png' className='students-img' />
-                    </div>
-                    <div className='buttons'>
-                        <Button>Подать заявку</Button>
-                        <ArrowButton>Узнать подробнее</ArrowButton>
-                    </div>
-                </div>
-            </DefaultSection>
-        </AbiturentInfo>
-        {/* -------------------- Конец секции -------------------- */}
 
         {/* ------ Секция мероприятий и новостей ----- */}
         <EventsAndNews>
@@ -160,7 +129,7 @@ export default function Home({events, news}) {
                     <TagButton>9 классов</TagButton>
                     <TagButton>11 классов</TagButton>
                 </div>
-                {[0,1,2,3,4,5,6,7].map(item => <SpecCard />)}
+                {specialties.map(item => <SpecCard key={item.id} item={item.attributes} />)}
             </DefaultSection>
         </Specialties>
         {/* -------------------- Конец секции -------------------- */}
@@ -202,10 +171,6 @@ export default function Home({events, news}) {
                         <div className="value">20</div>
                         <div className="description">Специальностей</div>
                     </div>
-                    <div className="card no-card">
-                    </div>
-                    <div className="card no-card">
-                    </div>
                     <div className="card">
                         <div className="value">1384</div>
                         <div className="description">Студентов</div>
@@ -224,13 +189,18 @@ export default function Home({events, news}) {
         </Partners>
         {/* -------------------- Конец секции -------------------- */}
         <Footer />
-    </div>
+    </>
   );
 }
 
 Home.getInitialProps = async () => {
     const { data } = await API.getEvents()
     const news = await API.getNews()
+    const specialties = await API.getSpecialties()
 
-    return { news: news.data.data, events: data.data }
+    return {
+        news: news.data.data,
+        events: data.data,
+        specialties: specialties.data.data
+    }
 }

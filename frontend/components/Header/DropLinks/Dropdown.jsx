@@ -8,7 +8,6 @@ import {useAppSelector} from "../../../redux/hooks";
 const MenuHeader = ({ close }) => {
     const content = useAppSelector(state => state.nav.dropdownContent)
 
-
    React.useEffect(() => {
        if (close) {
            document.addEventListener('click', close)
@@ -25,16 +24,16 @@ const MenuHeader = ({ close }) => {
     return (
         <Wrapper onClick={e => e.stopPropagation()}>
             <div className='map'>
-                {content.map(column => (
-                    <NavColumn>
+                {content.map((column, id) => (
+                    <NavColumn key={id} >
                         <div className='title'>
                             <LinkWrapper href={column.main.src}>
                                 {column.main.name}
                             </LinkWrapper>
                         </div>
                         <div className="link">
-                            {column.links.map((link) => (
-                                <LinkWrapper key={link.src} href={link.src}>
+                            {column.links.map((link, id) => (
+                                <LinkWrapper key={id} href={link.src}>
                                    {link.name}
                                 </LinkWrapper>
                             ))}
