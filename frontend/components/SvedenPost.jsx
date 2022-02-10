@@ -2,7 +2,6 @@ import MainLayout from "../layouts/MainLayout";
 import MainHeader from "../components/Shared/MainHeader";
 import styled from "styled-components";
 import React from "react";
-import ReactMarkdown from 'react-markdown'
 import {SidebarLinks, SidebarWrapper} from "../styles/sharedStyle";
 import Link from "next/link";
 import {API} from "../libs/API";
@@ -39,7 +38,7 @@ export default function SvedenPost({ post }) {
                                 {activePost.attributes.name}
                             </div>
                             <div className="post-md">
-                                < dangerouslySetInnerHTML={{__html: activePost.attributes.body }} />
+                                <div dangerouslySetInnerHTML={{__html: activePost.attributes.body }} />
                             </div>
                         </>}
                     </Content>

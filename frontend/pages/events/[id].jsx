@@ -1,12 +1,11 @@
 import MainLayout from "../../layouts/MainLayout";
-import router from "next/router";
 import {API} from "../../libs/API";
-import OutEditorText from "../../components/Editor/OutEditorText";
 import moment from "moment";
 import 'moment/locale/ru'
 import PostLayout from "../../layouts/PostLayout";
 import styled from "styled-components";
 import {baseTheme} from "../../styles/theme";
+import React from "react";
 
 export default function Rule({event}) {
 
@@ -37,7 +36,7 @@ export default function Rule({event}) {
                             className="max-w-full h-96 rounded-xl my-4 mr-8" />
                      </div>}
                 <TextPost>
-                    {attributes.description}
+                    <div dangerouslySetInnerHTML={{__html: attributes.description }} />
                 </TextPost>
             </PostLayout>
         </MainLayout>

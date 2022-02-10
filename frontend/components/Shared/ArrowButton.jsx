@@ -7,10 +7,10 @@ const ArrowButton = ({children, back}) => {
 
         return <Wrapper onClick={() => back ? router.back() : null}>
             {back
-                ? (<><img src='/img/arrow-button-back.png' />
+                ? (<><img src='/img/arrow-button-back.svg' />
                 {children}</>)
                 :  (<>{children}
-                <img src='/img/arrow-button.png' /></>)}
+                <img src='/img/arrow-button.svg' /></>)}
         </Wrapper>
 }
 

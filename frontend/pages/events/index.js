@@ -7,17 +7,26 @@ import FilterBuildings from "../../components/FilterBuildings";
 import {API} from "../../libs/API";
 import PostPage from "../rules/[id]";
 import MainHeader from "../../components/Shared/MainHeader";
+import styled from "styled-components";
 
 
 export default function Events({ events }) {
   return (
       <MainLayout>
           <MainHeader>МЕРОПРИЯТИЯ</MainHeader>
-          <FilterBuildings clickHandler={(i) => console.log(i)} />
-          {events.map(event => <EventCard key={event.id} event={event} />)}
+          <FilterBuildings clickHandler={() => {}} />
+          <Content>
+              {events.map(event => <EventCard key={event.id} event={event} />)}
+          </Content>
       </MainLayout>
   )
 }
+
+const Content = styled.div`
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+`
 
 Events.getInitialProps = async () => {
     const { data } = await API.getEvents()

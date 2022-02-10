@@ -2,15 +2,53 @@ const makeLink = (name, src) => ({ src, name })
 
 const mapLinks = [
     {
+        link: makeLink("common", "common"),
+        content: [
+            {
+                main: makeLink("Основная страница", "/"),
+                links: [
+                    makeLink("Сведения об образовательной организации", "/sveden"),
+                    makeLink("WordSkills", "/"),
+                    makeLink("Персонал", "/specialties"),
+                ]
+            },
+            {
+                main: makeLink("Дополнительное образование", "/"),
+                links: [
+                    makeLink("Перечень документов для поступления", "/"),
+                    makeLink("Повышение квалификации", "/"),
+                    makeLink("Профессиональная переподготовка", "/"),
+                    makeLink("Семинары", "/"),
+                ]
+            },
+            {
+                main: makeLink("Сервисы", "/"),
+                links: [
+                    makeLink("Личный кабинет", "/"),
+                    makeLink("Расписание", "/timetable"),
+                    makeLink("Дистанционные занятия", "/"),
+                ]
+            }
+        ],
+    },
+    {
         link: makeLink("Абитуренту", "entrant"),
         content: [
             {
                 main: makeLink("Основная страница", "/"),
                 links: [
                     makeLink("Программы обучения", "/specialties"),
-                    makeLink("Приемная кампания", "/specialties"),
-                    makeLink("Приемная комиссия", "/specialties"),
-                    makeLink("Архив приемных кампаний", "/specialties"),
+                    makeLink("Приемная кампания", "/"),
+                    makeLink("Приемная комиссия", "/"),
+                ]
+            },
+            {
+                main: makeLink("Архив приемных кампаний", "/"),
+                links: [
+                    makeLink("Приемная кампания 2021", "http://sielom.ru/abi/priemnaja-kampanija-2021"),
+                    makeLink("Приемная кампания 2020", "http://sielom.ru/abi/priemnaja-komissija/priemnaja-kampanija-20202021-uchebnyi-god.html"),
+                    makeLink("Приемная кампания 2019", "http://sielom.ru/abi/priemnaja-komissija/priemnaja-kampanija-20192020-uchebnyi-god.html"),
+                    makeLink("Приемная кампания 2018", "http://sielom.ru/abi/priemnaja-komissija/priemnaja-kampanija-20182019-uchebnyi-god.html"),
                 ]
             }
         ],
@@ -19,19 +57,8 @@ const mapLinks = [
         link: makeLink("Сутденту", "student"),
         content: [
             {
-                main: makeLink("Рассписание занятий", "/"),
-                links: [
-                    makeLink("Очная форма обучения", "/"),
-                    makeLink("Заочная форма обучения", "/"),
-                    makeLink("Очно-заочная форма обучения", "/"),
-                ]
-            },
-            {
                 main: makeLink("УЧЕБНЫЙ ПРОЦЕСС", "/student"),
                 links: [
-                    makeLink("Табели успеваемости", "/"),
-                    makeLink("Табели посещяемости", "/"),
-                    makeLink("Дистанционные занятия", "/"),
                     makeLink("Промежуточная аттестация", "/"),
                     makeLink("График приема академических задолженностей", "/"),
                 ]
@@ -40,9 +67,9 @@ const mapLinks = [
                 main: makeLink("Студенческая жизнь", "/"),
                 links: [
                     makeLink("Студенческий совет", "/"),
-                    makeLink("Проекты", "/"),
                     makeLink("Лига волонтеров", "/"),
                     makeLink("Медиацентр", "/"),
+                    makeLink("Проекты", "/"),
                 ]
             },
         ],
@@ -67,7 +94,7 @@ const mapLinks = [
         link: makeLink("Институт", "employer"),
         content: [
             {
-                main: makeLink("Основные сведения", "/"),
+                main: makeLink("Основная страница", "/"),
                 links: [
                     makeLink("Сведения об образовательной организации", "/sveden"),
                     makeLink("Об институте", "/"),
@@ -90,21 +117,7 @@ const mapLinks = [
                 ]
             },
         ]
-    },
-    {
-        link: makeLink("ДПО", "parent"),
-        content: [
-            {
-                main: makeLink("Дополнительное образование", "/"),
-                links: [
-                    makeLink("Перечень документов для поступления", "/"),
-                    makeLink("Повышение квалификации", "/"),
-                    makeLink("Профессиональная переподготовка", "/"),
-                    makeLink("Семинары", "/"),
-                ]
-            }
-        ],
-    },
+    }
 ];
 
 export default mapLinks

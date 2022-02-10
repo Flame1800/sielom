@@ -39,38 +39,52 @@ const Header = () => {
           <div className='content'>
             <Link href="/">
               <a className='logo'>
-              <img src="/img/logo-sielom.png" alt="Logo" />
+              <img src="/img/logo-sielom.svg" alt="Logo" />
                 <span className="name">
                   Сургутский институт экономики, управления  и права
                 </span>
               </a>
             </Link>
             <LinksContainer>
-              <div className='first-links'>
-                {upLinks.map((link) => (
-                    <LinkWrapper href={link.src} >{link.name}</LinkWrapper>
-                ))}
+              <div className="second-links" onClick={e => e.stopPropagation()}>
+                {mapLinks
+                    .map(({link, content}) => {
+                      if (link.name === 'common') {
+                        return <div key={link.name} onClick={() => selectLink(content)}>
+                          <img src="/img/menu-icon.svg" alt=""/>
+                        </div>
+                      }
+                      return <div key={link.name} onClick={() => selectLink(content)}>{link.name}</div>
+
+                })}
                 <Link href='/schedule'>
                   <a style={{ marginRight: '0px' }}>
                     <div className="button-schedule">Рассписание</div>
                   </a>
                 </Link>
               </div>
-              <div className="second-links" onClick={e => e.stopPropagation()}>
-                {mapLinks.map(({link, content}) => (
-                    <div key={link.name} onClick={() => selectLink(content)}>{link.name}</div>
-                ))}
-              </div>
             </LinksContainer>
             <div className="right-side">
               <Link href='/profile/login'>
                 <a>
                   <div className="user-button">
-                     <img src="/img/user-icon.png" width={20} height={20}  />
+                     <img src="/img/user-icon.svg" width={20} height={20}  />
                   </div>
                 </a>
               </Link>
-              <a className='phone' href="tel:(3462) 550-528">(3462) 550-528</a>
+              <div className="left-side">
+                <a className='phone' href="tel:(3462) 550-528">
+                  <img src="/img/phone-icon.svg" alt='icon' />
+                  (3462) 550-528
+                </a>
+                <div className="social">
+                  <a target="_blank" href="https://vk.com/sielom"><img src="/img/vk.svg" alt='icon' /></a>
+                  <a target="_blank" href="https://www.instagram.com/sielom86/"><img src="/img/inst.svg" alt='icon' /></a>
+                  <a target="_blank" href="https://www.youtube.com/c/АНПООСИЭУиП"><img src="/img/youtube.svg" alt='icon' /></a>
+                  <a target="_blank" href="https://www.facebook.com/sielom86-568601863544116"><img src="/img/facebook.svg" alt='icon' /></a>
+                </div>
+              </div>
+
             </div>
           </div>
         </Wrapper>
@@ -82,26 +96,29 @@ const Header = () => {
 const Wrapper = styled.div`
   padding-top: 26px;
   padding-bottom: 10px;
+  height: 133px;
+  display: flex;
+  align-items: center;
   position: sticky;
   top: 0;
   background: rgb(255, 255, 255);
   z-index: 10;
   border-bottom: 1px solid ${baseTheme.colors.light};
-  
+
   .logo {
     display: flex;
     justify-content: center;
     align-items: center;
-    
+
     .name {
       max-width: 190px;
-      margin-left: 16px;
+      font-weight: 500;
       font-size: 12px;
       line-height: 15px;
       letter-spacing: -0.01em;
       text-transform: uppercase;
-      color: #5F5F5F;
-      font-weight: 500;
+      color: #9E9E9E;
+      margin-left: 15px;
     }
   }
 
@@ -115,36 +132,69 @@ const Wrapper = styled.div`
     align-items: center;
   }
   
+  .left-side {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    
+    .social {
+      display: flex;
+      align-items: center;
+      height: 20px;
+      margin-top: 5px;
+      
+      a {
+        display: flex;
+      }
+       img {
+         margin-left: 10px;
+         
+         &:hover {
+           opacity: 0.7;
+         }
+       }
+    }
+  }
+
   .right-side {
     display: flex;
     align-items: center;
-    
+
     .user-button {
       margin-right: 20px;
       width: 40px;
       height: 40px;
       border-radius: 50%;
-      background: #F2F2F2;
+      border: 2px solid #c2c2c2;
       display: flex;
       justify-content: center;
       align-items: center;
     }
-    
+
     .phone {
-      font-size: 13px;
-      color: ${baseTheme.colors.black};
+      img {
+        margin-right: 5px;
+        object-fit: contain;
+        height: 18px;
+        width: 18px;
+      }
+      display: flex;
+      align-items: center;
       font-weight: bold;
+      font-size: 12px;
+      line-height: 15px;
+      color: #5F5F5F;
     }
   }
 `
 
 const LinksContainer = styled.div`
   margin-left: -10%;
-  .first-links {
-    margin-bottom: 20px;
+
+  .second-links {    
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
 
     .button-schedule {
       border: 2px solid #EABC5D;
@@ -156,27 +206,12 @@ const LinksContainer = styled.div`
       padding: 9px 18px;
       transition: .3s;
       cursor: pointer;
-      
-      &:hover {
-        background: #EABC5D;
-      }
-    }
-    
-    a {
-      font-size: 12px;
-      color: #797979;
-      font-weight: 600;
-      margin-right: 26px;
 
       &:hover {
-        color: #3d3d3d;
+        background: #EABC5D;
+        color: #3E3E3E;
       }
     }
-  }
-  
-  .second-links {    margin-bottom: 20px;
-    display: flex;
-    justify-content: space-between;
 
     div {
       font-size: 13px;

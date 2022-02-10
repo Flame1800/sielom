@@ -3,8 +3,6 @@ import {baseTheme} from "./theme";
 
 
 export const DefaultSection = styled.div`
-  display: grid;
-  grid-template-columns: 50% 50%;
   max-width: 1320px;
   margin: 0 auto;
 `
@@ -14,20 +12,19 @@ export const Title = styled.div`
   line-height: 36px;
   letter-spacing: -0.5px;
   color: ${baseTheme.colors.black};
-  max-width: 400px;
   text-transform: uppercase;
   font-weight: 500;
   margin-bottom: 35px;
 `
 
 export const HeroBlock = styled.section`
-  height: 80vh;
+  height: 60vh;
   max-width: 100%;
   margin: 0 auto;
   
   .slider {
     .swiper {
-      width: 100%;
+      max-width: 1620px;
       height: 60vh;
       display: flex;
       overflow: hidden;
@@ -47,24 +44,47 @@ export const HeroBlock = styled.section`
       display: flex;
       justify-content: center;
       align-items: center;
-      background: linear-gradient(180deg, rgba(0, 0, 0, 0)
-      64.37%, rgba(0, 0, 0, 0.68) 89.68%), url(image.png);
+
+      .slide-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .text {
+          text-align: left;
+          max-width: 330px;
+          display: flex;
+          justify-content: flex-start;
+          flex-direction: column;
+
+          .title {
+            bottom: 55px;
+            font-weight: 800;
+            font-size: 36px;
+            line-height: 44px;
+            letter-spacing: -0.01em;
+            color: #414141;
+          }
+          .sub-title {
+            font-style: normal;
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 26px;
+            letter-spacing: -0.01em;
+            color: #414141;
+            margin-top: 15px;
+            margin-bottom: 35px;
+          }
+        }
+        
+        .img {
+          margin-left: 70px;
+        }
+      }
+
 
       img {
         z-index: -1;
-      }
-
-      .title {
-        position: absolute;
-        bottom: 55px;
-        color: #fff;
-        left: 0;
-        right: 0;
-        font-style: normal;
-        font-weight: 800;
-        font-size: 30px;
-        line-height: 44px;
-        letter-spacing: -0.01em;
       }
 
       .button-left {
@@ -93,7 +113,7 @@ export const HeroBlock = styled.section`
         content: "";
         width: 70px;
         height: 25px;
-        background: url('/img/slider-right-arrow.png') no-repeat;
+        background: url('/img/slider-right-arrow.svg') no-repeat;
 
       }
     }
@@ -115,7 +135,7 @@ export const HeroBlock = styled.section`
         content: "";
         width: 70px;
         height: 25px;
-        background: url('/img/slider-left-arrow.png') no-repeat;
+        background: url('/img/slider-left-arrow.svg') no-repeat;
       }
     }
 
@@ -229,40 +249,15 @@ export const HeroBlock = styled.section`
 
 
 export const EventsAndNews = styled.div`
-  margin-top: 290px;
-  position: relative;
-
-  .arrow-btn {
-    color: #fff;
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: 0.2s;
-    display: flex;
-    align-items: center;
-
-    img {
-      margin-left: 10px;
-    }
-
-    &:hover {
-      color: #c5c5c5;
-    }
-  }
+  margin-top: 90px;
 
   .header {
-    position: sticky;
-    top: 200px;
     height: 150px;
   }
-
-  .black-block {
-    position: absolute;
-    left: 0;
-    width: 50%;
-    height: 1500px;
-    z-index: -1;
-    margin-top: -40px;
+  
+  .news {
+    display: flex;
+    justify-content: space-between;
   }
 `
 
@@ -270,9 +265,15 @@ export const Specialties = styled.div`
   margin-top: 290px;
   min-height: 500px;
   margin-bottom: 250px;
-
+  
+  .list {
+    display: flex;
+    flex-wrap: wrap;
+  }
 
   .header {
+    display: flex;
+    justify-content: space-between;
     height: 60px;
     margin-bottom: 20px;
     border-bottom: 1px solid ${baseTheme.colors.light};
@@ -295,36 +296,13 @@ export const Specialties = styled.div`
 `
 
 export const Infographics = styled.div`
-  max-width: 1320px;
-  margin: 0 auto;
-  
-  .title {
-    left: 0;
-    position: absolute;
-    font-weight: 600;
-    font-size: 144px;
-    line-height: 96px;
-    letter-spacing: -1.25px;
-    text-transform: uppercase;
-    padding: 50px 0;
-    color: #fff;
-    -webkit-text-stroke: 1px ${baseTheme.colors.black};
-    border-top: 1px solid rgba(0, 0, 0, 0.51);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.51);
-    user-select: none;
-  }
-  
-  .content {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 25% 25% 50%;
-  }
+  margin-bottom: 180px;
   
   .info-items {
     .item {
       margin-bottom: 63px;
     }
-    
+
     .value {
       font-family: "PLaifair Display", sans-serif;
       font-weight: bold;
@@ -333,7 +311,7 @@ export const Infographics = styled.div`
       letter-spacing: 1px;
       color: ${baseTheme.colors.gold};
     }
-    
+
     .description {
       font-weight: 500;
       font-size: 14px;
@@ -344,43 +322,46 @@ export const Infographics = styled.div`
       max-width: 180px;
     }
   }
-  
+
   .info-cards {
+    margin-top: 60px;
     display: flex;
+    justify-content: space-between;
     flex-wrap: wrap;
-    margin-top: -10px;
-    
+
     .no-card {
       border: none !important;
     }
-    
+
     .card {
+      padding: 35px 50px;
       width: 300px;
       display: flex;
-      fle
       margin-left: -1px;
       margin-top: -1px;
       justify-content: center;
-      align-items: center;
       flex-direction: column;
-      border: 1px solid ${baseTheme.colors.light};
-      
+      background: #FFDA8F;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      border-radius: 29px;
+
+      &:nth-child(even) {
+        background: #ffedc5;
+      }
+
       .value {
-        font-family: "PLaifair Display";
         font-weight: bold;
-        font-size: 96px;
-        line-height: 96px;
+        font-size: 64px;
         letter-spacing: -0.02em;
         color: #3E3E3E;
       }
-      
+
       .description {
         font-weight: 500;
         font-size: 18px;
         line-height: 22px;
         letter-spacing: -0.02em;
         color: #3E3E3E;
-        margin-top: 16px;
       }
     }
   }

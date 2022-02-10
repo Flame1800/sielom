@@ -21,7 +21,7 @@ a {
 }
 
 .post-md a {
-    color: -webkit-link;
+    color: #8d691e;
     text-decoration: underline;
     line-height: 30px;
     font-weight: 500;
@@ -37,4 +37,11 @@ a {
 
 .post-md table {
     font-size: 12px;
+    background-color: #b1b1b1;
+    margin-top: 20px;
+}
+
+.post-md td {
+    background: #fff;
+    border: none !important;
 }

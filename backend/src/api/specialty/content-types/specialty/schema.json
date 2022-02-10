@@ -4,7 +4,8 @@
   "info": {
     "singularName": "specialty",
     "pluralName": "specialties",
-    "displayName": "specialties"
+    "displayName": "Программы обучения",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -21,13 +22,14 @@
       "type": "string"
     },
     "cover": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos"
-      ],
-      "type": "media",
-      "multiple": true
+      ]
     },
     "subtitle": {
       "type": "string"

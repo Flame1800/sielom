@@ -7,7 +7,7 @@ import Tag from "../Shared/Tag";
 const SpecCard = ({item}) => {
 
     return (
-        <Wrapper imgUrl={process.env.HOST_DEV + item.cover.data[0].attributes.url}>
+        <Wrapper>
             <div className='title'>{item.name}</div>
             <div>
                 <div className='info-block'>
@@ -15,47 +15,49 @@ const SpecCard = ({item}) => {
                     <div className='value'>{item.duration} </div>
                 </div>
                 <div className="tags">
-                    <Tag white>11 классов</Tag>
-                    <Tag white>9 классов</Tag>
+                    <Tag>11 классов</Tag>
+                    <Tag>9 классов</Tag>
                 </div>
             </div>
+            {item.cover.data &&
+            <img src={process.env.HOST_DEV + item.cover.data[0].attributes.url} alt="icon" />}
         </Wrapper>
     )
 }
 
 const Wrapper = styled.div`
-  width: calc(100% - 20px);
-  margin: 10px;
+  position: relative;
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-bottom: 20px;
+  border-radius: 25px;
   height: 265px;
+  max-width: 640px;
+  width: 100%;
   padding: 20px;
-  background: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.56)),
-  url(${props => props.imgUrl}) no-repeat;
   background-size: cover;
-  backdrop-filter: brightness(40%);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 14px rgba(129, 135, 189, 0.15);
 
-  &:before {
-    content: '';
-    display: block;
-    width: 100%;
-    height: 100%;
+  img {
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
+    right: 20px;
     bottom: 0;
-    z-index: -1;
-    background-color: rgba(0, 0, 0, 0.3);
+    height: 170px;
+    width: 200px;
+    object-fit: contain;
   }
+
 
   .title {
     font-weight: 600;
-    font-size: 36px;
-    line-height: 50px;
+    font-size: 30px;
+    line-height: 37px;
     letter-spacing: -0.5px;
-    color: #fff;
+    color: ${baseTheme.colors.black};
   }
 
   .info-block {
@@ -65,12 +67,12 @@ const Wrapper = styled.div`
     line-height: 11px;
     letter-spacing: -0.25px;
     margin-bottom: 20px;
-    color: #fff;
 
     .info {
       font-weight: 600;
       margin-right: 10px;
       margin-bottom: 10px;
+      color: ${baseTheme.colors.black};
     }
   }
 `

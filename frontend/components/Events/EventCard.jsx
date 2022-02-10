@@ -7,22 +7,26 @@ import {baseTheme} from "../../styles/theme";
 const EventCard = ({event}) => {
     const date = moment(event.attributes.start_date).calendar()
 
+    const coverImg = event.attributes.cover.data
+        ? `${process.env.HOST_DEV}${event.attributes.cover?.data?.attributes.url}`
+        : false
+
     return (
         <Wrapper>
             <Link href={`/events/${event.id}`}>
                 <a>
-            <div className='head'>
-                <div className='category'>Дизайн</div>
-            </div>
+
+                    <Cover cover={coverImg} />
                     <div>
+                        <div className='category'>мероприятие</div>
                         <div className='title'>{event.attributes.title}</div>
                         <div className='info-block'>
                             <div className='info-item'>
-                                <img src='/img/clock.png' />
+                                <img src='/img/clock.svg' />
                                 <div>{date}</div>
                             </div>
                             <div className='info-item'>
-                                <img src='/img/map-pin-icon.png' />
+                                <img src='/img/map-pin-icon.svg' />
                                 <div>{event.attributes.place}</div>
                             </div>
                         </div>
@@ -33,55 +37,65 @@ const EventCard = ({event}) => {
     )
 }
 
+const  Cover = styled.div`
+  background: url(${({cover}) => cover});
+  background-size: cover;
+  width: 100%;
+  height: 240px;
+  border-radius: 16px;
+  border: 1px solid #B1B1B1;
+  margin-bottom: 25px;
+`
+
 const Wrapper = styled.div`
-  margin-top: -1px;
-  border: 1px solid ${baseTheme.colors.light};
-  padding: 30px;
-  background: #fff;
+  margin-right: 10px;
+  max-width: 300px;
+  min-width: 220px;
+  width: 100%;
 
-  &:hover {
-    background: rgb(255, 254, 248);
-    border: 1px solid ${baseTheme.colors.gold};
-  }
-
-  .head {
-    display: flex;
-    margin-bottom: 20px;
-
-    .category {
-      font-weight: bold;
-      font-size: 14px;
-      line-height: 17px;
-      color: ${baseTheme.colors.gold};
-    }
+  .category {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+    margin-bottom: 13px;
+    text-transform: uppercase;
+    color: #9D9D9D;
   }
 
   .title {
+    font-style: normal;
     font-weight: 600;
-    font-size: 18px;
-    line-height: 27px;
+    font-size: 16px;
+    line-height: 24px;
     letter-spacing: -0.01em;
-    max-width: 530px;
+    min-height: 70px;
+    color: #3E3E3E;
   }
 
   .info-block {
     display: flex;
+    flex-direction: column;
     max-width: 530px;
     width: 100%;
-    margin-top: 50px;
+    margin-top: 20px;
   }
 
   .info-item {
     display: flex;
     align-items: center;
     width: 100%;
-    font-size: .8em;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    margin-bottom: 10px;
+    color: #3E3E3E;
 
     img {
       margin-right: 8px;
-      width: 30px;
-      height: 30px;
-      object-fit: none;
+      width: 20px;
+      height: 20px;
     }
   }
 `

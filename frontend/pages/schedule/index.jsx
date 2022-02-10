@@ -21,7 +21,6 @@ const Content = styled.div`
   iframe {
     border: none;
     width: 99vw;
-    margin-top: 40px;
     margin-left: auto;
     margin-right: auto;
     min-height: 85vh;
