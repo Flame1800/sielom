@@ -32,6 +32,7 @@
     "editorjs-react-renderer": "^2.7.3",
     "jquery": "^3.6.0",
     "jquery.marquee": "^1.6.0",
+    "lodash": "^4.17.21",
     "markdown-to-jsx": "^7.1.6",
     "moment": "^2.29.1",
     "next": "latest",

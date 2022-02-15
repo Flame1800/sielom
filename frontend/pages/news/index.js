@@ -2,7 +2,7 @@ import MainLayout from "../../layouts/MainLayout";
 import {API} from "../../libs/API";
 import MainHeader from "../../components/Shared/MainHeader";
 import styled from "styled-components";
-import NewsCard from "../../components/News/NewsCard";
+import NewsCard from "../../components/Card/NewsCard";
 
 
 export default function Events({ news }) {
@@ -18,6 +18,8 @@ export default function Events({ news }) {
 
 const Content = styled.div`
   margin-top: 60px;
+  display: flex;
+  flex-wrap: wrap;
 `
 
 Events.getInitialProps = async () => {

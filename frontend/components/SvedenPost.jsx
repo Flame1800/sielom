@@ -2,9 +2,10 @@ import MainLayout from "../layouts/MainLayout";
 import MainHeader from "../components/Shared/MainHeader";
 import styled from "styled-components";
 import React from "react";
-import {SidebarLinks, SidebarWrapper} from "../styles/sharedStyle";
+import { SidebarLinks } from "../styles/sharedStyle";
 import Link from "next/link";
 import {API} from "../libs/API";
+import PagePost from "./Shared/PagePost";
 
 export default function SvedenPost({ post }) {
 
@@ -17,12 +18,10 @@ export default function SvedenPost({ post }) {
 
     const activePost = post ? post : posts[0]
 
-    console.log(activePost)
-
     return (
         <MainLayout>
             <MainHeader>Сведения об организации</MainHeader>
-            <SidebarWrapper>
+            <Wrapper>
                 <SidebarLinks>
                     {posts.map(({ attributes, id }) =>
                         <Link href={`/sveden/${id}`} >
@@ -31,31 +30,14 @@ export default function SvedenPost({ post }) {
                             </a>
                         </Link>)}
                 </SidebarLinks>
-                <div className="body-post">
-                    <Content>
-                        {activePost && <>
-                            <div className="text-info">
-                                {activePost.attributes.name}
-                            </div>
-                            <div className="post-md">
-                                <div dangerouslySetInnerHTML={{__html: activePost.attributes.body }} />
-                            </div>
-                        </>}
-                    </Content>
-                </div>
-            </SidebarWrapper>
+                <PagePost post={activePost} />
+            </Wrapper>
         </MainLayout>
     )
 }
 
-const Content = styled.div`
-  padding-bottom: 80px;
-  .text-info {
-    font-weight: 500;
-    font-size: 27px;
-    line-height: 38px;
-    letter-spacing: -0.02em;
-    color: #3E3E3E;
-    margin-bottom: 40px;
-  }
+const Wrapper = styled.div`
+  display: flex;
 `
+
+

@@ -24,7 +24,7 @@ export const HeroBlock = styled.section`
   
   .slider {
     .swiper {
-      max-width: 1620px;
+      max-width: 1420px;
       height: 60vh;
       display: flex;
       overflow: hidden;
@@ -247,7 +247,6 @@ export const HeroBlock = styled.section`
   
 `;
 
-
 export const EventsAndNews = styled.div`
   margin-top: 90px;
 
@@ -255,9 +254,10 @@ export const EventsAndNews = styled.div`
     height: 150px;
   }
   
-  .news {
+  .cards {
+    margin-bottom: 100px;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
   }
 `
 

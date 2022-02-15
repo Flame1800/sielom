@@ -1,11 +1,7 @@
-import Head from 'next/head'
-import Select from "../../components/Select";
-import Input from "../../components/Input";
-import EventCard from "../../components/Events/EventCard";
+import EventCard from "../../components/Card/EventCard";
 import MainLayout from "../../layouts/MainLayout";
 import FilterBuildings from "../../components/FilterBuildings";
 import {API} from "../../libs/API";
-import PostPage from "../rules/[id]";
 import MainHeader from "../../components/Shared/MainHeader";
 import styled from "styled-components";
 

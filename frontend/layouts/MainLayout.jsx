@@ -6,7 +6,9 @@ export default function MainLayout({ children, noFooter }) {
   return (
     <>
       <Header />
-      <Wrapper>{children}</Wrapper>
+      <Wrapper>
+          {children}
+      </Wrapper>
         {!noFooter && <Footer />}
     </>
   );
@@ -20,3 +22,4 @@ const Wrapper = styled.div`
   min-height: 60vh;
   font-size: 1vw;
 `
+

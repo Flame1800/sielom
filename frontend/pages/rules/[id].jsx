@@ -1,20 +1,17 @@
 import MainLayout from "../../layouts/MainLayout";
 import {API} from "../../libs/API";
-import PostLayout from "../../layouts/PostLayout";
 import styled from "styled-components";
 import OutEditorText from "../../components/Editor/OutEditorText";
 
 export default function Rule({post}) {
     return (
         <MainLayout>
-            <PostLayout>
                 <Title>
                     {post.attributes.title}
                 </Title>
                 <TextPost>
                     <OutEditorText data={post.attributes.body} />
                 </TextPost>
-            </PostLayout>
         </MainLayout>
     )
 }

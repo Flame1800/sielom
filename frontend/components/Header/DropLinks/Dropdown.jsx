@@ -27,9 +27,12 @@ const MenuHeader = ({ close }) => {
                 {content.map((column, id) => (
                     <NavColumn key={id} >
                         <div className='title'>
-                            <LinkWrapper href={column.main.src}>
-                                {column.main.name}
-                            </LinkWrapper>
+                            {column.main.src.length > 0
+                            ?   <LinkWrapper href={column.main.src}>
+                                    {column.main.name}
+                                </LinkWrapper>
+                            :  <div>{column.main.name}</div>}
+
                         </div>
                         <div className="link">
                             {column.links.map((link, id) => (
@@ -69,6 +72,14 @@ const NavColumn = styled.div`
 
   .title {
     margin-bottom: 5px;
+    
+    div {
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 17px;
+      text-transform: uppercase;
+      color: #3E3E3E;
+    }
 
     a {
       font-weight: 600;

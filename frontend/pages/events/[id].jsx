@@ -2,69 +2,61 @@ import MainLayout from "../../layouts/MainLayout";
 import {API} from "../../libs/API";
 import moment from "moment";
 import 'moment/locale/ru'
-import PostLayout from "../../layouts/PostLayout";
 import styled from "styled-components";
 import {baseTheme} from "../../styles/theme";
 import React from "react";
+import PostCover from "../../components/Post/PostCover";
+import {PostDate, PostText, PostTitle} from "../../components/Post/PostStyle";
+import normalizeDate from "../../libs/normalizeDate";
+import _ from "lodash";
+import NewsMinCard from "../../components/Card/CommonMinCard";
+import MinTapePost from "../../components/Post/MinTapePost";
 
-export default function Rule({event}) {
+export default function Rule({event, events}) {
 
     const {attributes} = event
     const date = moment(attributes.start_date).calendar()
 
     return (
         <MainLayout>
-            <PostLayout>
-                <Title>
-                    {attributes.title}
-                </Title>
-                <EventInfo>
-                    <div className="item">
-                        <div className='title'>Место</div>
-                        <div className='value'>{attributes.place}</div>
-                    </div>
-                    <div className="item">
-                        <div className='title'>Дата и время</div>
-                        <div className='value'>{date}</div>
-                    </div>
-                </EventInfo>
-                {attributes.cover.data && <div className="flex w-full">
-                         <img
-                            src={`http://localhost:1337${attributes.cover.data.attributes.url}`}
-                            alt={'Не удалось заргуить изображение'}
-                            height={400}
-                            className="max-w-full h-96 rounded-xl my-4 mr-8" />
-                     </div>}
-                <TextPost>
-                    <div dangerouslySetInnerHTML={{__html: attributes.description }} />
-                </TextPost>
-            </PostLayout>
+            <PostWrapper>
+                <div>
+                    <PostTitle>
+                        {attributes.title}
+                    </PostTitle>
+                    {attributes.date
+                    && <PostDate>{normalizeDate(attributes.date)}</PostDate>}
+                    <EventInfo>
+                        {attributes.place && <div className="item">
+                            <div className='title'>Место</div>
+                            <div className='value'>{attributes.place}</div>
+                        </div>}
+                        <div className="item">
+                            <div className='title'>Дата и время</div>
+                            <div className='value'>{date}</div>
+                        </div>
+                    </EventInfo>
+                    <PostCover entity={event} />
+                    <PostText>
+                        <div dangerouslySetInnerHTML={{__html: attributes.description }} />
+                    </PostText>
+                </div>
+                <MinTapePost title={"Читайте также:"} posts={events} />
+            </PostWrapper>
         </MainLayout>
     )
 }
 
 Rule.getInitialProps = async ctx => {
     const { data } = await API.getEvent(ctx.query.id)
-    return { event: data.data }
+    const events = await API.getEvents()
+    return { event: data.data, events: events.data.data }
 }
 
-const Title = styled.h1`
-  font-weight: 600;
-  font-size: 24px;
-  line-height: 38px;
-  letter-spacing: -0.01em;
-  color: #3E3E3E;
-  margin-bottom: 20px;
-`
 
-const TextPost = styled.h1`
-  font-style: normal;
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 27px;
-  letter-spacing: -0.01em;
-  color: #000000;
-  margin-top: 20px;
+const PostWrapper = styled.div`
+  display: flex;
+  margin-top: 50px;
 `
 
 const EventInfo = styled.div`
@@ -77,9 +69,9 @@ const EventInfo = styled.div`
   justify-content: space-between;
   
   .item {
-    border-left: 2px solid ${baseTheme.colors.gold};
-    padding-left: 10px;
-    padding-top: 3px;
+    border-radius: 10px;
+    border: 2px solid ${baseTheme.colors.gold};
+    padding: 20px;
   }
   
   .title {
@@ -100,4 +92,12 @@ const EventInfo = styled.div`
     color: #5F5F5F;
   }
 `
+const ListPosts = styled.div`
+  margin-left: 10%;
+  
+  .title {
+    margin-bottom: 40px;
+  }
+`
+
 

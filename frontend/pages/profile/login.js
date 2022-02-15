@@ -27,21 +27,17 @@ export default function NotFound() {
 
 const Content = styled.div`
   width: 55%;
-  border-left: 1px solid ${baseTheme.colors.light};
-  border-right: 1px solid ${baseTheme.colors.light};
   height: 60vh;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
   
   .title {
     font-style: normal;
     font-weight: bold;
     font-size: 41px;
     line-height: 50px;
-    text-align: center;
     letter-spacing: -0.05em;
     color: #3E3E3E;
     margin-bottom: 70px;

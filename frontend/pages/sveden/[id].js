@@ -8,7 +8,7 @@ export default function SvedenPostPage({ post }) {
 
 
 SvedenPostPage.getInitialProps = async (ctx) => {
-    const { data } = await API.getPost(ctx.query.id)
+    const { data } = await API.getPage(ctx.query.id)
 
     return { post: data.data, posts: data.data }
 }

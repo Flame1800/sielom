@@ -5,15 +5,14 @@ const MainHeader = ({children}) => {
 }
 
 const Wrapper = styled.div`
-  margin-top: 40px;
-  font-family: Playfair Display, sans-serif;
+  margin-top: 100px;
   font-style: normal;
   font-weight: 600;
   font-size: 64px;
   line-height: 36px;
-  letter-spacing: -0.5px;
   text-transform: uppercase;
-  color: #3E3E3E;
+  color: #3e3e3e;
+  margin-bottom: 80px;
 `
 
 export default MainHeader

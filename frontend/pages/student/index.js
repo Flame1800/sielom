@@ -2,7 +2,7 @@ import MainLayout from "../../layouts/MainLayout";
 import {API} from "../../libs/API";
 import MainHeader from "../../components/Shared/MainHeader";
 import styled from "styled-components";
-import NewsCard from "../../components/News/NewsCard";
+import NewsCard from "../../components/Card/NewsCard";
 import {Title} from "../../styles/homeStyle";
 import {baseTheme} from "../../styles/theme";
 import LongLink from "../../components/Shared/LongLink";

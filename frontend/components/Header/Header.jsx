@@ -94,9 +94,8 @@ const Header = () => {
 };
 
 const Wrapper = styled.div`
-  padding-top: 26px;
-  padding-bottom: 10px;
-  height: 133px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   display: flex;
   align-items: center;
   position: sticky;

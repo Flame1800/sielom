@@ -5,7 +5,8 @@ export const API = {}
 const prodHost = process.env.API_HOST_PROD
 const devHost = process.env.API_HOST_DEV
 
-const url = process.env.NODE_ENV === 'production' ? prodHost : devHost
+const url = "http://193.168.48.37:1337/api"
+
 
 API.createRule = (post) => axios.post(`${url}/rules`, { data: post })
 API.getRules = () => axios(`${url}/rules?populate=*`)
@@ -22,7 +23,9 @@ API.getSpecialty = (id) => axios(`${url}/specialties/${id}?populate=*`)
 
 API.getEmployeeRoles = () => axios(`${url}/employee-roles?populate=*`)
 
-API.getPost = (id) => axios(`${url}/posts/${id}?populate=*`)
+API.getPage = (id) => axios(`${url}/posts/${id}?populate=*`)
 
 
 API.getSvedens = () => axios(`${url}/posts?filters[category][slug][$eq]=sveden&populate=*`)
+API.getReceptionCampainPages = () => axios(`${url}/posts?filters[category][slug][$eq]=reception-campain&populate=*`)
+API.getCommissonPage = () => axios(`${url}/reception-campain`)

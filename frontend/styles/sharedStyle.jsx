@@ -1,36 +1,34 @@
 import styled from "styled-components";
 import {baseTheme} from "./theme";
 
-export const SidebarWrapper = styled.div`
-  display: grid;
-  grid-template-columns: 310px auto;
-  margin-top: 60px;
-  border-top: 1px solid ${baseTheme.colors.light};
-  
-  .body-post {
-    padding-top: 20px;
-    padding-left: 35px;
-    max-width: 1040px;
-    min-height: 60vh;
-    border-left: 1px solid ${baseTheme.colors.light};
-  }
-`
 
 export const SidebarLinks = styled.div`
-  margin-top: 40px;
-  font-size: 16px;
+  position: sticky;
+  top: 140px;
+  max-width: 300px;
+  width: 100%;
+  font-size: 14px;
   line-height: 24px;
   font-weight: 500;
   display: flex;
   flex-direction: column;
-  
+  border: 1px solid ${baseTheme.colors.light};
+  border-radius: 20px;
+  margin-right: 20px;
+  padding: 15px;
+  height: 100%;
+  margin-bottom: 30px;
+  bottom: 30px;
+
   div {
     cursor: pointer;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     transition: .1s;
-    
+    border-radius: 10px;
+    padding: 8px;
+
     &:hover {
-      color: ${baseTheme.colors.gold};
+      background: #fff4dd;
     }
   }
 `

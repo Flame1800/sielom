@@ -5,7 +5,7 @@ const mapLinks = [
         link: makeLink("common", "common"),
         content: [
             {
-                main: makeLink("Основная страница", "/"),
+                main: makeLink("", "/"),
                 links: [
                     makeLink("Сведения об образовательной организации", "/sveden"),
                     makeLink("WordSkills", "/"),
@@ -22,7 +22,7 @@ const mapLinks = [
                 ]
             },
             {
-                main: makeLink("Сервисы", "/"),
+                main: makeLink("Сервисы", ""),
                 links: [
                     makeLink("Личный кабинет", "/"),
                     makeLink("Расписание", "/timetable"),
@@ -35,15 +35,13 @@ const mapLinks = [
         link: makeLink("Абитуренту", "entrant"),
         content: [
             {
-                main: makeLink("Основная страница", "/"),
+                main: makeLink("Поступающим", "/reception-campain"),
                 links: [
                     makeLink("Программы обучения", "/specialties"),
-                    makeLink("Приемная кампания", "/"),
-                    makeLink("Приемная комиссия", "/"),
                 ]
             },
             {
-                main: makeLink("Архив приемных кампаний", "/"),
+                main: makeLink("Архив приемных кампаний", ""),
                 links: [
                     makeLink("Приемная кампания 2021", "http://sielom.ru/abi/priemnaja-kampanija-2021"),
                     makeLink("Приемная кампания 2020", "http://sielom.ru/abi/priemnaja-komissija/priemnaja-kampanija-20202021-uchebnyi-god.html"),
@@ -57,19 +55,19 @@ const mapLinks = [
         link: makeLink("Сутденту", "student"),
         content: [
             {
-                main: makeLink("УЧЕБНЫЙ ПРОЦЕСС", "/student"),
-                links: [
-                    makeLink("Промежуточная аттестация", "/"),
-                    makeLink("График приема академических задолженностей", "/"),
-                ]
-            },
-            {
-                main: makeLink("Студенческая жизнь", "/"),
+                main: makeLink("Студенческая жизнь", "/student"),
                 links: [
                     makeLink("Студенческий совет", "/"),
                     makeLink("Лига волонтеров", "/"),
                     makeLink("Медиацентр", "/"),
                     makeLink("Проекты", "/"),
+                ]
+            },
+            {
+                main: makeLink("УЧЕБНЫЙ ПРОЦЕСС", ""),
+                links: [
+                    makeLink("Промежуточная аттестация", "/"),
+                    makeLink("График приема академических задолженностей", "/"),
                 ]
             },
         ],
@@ -84,8 +82,8 @@ const mapLinks = [
                     makeLink("Практика", "/"),
                     makeLink("Выпускные квалифиционные работы", "/"),
                     makeLink("Итоговая государственная аттестация", "/"),
-                    makeLink("Трудоустройство", "/"),
                     makeLink("Сотрудничество с Тюмгу", "/"),
+                    makeLink("Трудоустройство", "/"),
                 ]
             }
         ],
@@ -94,30 +92,22 @@ const mapLinks = [
         link: makeLink("Институт", "employer"),
         content: [
             {
-                main: makeLink("Основная страница", "/"),
+                main: makeLink("", ""),
                 links: [
-                    makeLink("Сведения об образовательной организации", "/sveden"),
                     makeLink("Об институте", "/"),
                     makeLink("Контакты", "/"),
                     makeLink("Работодателю", "/"),
                 ]
-            }
-        ],
-    },
-    {
-        link: makeLink("Медиа", "media"),
-        content: [
+            },
             {
-                main: makeLink("", "/"),
+                main: makeLink("Медиа", ""),
                 links: [
                     makeLink("Новости", "/news"),
                     makeLink("Календарь мероприятий", "/events"),
-                    makeLink("Обьявления", "/"),
-                    makeLink("Регламенты", "/rules"),
                 ]
             },
-        ]
-    }
+        ],
+    },
 ];
 
 export default mapLinks

@@ -1,10 +1,10 @@
-import EventCard from "../components/Events/EventCard";
+import EventCard from "../components/Card/EventCard";
 import { API } from "../libs/API";
 import React from "react";
 import {
     DefaultSection, Title, EventsAndNews, Specialties, Infographics, Partners, HeroBlock
 } from '../styles/homeStyle'
-import NewsCard from "../components/News/NewsCard";
+import NewsCard from "../components/Card/NewsCard";
 import ArrowButton from "../components/Shared/ArrowButton";
 import SpecCard from "../components/Specialties/SpecCard";
 import TagButton from "../components/Shared/TagButton";
@@ -82,23 +82,29 @@ export default function Home({events, news, specialties}) {
         <EventsAndNews>
             <DefaultSection>
                 <div className='header'>
-                    <Title>Мероприятия и новости</Title>
+                    <Title>Мероприятия</Title>
                     <ArrowButton>Узнать больше</ArrowButton>
                 </div>
-                <div>
-                    <div className="news">
+                    <div className="cards">
                         {events.map((event, i) => {
                             if (i < 4) {
                                 return <EventCard event={event} />
                             }
                         })}
-                        {/*{news.map((post, i) => {*/}
-                        {/*    if (i < 2) {*/}
-                        {/*        return <NewsCard post={post} />*/}
-                        {/*    }*/}
-                        {/*})}*/}
                     </div>
+            </DefaultSection>
+            <DefaultSection>
+                <div className='header'>
+                    <Title>Новости</Title>
+                    <ArrowButton>Узнать больше</ArrowButton>
                 </div>
+                    <div className="cards" >
+                        {news.map((post, i) => {
+                            if (i < 4) {
+                                return <NewsCard post={post} />
+                            }
+                        })}
+                    </div>
             </DefaultSection>
         </EventsAndNews>
         {/* -------------------- Конец секции -------------------- */}
