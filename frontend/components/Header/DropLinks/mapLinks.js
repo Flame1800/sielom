@@ -35,8 +35,9 @@ const mapLinks = [
         link: makeLink("Абитуренту", "entrant"),
         content: [
             {
-                main: makeLink("Поступающим", "/reception-campain"),
+                main: makeLink("Поступающим", ""),
                 links: [
+                    makeLink("Премная компания", "/reception-campain"),
                     makeLink("Программы обучения", "/specialties"),
                 ]
             },

@@ -7,7 +7,6 @@ import {useAppDispatch, useAppSelector} from "../../redux/hooks";
 import {fetchCreateRule} from "../../redux/slices/rules";
 import Editor from "../../components/Editor/Editor";
 import Button from "../../components/Shared/Button";
-import PostLayout from "../../layouts/PostLayout";
 import styled from "styled-components";
 
 
@@ -51,7 +50,6 @@ export default function NewPost() {
 
     return (
         <MainLayout>
-            <PostLayout>
                     <Title>
                         Новый регламент
                     </Title>
@@ -73,8 +71,7 @@ export default function NewPost() {
                             <Button>Опубликовать</Button>
                         </div>}
                     </div>
-            </PostLayout>
-        </MainLayout>
+F        </MainLayout>
     )
 }
 
