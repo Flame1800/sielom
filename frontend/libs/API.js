@@ -5,7 +5,7 @@ export const API = {}
 const prodHost = process.env.API_HOST_PROD
 const devHost = process.env.API_HOST_DEV
 
-const url = "http://193.168.48.37:1337/api"
+const url = process.env.API_HOST_PROD
 
 
 API.createRule = (post) => axios.post(`${url}/rules`, { data: post })
@@ -29,3 +29,6 @@ API.getPage = (id) => axios(`${url}/posts/${id}?populate=*`)
 API.getSvedens = () => axios(`${url}/posts?filters[category][slug][$eq]=sveden&populate=*`)
 API.getReceptionCampainPages = () => axios(`${url}/posts?filters[category][slug][$eq]=reception-campain&populate=*`)
 API.getCommissonPage = () => axios(`${url}/reception-campain`)
+
+API.getGraduatePages = () => axios(`${url}/posts?filters[category][slug][$eq]=graduate&populate=*`)
+API.getEmploymentPage = () => axios(`${url}/employment`)

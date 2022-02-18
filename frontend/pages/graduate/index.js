@@ -2,13 +2,13 @@ import MainLayout from "../../layouts/MainLayout";
 import {API} from "../../libs/API";
 import MainHeader from "../../components/Shared/MainHeader";
 import styled from "styled-components";
-import NewsCard from "../../components/Card/NewsCard";
 import {Title} from "../../styles/homeStyle";
-import {baseTheme} from "../../styles/theme";
 import LongLink from "../../components/Shared/LongLink";
+import React from "react";
 
+export default function Graduate({ posts, content }) {
+    const [activePost, setPost] = React.useState(null)
 
-export default function Events() {
     return (
         <MainLayout>
             <MainHeader>Выпускнику</MainHeader>
@@ -27,25 +27,44 @@ export default function Events() {
                     <div className="link">
                         <img src="/img/arrow-45.png" alt="arrow-icon" className="icon"/>
                         Вакансии для выпускников</div>
-                    <div className="link">
+                    <a href='http://sielom.ru/vipusknikam/sotrudnichestvo-s-tyumgu' target="_blank" className="link">
                         <img src="/img/arrow-45.png" alt="arrow-icon" className="icon"/>
-                        Сотрудничество с ТюмГУ</div>
+                        Сотрудничество с ТюмГУ</a>
                 </div>
                 <div className="link-group">
                     <div className="group">
-                        <Title>Полезные ссылки</Title>
+                        <Title>Полезные материалы</Title>
                         <div className="links">
-                            <LongLink>Курсовые работы</LongLink>
-                            <LongLink>Практики</LongLink>
-                            <LongLink>Выпускные квалификационные работы</LongLink>
-                            <LongLink>Итоговая государственная аттестация</LongLink>
+                            {posts.map(post =>
+                                <>
+                                    <div
+                                        key={post.id}
+                                        onClick={() => post.id === activePost?.id ? setPost(null) : setPost(post)}
+                                    >
+                                        <LongLink>{post.attributes.name}</LongLink>
+                                    </div>
+                                    {activePost?.id === post.id
+                                    && <div className='page-list' dangerouslySetInnerHTML={{ __html: activePost.attributes.body }} />}
+                                </>
+                                )}
                         </div>
                     </div>
-                    <img src="/img/spring-elem.png" alt="img" className="spring"/>
+                    <img src="/img/spring-elem.svg" alt="img" className="spring"/>
+                </div>
+                <div className='employment'>
+                    <Title>{content.attributes.name}</Title>
+                    <div className='body' dangerouslySetInnerHTML={{ __html: content.attributes.body }} />
                 </div>
             </Content>
         </MainLayout>
     )
+}
+
+
+Graduate.getInitialProps = async ctx => {
+    const posts = await API.getGraduatePages()
+    const content = await API.getEmploymentPage()
+    return { posts: posts.data.data, content: content.data.data }
 }
 
 const Header = styled.div`
@@ -55,13 +74,17 @@ const Header = styled.div`
   grid-template-columns: 50% 50%;
   
   .text {
-    text-indent: 70px;
     font-style: normal;
     font-weight: 500;
     font-size: 30px;
     line-height: 39px;
     letter-spacing: -1.25px;
     color: #3E3E3E;
+  }
+
+
+  img {
+    border-radius: 20px;
   }
 `
 
@@ -72,6 +95,7 @@ const Content = styled.div`
     margin-bottom: 120px;
     
     .link {
+      border-radius: 20px;
       position: relative;
       display: flex;
       align-items: flex-end;
@@ -110,6 +134,25 @@ const Content = styled.div`
     justify-content: space-between;
     flex-wrap: wrap;
     margin-bottom: 100px;
+    position: relative;
+    min-height: 60vh;
+    
+    .page-list {
+      margin-bottom: 80px; 
+      
+      p {
+        margin-bottom: 5px !important;
+        text-decoration: underline;
+        line-height: 40px;
+        font-size: 18px;
+      }
+    }
+    
+    .spring {
+      position: absolute;
+      right: 30px;
+      top: 100px;
+    }
 
     .group {
       max-width: 666px;
@@ -118,6 +161,23 @@ const Content = styled.div`
       .links {
         margin-top: 90px;
       }
+    }
+  }
+  
+  .employment {
+    display: flex;
+    
+    .name {
+      font-size: 44px;
+      font-weight: 500;
+      margin-bottom: 60px;
+    }
+    
+    .body {
+      margin-left: 100px;
+      max-width: 800px;
+      font-size: 16px;
+      margin-bottom: 60px;
     }
   }
 `

@@ -55,13 +55,16 @@ const Header = styled.div`
   grid-template-columns: 50% 50%;
   
   .text {
-    text-indent: 70px;
     font-style: normal;
     font-weight: 500;
     font-size: 30px;
     line-height: 35px;
     letter-spacing: -1.25px;
     color: #3E3E3E;
+  }
+  
+  img {
+    border-radius: 20px;
   }
 `
 
@@ -72,6 +75,7 @@ const Content = styled.div`
     margin-bottom: 120px;
     
     .link {
+      border-radius: 20px;
       position: relative;
       display: flex;
       align-items: flex-end;

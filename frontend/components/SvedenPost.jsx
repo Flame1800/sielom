@@ -20,7 +20,7 @@ export default function SvedenPost({ post }) {
 
     return (
         <MainLayout>
-            <MainHeader>Сведения об организации</MainHeader>
+            <MainHeader>Сведения об образовательной организации</MainHeader>
             <Wrapper>
                 <SidebarLinks>
                     {posts.map(({ attributes, id }) =>

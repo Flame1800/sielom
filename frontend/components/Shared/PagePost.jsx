@@ -6,7 +6,7 @@ const PagePost = ({ post }) => {
     return (
         <Content>
             {post && <>
-                <div className="text-info">
+                <div className="title">
                     {post.attributes.name}
                 </div>
                 <div className="post-md">
@@ -19,13 +19,14 @@ const PagePost = ({ post }) => {
 
 const Content = styled.div`
   padding-bottom: 80px;
-  .text-info {
-    font-weight: 500;
-    font-size: 27px;
+  margin-top: 80px;
+  .title {
+    font-weight: 600;
+    font-size: 36px;
     line-height: 38px;
     letter-spacing: -0.02em;
     color: #3E3E3E;
-    margin-bottom: 40px;
+    margin-bottom: 70px;
   }
 `
 

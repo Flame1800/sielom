@@ -1,7 +1,5 @@
 import MainLayout from "../../layouts/MainLayout";
 import {API} from "../../libs/API";
-import NewsPost from "../news/[id]";
-import axios from "axios";
 import Link from "next/link";
 import {} from "../../styles/homeStyle";
 import MainHeader from "../../components/Shared/MainHeader";
@@ -12,28 +10,33 @@ import LongLink from "../../components/Shared/LongLink";
 
 const ReceptionCampain = ({ posts, commission }) => {
 
-    console.log(commission)
     return (
         <MainLayout>
             <Wrapper>
                 <MainHeader>поступающим</MainHeader>
                 <div className="commission">
-                    <div className='item'>
-                        <div className="name">Адресс: </div>
-                        {commission.attributes.address}
+                    <div>
+                        <div className="title">Контакты приемной коммисии</div>
+                        <div className='items'>
+                            <div className='item'>
+                                <div className="name">Адресс: </div>
+                                {commission.attributes.address}
+                            </div>
+                            <div className='item'>
+                                <div className="name">Номера телефона: </div>
+                                {commission.attributes.phone}
+                            </div>
+                            <div className='item'>
+                                <div className="name">Эл. почта:</div>
+                                {commission.attributes.email}
+                            </div>
+                            <div className='item'>
+                                <div className="name">Время работы:</div>
+                                {commission.attributes.worktime}
+                            </div>
+                        </div>
                     </div>
-                    <div className='item'>
-                        <div className="name">Номера телефона: </div>
-                        {commission.attributes.phone}
-                    </div>
-                    <div className='item'>
-                        <div className="name">Эл. почта:</div>
-                        {commission.attributes.email}
-                    </div>
-                    <div className='item'>
-                        <div className="name">Время работы:</div>
-                        {commission.attributes.worktime}
-                    </div>
+
                 </div>
                 <div className="pages">
                     {posts.map((post, id) => {
@@ -67,8 +70,18 @@ const Wrapper = styled.div`
       border-bottom: 1px solid #3e3e3e;
       margin-bottom: 100px;
       display: flex;
+      flex-wrap: wrap;
       flex-direction: column;
       margin-right: 50px;
+      margin-top: 90px;
+      
+      .title {
+        margin-bottom: 30px;
+        font-weight: 600;
+        font-size: 26px;
+        color: ${baseTheme.colors.black};
+      }
+      
       
       .item {
         margin-bottom: 40px;

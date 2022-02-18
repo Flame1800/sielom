@@ -8,12 +8,12 @@ const mapLinks = [
                 main: makeLink("", "/"),
                 links: [
                     makeLink("Сведения об образовательной организации", "/sveden"),
-                    makeLink("WordSkills", "/"),
-                    makeLink("Персонал", "/specialties"),
+                    makeLink("WordSkills", "http://sielom.ru/worldskills_russia"),
+                    makeLink("Персонал", "/employees"),
                 ]
             },
             {
-                main: makeLink("Дополнительное образование", "/"),
+                main: makeLink("Дополнительное образование", ""),
                 links: [
                     makeLink("Перечень документов для поступления", "/"),
                     makeLink("Повышение квалификации", "/"),
@@ -24,7 +24,7 @@ const mapLinks = [
             {
                 main: makeLink("Сервисы", ""),
                 links: [
-                    makeLink("Личный кабинет", "/"),
+                    makeLink("Личный кабинет", "/profile/login"),
                     makeLink("Расписание", "/timetable"),
                     makeLink("Дистанционные занятия", "/"),
                 ]

@@ -19,6 +19,7 @@ export const SidebarLinks = styled.div`
   height: 100%;
   margin-bottom: 30px;
   bottom: 30px;
+  margin-top: 80px;
 
   div {
     cursor: pointer;
