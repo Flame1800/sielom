@@ -57,7 +57,7 @@ const Header = () => {
                       return <div key={link.name} onClick={() => selectLink(content)}>{link.name}</div>
 
                 })}
-                <Link href='/schedule'>
+                <Link href='/timetable'>
                   <a style={{ marginRight: '0px' }}>
                     <div className="button-schedule">Рассписание</div>
                   </a>
