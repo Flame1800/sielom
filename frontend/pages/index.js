@@ -21,6 +21,7 @@ import "swiper/css/autoplay"
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer";
 import Button from "../components/Shared/Button";
+import _ from "lodash";
 
 SwiperCore.use([Navigation, Autoplay]);
 
@@ -86,7 +87,7 @@ export default function Home({events, news, specialties}) {
                     <ArrowButton>Узнать больше</ArrowButton>
                 </div>
                     <div className="cards">
-                        {events.map((event, i) => {
+                        {_.shuffle(events).map((event, i) => {
                             if (i < 4) {
                                 return <EventCard event={event} />
                             }
@@ -99,7 +100,7 @@ export default function Home({events, news, specialties}) {
                     <ArrowButton>Узнать больше</ArrowButton>
                 </div>
                     <div className="cards" >
-                        {news.map((post, i) => {
+                        {_.shuffle(news).map((post, i) => {
                             if (i < 4) {
                                 return <NewsCard post={post} />
                             }

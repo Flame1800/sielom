@@ -54,12 +54,15 @@ const Header = () => {
                           <img src="/img/menu-icon.svg" alt=""/>
                         </div>
                       }
+                      if (content.length === 0) {
+                        return <Link href={link.src} key={link.name}><a>{link.name}</a></Link>
+                      }
                       return <div key={link.name} onClick={() => selectLink(content)}>{link.name}</div>
 
                 })}
                 <Link href='/timetable'>
-                  <a style={{ marginRight: '0px' }}>
-                    <div className="button-schedule">Рассписание</div>
+                  <a target="_blank" style={{ marginLeft: "20px", marginRight: '0px' }}>
+                    <div className="button-schedule">Расписание</div>
                   </a>
                 </Link>
               </div>
@@ -212,7 +215,7 @@ const LinksContainer = styled.div`
       }
     }
 
-    div {
+    div, a {
       font-size: 13px;
       margin-right: 30px;
       color: ${baseTheme.colors.black};

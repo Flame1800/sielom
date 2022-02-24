@@ -1,3 +1,5 @@
+import {API} from "../../../libs/API";
+
 const makeLink = (name, src) => ({ src, name })
 
 const mapLinks = [
@@ -8,7 +10,7 @@ const mapLinks = [
                 main: makeLink("", "/"),
                 links: [
                     makeLink("Сведения об образовательной организации", "/sveden"),
-                    makeLink("WordSkills", "http://sielom.ru/worldskills_russia"),
+                    makeLink("WordSkills", "/worldskills_russia"),
                     makeLink("Персонал", "/employees"),
                 ]
             },
@@ -26,7 +28,6 @@ const mapLinks = [
                 links: [
                     makeLink("Личный кабинет", "/profile/login"),
                     makeLink("Расписание", "/timetable"),
-                    makeLink("Дистанционные занятия", "/"),
                 ]
             }
         ],
@@ -53,41 +54,12 @@ const mapLinks = [
         ],
     },
     {
-        link: makeLink("Сутденту", "student"),
-        content: [
-            {
-                main: makeLink("Студенческая жизнь", "/student"),
-                links: [
-                    makeLink("Студенческий совет", "/"),
-                    makeLink("Лига волонтеров", "/"),
-                    makeLink("Медиацентр", "/"),
-                    makeLink("Проекты", "/"),
-                ]
-            },
-            {
-                main: makeLink("УЧЕБНЫЙ ПРОЦЕСС", ""),
-                links: [
-                    makeLink("Промежуточная аттестация", "/"),
-                    makeLink("График приема академических задолженностей", "/"),
-                ]
-            },
-        ],
+        link: makeLink("Студенту", "/student"),
+        content: [],
     },
     {
-        link: makeLink("Выпускнику", "graduate"),
-        content: [
-            {
-                main: makeLink("Основная страница", "/graduate"),
-                links: [
-                    makeLink("Курсовые работы", "/"),
-                    makeLink("Практика", "/"),
-                    makeLink("Выпускные квалифиционные работы", "/"),
-                    makeLink("Итоговая государственная аттестация", "/"),
-                    makeLink("Сотрудничество с Тюмгу", "/"),
-                    makeLink("Трудоустройство", "/"),
-                ]
-            }
-        ],
+        link: makeLink("Выпускнику", "/graduate"),
+        content: [],
     },
     {
         link: makeLink("Институт", "employer"),
@@ -95,9 +67,7 @@ const mapLinks = [
             {
                 main: makeLink("", ""),
                 links: [
-                    makeLink("Об институте", "/"),
                     makeLink("Контакты", "/"),
-                    makeLink("Работодателю", "/"),
                 ]
             },
             {

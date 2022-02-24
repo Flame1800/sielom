@@ -2,13 +2,11 @@ import MainLayout from "../../layouts/MainLayout";
 import {API} from "../../libs/API";
 import MainHeader from "../../components/Shared/MainHeader";
 import styled from "styled-components";
-import NewsCard from "../../components/Card/NewsCard";
 import {Title} from "../../styles/homeStyle";
-import {baseTheme} from "../../styles/theme";
 import LongLink from "../../components/Shared/LongLink";
+import Link from "next/link";
 
-
-export default function Events() {
+export default function Events({posts}) {
     return (
         <MainLayout>
             <MainHeader>Студенту</MainHeader>
@@ -32,13 +30,14 @@ export default function Events() {
                 </div>
                 <div className="link-group">
                     <div className="group">
-                        <Title>Образование</Title>
+                        <Title>Учебный процесс</Title>
                         <div className="links">
-                            <LongLink>Дистанционные задания</LongLink>
-                            <LongLink>Табели посещаемости</LongLink>
-                            <LongLink>Промежуточная аттестация</LongLink>
-                            <LongLink>Табели успеваемости</LongLink>
-                            <LongLink>Прием академических задолженностей</LongLink>
+                            {posts.map(post =>
+                                <Link key={post.id} href={`student/educational_process?post=${post.attributes.name}`}>
+                                    <a>
+                                        <LongLink>{post.attributes.name}</LongLink>
+                                    </a>
+                                </Link>)}
                         </div>
                     </div>
                     <img src="/img/spring-elem.png" alt="img" className="spring"/>
@@ -46,6 +45,14 @@ export default function Events() {
             </Content>
         </MainLayout>
     )
+}
+
+Events.getInitialProps = async () => {
+    const posts = await API.getEdProcess()
+
+    return {
+        posts: posts.data.data
+    }
 }
 
 const Header = styled.div`
@@ -116,7 +123,7 @@ const Content = styled.div`
     margin-bottom: 100px;
 
     .group {
-      max-width: 666px;
+      max-width: 700px;
       width: 100%;
 
       .links {

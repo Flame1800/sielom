@@ -12,9 +12,10 @@ const EventCard = ({post}) => {
         ? `${process.env.API_URL}${post.attributes.cover?.data?.attributes.url}`
         : false
 
+    console.log(post)
     return (
         <Wrapper>
-            <Link href={`/news/${post.id}`}>
+            <Link href={`/${post.attributes.start_date ? "events" : "news"}/${post.id}`}>
                 <a>
                     <Cover cover={coverImg} />
                     <div>

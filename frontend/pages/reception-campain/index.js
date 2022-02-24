@@ -41,7 +41,7 @@ const ReceptionCampain = ({ posts, commission }) => {
                 <div className="pages">
                     {posts.map((post, id) => {
                         return (
-                            <Link href={`reception-campain/${post.id}`}>
+                            <Link href={`reception-campain/info?post=${post.attributes.name}`}>
                                 <a>
                                     <LongLink>
                                         {id + 1}. {post.attributes.name}

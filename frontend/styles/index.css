@@ -16,9 +16,14 @@ a {
 }
 
 .post-md {
-    font-size: 17px;
+    font-size: 15px;
     line-height: 27px;
 }
+
+.post-md h4 {
+    font-size: 20px !important;
+}
+
 
 .post-md a {
     text-decoration: underline;

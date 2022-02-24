@@ -22,7 +22,6 @@ const Content = styled.div`
   grid-template-columns: 50% 50%;
   margin-left: -10px;
   margin-top: 60px;
-  border-top: 1px solid ${baseTheme.colors.light};
   padding-top: 20px;
 `
 

@@ -1,4 +1,5 @@
 import axios from "axios";
+const qs = require('qs');
 
 export const API = {}
 
@@ -18,7 +19,20 @@ API.getEvent = (id) => axios(`${url}/events/${id}?populate=*`)
 API.getNews = () => axios(`${url}/news?populate=*`)
 API.getNewPost = (id) => axios(`${url}/news/${id}?populate=*`)
 
+
+const querySpecialties = qs.stringify({
+    populate: [
+        '*',
+        'durations.duration',
+    ]
+}, {
+    encodeValuesOnly: true,
+})
+
+console.log(`${url}/specialties?${querySpecialties}`)
+
 API.getSpecialties = () => axios(`${url}/specialties?populate=*`)
+
 API.getSpecialty = (id) => axios(`${url}/specialties/${id}?populate=*`)
 
 API.getEmployeeRoles = () => axios(`${url}/employee-roles?populate=*`)
@@ -27,6 +41,9 @@ API.getPage = (id) => axios(`${url}/posts/${id}?populate=*`)
 
 
 API.getSvedens = () => axios(`${url}/posts?filters[category][slug][$eq]=sveden&populate=*`)
+API.getWordskills = () => axios(`${url}/posts?filters[category][slug][$eq]=wordskills&populate=*`)
+API.getEdProcess = () => axios(`${url}/posts?filters[category][slug][$eq]=educational-process&populate=*`)
+
 API.getReceptionCampainPages = () => axios(`${url}/posts?filters[category][slug][$eq]=reception-campain&populate=*`)
 API.getCommissonPage = () => axios(`${url}/reception-campain`)
 

@@ -5,6 +5,7 @@ import {baseTheme} from "./theme";
 export const SidebarLinks = styled.div`
   position: sticky;
   top: 140px;
+  min-width: 300px;
   max-width: 300px;
   width: 100%;
   font-size: 14px;
@@ -31,5 +32,10 @@ export const SidebarLinks = styled.div`
     &:hover {
       background: #fff4dd;
     }
+  }
+  
+  .active {
+    background: #fff4dd;
+    color: #785100;
   }
 `
