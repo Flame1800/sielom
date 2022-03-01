@@ -2,7 +2,7 @@ import styled from "styled-components";
 import {baseTheme} from "../../styles/theme";
 import {useRouter} from "next/router";
 
-const ArrowButton = ({children}) => {
+const LongLink = ({children}) => {
 
     return <Wrapper>
             <div className="item">{children}</div>
@@ -41,4 +41,4 @@ const Wrapper = styled.div`
   }
 `
 
-export default ArrowButton
+export default LongLink

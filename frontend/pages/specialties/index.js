@@ -11,15 +11,15 @@ export default function Specialties({ specialties }) {
         <MainLayout>
             <MainHeader>ПРОГРАММЫ ОБУЧЕНИЯ</MainHeader>
             <Content>
-                {specialties.map(item => <SpecCard key={item.id} item={item.attributes} />)}
+                {specialties.map(item => <SpecCard key={item.id} entity={item} />)}
             </Content>
         </MainLayout>
     )
 }
 
 const Content = styled.div`
-  display: grid;
-  grid-template-columns: 50% 50%;
+  display: flex;
+  flex-wrap: wrap;
   margin-left: -10px;
   margin-top: 60px;
   padding-top: 20px;

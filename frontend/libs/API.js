@@ -29,10 +29,7 @@ const querySpecialties = qs.stringify({
     encodeValuesOnly: true,
 })
 
-console.log(`${url}/specialties?${querySpecialties}`)
-
 API.getSpecialties = () => axios(`${url}/specialties?populate=*`)
-
 API.getSpecialty = (id) => axios(`${url}/specialties/${id}?populate=*`)
 
 API.getEmployeeRoles = () => axios(`${url}/employee-roles?populate=*`)
@@ -49,3 +46,9 @@ API.getCommissonPage = () => axios(`${url}/reception-campain`)
 
 API.getGraduatePages = () => axios(`${url}/posts?filters[category][slug][$eq]=graduate&populate=*`)
 API.getEmploymentPage = () => axios(`${url}/employment`)
+
+API.getPageBySlug = slug => axios(`${slug}/posts?populate=*&filters[title][$eq]=${slug}`)
+
+
+API.getEmployees = (category) =>
+    axios(encodeURI(`${url}/employees?filters[category][name][$eq]=${category ? category : 'Руководство'}&populate=*`))

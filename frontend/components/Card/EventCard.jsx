@@ -12,8 +12,6 @@ const EventCard = ({event}) => {
         ? `${process.env.API_URL}${event.attributes.cover?.data?.attributes.url}`
         : false
 
-    console.log(event.attributes)
-
     return (
         <CardWrapper>
             <Link href={`/events/${event.id}`}>

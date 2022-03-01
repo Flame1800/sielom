@@ -8,8 +8,8 @@ const Wrapper = styled.div`
   margin-top: 40px;
   font-style: normal;
   font-weight: 600;
-  font-size: 2.6em;
-  line-height: 76px;
+  font-size: 60px;
+  line-height: 74px;
   text-transform: uppercase;
   color: #3e3e3e;
   margin-bottom: 40px;

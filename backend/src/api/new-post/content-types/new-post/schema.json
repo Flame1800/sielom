@@ -4,7 +4,8 @@
   "info": {
     "singularName": "new-post",
     "pluralName": "news",
-    "displayName": "News"
+    "displayName": "News",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -15,16 +16,26 @@
       "type": "string"
     },
     "images": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ]
+    },
+    "body": {
+      "type": "richtext"
+    },
+    "cover": {
       "allowedTypes": [
         "images",
         "files",
         "videos"
       ],
       "type": "media",
-      "multiple": true
-    },
-    "body": {
-      "type": "richtext"
+      "multiple": false
     }
   }
 }

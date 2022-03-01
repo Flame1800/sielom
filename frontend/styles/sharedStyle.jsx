@@ -4,7 +4,7 @@ import {baseTheme} from "./theme";
 
 export const SidebarLinks = styled.div`
   position: sticky;
-  top: 140px;
+  top: 100px;
   min-width: 300px;
   max-width: 300px;
   width: 100%;
@@ -13,8 +13,7 @@ export const SidebarLinks = styled.div`
   font-weight: 500;
   display: flex;
   flex-direction: column;
-  border: 1px solid ${baseTheme.colors.light};
-  border-radius: 20px;
+  border-right: 1px solid #e3e3e3;
   margin-right: 20px;
   padding: 15px;
   height: 100%;
@@ -33,7 +32,7 @@ export const SidebarLinks = styled.div`
       background: #fff4dd;
     }
   }
-  
+
   .active {
     background: #fff4dd;
     color: #785100;

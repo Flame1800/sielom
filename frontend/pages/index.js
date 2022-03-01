@@ -9,7 +9,6 @@ import ArrowButton from "../components/Shared/ArrowButton";
 import SpecCard from "../components/Specialties/SpecCard";
 import TagButton from "../components/Shared/TagButton";
 import Head from 'next/head'
-import MainLayout from "../layouts/MainLayout";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, {
     Navigation, Autoplay
@@ -26,8 +25,6 @@ import _ from "lodash";
 SwiperCore.use([Navigation, Autoplay]);
 
 export default function Home({events, news, specialties}) {
-
-    console.log(specialties)
 
   return (
     <>
@@ -123,7 +120,7 @@ export default function Home({events, news, specialties}) {
                     </div>
                 </div>
                 <div className="list">
-                    {specialties.map(item => <SpecCard key={item.id} item={item.attributes} />)}
+                    {specialties.map(item => <SpecCard key={item.id} entity={item} />)}
                 </div>
             </DefaultSection>
         </Specialties>

@@ -9,16 +9,18 @@ export default function NotFound() {
     return (
         <MainLayout>
             <Content>
-                <div className="title">Вход в личный <br /> кабинет</div>
-                <div className="form">
-                    <input type="text" placeholder="ФИО" className="input"/>
-                    <input type="password" placeholder="Пароль" className="input"/>
+                <div>
+                    <div className="title">Вход в личный <br /> кабинет</div>
+                    <div className="form">
+                        <input type="text" placeholder="ФИО" className="input"/>
+                        <input type="password" placeholder="Пароль" className="input"/>
+                    </div>
+                    <Link href='/profile'>
+                        <a>
+                            <Button>Войти</Button>
+                        </a>
+                    </Link>
                 </div>
-                <Link href='/profile'>
-                    <a>
-                        <Button>Войти</Button>
-                    </a>
-                </Link>
             </Content>
         </MainLayout>
     )
@@ -27,11 +29,12 @@ export default function NotFound() {
 
 const Content = styled.div`
   width: 55%;
-  height: 60vh;
-  margin: 0 auto;
+  height: 80vh;
   display: flex;
-  flex-direction: column;
+  align-items: center;
   justify-content: center;
+  flex-direction: column;
+  padding-bottom: 200px;
   
   .title {
     font-style: normal;
