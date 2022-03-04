@@ -25,7 +25,7 @@ export const HeroBlock = styled.section`
   .slider {
     .swiper {
       max-width: 1420px;
-      height: 60vh;
+      height: 620px;
       display: flex;
       overflow: hidden;
     }
@@ -47,12 +47,14 @@ export const HeroBlock = styled.section`
 
       .slide-content {
         display: flex;
-        justify-content: center;
+        width: 70%;
+        justify-content: space-between;
         align-items: center;
-
+        margin-left: 40px;
+        
         .text {
           text-align: left;
-          max-width: 330px;
+          max-width: 390px;
           display: flex;
           justify-content: flex-start;
           flex-direction: column;
@@ -77,9 +79,6 @@ export const HeroBlock = styled.section`
           }
         }
         
-        .img {
-          margin-left: 70px;
-        }
       }
 
 
@@ -142,106 +141,10 @@ export const HeroBlock = styled.section`
     .swiper-slide img {
       display: block;
       width: 100%;
-      height: 100%;
+      max-width: 530px;
+      height: 530px;
+      border-radius: 50%;
       object-fit: cover;
-    }
-  }
-  
-  .video-and-news {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: flex-end;
-    height: 270px;
-    max-width: 1320px;
-    margin: 0 auto;
-    
-    .video {
-      height: 238px;
-      width: 330px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: url('/img/video-cover.png');
-      
-      .button {
-        width: 150px;
-        height: 150px;
-        border: 3px solid #fff;
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        transition: 0.3s;
-        cursor: pointer;
-        
-        &:hover {
-          background: #fff;
-          
-          .play {
-            color: #000;
-            
-            img {
-              filter: invert(100%);
-            }
-          }
-        }
-        
-        .play {
-          font-weight: 600;
-          font-size: 18px;
-          line-height: 36px;
-          letter-spacing: 0.75px;
-          color: #FFFFFF;
-          display: flex;
-          align-items: center;
-          margin-left: 10px;
-          
-          img {
-            margin-bottom: 4px;
-          }
-        }
-      }
-    }
-    
-    .news {
-      width: 50%;
-      display: flex;
-      flex-wrap: wrap;
-      
-      .item {
-        width: 330px;
-        height: 270px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        padding: 20px 15px 30px 15px;
-        border: 1px solid #fff;
-        transition: .2s;
-        &:hover {
-          border: 1px solid ${baseTheme.colors.light};
-        }
-        
-        .title {
-          font-style: normal;
-          font-weight: 600;
-          font-size: 20px;
-          line-height: 27px;
-          letter-spacing: 0.75px;
-          color: #373737;
-          width: 100%;
-          border-bottom: 1px solid #B1B1B1;
-          margin-bottom: 15px;
-          padding-bottom: 12px;
-        }
-        
-        .body {
-          font-weight: 500;
-          font-size: 14px;
-          line-height: 22px;
-          color: #373737;
-        }
-      }
     }
   }
   
@@ -262,7 +165,7 @@ export const EventsAndNews = styled.div`
 `
 
 export const Specialties = styled.div`
-  margin-top: 290px;
+  margin-top: 190px;
   min-height: 500px;
   margin-bottom: 250px;
   
@@ -296,7 +199,7 @@ export const Specialties = styled.div`
 `
 
 export const Infographics = styled.div`
-  margin-bottom: 180px;
+  margin-bottom: 230px;
   
   .info-items {
     .item {

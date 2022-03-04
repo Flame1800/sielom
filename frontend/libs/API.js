@@ -9,6 +9,8 @@ const devHost = process.env.API_HOST_DEV
 const url = process.env.API_HOST_PROD
 
 
+API.getSlides = () => axios(`${url}/hero-slides?populate=*`)
+
 API.createRule = (post) => axios.post(`${url}/rules`, { data: post })
 API.getRules = () => axios(`${url}/rules?populate=*`)
 API.getRule = (id) => axios(`${url}/rules/${id}`)
@@ -47,7 +49,7 @@ API.getCommissonPage = () => axios(`${url}/reception-campain`)
 API.getGraduatePages = () => axios(`${url}/posts?filters[category][slug][$eq]=graduate&populate=*`)
 API.getEmploymentPage = () => axios(`${url}/employment`)
 
-API.getPageBySlug = slug => axios(`${slug}/posts?populate=*&filters[title][$eq]=${slug}`)
+API.getPageBySlug = slug => axios(encodeURI(`${url}/posts?populate=*&filters[slug][$eq]=${slug}`))
 
 
 API.getEmployees = (category) =>

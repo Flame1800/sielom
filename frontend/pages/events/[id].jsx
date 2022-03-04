@@ -9,10 +9,11 @@ import PostCover from "../../components/Post/PostCover";
 import {PostDate, PostText, PostTitle} from "../../components/Post/PostStyle";
 import normalizeDate from "../../libs/normalizeDate";
 import _ from "lodash";
-import NewsMinCard from "../../components/Card/CommonMinCard";
 import MinTapePost from "../../components/Post/MinTapePost";
+import ArrowButton from "../../components/Shared/ArrowButton";
+import EventCard from "../../components/Card/EventCard";
 
-export default function Rule({event, events}) {
+export default function Event({event, events}) {
 
     const {attributes} = event
     const date = moment(attributes.start_date).calendar()
@@ -21,6 +22,7 @@ export default function Rule({event, events}) {
         <MainLayout>
             <PostWrapper>
                 <div>
+                    <ArrowButton back>назад</ArrowButton>
                     <PostTitle>
                         {attributes.title}
                     </PostTitle>
@@ -41,13 +43,23 @@ export default function Rule({event, events}) {
                         <div dangerouslySetInnerHTML={{__html: attributes.description }} />
                     </PostText>
                 </div>
-                <MinTapePost title={"Читайте также:"} posts={events} />
             </PostWrapper>
+            <Tape>
+                <div className="title">Читайте также:</div>
+                <div className='list'>
+                    {_.shuffle(events).map((post, id) => {
+                        if (id > 3) {
+                            return null
+                        }
+                        return <EventCard event={post} />
+                    })}
+                </div>
+            </Tape>
         </MainLayout>
     )
 }
 
-Rule.getInitialProps = async ctx => {
+Event.getInitialProps = async ctx => {
     const { data } = await API.getEvent(ctx.query.id)
     const events = await API.getEvents()
     return { event: data.data, events: events.data.data }
@@ -56,7 +68,8 @@ Rule.getInitialProps = async ctx => {
 
 const PostWrapper = styled.div`
   display: flex;
-  margin-top: 50px;
+  margin: 50px auto;
+  max-width: 800px;
 `
 
 const EventInfo = styled.div`
@@ -92,11 +105,17 @@ const EventInfo = styled.div`
     color: #5F5F5F;
   }
 `
-const ListPosts = styled.div`
-  margin-left: 10%;
+
+const Tape = styled.div`
+  margin-top: 200px;
+  margin-bottom: 100px;
   
   .title {
-    margin-bottom: 40px;
+    margin-bottom: 20px;
+  }
+  
+  .list {
+    display: flex;
   }
 `
 

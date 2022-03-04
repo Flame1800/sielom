@@ -24,7 +24,7 @@ import _ from "lodash";
 
 SwiperCore.use([Navigation, Autoplay]);
 
-export default function Home({events, news, specialties}) {
+export default function Home({events, news, specialties, slides}) {
 
   return (
     <>
@@ -40,36 +40,18 @@ export default function Home({events, news, specialties}) {
                   loop={true}
                   // autoplay={{delay: 10000}}
               >
-                  <SwiperSlide>
+                  {slides.map(slide =>  <SwiperSlide>
                       <div className="slide-content">
                           <div className="text">
-                              <div className="title">С днем студента</div>
+                              <div className="title">{slide.attributes.name}</div>
                               <div className="sub-title">
-                                  У нас в инстутитуте прошел день студента.
-                                  Узнайте как это было
+                                  {slide.attributes.description}
                               </div>
-                              <Button>Подробнее</Button>
+                              <Button>{slide.attributes.button_name}</Button>
                           </div>
-                          <div className="img">
-                              <img src="/img/test-img-slide.png" alt=""/>
-                          </div>
+                          <img src={`${process.env.API_URL}${slide.attributes.cover.data.attributes.url}`} alt=""/>
                       </div>
-                  </SwiperSlide>
-                  <SwiperSlide>
-                      <div className="slide-content">
-                          <div className="text">
-                              <div className="title">С днем студента</div>
-                              <div className="sub-title">
-                                  У нас в инстутитуте прошел день студента.
-                                  Узнайте как это было
-                              </div>
-                              <Button>Подробнее</Button>
-                          </div>
-                          <div className="img">
-                              <img src="/img/test-img-slide.png" alt=""/>
-                          </div>
-                      </div>
-                  </SwiperSlide>
+                  </SwiperSlide>)}
               </Swiper>
           </div>
       </HeroBlock>
@@ -84,22 +66,9 @@ export default function Home({events, news, specialties}) {
                     <ArrowButton>Узнать больше</ArrowButton>
                 </div>
                     <div className="cards">
-                        {_.shuffle(events).map((event, i) => {
+                        {events.map((event, i) => {
                             if (i < 4) {
                                 return <EventCard event={event} />
-                            }
-                        })}
-                    </div>
-            </DefaultSection>
-            <DefaultSection>
-                <div className='header'>
-                    <Title>Новости</Title>
-                    <ArrowButton>Узнать больше</ArrowButton>
-                </div>
-                    <div className="cards" >
-                        {_.shuffle(news).map((post, i) => {
-                            if (i < 4) {
-                                return <NewsCard post={post} />
                             }
                         })}
                     </div>
@@ -125,6 +94,21 @@ export default function Home({events, news, specialties}) {
             </DefaultSection>
         </Specialties>
         {/* -------------------- Конец секции -------------------- */}
+        <EventsAndNews>
+            <DefaultSection>
+                <div className='header'>
+                    <Title>Новости</Title>
+                    <ArrowButton>Узнать больше</ArrowButton>
+                </div>
+                <div className="cards" >
+                    {_.shuffle(news).map((post, i) => {
+                        if (i < 4) {
+                            return <NewsCard post={post} />
+                        }
+                    })}
+                </div>
+            </DefaultSection>
+        </EventsAndNews>
 
         {/* ------ Секция инфографики ----- */}
         <Infographics>
@@ -174,10 +158,12 @@ Home.getInitialProps = async () => {
     const { data } = await API.getEvents()
     const news = await API.getNews()
     const specialties = await API.getSpecialties()
+    const slides = await API.getSlides()
 
     return {
         news: news.data.data,
         events: data.data,
+        slides: slides.data.data,
         specialties: specialties.data.data
     }
 }

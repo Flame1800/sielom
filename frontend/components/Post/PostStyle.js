@@ -8,6 +8,7 @@ export const PostTitle = styled.h1`
   letter-spacing: -0.01em;
   color: #3E3E3E;
   margin-bottom: 10px;
+  margin-top: 40px;
 `
 
 export const PostText = styled.div`

@@ -5,9 +5,9 @@ import PostCover from "../../components/Post/PostCover";
 import {PostDate, PostText, PostTitle} from "../../components/Post/PostStyle";
 import normalizeDate from "../../libs/normalizeDate";
 import styled from "styled-components";
-
-
-import MinTapePost from "../../components/Post/MinTapePost";
+import _ from 'lodash'
+import ArrowButton from "../../components/Shared/ArrowButton";
+import NewsCard from "../../components/Card/NewsCard";
 
 export default function NewsPost({post, posts}) {
 
@@ -15,6 +15,7 @@ export default function NewsPost({post, posts}) {
         <MainLayout>
             <PostWrapper>
                 <div>
+                    <ArrowButton back>назад</ArrowButton>
                     <PostTitle>
                         {post.attributes.title}
                     </PostTitle>
@@ -25,8 +26,18 @@ export default function NewsPost({post, posts}) {
                         <div dangerouslySetInnerHTML={{__html: post.attributes.body }} />
                     </PostText>
                 </div>
-                <MinTapePost title={"Читайте также:"} posts={posts} />
             </PostWrapper>
+            <Tape>
+                <div className="title">Читайте также:</div>
+                <div className='list'>
+                    {_.shuffle(posts).map((post, id) => {
+                        if (id > 3) {
+                            return null
+                        }
+                        return <NewsCard post={post} />
+                    })}
+                </div>
+            </Tape>
         </MainLayout>
     )
 }
@@ -34,7 +45,21 @@ export default function NewsPost({post, posts}) {
 
 const PostWrapper = styled.div`
   display: flex;
-  margin-top: 50px;
+  margin: 50px auto;
+  max-width: 800px;
+`
+
+const Tape = styled.div`
+  margin-top: 200px;
+  margin-bottom: 100px;
+  
+  .title {
+    margin-bottom: 20px;
+  }
+  
+  .list {
+    display: flex;
+  }
 `
 
 

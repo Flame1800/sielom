@@ -114,6 +114,7 @@ const Wrapper = styled.div`
 
     .name {
       max-width: 190px;
+      flex-grow: inherit;
       font-weight: 500;
       font-size: 12px;
       line-height: 15px;

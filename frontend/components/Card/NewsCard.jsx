@@ -5,7 +5,7 @@ import CardPlaceParameter from "./CardPlaceParameter";
 import CardDateParameter from "./CardDateParameter";
 
 
-const EventCard = ({post}) => {
+const NewsCard = ({post}) => {
     const date = moment(post.attributes.date).calendar()
     const coverImg = post.attributes.cover.data
         ? `${process.env.API_URL}${post.attributes.cover?.data?.attributes.url}`
@@ -28,4 +28,4 @@ const EventCard = ({post}) => {
 }
 
 
-export default EventCard
+export default NewsCard
