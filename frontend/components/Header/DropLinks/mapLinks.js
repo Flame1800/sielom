@@ -33,7 +33,7 @@ const mapLinks = [
         ],
     },
     {
-        link: makeLink("Абитуренту", "entrant"),
+        link: makeLink("Абитуриенту", "entrant"),
         content: [
             {
                 main: makeLink("Поступающим", ""),

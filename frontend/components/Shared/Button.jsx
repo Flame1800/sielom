@@ -15,8 +15,7 @@ const Wrapper = styled.div`
   align-items: center;
   color: #46371a;
   font-size: 18px;
-  width: auto;
-  max-width: fit-content;
+  max-width: 400px;
   font-weight: 500;
   cursor: pointer;
   transition: 0.2s;

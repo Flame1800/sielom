@@ -6,7 +6,7 @@ import {
 } from '../styles/homeStyle'
 import NewsCard from "../components/Card/NewsCard";
 import ArrowButton from "../components/Shared/ArrowButton";
-import SpecCard from "../components/Specialties/SpecCard";
+import SpecCard from "../components/Specialtity/SpecCard";
 import TagButton from "../components/Shared/TagButton";
 import Head from 'next/head'
 import { Swiper, SwiperSlide } from "swiper/react";

@@ -1,43 +1,59 @@
 import styled from "styled-components";
 import {baseTheme} from "../../styles/theme";
-import {useRouter} from "next/router";
+import React from "react";
 
-const LongLink = ({children}) => {
+const LongLink = ({children, answer}) => {
 
-    return <Wrapper>
-            <div className="item">{children}</div>
-            <img src="/img/arrow-45-small.png" alt="arrow-icon" className="icon"/>
-    </Wrapper>
+    return (
+        <Wrapper active={answer}>
+            <div className='head'>
+                <div className="item">{children}</div>
+                <img src="/img/arrow-45-small.png" alt="arrow-icon" className="icon"/>
+            </div>
+            {answer &&
+            <div className="answer">
+                {answer}
+            </div>}
+        </Wrapper>
+    )
 }
 
 const Wrapper = styled.div`
-  position: relative;
-  display: flex;
-  font-weight: 500;
-  font-size: 25px;
-  line-height: 30px;
-  letter-spacing: -0.01em;
-  color: #000000;
-  width: 100%;
   border-bottom: 1px solid ${baseTheme.colors.light};
-  padding-bottom: 12px;
-  transition:  0.2s;
-  cursor: pointer;
   margin-bottom: 20px;
+  padding-bottom: 12px;
 
+  .head {
+    position: relative;
+    display: flex;
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 30px;
+    letter-spacing: -0.01em;
+    width: 100%;
+    transition:  0.2s;
+    cursor: pointer;
+  }
+  
   .icon {
     position: absolute;
     top: -10px;
     right: -10px;
     transition:  0.2s;
+    transform: rotate(${({active}) => active ? "45deg" : "0"});
   }
 
-  &:hover {
+  &:hover .head {
     color: ${baseTheme.colors.gold};
 
     .icon {
       transform: rotate(45deg);
     }
+  }
+
+  .answer {
+    line-height: 30px;
+    margin-bottom: 20px;
   }
 `
 
