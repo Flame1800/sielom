@@ -3,6 +3,8 @@ import styled from "styled-components";
 import {SpecialityPageTitle} from "../speciality-page-style";
 
 const Resume = ({resume}) => {
+
+
     return (
         <Wrapper>
             <div className="content">
@@ -18,19 +20,20 @@ const Resume = ({resume}) => {
                                 <div className="speciality">{resume.speciality}</div>
                             </div>
                         </div>
-                        <div className="salary">{resume.salary}</div>
+                        {resume.salary && <div className="salary">{resume.salary}</div>}
                     </div>
                     <div className="params">
+                        {resume.work_schedule &&
                         <div className="item">
                             <div className="value">Гафик</div>
-                            <div className="caption">{resume.work_schedule}</div>
-                        </div>
-                        <div className="item">
+                           <div className="caption">{resume.work_schedule}</div>
+                        </div>}
+                        {resume.work_schedule && <div className="item">
                             <div className="value">Опыт работы</div>
                             <div className="caption">
                                 {resume.work_expirence}
                             </div>
-                        </div>
+                        </div>}
                         <div className="item">
                             <div className="value">Образование</div>
                             <div className="caption">
@@ -38,10 +41,11 @@ const Resume = ({resume}) => {
                             </div>
                         </div>
                     </div>
+                    {resume.skills &&
                     <div className="skills">
                         <div className="title">Ключевые навыки</div>
                         <div dangerouslySetInnerHTML={{ __html: resume.skills }} />
-                    </div>
+                    </div>}
                 </div>
             </div>
         </Wrapper>

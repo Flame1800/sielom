@@ -4,7 +4,7 @@ import {SpecialityPageTitle} from "../speciality-page-style";
 
 const TrainingPlan = ({training_plan}) => {
 
-    const [openTab, setTab] = React.useState(tabs[0])
+    const [openTab, setTab] = React.useState(training_plan[0])
     const openTabHandle = (item) => {
         return item.course === openTab.course ?  setTab({ course: null }) : setTab(item)
     }
@@ -14,7 +14,7 @@ const TrainingPlan = ({training_plan}) => {
         <Wrapper>
             <SpecialityPageTitle>Чему вы научитесь</SpecialityPageTitle>
             <div className="items">
-                    {tabs.map(item =>
+                    {training_plan.map(item =>
                         <Tab key={item.course} activeTab={openTab.course === item.course}>
                             <div className="head" onClick={(() => openTabHandle(item))} >
                                 <div className="course">{item.course}</div>

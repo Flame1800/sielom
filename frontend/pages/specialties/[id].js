@@ -28,21 +28,25 @@ export default function Specialties({ entity }) {
                 <div className="main-title">{attributes.name}</div>
                 <img className="cover" width="1000" src={img} alt='cover' />
                 <Button>Подать заявку</Button>
-                <EducationForm durations={entity.attributes.durations} />
+                {attributes.durations.length > 0 && <EducationForm durations={attributes.durations} />}
+
+                <div className="description" dangerouslySetInnerHTML={{ __html: attributes.full_description }} />
                 <div className="description">
                     {attributes.description}
                 </div>
-                <Technologies technologies={entity.attributes.technologies} />
-                <TrainingPlan training_plan={entity.attributes.training_plan} />
-                <MainDisciplines disciplines={entity.attributes.disciplines} />
-                <SecialistSalary salary={entity.attributes.salary} />
+                {attributes.technologies.length > 0 && <Technologies technologies={attributes.technologies} />}
+
+
+                {attributes.training_plan.length > 0 && <TrainingPlan training_plan={attributes.training_plan} />}
+                {attributes.disciplines.length > 0 && <MainDisciplines disciplines={attributes.disciplines} />}
+                {attributes.salary.length > 0 && <SecialistSalary salary={attributes.salary} />}
                 <Advantages />
             </Wrapper>
             <WideWrapper>
-                <Resume resume={entity.attributes.resume} />
+                {attributes.resume && <Resume resume={attributes.resume} />}
                 <Diploma />
-                <PromoBlock speciality={entity.attributes} />
-                <Questions questions={entity.attributes.questions} />
+                <PromoBlock speciality={attributes} />
+                {attributes.questions.length > 0 && <Questions questions={attributes.questions} />}
             </WideWrapper>
         </MainLayout>
     )

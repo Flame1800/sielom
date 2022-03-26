@@ -16,23 +16,31 @@ const PromoBlock = ({speciality}) => {
                 </div>
                 <div className="promo">
                     <div className="price">
-                        <div className="caption">Стоимость обучения</div>
-                        <div className="value">
-                            {speciality.year_cost}
-                            <span>/год</span>
-                        </div>
+                        {speciality.year_cost &&
+                            <>
+                                <div className="caption">Стоимость обучения</div>
+                                <div className="value">
+                                    {speciality.year_cost}
+                                    <span>/год</span>
+                                </div>
+                            </>
+                        }
                         <Button>Подать документы</Button>
                     </div>
                     <div className="params">
+                        {speciality.full_cost &&
                         <div className="item">
                             <div className="caption">Полная стоимость</div>
                             <div className="value"><strong>{speciality.full_cost}</strong></div>
                         </div>
+                        }
+                        {speciality.places && speciality.budget_places &&
                         <div className="item">
                             <div className="caption">Места</div>
                             <div className="value"><strong>{speciality.places}</strong> Мест всего</div>
                             <div className="value"><strong>{speciality.budget_places}</strong> Бюджетных</div>
                         </div>
+                        }
                     </div>
                 </div>
             </div>

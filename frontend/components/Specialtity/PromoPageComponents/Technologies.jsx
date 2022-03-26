@@ -2,6 +2,11 @@ import styled from "styled-components";
 
 
 const Technologies = ({technologies}) => {
+
+    if (technologies.length === 0) {
+        return null;
+    }
+
     return (
         <Wrapper>
             <div className="title">Технологии которые вы изучите</div>
