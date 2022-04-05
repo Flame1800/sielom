@@ -3,10 +3,15 @@ import {SpecialityPageTitle} from "../speciality-page-style";
 
 
 const SpecialistSalary = ({salary}) => {
+
+    if (salary.length === 0) {
+        return null
+    }
+
     return (
         <Wrapper>
             <SpecialityPageTitle>
-                Сколько может получать программист
+               Какая зарплата?
             </SpecialityPageTitle>
             <div className="cards">
                 {salary.map(item =>
@@ -23,23 +28,29 @@ const SpecialistSalary = ({salary}) => {
 }
 
 const Wrapper = styled.div`
-  margin-bottom: 200px;
+  margin-top: 250px;
+  max-width: 1000px;
+  width: 100%;
   
   .cards {
+    flex-wrap: wrap;
     display: flex;
     align-items: center;
     justify-content: space-between;
     
     .card:nth-child(2) {
-      background: #FFE5AE;
+      background: #FFF4DE;
+      border: none;
     }
 
     .card:nth-child(3) {
-      background: #FFD273;
+      background: #FFCB5E;
+      filter: drop-shadow(0px 0px 22px #FFD57E);
+      border: none;
     }
 
     .card {
-      background: #FFF4DD;
+      border: 1px solid #B1B1B1;
       border-radius: 26px;
       width: 250px;
       height: 180px;
@@ -47,7 +58,7 @@ const Wrapper = styled.div`
       justify-content: center;
       align-items: center;
       padding: 30px;
-      box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+      margin-bottom: 20px;
 
       .value {
         font-weight: 500;

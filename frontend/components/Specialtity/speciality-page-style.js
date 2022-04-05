@@ -8,4 +8,6 @@ export const SpecialityPageTitle = styled.div`
     letter-spacing: -1px;
     color: #3E3E3E;
     margin-bottom: 50px;
+    position: relative;
+    z-index: 2;
 `

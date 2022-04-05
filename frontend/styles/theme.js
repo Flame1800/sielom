@@ -1,6 +1,6 @@
 export const baseTheme = {
     colors: {
-        gold: '#d9ae56',
+        gold: '#fac047',
         yellow: '#FFD233',
         blue: '#2E2A5D',
         black: '#3E3E3E',

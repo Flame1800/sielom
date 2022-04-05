@@ -9,10 +9,17 @@ const TrainingPlan = ({training_plan}) => {
         return item.course === openTab.course ?  setTab({ course: null }) : setTab(item)
     }
 
+    if (training_plan.length === 0) {
+        return null;
+    }
+
 
     return (
         <Wrapper>
-            <SpecialityPageTitle>Чему вы научитесь</SpecialityPageTitle>
+            <div className="title-cont">
+                <div className="title">План обучения</div>
+                <img src="/img/title-shape.png" alt=""/>
+            </div>
             <div className="items">
                     {training_plan.map(item =>
                         <Tab key={item.course} activeTab={openTab.course === item.course}>
@@ -31,15 +38,24 @@ const TrainingPlan = ({training_plan}) => {
 }
 
 const Wrapper = styled.div`
-  margin-top: 130px;
+  margin-top: 230px;
+  max-width: 1000px;
+  width: 100%;
+  
+  .title-cont {
+    margin-bottom: 50px;
+  }
 
   .title {
+    max-width: 480px;
     font-weight: 600;
     font-size: 36px;
-    line-height: 36px;
+    line-height: 45px;
     letter-spacing: -1px;
     color: #3E3E3E;
-    margin-bottom: 50px;
+    margin-bottom: -24px;
+    z-index: 1;
+    position: relative;
   }
 
   .items {
@@ -48,6 +64,29 @@ const Wrapper = styled.div`
     flex-direction: column;
     margin-bottom: 100px;
     border-top: 1px solid #5F5F5F;
+    position: relative;
+    
+    &:before {
+      content: "";
+      position: absolute;
+      right: -150px;
+      top: -100px;
+      background: url("/img/blicks-draw-up.png") no-repeat;
+      background-size: cover;
+      width: 175px;
+      height: 85px;
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      left: -80px;
+      bottom: -100px;
+      background: url("/img/blicks-draw-down.png") no-repeat;
+      background-size: cover;
+      width: 85px;
+      height: 120px;
+    }
   }
 `
 

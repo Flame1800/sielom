@@ -3,6 +3,11 @@ import styled from "styled-components";
 import Button from "../../Shared/Button";
 
 const PromoBlock = ({speciality}) => {
+
+    if (!speciality.full_cost) {
+        return null
+    }
+
     return (
         <Wrapper>
             <div className="content">
@@ -57,6 +62,7 @@ const Wrapper = styled.div`
   padding-top: 90px;
   padding-bottom: 70px;
   margin-top: -50px;
+  margin-bottom: 160px;
 
   .content {
     width: 100%;

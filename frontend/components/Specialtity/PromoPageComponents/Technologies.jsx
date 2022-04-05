@@ -27,9 +27,11 @@ const Technologies = ({technologies}) => {
 }
 
 const Wrapper = styled.div`
+  max-width: 1000px;
+  width: 100%;
   padding: 30px;
   border-radius: 20px;
-  border: 1px solid #000000;
+  background: #EAF9FF;
 
   .title {
     font-weight: 500;

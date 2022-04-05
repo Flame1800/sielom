@@ -4,13 +4,16 @@ import {SpecialityPageTitle} from "../speciality-page-style";
 
 const Resume = ({resume}) => {
 
+    if (!resume?.speciality && !resume?.skills) {
+        return null
+    }
 
     return (
         <Wrapper>
             <div className="content">
-                <SpecialityPageTitle>
+                <div className="title">
                     Ваше резюме после обучения
-                </SpecialityPageTitle>
+                </div>
                 <div className="blank">
                     <div className="head">
                         <div className="author">
@@ -54,26 +57,37 @@ const Resume = ({resume}) => {
 
 const Wrapper = styled.div`
   width: 100%;
-  background: #FFFAF0;
+  background: #FFDD96;
   box-shadow: 0px -5px 18px rgba(186, 179, 164, 0.37);
   border-radius: 30px;
   padding-top: 70px;
-  padding-bottom: 170px;
   margin-top: 170px;
   
   .content {
     width: 100%;
     max-width: 1000px;
-    margin: 0 auto;    
+    margin: 0 auto;
+    
+    .title {
+      max-width: 480px;
+      font-weight: 600;
+      font-size: 36px;
+      line-height: 45px;
+      letter-spacing: -1px;
+      color: #402B01;
+      margin-bottom: 50px;
+      position: relative;
+      z-index: 2;
+    }
   }
   
   .blank {
     margin-top: 40px;
-    border: 1px solid #B1B1B1;
+    background: #FFFAF0;
     box-sizing: border-box;
     border-radius: 20px;
-    padding: 30px 80px;
-    
+    padding: 40px 60px 170px 60px;
+
     .head {
       display: flex;
       justify-content: space-between;

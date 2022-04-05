@@ -2,15 +2,22 @@ import styled from "styled-components";
 import {SpecialityPageTitle} from "../speciality-page-style";
 import {baseTheme} from "../../../styles/theme";
 
+// Список который полностью изменяется в админке (промо контент)
 
-const MainDisciplines = ({disciplines}) => {
+const PromoList = ({list}) => {
+
+    if (list.length === 0) {
+        return null;
+    }
+
     return (
         <Wrapper>
             <SpecialityPageTitle>
                 Основные дисциплины
+                <img src="/img/title-line.png" alt="line" className="line"/>
             </SpecialityPageTitle>
             <div className="items">
-                {disciplines.map(item =>
+                {list.map(item =>
                     <div className="item">
                         <div>
                             <div className="marker" />
@@ -23,7 +30,16 @@ const MainDisciplines = ({disciplines}) => {
 }
 
 const Wrapper = styled.div`
-    margin-bottom: 170px;
+  margin-top: 255px;
+  max-width: 1000px;
+  width: 100%;
+  
+  .line {
+    margin-top: -15px;
+    margin-bottom: 45px;
+    z-index: -1;
+    position: relative;
+  }
   
     .items {
       display: flex;
@@ -54,4 +70,4 @@ const Wrapper = styled.div`
     }
 `
 
-export default MainDisciplines
+export default PromoList

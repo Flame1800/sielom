@@ -6,6 +6,11 @@ import LongLink from "../../Shared/LongLink";
 const Questions = ({questions}) => {
     const [openTape, setTape] = React.useState(null)
 
+
+    if (questions.length === 0) {
+        return null
+    }
+
     return (
         <Wrapper>
             <SpecialityPageTitle>
@@ -31,7 +36,7 @@ const Wrapper = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  margin: 160px auto;
+  margin-bottom: 160px;
   
   .questions {
     width: 50%;

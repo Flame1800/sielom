@@ -20,6 +20,7 @@ const Wrapper = styled.div`
   cursor: pointer;
   transition: 0.2s;
   border:  ${baseTheme.colors.gold} 2px solid;
+  filter: drop-shadow(0px 0px 10px #FFC953);
 
   &:hover {
     color: #3E3E3E;

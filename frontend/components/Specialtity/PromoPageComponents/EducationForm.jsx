@@ -35,11 +35,13 @@ const EducationForm = ({durations}) => {
 
 const Wrapper = styled.div`
     display: flex;
-    margin-top: 60px;
+    margin-top: 80px;
 
     .param {
       display: flex;
       flex-direction: column;
+      justify-content: center;
+      align-items: center;
       margin-right: 50px;
     }
 
