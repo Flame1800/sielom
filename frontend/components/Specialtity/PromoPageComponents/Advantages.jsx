@@ -28,7 +28,7 @@ const Advantages = ({ advantages }) => {
 }
 
 const Wrapper = styled.div`
-  margin-top: 230px;
+  margin-top: 200px;
   position: relative;
 
   .big-shape {

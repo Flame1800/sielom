@@ -35,24 +35,24 @@ const PlacesWorkBlock = ({is_business_speciality, work_places}) => {
 };
 
 const Wrapper = styled.div`
-  margin-top: 130px;
+  margin-top: 200px;
   width: 1000px;
-  
+
   .head .title {
     font-weight: 600;
     font-size: 30px;
     line-height: 45px;
     color: #5F5F5F;
   }
-  
+
   .business-block {
     margin-top: 40px;
     width: 60%;
     background: #D3ECFF;
     border-radius: 21px;
     padding: 30px;
-    
-    .caption  {
+
+    .caption {
       margin-top: 30px;
       font-weight: 600;
       font-size: 25px;
@@ -60,28 +60,28 @@ const Wrapper = styled.div`
       color: #23547A;
     }
   }
-  
+
   .cards {
     display: flex;
-    justify-content: space-between;
-    margin-top: 100px;
-    
+    flex-wrap: wrap;
+    margin-top: 20px;
+
     .card {
-      max-width: 280px;
-      width: 100%;
+      padding: 30px;
       height: 55px;
-      background: #F1F1F1;
+      background: #3a3a3a;
       border-radius: 10px;
       display: flex;
       justify-content: center;
       align-items: center;
+      margin: 20px;
 
       .name {
         font-weight: 400;
         font-size: 24px;
         line-height: 45px;
         letter-spacing: -1px;
-        color: #000000;
+        color: #ffffff;
       }
     }
   }

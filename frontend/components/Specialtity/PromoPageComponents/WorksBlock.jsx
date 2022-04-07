@@ -14,7 +14,6 @@ const WorksBlock = ({works}) => {
 
     if (works.length === 0) return null
 
-    console.log(works)
     return (
         <Wrapper>
             <div className="head">
@@ -49,7 +48,7 @@ const WorksBlock = ({works}) => {
 };
 
 const Wrapper = styled.div`
-  margin-top: 130px;
+  margin-top: 200px;
   width: 1000px;
   
   .swiper-pagination-bullet {

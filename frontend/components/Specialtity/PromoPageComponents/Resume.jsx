@@ -61,7 +61,7 @@ const Wrapper = styled.div`
   box-shadow: 0px -5px 18px rgba(186, 179, 164, 0.37);
   border-radius: 30px;
   padding-top: 70px;
-  margin-top: 170px;
+  margin-top: 200px;
   
   .content {
     width: 100%;

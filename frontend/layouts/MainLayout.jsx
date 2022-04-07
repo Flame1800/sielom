@@ -21,5 +21,6 @@ const Wrapper = styled.div`
   margin: auto;
   min-height: 60vh;
   font-size: 1vw;
+  padding-bottom: 50px;
 `
 

@@ -50,7 +50,7 @@ const ReviewsBlock = ({reviews}) => {
 };
 
 const Wrapper = styled.div`
-  margin-top: 130px;
+  margin-top: 200px;
   margin-bottom: 60px;
   width: 1000px;
   

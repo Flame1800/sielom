@@ -38,7 +38,7 @@ const TrainingPlan = ({training_plan}) => {
 }
 
 const Wrapper = styled.div`
-  margin-top: 230px;
+  margin-top: 200px;
   max-width: 1000px;
   width: 100%;
   

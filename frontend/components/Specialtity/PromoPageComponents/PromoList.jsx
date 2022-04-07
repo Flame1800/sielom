@@ -30,7 +30,7 @@ const PromoList = ({list}) => {
 }
 
 const Wrapper = styled.div`
-  margin-top: 255px;
+  margin-top: 200px;
   max-width: 1000px;
   width: 100%;
   

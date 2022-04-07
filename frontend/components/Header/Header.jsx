@@ -7,6 +7,7 @@ import MetaHeaderInfo from "./MetaHeaderInfo";
 import Logo from "./Logo";
 import NavLinks from "./NavLinks/NavLinks";
 import {observer} from "mobx-react-lite";
+import ButtonSchedule from "./ButtonSchedule";
 
 const Header = () => {
 

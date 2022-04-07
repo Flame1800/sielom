@@ -160,7 +160,7 @@ export const EventsAndNews = styled.div`
   .cards {
     margin-bottom: 100px;
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
   }
 `
 

@@ -28,7 +28,8 @@ const SpecialistSalary = ({salary}) => {
 }
 
 const Wrapper = styled.div`
-  margin-top: 250px;
+  margin-top: 200px;
+  margin-bottom: 200px;
   max-width: 1000px;
   width: 100%;
   
@@ -52,7 +53,6 @@ const Wrapper = styled.div`
     .card {
       border: 1px solid #B1B1B1;
       border-radius: 26px;
-      width: 250px;
       height: 180px;
       display: flex;
       justify-content: center;

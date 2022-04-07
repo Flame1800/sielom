@@ -20,7 +20,7 @@ import BannerBlock from "../../components/Specialtity/PromoPageComponents/Banner
 import WorksBlock from "../../components/Specialtity/PromoPageComponents/WorksBlock";
 import PlacesWorkBlock from "../../components/Specialtity/PromoPageComponents/PlacesWorkBlock";
 import Reviews from "../../components/Specialtity/PromoPageComponents/Reviews";
-
+import Link from "next/link";
 
 export default function Specialties({ entity }) {
     const img  = entity.attributes.cover?.data ? process.env.API_URL + entity.attributes.cover.data[0].attributes.url : null
@@ -32,7 +32,11 @@ export default function Specialties({ entity }) {
                 <ArrowButton back>назад</ArrowButton>
                 <div className="main-title">{attributes.name}</div>
                 <img className="cover" width="800" src={img} alt='cover' />
-                <Button>Подать заявку</Button>
+                <Link href="/reception-campain/info?post=Подача%20документов">
+                    <a>
+                        <Button>Подать заявку</Button>
+                    </a>
+                </Link>
                 <EducationForm durations={attributes.durations} />
             </Banner>
             <Blocks>
@@ -48,10 +52,11 @@ export default function Specialties({ entity }) {
                 <Advantages advantages={attributes.advantages} />
                 <Reviews reviews={attributes.reviews} />
                 <Resume resume={attributes.resume} />
-                <Diploma />
+                {attributes.full_description && <Diploma />}
                 <PromoBlock speciality={attributes} />
                 <Questions questions={attributes.questions} />
             </Blocks>
+            <ArrowButton back>назад</ArrowButton>
         </MainLayout>
     )
 }
@@ -92,7 +97,6 @@ const Blocks = styled.div`
   align-items: center;
 
   .description {
-    margin-top: 55px;
     margin-bottom: 70px;
     font-style: normal;
     font-weight: 400;
