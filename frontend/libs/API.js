@@ -15,10 +15,10 @@ API.createRule = (post) => axios.post(`${url}/rules`, { data: post })
 API.getRules = () => axios(`${url}/rules?populate=*`)
 API.getRule = (id) => axios(`${url}/rules/${id}`)
 
-API.getEvents = () => axios(`${url}/events?populate=*`)
+API.getEvents = () => axios(`${url}/events?populate=*&sort[0]=start_date:desc`)
 API.getEvent = (id) => axios(`${url}/events/${id}?populate=*`)
 
-API.getNews = () => axios(`${url}/news?populate=*`)
+API.getNews = () => axios(`${url}/news?populate=*&sort[0]=date:desc`)
 API.getNewPost = (id) => axios(`${url}/news/${id}?populate=*`)
 
 

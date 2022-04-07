@@ -1,32 +1,30 @@
-import Link from "next/link";
 import styled from "styled-components";
 import {baseTheme} from "../../../styles/theme";
 import LinkWrapper from "../../Shared/LinkWrapper";
 import React from "react";
-import {useAppSelector} from "../../../redux/hooks";
+import navigationStore from "../../../stores/navigationStore";
+import {observer} from "mobx-react-lite";
 
-const MenuHeader = ({ close }) => {
-    const content = useAppSelector(state => state.nav.dropdownContent)
+const MenuHeader = () => {
+    const {getDropLink, setDropLink} = navigationStore
 
    React.useEffect(() => {
-       if (close) {
-           document.addEventListener('click', close)
+           document.addEventListener('click', () => setDropLink(null))
            return () => {
-               document.removeEventListener('click', close)
+               document.removeEventListener('click',() => setDropLink(null))
            }
-       }
     }, []);
 
-    if (!content) {
+    if (!getDropLink()) {
         return null
     }
 
     return (
         <Wrapper onClick={e => e.stopPropagation()}>
             <div className='map'>
-                {content.map((column, id) => (
+                {getDropLink().content.map((column, id) => (
                     <NavColumn key={id} >
-                        <div className='title'>
+                        <div className='title' onClick={() => setDropLink(null)}>
                             {column.main.src.length > 0
                             ?   <LinkWrapper href={column.main.src}>
                                     {column.main.name}
@@ -36,9 +34,11 @@ const MenuHeader = ({ close }) => {
                         </div>
                         <div className="link">
                             {column.links.map((link, id) => (
-                                <LinkWrapper key={id} href={link.src}>
-                                   {link.name}
-                                </LinkWrapper>
+                                    <LinkWrapper key={id} href={link.src}>
+                                        <div onClick={() => setDropLink(null)}>
+                                            {link.name}
+                                        </div>
+                                    </LinkWrapper>
                             ))}
                         </div>
                     </NavColumn>
@@ -114,4 +114,4 @@ const NavColumn = styled.div`
   }
 `
 
-export default MenuHeader;
+export default observer(MenuHeader);

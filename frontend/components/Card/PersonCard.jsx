@@ -3,6 +3,7 @@ import moment from "moment";
 import {CardCategoryName, CardCover, CardParamsBlock, CardTitle, CardWrapper} from "./cardStyle";
 import CardDateParameter from "./CardDateParameter";
 import styled from "styled-components";
+import {Tooltip} from "@mui/material";
 
 
 const PersonCard = ({entity}) => {
@@ -13,13 +14,13 @@ const PersonCard = ({entity}) => {
     return (
         <CardWrapper>
             <Wrapper cover={coverImg}>
-                <Link href={`/employees/${entity.id}`}>
+                <div>
                     <a>
                         <div className='photo'  />
                         <CardCategoryName>{entity.attributes.position}</CardCategoryName>
                         <CardTitle>{entity.attributes.name}</CardTitle>
                     </a>
-                </Link>
+                </div>
                 <div className='contact'>
                     <a href={`tel:${entity.attributes.phone}`}>{entity.attributes.phone}</a>
                 </div>

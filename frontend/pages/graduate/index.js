@@ -21,12 +21,12 @@ export default function Graduate({ posts, content }) {
             </Header>
             <Content>
                 <div className="fast-links">
-                    <div className="link">
+                    <a href="#work" className="link">
                         <img src="/img/arrow-45.png" alt="arrow-icon" className="icon"/>
-                        Трудоустройство</div>
-                    <div className="link">
+                        Трудоустройство</a>
+                    <a href='http://sielom.ru/vipusknikam/vakansii-vipusknikam' className="link">
                         <img src="/img/arrow-45.png" alt="arrow-icon" className="icon"/>
-                        Вакансии для выпускников</div>
+                        Вакансии для выпускников</a>
                     <a href='http://sielom.ru/vipusknikam/sotrudnichestvo-s-tyumgu' target="_blank" className="link">
                         <img src="/img/arrow-45.png" alt="arrow-icon" className="icon"/>
                         Сотрудничество с ТюмГУ</a>
@@ -51,8 +51,8 @@ export default function Graduate({ posts, content }) {
                     </div>
                     <img src="/img/spring-elem.svg" alt="img" className="spring"/>
                 </div>
-                <div className='employment'>
-                    <Title>{content.attributes.name}</Title>
+                <div id='work' className='employment'>
+                    <div className='title'>{content.attributes.name}</div>
                     <div className='body' dangerouslySetInnerHTML={{ __html: content.attributes.body }} />
                 </div>
             </Content>
@@ -93,18 +93,18 @@ const Content = styled.div`
     display: flex;
     flex-wrap: wrap;
     margin-bottom: 120px;
-    
+
     .link {
+      margin: 0 15px;
       border-radius: 20px;
       position: relative;
       display: flex;
       align-items: flex-end;
       border: 1px solid #B1B1B1;
-      max-width: 33%;
+      max-width: 31%;
       min-width: 360px;
       width: 100%;
       height: 303px;
-      margin-right: -1px;
       padding: 40px 25px;
       font-style: normal;
       font-weight: bold;
@@ -120,7 +120,7 @@ const Content = styled.div`
         color: #fff;
       }
     }
-    
+
     .icon {
       position: absolute;
       top: 10px;
@@ -133,13 +133,12 @@ const Content = styled.div`
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    margin-bottom: 100px;
     position: relative;
     min-height: 60vh;
-    
+
     .page-list {
-      margin-bottom: 80px; 
-      
+      margin-bottom: 80px;
+
       p {
         margin-bottom: 5px !important;
         text-decoration: underline;
@@ -147,7 +146,7 @@ const Content = styled.div`
         font-size: 18px;
       }
     }
-    
+
     .spring {
       position: absolute;
       right: 30px;
@@ -157,26 +156,37 @@ const Content = styled.div`
     .group {
       max-width: 666px;
       width: 100%;
-      
+
       .links {
         margin-top: 90px;
       }
     }
   }
-  
+
   .employment {
+    padding-top: 120px;
+    margin-bottom: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
     display: flex;
-    
-    .name {
-      font-size: 44px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 1px solid #b1b1b1;
+    background: #f6f6f6;
+    border-radius: 20px;
+
+    .title {
+      font-size: 60px;
       font-weight: 500;
       margin-bottom: 60px;
     }
-    
+
     .body {
-      margin-left: 100px;
       max-width: 800px;
-      font-size: 16px;
+      font-size: 18px;
+      line-height: 30px;
       margin-bottom: 60px;
     }
   }

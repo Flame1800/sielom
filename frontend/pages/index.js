@@ -21,6 +21,7 @@ import Header from "../components/Header/Header";
 import Footer from "../components/Footer";
 import Button from "../components/Shared/Button";
 import _ from "lodash";
+import Link from 'next/link'
 
 SwiperCore.use([Navigation, Autoplay]);
 
@@ -63,7 +64,9 @@ export default function Home({events, news, specialties, slides}) {
             <DefaultSection>
                 <div className='header'>
                     <Title>Мероприятия</Title>
-                    <ArrowButton>Узнать больше</ArrowButton>
+                    <Link href='/events'>
+                        <a><ArrowButton>Узнать больше</ArrowButton></a>
+                    </Link>
                 </div>
                     <div className="cards">
                         {events.map((event, i) => {
@@ -75,6 +78,26 @@ export default function Home({events, news, specialties, slides}) {
             </DefaultSection>
         </EventsAndNews>
         {/* -------------------- Конец секции -------------------- */}
+
+        <EventsAndNews>
+            <DefaultSection>
+                <div className='header'>
+                    <Title>Новости</Title>
+                    <Link href='/news'>
+                        <a><ArrowButton>Узнать больше</ArrowButton></a>
+                    </Link>
+                </div>
+                <div className="cards" >
+                    {_.shuffle(news).map((post, i) => {
+                        if (i < 4) {
+                            return <NewsCard post={post} />
+                        }
+                    })}
+                </div>
+            </DefaultSection>
+        </EventsAndNews>
+        {/* -------------------- Конец секции -------------------- */}
+
 
         {/* ------ Секция программ обучения ----- */}
         <Specialties>
@@ -93,22 +116,6 @@ export default function Home({events, news, specialties, slides}) {
                 </div>
             </DefaultSection>
         </Specialties>
-        {/* -------------------- Конец секции -------------------- */}
-        <EventsAndNews>
-            <DefaultSection>
-                <div className='header'>
-                    <Title>Новости</Title>
-                    <ArrowButton>Узнать больше</ArrowButton>
-                </div>
-                <div className="cards" >
-                    {_.shuffle(news).map((post, i) => {
-                        if (i < 4) {
-                            return <NewsCard post={post} />
-                        }
-                    })}
-                </div>
-            </DefaultSection>
-        </EventsAndNews>
 
         {/* ------ Секция инфографики ----- */}
         <Infographics>

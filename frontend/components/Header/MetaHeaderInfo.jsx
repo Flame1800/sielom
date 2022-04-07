@@ -1,0 +1,89 @@
+import React from 'react';
+import styled from "styled-components";
+import Link from "next/link";
+import {Tooltip} from "@mui/material";
+
+const MetaHeaderInfo = () => {
+    return (
+        <Wrapper>
+            <Tooltip title="Личный кабинет (в разработке)">
+                <a>
+                    <div className="user-button">
+                        <img src="/img/user-icon.svg" width={20} height={20}  />
+                    </div>
+                </a>
+            </Tooltip>
+            <div className="left-side">
+                <a className='phone' href="tel:(3462) 550-528">
+                    <img src="/img/phone-icon.svg" alt='icon' />
+                    (3462) 550-528
+                </a>
+                <div className="social">
+                    <a target="_blank" href="https://vk.com/sielom"><img src="/img/vk.svg" alt='icon' /></a>
+                    <a target="_blank" href="https://www.instagram.com/sielom86/"><img src="/img/inst.svg" alt='icon' /></a>
+                    <a target="_blank" href="https://www.youtube.com/c/АНПООСИЭУиП"><img src="/img/youtube.svg" alt='icon' /></a>
+                    <a target="_blank" href="https://www.facebook.com/sielom86-568601863544116"><img src="/img/facebook.svg" alt='icon' /></a>
+                </div>
+            </div>
+        </Wrapper>
+    );
+};
+
+const Wrapper = styled.div`
+    display: flex;
+    align-items: center;
+
+    .user-button {
+      margin-right: 20px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 2px solid #c2c2c2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  
+  .left-side {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    .social {
+      display: flex;
+      align-items: center;
+      height: 20px;
+      margin-top: 5px;
+
+      a {
+        display: flex;
+      }
+
+      img {
+        margin-left: 10px;
+
+        &:hover {
+          opacity: 0.7;
+        }
+      }
+    }
+
+    .phone {
+      img {
+        margin-right: 5px;
+        object-fit: contain;
+        height: 18px;
+        width: 18px;
+      }
+
+      display: flex;
+      align-items: center;
+      font-weight: bold;
+      font-size: 12px;
+      line-height: 15px;
+      color: #5F5F5F;
+    }
+  }
+`
+
+export default MetaHeaderInfo;

@@ -1,4 +1,4 @@
-import {API} from "../../../libs/API";
+import {API} from "../../libs/API";
 
 const makeLink = (name, src) => ({ src, name })
 
@@ -15,12 +15,12 @@ const mapLinks = [
                 ]
             },
             {
-                main: makeLink("Дополнительное образование", ""),
+                main: makeLink("Дополнительное образование", "http://sielom.ru/dopobr"),
                 links: [
-                    makeLink("Перечень документов для поступления", "/"),
-                    makeLink("Повышение квалификации", "/"),
-                    makeLink("Профессиональная переподготовка", "/"),
-                    makeLink("Семинары", "/"),
+                    makeLink("Перечень документов для поступления", "http://sielom.ru/dopobr/perechen-dokumentov-dlja-postuplenija"),
+                    makeLink("Повышение квалификации", "http://sielom.ru/dopobr/povyshenie-kvalifikacii"),
+                    makeLink("Профессиональная переподготовка", "http://sielom.ru/dopobr/professionalnaja-perepodgotovka"),
+                    makeLink("Семинары", "http://sielom.ru/dopobr/seminary"),
                 ]
             },
             {
@@ -28,6 +28,12 @@ const mapLinks = [
                 links: [
                     makeLink("Личный кабинет", "/profile/login"),
                     makeLink("Расписание", "/timetable"),
+                ]
+            },
+            {
+                main: makeLink("", ""),
+                links: [
+                    makeLink("Лагерь с дневным пребыванием детей", "http://sielom.ru/pages/organizaciya-lagerya.html"),
                 ]
             }
         ],
@@ -67,7 +73,7 @@ const mapLinks = [
             {
                 main: makeLink("", ""),
                 links: [
-                    makeLink("Контакты", "/"),
+                    makeLink("Контакты", "http://sielom.ru/pages/contacts.html"),
                 ]
             },
             {

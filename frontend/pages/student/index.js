@@ -5,6 +5,7 @@ import styled from "styled-components";
 import {Title} from "../../styles/homeStyle";
 import LongLink from "../../components/Shared/LongLink";
 import Link from "next/link";
+import {Tooltip} from "@mui/material";
 
 export default function Events({posts}) {
     return (
@@ -18,15 +19,27 @@ export default function Events({posts}) {
             </Header>
             <Content>
                 <div className="fast-links">
-                    <div className="link">
+                    <Tooltip title='в разработке'>
+                     <div className="link">
                         <img src="/img/arrow-45.png" alt="arrow-icon" className="icon"/>
-                        Студенческая жизнь</div>
-                    <div className="link">
+                        Студенческая жизнь
+                    </div>
+                    </Tooltip>
+
+                   <Tooltip title='в разработке'>
+                     <div className="link">
                         <img src="/img/arrow-45.png" alt="arrow-icon" className="icon"/>
-                        Лига волонтеров</div>
-                    <div className="link">
+                        Лига волонтеров
+                    </div>
+                   </Tooltip>
+
+                    <Tooltip title='в разработке'>
+                     <div className="link">
                         <img src="/img/arrow-45.png" alt="arrow-icon" className="icon"/>
-                        Медиацентр</div>
+                        Проекты студентов
+                    </div>
+                    </Tooltip>
+
                 </div>
                 <div className="link-group">
                     <div className="group">
@@ -82,16 +95,16 @@ const Content = styled.div`
     margin-bottom: 120px;
     
     .link {
+      margin: 0 15px;
       border-radius: 20px;
       position: relative;
       display: flex;
       align-items: flex-end;
       border: 1px solid #B1B1B1;
-      max-width: 33%;
+      max-width: 31%;
       min-width: 360px;
       width: 100%;
       height: 303px;
-      margin-right: -1px;
       padding: 40px 25px;
       font-style: normal;
       font-weight: bold;
