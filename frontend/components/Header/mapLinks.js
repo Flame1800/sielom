@@ -44,17 +44,17 @@ const mapLinks = [
             {
                 main: makeLink("Поступающим", ""),
                 links: [
-                    makeLink("Премная компания", "/reception-campain"),
+                    makeLink("Примёная компания", "/reception-campain"),
                     makeLink("Программы обучения", "/specialties"),
                 ]
             },
             {
-                main: makeLink("Архив приемных кампаний", ""),
+                main: makeLink("Архив приёмных кампаний", ""),
                 links: [
-                    makeLink("Приемная кампания 2021", "http://sielom.ru/abi/priemnaja-kampanija-2021"),
-                    makeLink("Приемная кампания 2020", "http://sielom.ru/abi/priemnaja-komissija/priemnaja-kampanija-20202021-uchebnyi-god.html"),
-                    makeLink("Приемная кампания 2019", "http://sielom.ru/abi/priemnaja-komissija/priemnaja-kampanija-20192020-uchebnyi-god.html"),
-                    makeLink("Приемная кампания 2018", "http://sielom.ru/abi/priemnaja-komissija/priemnaja-kampanija-20182019-uchebnyi-god.html"),
+                    makeLink("Приёмная кампания 2021", "http://sielom.ru/abi/priemnaja-kampanija-2021"),
+                    makeLink("Приёмная кампания 2020", "http://sielom.ru/abi/priemnaja-komissija/priemnaja-kampanija-20202021-uchebnyi-god.html"),
+                    makeLink("Приёмная кампания 2019", "http://sielom.ru/abi/priemnaja-komissija/priemnaja-kampanija-20192020-uchebnyi-god.html"),
+                    makeLink("Приёмная кампания 2018", "http://sielom.ru/abi/priemnaja-komissija/priemnaja-kampanija-20182019-uchebnyi-god.html"),
                 ]
             }
         ],

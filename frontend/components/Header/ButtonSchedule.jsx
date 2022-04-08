@@ -9,7 +9,7 @@ const ButtonSchedule = () => {
     );
 };
 
-const Wrapper = styled.div`
+const Wrapper = styled.a`
   position: relative;
   right: 30px;
   border: 2px solid #EABC5D;
