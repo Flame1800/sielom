@@ -31,7 +31,7 @@ const querySpecialties = qs.stringify({
     encodeValuesOnly: true,
 })
 
-API.getSpecialties = () => axios(`${url}/specialties?populate=*`)
+API.getSpecialties = () => axios(`${url}/specialties?populate=*&filters[type][$eq]=speciality`)
 API.getSpecialty = (id) => axios(`${url}/specialties/${id}?populate=*`)
 
 API.getEmployeeRoles = () => axios(`${url}/employee-roles?populate=*`)
