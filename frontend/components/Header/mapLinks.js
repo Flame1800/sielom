@@ -44,7 +44,7 @@ const mapLinks = [
             {
                 main: makeLink("Поступающим", ""),
                 links: [
-                    makeLink("Примёная компания", "/reception-campain"),
+                    makeLink("Приёмная компания", "/reception-campain"),
                     makeLink("Программы обучения", "/specialties"),
                 ]
             },
