@@ -2,14 +2,13 @@ import EventCard from "../components/Card/EventCard";
 import { API } from "../libs/API";
 import React from "react";
 import {
-    DefaultSection, Title, EventsAndNews, Specialties, Infographics, Partners, HeroBlock
+    DefaultSection, Title, EventsAndNews, Specialties, Infographics, Partners
 } from '../styles/homeStyle'
 import NewsCard from "../components/Card/NewsCard";
 import ArrowButton from "../components/Shared/ArrowButton";
 import SpecCard from "../components/Specialtity/SpecCard";
 import TagButton from "../components/Shared/TagButton";
 import Head from 'next/head'
-import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, {
     Navigation, Autoplay
 } from 'swiper';
@@ -19,44 +18,55 @@ import "swiper/css/navigation"
 import "swiper/css/autoplay"
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer";
-import Button from "../components/Shared/Button";
 import _ from "lodash";
 import Link from 'next/link'
+import Banner from "../components/HomePage/Banner/Banner";
 
 SwiperCore.use([Navigation, Autoplay]);
 
-export default function Home({events, news, specialties, slides}) {
+export default function Home({events, news, specialties}) {
 
   return (
     <>
-        <Header />
         <Head>
             <title>Сургутский институт экономики, управления и права</title>
         </Head>
+        <Header />
       {/* -------------------- Баннер -------------------- */}
-      <HeroBlock>
-          <div className="slider">
-              <Swiper
-                  navigation={true}
-                  loop={true}
-                  // autoplay={{delay: 10000}}
-              >
-                  {slides.map(slide =>  <SwiperSlide>
-                      <div className="slide-content">
-                          <div className="text">
-                              <div className="title">{slide.attributes.name}</div>
-                              <div className="sub-title">
-                                  {slide.attributes.description}
-                              </div>
-                              <Button>{slide.attributes.button_name}</Button>
-                          </div>
-                          <img src={`${process.env.API_URL}${slide.attributes.cover.data.attributes.url}`} alt=""/>
-                      </div>
-                  </SwiperSlide>)}
-              </Swiper>
-          </div>
-      </HeroBlock>
+
+        <Banner />
+
       {/* -------------------- Конец секции -------------------- */}
+
+
+
+        {/* ------ Секция инфографики ----- */}
+        <Infographics>
+            <DefaultSection>
+                <div className="content">
+                    <div className="info-cards">
+                        <div className="card">
+                            <div className="value">1384</div>
+                            <div className="description">Студентов</div>
+                        </div>
+                        <div className="card">
+                            <div className="value">260</div>
+                            <div className="description">Бюджетных мест</div>
+                        </div>
+                        <div className="card">
+                            <div className="value">24</div>
+                            <div className="description">Специальности</div>
+                        </div>
+                        <div className="card">
+                            <div className="value">5</div>
+                            <div className="description">Лет работы</div>
+                        </div>
+
+                    </div>
+                </div>
+            </DefaultSection>
+        </Infographics>
+        {/* -------------------- Конец секции -------------------- */}
 
 
         {/* ------ Секция мероприятий и новостей ----- */}
@@ -117,36 +127,6 @@ export default function Home({events, news, specialties, slides}) {
             </DefaultSection>
         </Specialties>
 
-        {/* ------ Секция инфографики ----- */}
-        <Infographics>
-            <DefaultSection>
-                <div className="content">
-                    <div>
-                        <Title>Об интституте</Title>
-                    </div>
-                    <div className="info-cards">
-                        <div className="card">
-                            <div className="value">1384</div>
-                            <div className="description">Студентов</div>
-                        </div>
-                        <div className="card">
-                            <div className="value">260</div>
-                            <div className="description">Бюджетных мест</div>
-                        </div>
-                        <div className="card">
-                            <div className="value">24</div>
-                            <div className="description">Специальности</div>
-                        </div>
-                        <div className="card">
-                            <div className="value">5</div>
-                            <div className="description">Лет работы</div>
-                        </div>
-
-                    </div>
-                </div>
-            </DefaultSection>
-        </Infographics>
-        {/* -------------------- Конец секции -------------------- */}
 
         {/* ------ Секция партнеров ----- */}
         <Partners>
@@ -165,12 +145,10 @@ Home.getInitialProps = async () => {
     const { data } = await API.getEvents()
     const news = await API.getNews()
     const specialties = await API.getSpecialties()
-    const slides = await API.getSlides()
 
     return {
         news: news.data.data,
         events: data.data,
-        slides: slides.data.data,
         specialties: specialties.data.data
     }
 }
