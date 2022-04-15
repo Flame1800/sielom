@@ -54,8 +54,8 @@ const mapLinks = [
             {
                 main: makeLink("Поступающим", ""),
                 links: [
-                    makeLink("Приёмная компания", "/reception-campain/info"),
-                    makeLink("Программы обучения", "/specialties"),
+                    makeLink("Приёмная кампания", "/reception-campain/info"),
+                    makeLink("Специальности", "/specialties"),
                     makeLink("Архив приёмных кампаний", "http://sielom.ru/abi/priemnaja-kampanija-2021"),
                 ]
             },

@@ -9,7 +9,7 @@ import {baseTheme} from "../../styles/theme";
 export default function Specialties({ specialties }) {
     return (
         <MainLayout>
-            <MainHeader>ПРОГРАММЫ ОБУЧЕНИЯ</MainHeader>
+            <MainHeader>СПЕЦИАЛЬНОСТИ</MainHeader>
             <Content>
                 {specialties.map(item => <SpecCard key={item.id} entity={item} />)}
             </Content>

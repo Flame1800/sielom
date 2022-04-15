@@ -1,46 +1,40 @@
 import MainLayout from "../../layouts/MainLayout";
 import {API} from "../../libs/API";
-import Link from "next/link";
-import {} from "../../styles/homeStyle";
 import styled from "styled-components";
-import {SidebarLinks} from "../../styles/sharedStyle";
-import PagePost from "../../components/Shared/PagePost";
 import React from "react";
 import PostPages from "../../components/PostPages";
 import MainHeader from "../../components/Shared/MainHeader";
-import LongLink from "../../components/Shared/LongLink";
 import {baseTheme} from "../../styles/theme";
-
+import Button from "../../components/Shared/Button";
+import Link from "next/link";
 
 const Post = ({ posts, commission }) => {
+
+    React.useEffect(() => {
+        const script = document.createElement('script');
+
+        script.src = "http://code.jivo.ru/widget/ZMOiXQR5r4";
+        script.async = true;
+
+        document.body.appendChild(script);
+
+        return () => {
+            document.body.removeChild(script);
+        }
+    }, []);
 
     return (
         <MainLayout>
             <Wrapper>
-                <MainHeader>Приемная компания</MainHeader>
-                <div className="commission">
-                    <div>
-                        <div className="title">Контакты приемной коммисии</div>
-                        <div className='items'>
-                            <div className='item'>
-                                <div className="name">Адресс</div>
-                                {commission.attributes.address}
-                            </div>
-                            <div className='item'>
-                                <div className="name">Номера телефона</div>
-                                {commission.attributes.phone}
-                            </div>
-                            <div className='item'>
-                                <div className="name">Эл. почта</div>
-                                {commission.attributes.email}
-                            </div>
-                            <div className='item'>
-                                <div className="name">Время работы</div>
-                                {commission.attributes.worktime}
-                            </div>
-                        </div>
-                    </div>
+                <MainHeader>Приемная кампания</MainHeader>
+                <div onClick={() => jivo_api.open()} className='btn'>
+                    Задать вопрос
                 </div>
+                <Link href='/specialties'>
+                    <a>
+                        <Button>Специальности</Button>
+                    </a>
+                </Link>
                 <PostPages notLayout posts={posts} />
             </Wrapper>
         </MainLayout>
@@ -75,6 +69,30 @@ const Wrapper = styled.div`
         font-weight: 600;
         margin-bottom: 5px;
       }
+    }
+  }
+  
+  .btn {
+    background: #59d175;
+    border-radius: 13px;
+    height: 55px;
+    padding: 20px 50px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    max-width: 400px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.2s;
+    filter: drop-shadow(0px 0px 10px #59d175);
+    border:  #59d175 2px solid;
+    margin-right: 30px;
+
+    &:hover {
+      color: #3E3E3E;
+      background: none;
+      border: #59d175 2px solid;
     }
   }
 

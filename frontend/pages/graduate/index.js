@@ -5,6 +5,7 @@ import styled from "styled-components";
 import {Title} from "../../styles/homeStyle";
 import LongLink from "../../components/Shared/LongLink";
 import React from "react";
+import {Tooltip} from "@mui/material";
 
 export default function Graduate({ posts, content }) {
     const [activePost, setPost] = React.useState(null)
@@ -27,9 +28,11 @@ export default function Graduate({ posts, content }) {
                     <a href='http://sielom.ru/vipusknikam/vakansii-vipusknikam' className="link">
                         <img src="/img/arrow-45.png" alt="arrow-icon" className="icon"/>
                         Вакансии для выпускников</a>
-                    <a href='http://sielom.ru/vipusknikam/sotrudnichestvo-s-tyumgu' target="_blank" className="link">
-                        <img src="/img/arrow-45.png" alt="arrow-icon" className="icon"/>
-                        Сотрудничество с ТюмГУ</a>
+                    <Tooltip title='В разработке'>
+                        <a  className="link">
+                            <img src="/img/arrow-45.png" alt="arrow-icon" className="icon"/>
+                            Сотрудничество с СурГУ</a>
+                    </Tooltip>
                 </div>
                 <div className="link-group">
                     <div className="group">

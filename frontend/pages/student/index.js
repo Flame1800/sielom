@@ -19,24 +19,25 @@ export default function Events({posts}) {
             </Header>
             <Content>
                 <div className="fast-links">
-                    <Tooltip title='в разработке'>
-                     <div className="link">
-                        <img src="/img/arrow-45.png" alt="arrow-icon" className="icon"/>
-                        Студенческая жизнь
-                    </div>
-                    </Tooltip>
-
+                    <Link href='/events'>
+                        <a>
+                            <div className="link">
+                                <img src="/img/arrow-45.png" alt="arrow-icon" className="icon"/>
+                                Мероприятия
+                            </div>
+                        </a>
+                    </Link>
                    <Tooltip title='в разработке'>
                      <div className="link">
                         <img src="/img/arrow-45.png" alt="arrow-icon" className="icon"/>
-                        Лига волонтеров
+                         Студенческое самоуправление
                     </div>
                    </Tooltip>
 
                     <Tooltip title='в разработке'>
                      <div className="link">
                         <img src="/img/arrow-45.png" alt="arrow-icon" className="icon"/>
-                        Проекты студентов
+                         Мы в проектах
                     </div>
                     </Tooltip>
 
@@ -108,7 +109,7 @@ const Content = styled.div`
       padding: 40px 25px;
       font-style: normal;
       font-weight: bold;
-      font-size: 48px;
+      font-size: 42px;
       line-height: 59px;
       letter-spacing: -0.05em;
       color: #3E3E3E;

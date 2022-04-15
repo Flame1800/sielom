@@ -43,7 +43,7 @@ API.getSvedens = () => axios(`${url}/posts?filters[category][slug][$eq]=sveden&p
 API.getWordskills = () => axios(`${url}/posts?filters[category][slug][$eq]=wordskills&populate=*`)
 API.getEdProcess = () => axios(`${url}/posts?filters[category][slug][$eq]=educational-process&populate=*`)
 
-API.getReceptionCampainPages = () => axios(`${url}/posts?filters[category][slug][$eq]=reception-campain&populate=*`)
+API.getReceptionCampainPages = () => axios(`${url}/posts?filters[category][slug][$eq]=reception-campain&populate=*&sort[0]=priority`)
 API.getCommissonPage = () => axios(`${url}/reception-campain`)
 
 API.getGraduatePages = () => axios(`${url}/posts?filters[category][slug][$eq]=graduate&populate=*`)

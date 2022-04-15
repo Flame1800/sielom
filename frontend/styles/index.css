@@ -48,7 +48,7 @@ a {
 
 .post-md td {
     background: #fff;
-    border: none !important;
+    border: 1px solid #000;
 }
 
 .post-md img {

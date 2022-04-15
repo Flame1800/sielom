@@ -2,6 +2,7 @@ import React from 'react';
 import styled from "styled-components";
 import Slider from "./Slider";
 import Button from "../../Shared/Button";
+import Link from "next/link";
 
 const Banner = () => {
 
@@ -22,8 +23,12 @@ const Banner = () => {
                             </div>
                         </div>
                         <div className="buttons">
-                            <a className="btn">Специальности</a>
-                            <a className="btn white">Курсы</a>
+                            <Link href='/specialties'>
+                                <a className="btn">Специальности</a>
+                            </Link>
+                            <Link href='http://sielom.ru/dopobr'>
+                                <a className="btn white">Курсы</a>
+                            </Link>
                         </div>
                     </div>
                     <Slider/>
