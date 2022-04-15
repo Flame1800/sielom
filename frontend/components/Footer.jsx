@@ -55,8 +55,8 @@ const Footer = () => {
             © Сургутский институт экономики, управления и права. 2022
         </div>
         <div className="contacts">
-            <div className="phone">+7 (893) 244 68 89</div>
-            <div className="email">sielom@yandex.ru</div>
+            <a href="tel:+7 (3462) 55-09-18" className="phone">+7 (3462) 55-09-18</a>
+            <a href="mailto:sielom@yandex.ru" className="email">sielom@yandex.ru</a>
         </div>
     </Wrapper>
     );
@@ -80,11 +80,13 @@ export const Wrapper = styled.div`
   }
 
     .contacts {
+      display: flex;
+      flex-direction: column;
       .phone {
         font-weight: bold;
         font-size: 14px;
         line-height: 15px;
-        margin-bottom: 16px;
+        margin-bottom: 15px;
         color: #3E3E3E;
       }
       

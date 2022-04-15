@@ -6,7 +6,8 @@ import { SidebarLinks } from "../styles/sharedStyle";
 import PagePost from "./Shared/PagePost";
 import { useRouter } from 'next/router'
 
-export default function PostPages({ posts, title }) {
+export default function PostPages({ posts, title, notLayout = false }) {
+
     const router = useRouter()
     const [currentPost, setCurrentPost] = React.useState(posts[0])
 
@@ -21,20 +22,29 @@ export default function PostPages({ posts, title }) {
         setCurrentPost(loadedPost)
     }, [router.query.post])
 
-
-    return (
-        <MainLayout>
+    const content = (
+        <>
             <MainHeader>{title}</MainHeader>
             <Wrapper>
                 <SidebarLinks>
                     {posts.map(post => {
                         const isActive = post.id === currentPost.id ? "active" : ""
 
-                        return <div className={isActive} onClick={() => selectPost(post)} key={post.id}>{post.attributes.name}</div>
+                        return <div className={isActive} onClick={() => selectPost(post)} key={post.id}>{post?.attributes?.name}</div>
                     })}
                 </SidebarLinks>
                 <PagePost post={currentPost} />
             </Wrapper>
+        </>
+    )
+
+    if (notLayout) {
+        return content
+    }
+
+    return (
+        <MainLayout>
+            {content}
         </MainLayout>
     )
 }

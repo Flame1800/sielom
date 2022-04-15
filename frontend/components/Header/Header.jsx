@@ -7,6 +7,7 @@ import Logo from "./Logo";
 import NavLinks from "./NavLinks/NavLinks";
 import {observer} from "mobx-react-lite";
 import MobileDropdown from "./MobileHeader/MobileDropdown";
+import Head from "next/head";
 
 const Header = () => {
 

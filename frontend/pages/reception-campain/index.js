@@ -36,7 +36,6 @@ const ReceptionCampain = ({ posts, commission }) => {
                             </div>
                         </div>
                     </div>
-
                 </div>
                 <div className="pages">
                     {posts.map((post, id) => {
@@ -61,6 +60,7 @@ const ReceptionCampain = ({ posts, commission }) => {
 ReceptionCampain.getInitialProps = async ctx => {
     const posts = await API.getReceptionCampainPages()
     const commission = await API.getCommissonPage()
+
     return { posts: posts.data.data, commission: commission.data.data  }
 }
 

@@ -55,6 +55,7 @@ const Wrapper = styled.div`
   background: rgb(255, 255, 255);
   z-index: 10;
   box-shadow: 1px 14px 22px rgba(0, 0, 0, 0.07);
+  position: fixed;
 
   .map {
     width: 100%;

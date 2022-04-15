@@ -95,6 +95,7 @@ export const Infographics = styled.div`
     margin-top: 30px;
     display: flex;
     justify-content: space-between;
+    align-items: flex-start;
     flex-wrap: wrap;
 
     .no-card {

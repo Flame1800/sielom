@@ -12,6 +12,15 @@ const mapLinks = [
                     makeLink("Сведения об образовательной организации", "/sveden"),
                     makeLink("WordSkills", "/worldskills_russia"),
                     makeLink("Персонал", "/employees"),
+                    makeLink("Контакты", "/site/contacts"),
+                    makeLink("Старый сайт", "http://sielom.ru/"),
+                ]
+            },
+            {
+                main: makeLink("Медиа", ""),
+                links: [
+                    makeLink("Новости", "/news"),
+                    makeLink("Календарь мероприятий", "/events"),
                 ]
             },
             {
@@ -34,6 +43,7 @@ const mapLinks = [
                 main: makeLink("", ""),
                 links: [
                     makeLink("Лагерь с дневным пребыванием детей", "http://sielom.ru/pages/organizaciya-lagerya.html"),
+                    makeLink("Первичная аккредитация", "/site/pervichnaya-akkreditaciya"),
                 ]
             }
         ],
@@ -44,19 +54,11 @@ const mapLinks = [
             {
                 main: makeLink("Поступающим", ""),
                 links: [
-                    makeLink("Приёмная компания", "/reception-campain"),
+                    makeLink("Приёмная компания", "/reception-campain/info"),
                     makeLink("Программы обучения", "/specialties"),
+                    makeLink("Архив приёмных кампаний", "http://sielom.ru/abi/priemnaja-kampanija-2021"),
                 ]
             },
-            {
-                main: makeLink("Архив приёмных кампаний", ""),
-                links: [
-                    makeLink("Приёмная кампания 2021", "http://sielom.ru/abi/priemnaja-kampanija-2021"),
-                    makeLink("Приёмная кампания 2020", "http://sielom.ru/abi/priemnaja-komissija/priemnaja-kampanija-20202021-uchebnyi-god.html"),
-                    makeLink("Приёмная кампания 2019", "http://sielom.ru/abi/priemnaja-komissija/priemnaja-kampanija-20192020-uchebnyi-god.html"),
-                    makeLink("Приёмная кампания 2018", "http://sielom.ru/abi/priemnaja-komissija/priemnaja-kampanija-20182019-uchebnyi-god.html"),
-                ]
-            }
         ],
     },
     {
@@ -68,19 +70,15 @@ const mapLinks = [
         content: [],
     },
     {
-        link: makeLink("Институт", "employer"),
+        link: makeLink("Курсы", "employer"),
         content: [
             {
-                main: makeLink("", ""),
+                main: makeLink("Дополнительное образование", "http://sielom.ru/dopobr"),
                 links: [
-                    makeLink("Контакты", "http://sielom.ru/pages/contacts.html"),
-                ]
-            },
-            {
-                main: makeLink("Медиа", ""),
-                links: [
-                    makeLink("Новости", "/news"),
-                    makeLink("Календарь мероприятий", "/events"),
+                    makeLink("Перечень документов для поступления", "http://sielom.ru/dopobr/perechen-dokumentov-dlja-postuplenija"),
+                    makeLink("Повышение квалификации", "http://sielom.ru/dopobr/povyshenie-kvalifikacii"),
+                    makeLink("Профессиональная переподготовка", "http://sielom.ru/dopobr/professionalnaja-perepodgotovka"),
+                    makeLink("Семинары", "http://sielom.ru/dopobr/seminary"),
                 ]
             },
         ],

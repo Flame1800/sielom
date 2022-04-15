@@ -18,7 +18,7 @@ const LinkComponent = ({link, content}) => {
         }
     }
 
-    if (link.name === 'common') {
+    if (link.src === 'common') {
         return (
             <LinkWrapper onClick={(e) => openDropDown(e)}>
                 <img src="/img/menu-icon.svg" alt=""/>

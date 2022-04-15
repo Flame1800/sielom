@@ -21,22 +21,50 @@ import WorksBlock from "../../components/Specialtity/PromoPageComponents/WorksBl
 import PlacesWorkBlock from "../../components/Specialtity/PromoPageComponents/PlacesWorkBlock";
 import Reviews from "../../components/Specialtity/PromoPageComponents/Reviews";
 import Link from "next/link";
+import React from "react";
+import {baseTheme} from "../../styles/theme";
 
 export default function Specialties({ entity }) {
     const img  = entity.attributes.cover?.data ? process.env.API_URL + entity.attributes.cover.data[0].attributes.url : null
     const {attributes} = entity
+
+    React.useEffect(() => {
+        const script = document.createElement('script');
+
+        script.src = "http://code.jivo.ru/widget/ZMOiXQR5r4";
+        script.async = true;
+
+        document.body.appendChild(script);
+
+        return () => {
+            document.body.removeChild(script);
+        }
+    }, []);
 
     return (
         <MainLayout>
             <Banner>
                 <ArrowButton back>назад</ArrowButton>
                 <div className="main-title">{attributes.name}</div>
-                <img className="cover" width="800" src={img} alt='cover' />
-                <Link href="/reception-campain/info?post=Подача%20документов">
-                    <a>
-                        <Button>Подать заявку</Button>
-                    </a>
-                </Link>
+                {
+                    attributes.video_link
+                    ? <iframe width="800" height="400" src={attributes.video_link}
+                              title="YouTube video player" frameBorder="0"
+                              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                              allowFullScreen className='cover' />
+                    : <img className="cover" width="800" src={img} alt='cover' />
+                }
+
+                <div className='btns'>
+                    <Link href="/reception-campain/info?post=Подача%20документов">
+                        <a>
+                            <Button>Подать заявку</Button>
+                        </a>
+                    </Link>
+                    <div onClick={() => jivo_api.open()} className='btn'>
+                        Задать вопрос
+                    </div>
+                </div>
                 <EducationForm durations={attributes.durations} />
             </Banner>
             <Blocks>
@@ -64,7 +92,8 @@ export default function Specialties({ entity }) {
 const Banner = styled.div`
   margin: 0 auto;
   width: 1000px;
-  height: 100vh;
+  min-height: 100vh;
+  height: 100%;
   padding-top: 40px;
   display: flex;
   flex-direction: column;
@@ -79,6 +108,35 @@ const Banner = styled.div`
     letter-spacing: -1.5px;
     margin-top: 40px;
     color: #3E3E3E;
+  }
+  
+  .btns {
+    margin-top: 30px;
+    display: flex;
+    
+    .btn {
+      background: #59d175;
+      border-radius: 13px;
+      height: 55px;
+      padding: 20px 50px;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 18px;
+      max-width: 400px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: 0.2s;
+      margin-left: 30px;
+      filter: drop-shadow(0px 0px 10px #59d175);
+      border:  #59d175 2px solid;
+
+      &:hover {
+        color: #3E3E3E;
+        background: none;
+        border: #59d175 2px solid;
+      }
+    }
   }
   
   .cover {

@@ -46,12 +46,12 @@ export default function Home({events, news, specialties}) {
                 <div className="content">
                     <div className="info-cards">
                         <div className="card">
-                            <div className="value">1384</div>
+                            <div className="value">3326</div>
                             <div className="description">Студентов</div>
                         </div>
                         <div className="card">
-                            <div className="value">260</div>
-                            <div className="description">Бюджетных мест</div>
+                            <div className="value">508</div>
+                            <div className="description">Студентов на бюджетных местах</div>
                         </div>
                         <div className="card">
                             <div className="value">24</div>
@@ -59,9 +59,8 @@ export default function Home({events, news, specialties}) {
                         </div>
                         <div className="card">
                             <div className="value">5</div>
-                            <div className="description">Лет работы</div>
+                            <div className="description">Корпусов</div>
                         </div>
-
                     </div>
                 </div>
             </DefaultSection>
@@ -98,7 +97,7 @@ export default function Home({events, news, specialties}) {
                     </Link>
                 </div>
                 <div className="cards" >
-                    {_.shuffle(news).map((post, i) => {
+                    {news.map((post, i) => {
                         if (i < 4) {
                             return <NewsCard post={post} />
                         }
@@ -130,10 +129,10 @@ export default function Home({events, news, specialties}) {
 
         {/* ------ Секция партнеров ----- */}
         <Partners>
-            <div><img src='/img/offical-partner-1.png' /></div>
-            <div><img src='/img/offical-partner-2.png' /></div>
-            <div><img src='/img/offical-partner-3.png' /></div>
-            <div><img src='/img/offical-partner-4.png' /></div>
+            <a href="https://depobr.admhmao.ru/"><img alt='partner' src='/img/offical-partner-1.png' /></a>
+            <a href="https://edu.gov.ru"><img alt='partner' src='/img/offical-partner-2.png' /></a>
+            <a href="http://sielom.ru/pages/stopcorrupt.html"><img alt='partner' src='/img/offical-partner-3.png' /></a>
+            <a href="https://obrnadzor.gov.ru/"><img alt='partner' src='/img/offical-partner-4.png' /></a>
         </Partners>
         {/* -------------------- Конец секции -------------------- */}
         <Footer />
@@ -142,13 +141,13 @@ export default function Home({events, news, specialties}) {
 }
 
 Home.getInitialProps = async () => {
-    const { data } = []
-    const news = []
+    const events =  await API.getEvents()
+    const news =  await API.getNews()
     const specialties = await API.getSpecialties()
 
     return {
-        news: [],
-        events: [],
+        news: news.data.data,
+        events: events.data.data,
         specialties: specialties.data.data
     }
 }

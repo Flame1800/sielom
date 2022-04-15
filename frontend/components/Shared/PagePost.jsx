@@ -7,10 +7,10 @@ const PagePost = ({ post }) => {
         <Content>
             {post && <>
                 <div className="title">
-                    {post.attributes.name}
+                    {post?.attributes?.name}
                 </div>
                 <div className="post-md">
-                    <div dangerouslySetInnerHTML={{__html: post.attributes.body }} />
+                    <div dangerouslySetInnerHTML={{__html: post.attributes?.body }} />
                 </div>
             </>}
         </Content>
