@@ -142,13 +142,13 @@ export default function Home({events, news, specialties}) {
 }
 
 Home.getInitialProps = async () => {
-    const { data } = await API.getEvents()
-    const news = await API.getNews()
+    const { data } = []
+    const news = []
     const specialties = await API.getSpecialties()
 
     return {
-        news: news.data.data,
-        events: data.data,
+        news: [],
+        events: [],
         specialties: specialties.data.data
     }
 }

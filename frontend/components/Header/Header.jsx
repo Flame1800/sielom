@@ -1,13 +1,12 @@
-import Link from "next/link";
 import styled from "styled-components";
 import {baseTheme} from "../../styles/theme";
 import React from 'react'
-import Dropdown from "./DropLinks/Dropdown";
+import Dropdown from "./DropLinks/LinksDropdown";
 import MetaHeaderInfo from "./MetaHeaderInfo";
 import Logo from "./Logo";
 import NavLinks from "./NavLinks/NavLinks";
 import {observer} from "mobx-react-lite";
-import ButtonSchedule from "./ButtonSchedule";
+import MobileDropdown from "./MobileHeader/MobileDropdown";
 
 const Header = () => {
 
@@ -17,7 +16,10 @@ const Header = () => {
           <Content>
               <Logo />
               <NavLinks/>
-              <MetaHeaderInfo />
+              <div className="meta">
+                  <MetaHeaderInfo />
+              </div>
+              <MobileDropdown />
           </Content>
         </Wrapper>
 
@@ -46,6 +48,14 @@ const Content = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media (max-width: 1350px) {
+    padding: 0 20px;
+    
+    .meta {
+      display: none;
+    }
+  }
 `
 
 

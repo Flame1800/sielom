@@ -21,6 +21,16 @@ const Wrapper = styled.a`
   padding: 9px 18px;
   transition: .3s;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  @media (max-width: 1350px) {
+    right: 0;
+    width: 300px;
+    height: 40px;
+    font-size: 16px;
+  }
 
   &:hover {
     background: #EABC5D;
