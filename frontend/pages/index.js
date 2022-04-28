@@ -2,7 +2,7 @@ import EventCard from "../components/Card/EventCard";
 import { API } from "../libs/API";
 import React from "react";
 import {
-    DefaultSection, Title, EventsAndNews, Specialties, Infographics, Partners
+    DefaultSection, Title, Specialties, Infographics, Partners
 } from '../styles/homeStyle'
 import NewsCard from "../components/Card/NewsCard";
 import ArrowButton from "../components/Shared/ArrowButton";
@@ -18,9 +18,9 @@ import "swiper/css/navigation"
 import "swiper/css/autoplay"
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer";
-import _ from "lodash";
-import Link from 'next/link'
 import Banner from "../components/HomePage/Banner/Banner";
+import CardsCarouselWrapper from "../components/HomePage/CardsCarouselWrapper";
+import {SwiperSlide} from "swiper/react";
 
 SwiperCore.use([Navigation, Autoplay]);
 
@@ -32,13 +32,10 @@ export default function Home({events, news, specialties}) {
             <title>Сургутский институт экономики, управления и права</title>
         </Head>
         <Header />
+
       {/* -------------------- Баннер -------------------- */}
-
         <Banner />
-
       {/* -------------------- Конец секции -------------------- */}
-
-
 
         {/* ------ Секция инфографики ----- */}
         <Infographics>
@@ -50,12 +47,12 @@ export default function Home({events, news, specialties}) {
                             <div className="description">Студентов</div>
                         </div>
                         <div className="card">
-                            <div className="value">508</div>
+                            <div className="value">515</div>
                             <div className="description">Студентов на бюджетных местах</div>
                         </div>
                         <div className="card">
-                            <div className="value">24</div>
-                            <div className="description">Специальности</div>
+                            <div className="value">21</div>
+                            <div className="description">Специальность</div>
                         </div>
                         <div className="card">
                             <div className="value">5</div>
@@ -69,42 +66,33 @@ export default function Home({events, news, specialties}) {
 
 
         {/* ------ Секция мероприятий и новостей ----- */}
-        <EventsAndNews>
-            <DefaultSection>
-                <div className='header'>
-                    <Title>Мероприятия</Title>
-                    <Link href='/events'>
-                        <a><ArrowButton>Узнать больше</ArrowButton></a>
-                    </Link>
-                </div>
-                    <div className="cards">
-                        {events.map((event, i) => {
-                            if (i < 4) {
-                                return <EventCard event={event} />
-                            }
-                        })}
-                    </div>
-            </DefaultSection>
-        </EventsAndNews>
+
+        {events.length > 0  && <CardsCarouselWrapper title="Мероприятия" btnText="Все мероприятия">
+            {events.map((event, i) => {
+                if (i < 16) {
+                    return (
+                        <SwiperSlide>
+                            <EventCard event={event} />
+                        </SwiperSlide>
+                    )
+                }
+            })}
+        </CardsCarouselWrapper>}
+
         {/* -------------------- Конец секции -------------------- */}
 
-        <EventsAndNews>
-            <DefaultSection>
-                <div className='header'>
-                    <Title>Новости</Title>
-                    <Link href='/news'>
-                        <a><ArrowButton>Узнать больше</ArrowButton></a>
-                    </Link>
-                </div>
-                <div className="cards" >
-                    {news.map((post, i) => {
-                        if (i < 4) {
-                            return <NewsCard post={post} />
-                        }
-                    })}
-                </div>
-            </DefaultSection>
-        </EventsAndNews>
+        {events.length > 0  && <CardsCarouselWrapper title="Новости" btnText="Все новости">
+            {news.map((post, i) => {
+                if (i < 16) {
+                    return (
+                        <SwiperSlide>
+                            <NewsCard post={post} />
+                        </SwiperSlide>
+                    )
+                }
+            })}
+        </CardsCarouselWrapper>}
+
         {/* -------------------- Конец секции -------------------- */}
 
 
@@ -113,7 +101,7 @@ export default function Home({events, news, specialties}) {
             <DefaultSection>
                 <div className='header'>
                     <Title>Программы обучения</Title>
-                    <div className='header flex'>
+                    <div className='header-flex'>
                         <div className='name'>на базе:</div>
                         <TagButton>Всех классов</TagButton>
                         <TagButton>9 классов</TagButton>

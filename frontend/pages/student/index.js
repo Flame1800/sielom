@@ -20,25 +20,29 @@ export default function Events({posts}) {
             <Content>
                 <div className="fast-links">
                     <Link href='/events'>
-                        <a>
-                            <div className="link">
+                            <a className="link">
                                 <img src="/img/arrow-45.png" alt="arrow-icon" className="icon"/>
-                                Мероприятия
-                            </div>
-                        </a>
+                                <p>
+                                    Мероприятия
+                                </p>
+                            </a>
                     </Link>
                    <Tooltip title='в разработке'>
-                     <div className="link">
+                     <a className="link">
                         <img src="/img/arrow-45.png" alt="arrow-icon" className="icon"/>
-                         Студенческое самоуправление
-                    </div>
+                         <p>
+                             Студенческое самоуправление
+                         </p>
+                    </a>
                    </Tooltip>
 
                     <Tooltip title='в разработке'>
-                     <div className="link">
+                     <a className="link">
                         <img src="/img/arrow-45.png" alt="arrow-icon" className="icon"/>
-                         Мы в проектах
-                    </div>
+                         <p>
+                             Мы в проектах
+                         </p>
+                     </a>
                     </Tooltip>
 
                 </div>
@@ -74,6 +78,11 @@ const Header = styled.div`
   display: grid;
   margin-bottom: 120px;
   grid-template-columns: 50% 50%;
+
+  @media (max-width: 700px) {
+    display: flex;
+    flex-wrap: wrap;
+  }
   
   .text {
     font-style: normal;
@@ -82,29 +91,38 @@ const Header = styled.div`
     line-height: 35px;
     letter-spacing: -1.25px;
     color: #3E3E3E;
+    margin-bottom: 40px;
+
+    @media (max-width: 726px) {
+      font-size: 20px;
+    }
   }
   
-  img {
-    border-radius: 20px;
+  img { 
+    border-radius: 20px; 
+    width: 100%;
   }
 `
 
 const Content = styled.div`
   .fast-links {
     display: flex;
-    flex-wrap: wrap;
+    justify-content: space-between;
     margin-bottom: 120px;
+    width: 100%;
     
+    @media (max-width: 1300px) {
+      flex-wrap: wrap;
+    }
+
     .link {
-      margin: 0 15px;
+      margin: 10px;
+      flex-basis: 100%;
       border-radius: 20px;
       position: relative;
       display: flex;
       align-items: flex-end;
       border: 1px solid #B1B1B1;
-      max-width: 31%;
-      min-width: 360px;
-      width: 100%;
       height: 303px;
       padding: 40px 25px;
       font-style: normal;
@@ -115,6 +133,13 @@ const Content = styled.div`
       color: #3E3E3E;
       transition: 0.2s;
       cursor: pointer;
+      
+      
+      @media (max-width: 768px) {
+        font-size: 35px;
+        line-height: 42px;
+        margin: 20px 0;
+      }
 
       &:hover {
         background: #3E3E3E;
@@ -127,6 +152,10 @@ const Content = styled.div`
       top: 10px;
       right: 20px;
       filter: invert(100%);
+
+      @media (max-width: 768px) {
+        filter: none;
+      }
     }
   }
 
@@ -142,6 +171,12 @@ const Content = styled.div`
 
       .links {
         margin-top: 90px;
+      }
+    }
+    
+    .spring {
+      @media (max-width: 768px) {
+        display: none;
       }
     }
   }

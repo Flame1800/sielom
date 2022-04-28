@@ -12,15 +12,15 @@ export default function PostPages({ posts, title, notLayout = false }) {
     const [currentPost, setCurrentPost] = React.useState(posts[0])
 
     const selectPost = post => {
-        router.push(`${router.pathname}/?post=${post.attributes.name}`, undefined, { shallow: true })
+        router.push(`${router.pathname}/?postId=${post.id}`, undefined, { shallow: true })
     }
 
     React.useEffect(() => {
-        const loadedPost = router.query.post
-            ? posts.find(({attributes}) => attributes.name === router.query.post)
+        const loadedPost = router.query.postId
+            ? posts.find(({id}) => id === Number(router.query.postId))
             : posts[0]
         setCurrentPost(loadedPost)
-    }, [router.query.post])
+    }, [router.query.postId])
 
     const content = (
         <>
@@ -28,9 +28,17 @@ export default function PostPages({ posts, title, notLayout = false }) {
             <Wrapper>
                 <SidebarLinks>
                     {posts.map(post => {
-                        const isActive = post.id === currentPost.id ? "active" : ""
+                        const isActive = post.id === currentPost ? "active" : ""
 
-                        return <div className={isActive} onClick={() => selectPost(post)} key={post.id}>{post?.attributes?.name}</div>
+                        return (
+                            <a
+                                className={isActive}
+                                onClick={() => selectPost(post)}
+                                key={post.id}
+                            >
+                                {post?.attributes?.name}
+                            </a>
+                        )
                     })}
                 </SidebarLinks>
                 <PagePost post={currentPost} />
@@ -51,6 +59,10 @@ export default function PostPages({ posts, title, notLayout = false }) {
 
 const Wrapper = styled.div`
   display: flex;
+  
+  @media (max-width: 768px) {
+    flex-wrap: wrap;
+  }
 `
 
 

@@ -1,6 +1,6 @@
-import "../styles/index.css";
 import NextNProgress from "nextjs-progressbar";
 import {baseTheme} from "../styles/theme";
+import '../styles/index.css'
 
 function MyApp({ Component, pageProps }) {
   return (

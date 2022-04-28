@@ -24,14 +24,17 @@ export default function Graduate({ posts, content }) {
                 <div className="fast-links">
                     <a href="#work" className="link">
                         <img src="/img/arrow-45.png" alt="arrow-icon" className="icon"/>
-                        Трудоустройство</a>
+                        Трудоустройство
+                    </a>
                     <a href='http://sielom.ru/vipusknikam/vakansii-vipusknikam' className="link">
                         <img src="/img/arrow-45.png" alt="arrow-icon" className="icon"/>
-                        Вакансии для выпускников</a>
+                        Вакансии для выпускников
+                    </a>
                     <Tooltip title='В разработке'>
                         <a  className="link">
                             <img src="/img/arrow-45.png" alt="arrow-icon" className="icon"/>
-                            Сотрудничество с СурГУ</a>
+                            Сотрудничество с СурГУ
+                        </a>
                     </Tooltip>
                 </div>
                 <div className="link-group">
@@ -75,6 +78,11 @@ const Header = styled.div`
   display: grid;
   margin-bottom: 120px;
   grid-template-columns: 50% 50%;
+
+  @media (max-width: 700px) {
+    display: flex;
+    flex-wrap: wrap;
+  }
   
   .text {
     font-style: normal;
@@ -83,40 +91,56 @@ const Header = styled.div`
     line-height: 39px;
     letter-spacing: -1.25px;
     color: #3E3E3E;
+    margin-bottom: 40px;
+    
+    @media (max-width: 726px) {
+      font-size: 20px;
+    }
   }
 
 
   img {
     border-radius: 20px;
+    width: 100%;
   }
 `
 
 const Content = styled.div`
   .fast-links {
     display: flex;
-    flex-wrap: wrap;
+    justify-content: space-between;
     margin-bottom: 120px;
+    width: 100%;
+
+    @media (max-width: 1300px) {
+      flex-wrap: wrap;
+    }
+
 
     .link {
-      margin: 0 15px;
+      margin: 10px;
+      flex-basis: 100%;
       border-radius: 20px;
       position: relative;
       display: flex;
       align-items: flex-end;
       border: 1px solid #B1B1B1;
-      max-width: 31%;
-      min-width: 360px;
-      width: 100%;
       height: 303px;
       padding: 40px 25px;
       font-style: normal;
       font-weight: bold;
       font-size: 40px;
-      line-height: 50px;
+      line-height: 59px;
       letter-spacing: -0.05em;
       color: #3E3E3E;
       transition: 0.2s;
       cursor: pointer;
+
+      @media (max-width: 768px) {
+        font-size: 35px;
+        line-height: 42px;
+        margin-top: 40px;
+      }
 
       &:hover {
         background: #3E3E3E;
@@ -129,6 +153,10 @@ const Content = styled.div`
       top: 10px;
       right: 20px;
       filter: invert(100%);
+
+      @media (max-width: 768px) {
+        filter: none;
+      }
     }
   }
 
@@ -154,6 +182,10 @@ const Content = styled.div`
       position: absolute;
       right: 30px;
       top: 100px;
+
+      @media (max-width: 768px) {
+        display: none;
+      }
     }
 
     .group {
@@ -176,14 +208,24 @@ const Content = styled.div`
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    border: 1px solid #b1b1b1;
     background: #f6f6f6;
     border-radius: 20px;
+    color: #494949;
+
+    @media (max-width: 768px) {
+      width: 100%;
+      padding: 20px;
+    }
 
     .title {
       font-size: 60px;
       font-weight: 500;
       margin-bottom: 60px;
+
+      @media (max-width: 768px) {
+        font-size: 9em;
+      }
+
     }
 
     .body {

@@ -19,6 +19,7 @@ const Wrapper = styled.div`
   padding: 10px 15px;
   height: 33px;
   margin-bottom: 10px;
+  white-space: nowrap;
 `
 
 const WhiteWrapper = styled(Wrapper)`

@@ -8,7 +8,7 @@ const LongLink = ({children, answer}) => {
         <Wrapper active={answer}>
             <div className='head'>
                 <div className="item">{children}</div>
-                <img src="/img/arrow-45-small.png" alt="arrow-icon" className="icon"/>
+                <img src="/img/link-arrow.svg" alt="arrow-icon" className="icon"/>
             </div>
             {answer &&
             <div className="answer">

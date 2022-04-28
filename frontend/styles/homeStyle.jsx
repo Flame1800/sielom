@@ -13,24 +13,15 @@ export const Title = styled.div`
   letter-spacing: -0.5px;
   color: ${baseTheme.colors.black};
   text-transform: uppercase;
+  white-space: nowrap;
   font-weight: 500;
   margin-bottom: 35px;
-`
-
-
-export const EventsAndNews = styled.div`
-  margin-top: 90px;
-
-  .header {
-    height: 150px;
-  }
   
-  .cards {
-    margin-bottom: 100px;
-    display: flex;
-    justify-content: space-between;
+  @media (max-width: 768px) {
+    font-size: 22px;
   }
 `
+
 
 export const Specialties = styled.div`
   margin-top: 190px;
@@ -40,19 +31,22 @@ export const Specialties = styled.div`
   .list {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
   }
 
   .header {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     height: 60px;
     margin-bottom: 20px;
     border-bottom: 1px solid ${baseTheme.colors.light};
   }
   
-  .flex {
+  .header-flex {
     align-items: center;
     display: flex;
+    overflow-y: scroll;
     padding-bottom: 20px;
     
     .name {
@@ -62,6 +56,7 @@ export const Specialties = styled.div`
       letter-spacing: 0.75px;
       color: #3E3E3E;
       margin-right: 10px;
+      white-space: nowrap;
     }
   }
 `
@@ -69,27 +64,6 @@ export const Specialties = styled.div`
 export const Infographics = styled.div`
   margin-bottom: 230px;
   
-  .info-items {
-
-    .value {
-      font-family: "PLaifair Display", sans-serif;
-      font-weight: bold;
-      font-size: 26px;
-      line-height: 16px;
-      letter-spacing: 1px;
-      color: ${baseTheme.colors.gold};
-    }
-
-    .description {
-      font-weight: 500;
-      font-size: 14px;
-      line-height: 16px;
-      letter-spacing: 1px;
-      color: #3E3E3E;
-      margin-top: 14px;
-      max-width: 180px;
-    }
-  }
 
   .info-cards {
     margin-top: 30px;
@@ -97,6 +71,10 @@ export const Infographics = styled.div`
     justify-content: space-between;
     align-items: flex-start;
     flex-wrap: wrap;
+    
+    @media (max-width: 768px) {
+      justify-content: center;
+    }
 
     .no-card {
       border: none !important;
@@ -132,10 +110,19 @@ export const Infographics = styled.div`
 export const Partners = styled.div`
   max-width: 1320px;
   margin: 150px auto;
+  padding: 0 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+
+  @media (max-width: 768px) {
+    justify-content: center;
+  }
+  
+  a {
+    margin: 50px;
+  }
 `
 
 

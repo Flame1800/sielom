@@ -111,10 +111,12 @@ const Tape = styled.div`
   margin-bottom: 100px;
   
   .title {
+    font-size: 24px;
     margin-bottom: 20px;
   }
   
   .list {
+    overflow: scroll;
     display: flex;
   }
 `

@@ -5,8 +5,10 @@ import { Swiper, SwiperSlide  } from "swiper/react";
 import { Pagination, Navigation, EffectFade } from "swiper";
 
 import "swiper/css";
-import "swiper/css/pagination";
+import "swiper/css/effect-fade";
 import "swiper/css/navigation";
+import "swiper/css/pagination";
+
 
 const Slider = () => {
     const [slides, setSlides] = React.useState([])
@@ -24,14 +26,18 @@ const Slider = () => {
                     }}
                     effect={"fade"}
                     navigation={true}
-                    modules={[Pagination, Navigation]}
+                    modules={[Pagination, Navigation, EffectFade]}
                     loop={true}
                     autoplay={{delay: 10000}}
                 >
                     {slides.map(slide =>
                         <SwiperSlide key={slide.id}>
                             <img src={`${process.env.API_URL}${slide.attributes.cover.data.attributes.url}`} alt="img"/>
-                            <div className="text">{slide.attributes.name}</div>
+                            <div className="text">
+                                <div>
+                                    {slide.attributes.name}
+                                </div>
+                            </div>
                         </SwiperSlide>
                     )}
                 </Swiper>
@@ -45,9 +51,16 @@ const SliderStyle = styled.div`
   
   
   .text {
-    position: absolute;
+    display: flex;
+    justify-content: start;
     bottom: 45px;
-    right: 14%;
+    margin-left: 210px;
+    margin-top: 55px;
+    background: #fff;
+    
+    @media (max-width: 425px) {
+      margin-left: 130px;
+    }
   }
 
     .swiper {
@@ -71,13 +84,18 @@ const SliderStyle = styled.div`
       left: 25%;
       bottom: 8%;
       font-size: 22px;
+
+      @media (max-width: 768px) {
+        display: none;
+      }
     }
 
     .swiper-button-next {
       color: #fff !important;
       width: 70px;
       left: 90px;
-      height: 80%;
+      bottom: 35px !important;
+      top: 86%;
       margin-top: 0;
       transition: .2s;
 
@@ -98,8 +116,8 @@ const SliderStyle = styled.div`
     .swiper-button-prev {
       color: #fff !important;
       width: 70px;
-      height: 80%;
       left: 30px;
+      top: 86%;
       margin-top: 0;
       transition: .2s;
 

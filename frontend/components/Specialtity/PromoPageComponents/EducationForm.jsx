@@ -9,7 +9,7 @@ const EducationForm = ({durations}) => {
 
     return (
         <Wrapper>
-            <div className="item">
+            <div className="content">
                 {fullTime.length > 0 && <div className="param">
                     <div className="form">Очно</div>
                     <div className="items">
@@ -36,13 +36,20 @@ const EducationForm = ({durations}) => {
 const Wrapper = styled.div`
     display: flex;
     margin-top: 80px;
-
+  
+  .content {
+    margin-bottom: 60px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
     .param {
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      margin-right: 50px;
+      margin: 0 20px;
     }
 
     .form {
@@ -52,15 +59,18 @@ const Wrapper = styled.div`
       letter-spacing: -0.25px;
       color: #B1B1B1;
       margin-bottom: 30px;
+      margin-top: 20px;
     }
 
     .items {
       display: flex;
+      flex-wrap: wrap;
       flex-direction: column;
     }
 
     .item {
       display: flex;
+      flex-wrap: wrap;
       align-items: center;
       margin-bottom: 15px;
 
@@ -71,6 +81,7 @@ const Wrapper = styled.div`
         font-size: 14px;
         line-height: 11px;
         letter-spacing: -0.25px;
+        white-space: nowrap;
       }
     }
 `

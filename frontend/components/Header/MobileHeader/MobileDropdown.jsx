@@ -43,7 +43,6 @@ const Wrapper = styled.div`
   .dropdown {
     background: #fff;
     width: 100%;
-    height: 100%;
     bottom: 0;
     left: 0;
     top: 100px;
@@ -51,12 +50,13 @@ const Wrapper = styled.div`
     padding: 20px;
     color: #000;
     z-index: 9;
-    border-top: 1px solid ${baseTheme.colors.light};
+    overflow: scroll;
     
     .meta-mobile {
-      bottom: 80px;
-      position: fixed;
-      left: 50px;
+      margin-top: 100px;
+      margin-left: -40px;
+      display: flex;
+      justify-content: center;
     }
   }
 

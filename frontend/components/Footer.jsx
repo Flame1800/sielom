@@ -67,9 +67,9 @@ export const Wrapper = styled.div`
   width: 100%;
   max-width: 1320px;
   margin: -1px auto;
-  padding-top: 40px;
-  padding-bottom: 50px;
+  padding: 50px;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   .item {
     font-weight: 500;

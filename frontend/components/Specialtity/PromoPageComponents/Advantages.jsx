@@ -30,6 +30,8 @@ const Advantages = ({ advantages }) => {
 const Wrapper = styled.div`
   margin-top: 200px;
   position: relative;
+  width: 100%;
+  max-width: 1000px;
 
   .big-shape {
     top: 250px;
@@ -78,7 +80,6 @@ const Wrapper = styled.div`
         font-size: 30px;
         line-height: 37px;
         color: #000000;
-        width: 60%;
       }
 
       .caption {
@@ -87,7 +88,6 @@ const Wrapper = styled.div`
         font-size: 18px;
         line-height: 31px;
         color: #000000;
-        width: 60%;
       }
     }
   }

@@ -24,16 +24,29 @@ const Wrapper = styled.div`
   width: 100%;
   background: #e0f8ff;
   border-radius: 30px;
-  padding-top: 90px;
-  padding-bottom: 170px;
   margin-top: -50px;
   margin-bottom: 50px;
+  padding: 120px 20px 170px 20px;
+  
+  .sub-title {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  
+  @media (max-width: 768px) {
+    img {
+      width: 100%;
+      padding: 20px 0;
+    } 
+  }
+
 
   .content {
     width: 100%;
     max-width: 1000px;
     margin: 0 auto;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
 

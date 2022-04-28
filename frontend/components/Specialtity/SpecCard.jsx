@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import styled from "styled-components";
-import {baseTheme} from "../../styles/theme";
 import Tag from "../Shared/Tag";
 
 
@@ -32,14 +31,18 @@ const SpecCard = ({entity}) => {
 }
 
 const Wrapper = styled.div`
-  width: calc(50% - 50px);
+  max-width: 620px;
   margin: 20px 20px;
-  height: 265px;
   background-size: cover;
-
+  
   .container {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
+
+    @media (max-width: 768px) {
+      flex-direction: column-reverse;
+    }
   }
 
   .info {
@@ -47,23 +50,37 @@ const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 265px;
     width: 50%;
-
+    
+    @media (max-width: 768px) {
+      width: auto;
+    }
+    
     .title {
       font-weight: 600;
       font-size: 25px;
       line-height: 30px;
       letter-spacing: -0.5px;
+      margin-bottom: 20px;
     }
 
   }
 
   img {
     width: 50%;
+    min-width: 300px;
+    height: 265px;
     padding: 20px;
     object-fit: cover;
     border-radius: 35px;
+
+    @media (max-width: 768px) {
+      margin-top: 40px;
+      width: 100%;
+      padding: 0;
+      border-radius: 15px;
+    }
+
   }
 
 `

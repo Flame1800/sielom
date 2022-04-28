@@ -35,7 +35,7 @@ const Wrapper = styled.div`
   display: flex;
   align-items: center;
   position: sticky;
-  top: 0;
+  top: -1px;
   background: rgb(255, 255, 255);
   z-index: 10;
   border-bottom: 1px solid ${baseTheme.colors.light};

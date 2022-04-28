@@ -23,6 +23,7 @@ const Wrapper = styled.div`
   padding: 10px 15px;
   cursor: pointer;
   height: 33px;
+  white-space: nowrap;
 
   &:hover {
     background: rgba(234, 188, 93, 0.56);

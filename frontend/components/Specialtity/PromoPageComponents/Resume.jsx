@@ -67,6 +67,7 @@ const Wrapper = styled.div`
     width: 100%;
     max-width: 1000px;
     margin: 0 auto;
+    padding: 0 20px;
     
     .title {
       max-width: 480px;
@@ -87,9 +88,14 @@ const Wrapper = styled.div`
     box-sizing: border-box;
     border-radius: 20px;
     padding: 40px 60px 170px 60px;
+    
+    @media (max-width: 768px) {
+      padding: 50px 25px;
+    }
 
     .head {
       display: flex;
+      flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
       
@@ -104,8 +110,9 @@ const Wrapper = styled.div`
         .name {
           font-weight: 600;
           font-size: 24px;
-          line-height: 45px;
+          line-height: 26px;
           letter-spacing: -1px;
+          margin-bottom: 10px;
           color: #000000;
         }
         
@@ -131,12 +138,13 @@ const Wrapper = styled.div`
     .params {
       margin-top: 30px;
       display: flex;
+      flex-wrap: wrap;
       justify-content: space-between;
       
       .item {
-        width: 33%;
         display: flex;
         flex-direction: column;
+        max-width: 300px;
         
         .value {
           font-weight: 500;
@@ -144,7 +152,8 @@ const Wrapper = styled.div`
           line-height: 45px;
           letter-spacing: -1px;
           color: #5F5F5F;
-          margin-bottom: 10px;
+          margin-top: 20px;
+          margin-bottom: -5px;
         }
         
         .caption {

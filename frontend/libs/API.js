@@ -7,7 +7,7 @@ const prodHost = process.env.API_HOST_PROD
 const devHost = process.env.API_HOST_DEV
 
 const url = process.env.API_HOST_PROD
-
+API.siteUrl = `${process.env.API_URL}/`
 
 API.getSlides = () => axios(`${url}/hero-slides?populate=*`)
 
@@ -21,15 +21,6 @@ API.getEvent = (id) => axios(`${url}/events/${id}?populate=*`)
 API.getNews = () => axios(`${url}/news?populate=*&sort[0]=date:desc`)
 API.getNewPost = (id) => axios(`${url}/news/${id}?populate=*`)
 
-
-const querySpecialties = qs.stringify({
-    populate: [
-        '*',
-        'durations.duration',
-    ]
-}, {
-    encodeValuesOnly: true,
-})
 
 API.getSpecialties = () => axios(`${url}/specialties?populate=*&filters[type][$eq]=speciality`)
 API.getSpecialty = (id) => axios(`${url}/specialties/${id}?populate=*`)

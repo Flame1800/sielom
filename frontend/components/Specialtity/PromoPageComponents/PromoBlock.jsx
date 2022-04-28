@@ -59,8 +59,7 @@ const Wrapper = styled.div`
   background: #FFF0D0;
   box-shadow: 0px -5px 16px rgba(166, 154, 129, 0.27);
   border-radius: 30px;
-  padding-top: 90px;
-  padding-bottom: 70px;
+  padding: 90px 20px 70px 20px;
   margin-top: -50px;
   margin-bottom: 160px;
 
@@ -69,10 +68,16 @@ const Wrapper = styled.div`
     max-width: 1000px;
     margin: 0 auto;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     
     .text {
-      width: 50%;
+      width: 45%;
+      margin-right: 20px;
+      
+      @media (max-width: 500px) {
+        width: auto;
+      }
 
       .title {
         font-style: normal;
@@ -86,12 +91,15 @@ const Wrapper = styled.div`
       .sub-title {
         margin-top: 15px;
         max-width: 370px;
+        font-size: 24px;
+        margin-bottom: 30px;
       }
     }
 
     .promo {
       width: 50%;
       display: flex;
+      flex-wrap: wrap;
       justify-content: space-between;
       
       .price {

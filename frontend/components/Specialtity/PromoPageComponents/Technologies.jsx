@@ -19,7 +19,6 @@ const Technologies = ({technologies}) => {
                         {/*    className='logo'*/}
                         {/*/>*/}
                         <div className="name">{item.name}</div>
-
                     </div>)}
             </div>
         </Wrapper>
@@ -47,8 +46,13 @@ const Wrapper = styled.div`
   .items {
     display: flex;
     flex-wrap: wrap;
+    
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
 
     .item {
+      margin: 10px 0;
       display: flex;
 
       img {

@@ -12,14 +12,16 @@ const Banner = () => {
             <HeroBlock>
                 <div className="content">
                     <div className="first-content">
-                        <div className="logo-name">SIELOM</div>
-                        <div className="quote">
-                            <img src="/img/portrait.png" alt="Портрет" className='portrait'/>
-                            <div className="text">
-                                Вечным законом да будет: учить и учится всему через примеры, наставления и применение на деле
-                            </div>
-                            <div className="author">
-                                Галина Патракова
+                        <div className="up-cont">
+                            <div className="logo-name">SIELOM</div>
+                            <div className="quote">
+                                <img src="/img/portrait.png" alt="Портрет" className='portrait'/>
+                                <div className="text">
+                                    Вечным законом да будет: учить и учится всему через примеры, наставления и применение на деле
+                                </div>
+                                <div className="author">
+                                    Галина Васильевна Патракова. Директор АНПОО «СИЭУиП»
+                                </div>
                             </div>
                         </div>
                         <div className="buttons">
@@ -56,13 +58,14 @@ const HeroBlock = styled.section`
     }
   }
 
-  height: 70vh;
+  min-height: 70vh;
   max-width: 100%;
   width: 100%;
 
   .content {
-    width: 1320px;
+    max-width: 1320px;
     display: flex;
+    flex-wrap: wrap;
     padding-top: 95px;
     margin: 0 auto;
   }
@@ -71,7 +74,15 @@ const HeroBlock = styled.section`
     width: 50%;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     position: relative;
+    min-height: 500px;
+    margin-bottom: 30px;
+    
+    @media (max-width: 768px) {
+      width: 100%;
+      padding: 0 40px;
+    }
 
     .logo-name {
       font-weight: 800;
@@ -80,11 +91,25 @@ const HeroBlock = styled.section`
       color: rgba(255, 255, 255, 0.1);
       opacity: 0.99;
       margin-bottom: 60px;
+
+      @media (max-width: 768px) {
+        margin-top: -40px;
+        font-size: 70px;
+        color: #fff;
+        text-align: center;
+      }
     }
 
     .quote {
       display: flex;
+      flex-wrap: wrap;
       position: relative;
+
+      @media (max-width: 768px) {
+        justify-content: center;
+        text-align: center;
+        margin-bottom: 50px;
+      }
 
       .portrait {
         border-radius: 50%;
@@ -104,22 +129,30 @@ const HeroBlock = styled.section`
 
       .author {
         position: absolute;
-        bottom: -10px;
+        bottom: -40px;
+        max-width: 300px;
         right: 20%;
         font-style: italic;
         font-weight: 500;
-        font-size: 16px;
+        font-size: 14px;
         color: #FFFFFF;
         background: rgba(255, 255, 255, 0.18);
         border-radius: 35px;
         padding: 8px 30px;
+
+
+        @media (max-width: 768px) {
+          bottom: -100px;
+          right: 10%;
+          left: 10%;
+        }
       }
     }
     
     .buttons {
-      position: absolute;
-      bottom: 0;
       display: flex;
+      flex-wrap: wrap;
+      margin-top: 100px;
       
       .btn {
         min-width: 230px;
@@ -132,11 +165,18 @@ const HeroBlock = styled.section`
         border-radius: 10px;
         cursor: pointer;
         text-align: center;
+        margin: 10px;
         
         &.white {
           background: #fff;
           color: #000;
-          margin-left: 20px;
+        }
+        
+        @media (max-width: 768px) {
+          font-size: 14px;
+          padding: 15px 30px;
+          min-width: 200px;
+          margin: 10px auto;
         }
       }
       

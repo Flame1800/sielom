@@ -33,12 +33,10 @@ const WorksBlock = ({works}) => {
                 >
                 {works.map(work => {
                     return (
-                        <SwiperSlide>
                             <div className="card">
                                 {/*<img src={process.env.API_URL + work.data.attributes.url} alt=""/>*/}
                                 <div className="name">{work.name}</div>
                             </div>
-                        </SwiperSlide>
                     )
                 })}
                 </Swiper>
@@ -49,7 +47,8 @@ const WorksBlock = ({works}) => {
 
 const Wrapper = styled.div`
   margin-top: 200px;
-  width: 1000px;
+  max-width: 1000px;
+  width: 100%;
   
   .swiper-pagination-bullet {
     background: #000 !important;  
@@ -70,10 +69,11 @@ const Wrapper = styled.div`
   
   .cards {
     margin-top: 55px;
-    width: 1000px;
     overflow: hidden;
+    max-width: 320px;
     
     .card {
+      margin: 30px 0;
       height: 351px;
       background: #F1F1F1;
       border-radius: 26px;

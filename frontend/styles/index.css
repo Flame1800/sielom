@@ -17,6 +17,8 @@ a {
 }
 
 .post-md {
+    margin: 0 auto;
+    max-width: 900px;
     font-size: 15px;
     line-height: 27px;
 }
@@ -44,6 +46,15 @@ a {
     font-size: 12px;
     background-color: #b1b1b1;
     margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    .post-md table, .post-md .table {
+        overflow: scroll;
+        max-width: 90vw;
+
+
+    }
 }
 
 .post-md td {

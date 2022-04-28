@@ -24,7 +24,7 @@ const Wrapper = styled.div`
   padding-bottom: 50px;
   
   @media (max-width: 1350px) {
-    padding: 20px 50px;
+    padding: 20px;
   }
 `
 

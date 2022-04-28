@@ -35,11 +35,16 @@ const Wrapper = styled.div`
   max-width: 1000px;
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   margin-bottom: 160px;
   
   .questions {
     width: 50%;
+    
+    @media (max-width: 768px) {
+      width: 100%;
+    }
   }
   
   .answer {

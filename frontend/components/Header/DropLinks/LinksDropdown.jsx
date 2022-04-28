@@ -64,7 +64,6 @@ const Wrapper = styled.div`
     display: grid;
     grid-template-columns: 25% 25% 25% 25%;
   }
-
 `
 
 const NavColumn = styled.div`

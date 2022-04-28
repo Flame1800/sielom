@@ -48,6 +48,8 @@ const Wrapper = styled.div`
   display: flex;
   margin-top: 50px;
   margin-bottom: 35px;
+  overflow: auto;
+  border-radius: 35px;
 `
 
 export default FilterBuildings

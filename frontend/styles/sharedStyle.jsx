@@ -20,8 +20,16 @@ export const SidebarLinks = styled.div`
   margin-bottom: 30px;
   bottom: 30px;
   margin-top: 80px;
+  
+  @media (max-width: 768px) {
+    position: relative;
+    margin-top: 0;
+    margin-bottom: 100px;
+    border-right: 0;
+    margin-right: 0;
+  }
 
-  div {
+  a {
     cursor: pointer;
     margin-bottom: 10px;
     transition: .1s;
