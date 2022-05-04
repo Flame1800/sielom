@@ -4,16 +4,18 @@ import {baseTheme} from "../../../styles/theme";
 
 // Список который полностью изменяется в админке (промо контент)
 
-const PromoList = ({list}) => {
+const PromoList = ({list, title}) => {
 
     if (list.length === 0) {
         return null;
     }
 
+    console.log(list)
+
     return (
         <Wrapper>
             <SpecialityPageTitle>
-                Основные дисциплины
+                {title}
                 <img src="/img/title-line.png" alt="line" width="100%" className="line"/>
             </SpecialityPageTitle>
             <div className="items">
@@ -39,6 +41,7 @@ const Wrapper = styled.div`
     margin-bottom: 45px;
     z-index: -1;
     position: relative;
+    width: 100%;
   }
   
     .items {

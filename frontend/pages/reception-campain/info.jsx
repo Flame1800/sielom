@@ -3,11 +3,11 @@ import {API} from "../../libs/API";
 import styled from "styled-components";
 import React from "react";
 import PostPages from "../../components/PostPages";
-import MainHeader from "../../components/Shared/MainHeader";
+import MainHeader from "../../components/Common/MainHeader";
 import {baseTheme} from "../../styles/theme";
-import Button from "../../components/Shared/Button";
+import Button from "../../components/Common/Button";
 import Link from "next/link";
-import JivoButton from "../../components/Shared/JivoButton";
+import JivoButton from "../../components/Common/JivoButton";
 
 const Post = ({ posts, commission }) => {
 

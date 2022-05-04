@@ -1,10 +1,10 @@
 import MainLayout from "../../layouts/MainLayout";
 import {API} from "../../libs/API";
-import MainHeader from "../../components/Shared/MainHeader";
+import MainHeader from "../../components/Common/MainHeader";
 import styled from "styled-components";
-import ArrowButton from "../../components/Shared/ArrowButton";
-import Tag from "../../components/Shared/Tag";
-import Button from "../../components/Shared/Button";
+import ArrowButton from "../../components/Common/ArrowButton";
+import Tag from "../../components/Common/Tag";
+import Button from "../../components/Common/Button";
 import EducationForm from "../../components/Specialtity/PromoPageComponents/EducationForm";
 import Technologies from "../../components/Specialtity/PromoPageComponents/Technologies";
 import TrainingPlan from "../../components/Specialtity/PromoPageComponents/TrainingPlan";
@@ -23,7 +23,7 @@ import Reviews from "../../components/Specialtity/PromoPageComponents/Reviews";
 import Link from "next/link";
 import React from "react";
 import {baseTheme} from "../../styles/theme";
-import JivoButton from "../../components/Shared/JivoButton";
+import JivoButton from "../../components/Common/JivoButton";
 
 export default function Specialties({ entity }) {
     const img  = entity.attributes.cover?.data ? process.env.API_URL + entity.attributes.cover.data[0].attributes.url : null
@@ -58,7 +58,7 @@ export default function Specialties({ entity }) {
                 <div className="description" dangerouslySetInnerHTML={{ __html: attributes.full_description }} />
                 <Technologies technologies={attributes.technologies} />
                 <TrainingPlan training_plan={attributes.training_plan} />
-                <PromoList list={attributes.promo_list} />
+                <PromoList list={attributes.promo_list} title={attributes.promo_list_name} />
                 <BannerBlock banner_text={attributes.banner_text} />
                 <WorksBlock works={attributes.works} />
                 <PlacesWorkBlock work_places={attributes.work_places} is_business_speciality={attributes.is_business_speciality} />

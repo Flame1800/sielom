@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from "styled-components";
-import Button from "../../Shared/Button";
+import Button from "../../Common/Button";
 
 const PromoBlock = ({speciality}) => {
 

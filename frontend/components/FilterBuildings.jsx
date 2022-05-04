@@ -1,5 +1,5 @@
 import React from "react";
-import TagButton from "./Shared/TagButton";
+import TagButton from "./Common/TagButton";
 import styled from "styled-components";
 
 const buildings = [

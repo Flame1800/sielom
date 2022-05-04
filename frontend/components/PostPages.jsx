@@ -1,9 +1,9 @@
 import MainLayout from "../layouts/MainLayout";
-import MainHeader from "../components/Shared/MainHeader";
+import MainHeader from "./Common/MainHeader";
 import styled from "styled-components";
 import React from "react";
 import { SidebarLinks } from "../styles/sharedStyle";
-import PagePost from "./Shared/PagePost";
+import PagePost from "./Common/PagePost";
 import { useRouter } from 'next/router'
 
 export default function PostPages({ posts, title, notLayout = false }) {
@@ -28,7 +28,7 @@ export default function PostPages({ posts, title, notLayout = false }) {
             <Wrapper>
                 <SidebarLinks>
                     {posts.map(post => {
-                        const isActive = post.id === currentPost ? "active" : ""
+                        const isActive = post.id === currentPost.id ? "active" : ""
 
                         return (
                             <a

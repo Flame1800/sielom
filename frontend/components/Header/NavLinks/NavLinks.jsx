@@ -9,8 +9,8 @@ const NavLinks = () => {
     return (
             <LinksContainer>
                 <div className='links'>
-                    {mapLinks
-                        .map(({link, content}) => (<Link link={link} content={content} />))}
+                    {mapLinks.map(({link, content}) =>
+                            (<Link key={link.src} link={link} content={content} />))}
                 </div>
 
                 <ButtonSchedule />

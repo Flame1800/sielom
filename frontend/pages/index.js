@@ -5,9 +5,9 @@ import {
     DefaultSection, Title, Specialties, Infographics, Partners
 } from '../styles/homeStyle'
 import NewsCard from "../components/Card/NewsCard";
-import ArrowButton from "../components/Shared/ArrowButton";
+import ArrowButton from "../components/Common/ArrowButton";
 import SpecCard from "../components/Specialtity/SpecCard";
-import TagButton from "../components/Shared/TagButton";
+import TagButton from "../components/Common/TagButton";
 import Head from 'next/head'
 import SwiperCore, {
     Navigation, Autoplay
@@ -71,7 +71,7 @@ export default function Home({events, news, specialties}) {
             {events.map((event, i) => {
                 if (i < 16) {
                     return (
-                        <SwiperSlide>
+                        <SwiperSlide key={event.id}>
                             <EventCard event={event} />
                         </SwiperSlide>
                     )
@@ -85,7 +85,7 @@ export default function Home({events, news, specialties}) {
             {news.map((post, i) => {
                 if (i < 16) {
                     return (
-                        <SwiperSlide>
+                        <SwiperSlide key={post.id}>
                             <NewsCard post={post} />
                         </SwiperSlide>
                     )
@@ -103,9 +103,11 @@ export default function Home({events, news, specialties}) {
                     <Title>Программы обучения</Title>
                     <div className='header-flex'>
                         <div className='name'>на базе:</div>
-                        <TagButton>Всех классов</TagButton>
-                        <TagButton>9 классов</TagButton>
-                        <TagButton>11 классов</TagButton>
+                        <div className="filter">
+                            <TagButton>Всех классов</TagButton>
+                            <TagButton>9 классов</TagButton>
+                            <TagButton>11 классов</TagButton>
+                        </div>
                     </div>
                 </div>
                 <div className="list">

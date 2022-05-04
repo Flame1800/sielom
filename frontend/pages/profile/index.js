@@ -1,7 +1,7 @@
 import MainLayout from "../../layouts/MainLayout";
-import MainHeader from "../../components/Shared/MainHeader";
+import MainHeader from "../../components/Common/MainHeader";
 import styled from "styled-components";
-import Button from "../../components/Shared/Button";
+import Button from "../../components/Common/Button";
 import {baseTheme} from "../../styles/theme";
 
 

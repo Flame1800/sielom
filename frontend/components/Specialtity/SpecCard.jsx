@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import styled from "styled-components";
-import Tag from "../Shared/Tag";
+import Tag from "../Common/Tag";
 
 
 const SpecCard = ({entity}) => {

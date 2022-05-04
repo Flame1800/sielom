@@ -1,9 +1,9 @@
 import MainLayout from "../../layouts/MainLayout";
 import {API} from "../../libs/API";
-import MainHeader from "../../components/Shared/MainHeader";
+import MainHeader from "../../components/Common/MainHeader";
 import styled from "styled-components";
 import {Title} from "../../styles/homeStyle";
-import LongLink from "../../components/Shared/LongLink";
+import LongLink from "../../components/Common/LongLink";
 import React from "react";
 import {Tooltip} from "@mui/material";
 
@@ -18,7 +18,7 @@ export default function Graduate({ posts, content }) {
                     Одним из приоритетных направлений развития института является подготовка высококвалифицированных
                     специалистов для предприятий-партнеров и содействие в трудоустройстве выпускников.
                 </div>
-                <img src="/img/graduate.png" ></img>
+                <img src="/img/graduate.png" alt='cover' />
             </Header>
             <Content>
                 <div className="fast-links">
@@ -42,16 +42,16 @@ export default function Graduate({ posts, content }) {
                         <Title>Полезные материалы</Title>
                         <div className="links">
                             {posts.map(post =>
-                                <>
-                                    <div
-                                        key={post.id}
-                                        onClick={() => post.id === activePost?.id ? setPost(null) : setPost(post)}
-                                    >
+                                <div key={post.id}>
+                                    <div onClick={() => post.id === activePost?.id ? setPost(null) : setPost(post)}>
                                         <LongLink>{post.attributes.name}</LongLink>
                                     </div>
                                     {activePost?.id === post.id
-                                    && <div className='page-list' dangerouslySetInnerHTML={{ __html: activePost.attributes.body }} />}
-                                </>
+                                    && <div
+                                        className='page-list'
+                                        dangerouslySetInnerHTML={{ __html: activePost.attributes.body }}
+                                    />}
+                                </div>
                                 )}
                         </div>
                     </div>

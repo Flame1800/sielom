@@ -3,6 +3,7 @@ import styled from "styled-components";
 import {API} from "../../../libs/API";
 import { Swiper, SwiperSlide  } from "swiper/react";
 import { Pagination, Navigation, EffectFade } from "swiper";
+import Link from "next/link";
 
 import "swiper/css";
 import "swiper/css/effect-fade";
@@ -33,11 +34,16 @@ const Slider = () => {
                     {slides.map(slide =>
                         <SwiperSlide key={slide.id}>
                             <img src={`${process.env.API_URL}${slide.attributes.cover.data.attributes.url}`} alt="img"/>
-                            <div className="text">
-                                <div>
-                                    {slide.attributes.name}
-                                </div>
-                            </div>
+                            {slide.attributes.link
+                                ?  (
+                                    <Link href={slide.attributes.link}>
+                                        <a className="text">
+                                            {slide.attributes.name}
+                                        </a>
+                                    </Link>
+                                )
+                                : <div className='text'>{slide.attributes.name}</div>
+                            }
                         </SwiperSlide>
                     )}
                 </Swiper>

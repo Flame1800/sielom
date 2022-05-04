@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import {baseTheme} from "../../../styles/theme";
-import LinkWrapper from "../../Shared/LinkWrapper";
+import LinkWrapper from "../../Common/LinkWrapper";
 import React from "react";
 import navigationStore from "../../../stores/navigationStore";
 import {observer} from "mobx-react-lite";

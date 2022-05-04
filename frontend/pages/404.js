@@ -1,6 +1,6 @@
 import MainLayout from "../layouts/MainLayout";
 import styled from "styled-components";
-import Button from "../components/Shared/Button";
+import Button from "../components/Common/Button";
 import {baseTheme} from "../styles/theme";
 import {useRouter} from "next/router";
 

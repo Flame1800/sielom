@@ -23,20 +23,30 @@ const WorksBlock = ({works}) => {
             </div>
             <div className="cards">
                 <Swiper
-                    slidesPerView={3}
+                    slidesPerView={1}
                     spaceBetween={30}
                     pagination={{
                         clickable: true,
                     }}
                     modules={[Pagination]}
                     className="mySwiper"
+                    breakpoints={{
+                        900: {
+                            slidesPerView: 3
+                        },
+                        500: {
+                            slidesPerView: 2
+                        }
+                    }}
                 >
                 {works.map(work => {
                     return (
+                        <SwiperSlide>
                             <div className="card">
                                 {/*<img src={process.env.API_URL + work.data.attributes.url} alt=""/>*/}
                                 <div className="name">{work.name}</div>
                             </div>
+                        </SwiperSlide>
                     )
                 })}
                 </Swiper>
@@ -70,10 +80,10 @@ const Wrapper = styled.div`
   .cards {
     margin-top: 55px;
     overflow: hidden;
-    max-width: 320px;
     
     .card {
-      margin: 30px 0;
+      max-width: 320px;
+      margin: 30px auto;
       height: 351px;
       background: #F1F1F1;
       border-radius: 26px;

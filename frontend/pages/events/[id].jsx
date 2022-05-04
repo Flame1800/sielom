@@ -10,14 +10,17 @@ import {PostDate, PostText, PostTitle} from "../../components/Post/PostStyle";
 import normalizeDate from "../../libs/normalizeDate";
 import _ from "lodash";
 import MinTapePost from "../../components/Post/MinTapePost";
-import ArrowButton from "../../components/Shared/ArrowButton";
+import ArrowButton from "../../components/Common/ArrowButton";
 import EventCard from "../../components/Card/EventCard";
+import FileHolder from "../../components/Common/Files/FileHolder";
+import FileContainer from "../../components/Common/Files/FileContainer";
 
 export default function Event({event, events}) {
 
     const {attributes} = event
     const date = moment(attributes.start_date).calendar()
 
+    console.log(attributes.files.data)
     return (
         <MainLayout>
             <PostWrapper>
@@ -42,6 +45,7 @@ export default function Event({event, events}) {
                     <PostText>
                         <div dangerouslySetInnerHTML={{__html: attributes.description }} />
                     </PostText>
+                    <FileContainer files={attributes.files} />
                 </div>
             </PostWrapper>
             <Tape>

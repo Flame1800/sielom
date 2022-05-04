@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import FileContainer from "./Files/FileContainer";
 
 
 const PagePost = ({ post }) => {
@@ -12,6 +13,7 @@ const PagePost = ({ post }) => {
                 <div className="post-md">
                     <div dangerouslySetInnerHTML={{__html: post.attributes?.body }} />
                 </div>
+                <FileContainer files={post.attributes.files} />
             </>}
         </Content>
     )

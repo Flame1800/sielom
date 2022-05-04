@@ -5,9 +5,9 @@ import PostCover from "../../components/Post/PostCover";
 import {PostDate, PostText, PostTitle} from "../../components/Post/PostStyle";
 import normalizeDate from "../../libs/normalizeDate";
 import styled from "styled-components";
-import _ from 'lodash'
-import ArrowButton from "../../components/Shared/ArrowButton";
+import ArrowButton from "../../components/Common/ArrowButton";
 import NewsCard from "../../components/Card/NewsCard";
+import FileContainer from "../../components/Common/Files/FileContainer";
 
 export default function NewsPost({post, posts}) {
 
@@ -25,12 +25,13 @@ export default function NewsPost({post, posts}) {
                     <PostText>
                         <div dangerouslySetInnerHTML={{__html: post.attributes.body }} />
                     </PostText>
+                    <FileContainer files={post.attributes.files} />
                 </div>
             </PostWrapper>
             <Tape>
                 <div className="title">Читайте также:</div>
                 <div className='list'>
-                    {_.shuffle(posts).map((post, id) => {
+                    {posts.map((post, id) => {
                         if (id > 3) {
                             return null
                         }
@@ -61,6 +62,10 @@ const Tape = styled.div`
   .list {
     overflow: scroll;
     display: flex;
+
+    &::-webkit-scrollbar {
+      width: 0;
+    }
   }
 `
 

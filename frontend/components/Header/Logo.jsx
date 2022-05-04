@@ -4,14 +4,12 @@ import styled from "styled-components";
 
 const Logo = () => {
     return (
-        <>
-            <Link href="/">
-                <Wrapper>
-                    <img src="/img/logo-sielom.svg" alt="Logo" />
-                    <span className="name">Сургутский институт экономики, управления  и права</span>
-                </Wrapper>
-            </Link>
-        </>
+        <Link href="/">
+            <Wrapper href='/'>
+                <img src="/img/logo-sielom.svg" alt="Logo" />
+                <span className="name">Сургутский институт экономики, управления  и права</span>
+            </Wrapper>
+        </Link>
     );
 };
 

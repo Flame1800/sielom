@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from "styled-components";
 import Slider from "./Slider";
-import Button from "../../Shared/Button";
 import Link from "next/link";
 
 const Banner = () => {
@@ -17,7 +16,7 @@ const Banner = () => {
                             <div className="quote">
                                 <img src="/img/portrait.png" alt="Портрет" className='portrait'/>
                                 <div className="text">
-                                    Вечным законом да будет: учить и учится всему через примеры, наставления и применение на деле
+                                    Вечным законом да будет: учить и учиться всему через примеры, наставления и применение на деле
                                 </div>
                                 <div className="author">
                                     Галина Васильевна Патракова. Директор АНПОО «СИЭУиП»
@@ -28,7 +27,7 @@ const Banner = () => {
                             <Link href='/specialties'>
                                 <a className="btn">Специальности</a>
                             </Link>
-                            <Link href='http://sielom.ru/dopobr'>
+                            <Link href='/site/courses'>
                                 <a className="btn white">Курсы</a>
                             </Link>
                         </div>
@@ -65,9 +64,11 @@ const HeroBlock = styled.section`
   .content {
     max-width: 1320px;
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     padding-top: 95px;
     margin: 0 auto;
+    padding-bottom: 60px;
   }
 
   .first-content {
@@ -92,9 +93,9 @@ const HeroBlock = styled.section`
       opacity: 0.99;
       margin-bottom: 60px;
 
-      @media (max-width: 768px) {
+      @media (max-width: 1250px) {
         margin-top: -40px;
-        font-size: 70px;
+        font-size: 4em;
         color: #fff;
         text-align: center;
       }
@@ -105,7 +106,7 @@ const HeroBlock = styled.section`
       flex-wrap: wrap;
       position: relative;
 
-      @media (max-width: 768px) {
+      @media (max-width: 1250px) {
         justify-content: center;
         text-align: center;
         margin-bottom: 50px;
@@ -141,10 +142,11 @@ const HeroBlock = styled.section`
         padding: 8px 30px;
 
 
-        @media (max-width: 768px) {
+        @media (max-width: 1250px) {
           bottom: -100px;
-          right: 10%;
-          left: 10%;
+          margin: 0 auto;
+          left: 0;
+          right: 0;
         }
       }
     }
@@ -172,7 +174,7 @@ const HeroBlock = styled.section`
           color: #000;
         }
         
-        @media (max-width: 768px) {
+        @media (max-width: 1250px) {
           font-size: 14px;
           padding: 15px 30px;
           min-width: 200px;

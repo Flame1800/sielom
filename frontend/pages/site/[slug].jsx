@@ -1,8 +1,8 @@
 import MainLayout from "../../layouts/MainLayout";
 import {API} from "../../libs/API";
 import React from "react";
-import ArrowButton from "../../components/Shared/ArrowButton";
-import PagePost from "../../components/Shared/PagePost";
+import ArrowButton from "../../components/Common/ArrowButton";
+import PagePost from "../../components/Common/PagePost";
 import styled from "styled-components";
 
 export default function SinglePage({post}) {

@@ -24,9 +24,10 @@ const mapLinks = [
                 ]
             },
             {
-                main: makeLink("Дополнительное образование", "http://sielom.ru/dopobr"),
+                main: makeLink("", "/"),
                 links: [
-                    makeLink("Перечень документов для поступления", "http://sielom.ru/dopobr/perechen-dokumentov-dlja-postuplenija"),
+                    makeLink("Курсы", "site/courses"),
+                    makeLink("Перечень документов для поступления", "/reception-campain/info?postId=9"),
                     makeLink("Повышение квалификации", "http://sielom.ru/dopobr/povyshenie-kvalifikacii"),
                     makeLink("Профессиональная переподготовка", "http://sielom.ru/dopobr/professionalnaja-perepodgotovka"),
                     makeLink("Семинары", "http://sielom.ru/dopobr/seminary"),

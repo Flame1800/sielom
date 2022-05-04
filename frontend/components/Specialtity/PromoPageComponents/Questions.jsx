@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from "styled-components";
 import {SpecialityPageTitle} from "../speciality-page-style";
-import LongLink from "../../Shared/LongLink";
+import LongLink from "../../Common/LongLink";
 
 const Questions = ({questions}) => {
     const [openTape, setTape] = React.useState(null)

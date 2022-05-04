@@ -1,4 +1,4 @@
-import Tag from "../../Shared/Tag";
+import Tag from "../../Common/Tag";
 import styled from "styled-components";
 
 

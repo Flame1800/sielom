@@ -2,10 +2,10 @@ import MainLayout from "../../layouts/MainLayout";
 import {API} from "../../libs/API";
 import Link from "next/link";
 import {} from "../../styles/homeStyle";
-import MainHeader from "../../components/Shared/MainHeader";
+import MainHeader from "../../components/Common/MainHeader";
 import styled from "styled-components";
 import {baseTheme} from "../../styles/theme";
-import LongLink from "../../components/Shared/LongLink";
+import LongLink from "../../components/Common/LongLink";
 
 
 const ReceptionCampain = ({ posts, commission }) => {

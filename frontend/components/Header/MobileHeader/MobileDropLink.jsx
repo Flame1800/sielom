@@ -1,5 +1,5 @@
 import React from 'react';
-import LinkWrapper from "../../Shared/LinkWrapper";
+import LinkWrapper from "../../Common/LinkWrapper";
 import styled from "styled-components";
 
 const MobileDropLink = ({linkWrapper}) => {

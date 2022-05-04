@@ -8,6 +8,7 @@ const devHost = process.env.API_HOST_DEV
 
 const url = process.env.API_HOST_PROD
 API.siteUrl = `${process.env.API_URL}/`
+API.url = `${process.env.API_URL}`
 
 API.getSlides = () => axios(`${url}/hero-slides?populate=*`)
 
@@ -44,4 +45,4 @@ API.getPageBySlug = slug => axios(encodeURI(`${url}/posts?populate=*&filters[slu
 
 
 API.getEmployees = (category) =>
-    axios(encodeURI(`${url}/employees?filters[category][name][$eq]=${category ? category : 'Руководство'}&populate=*`))
+    axios(encodeURI(`${url}/employees?sort&filters[category][name][$eq]=${category ? category : 'Руководство'}&populate=*`))

@@ -1,7 +1,7 @@
 import React from 'react';
 import {DefaultSection, Title} from "../../styles/homeStyle";
 import Link from "next/link";
-import ArrowButton from "../Shared/ArrowButton";
+import ArrowButton from "../Common/ArrowButton";
 import EventCard from "../Card/EventCard";
 import {Swiper, SwiperSlide} from "swiper/react";
 import { Pagination, Navigation } from "swiper";
@@ -36,6 +36,7 @@ const CardsCarouselWrapper = ({children, title, btnText}) => {
                             pagination={{
                                 clickable: true,
                             }}
+                            scrollbar={{ draggable: true }}
                             navigation={{
                                 // Both prevEl & nextEl are null at render so this does not work
                                 prevEl: navigationPrevRef.current,

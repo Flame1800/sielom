@@ -1,11 +1,11 @@
 import MainLayout from "../../layouts/MainLayout";
 import {API} from "../../libs/API";
-import MainHeader from "../../components/Shared/MainHeader";
+import MainHeader from "../../components/Common/MainHeader";
 import styled from "styled-components";
 import PersonCard from "../../components/Card/PersonCard";
 import {SidebarLinks} from "../../styles/sharedStyle";
 import React from "react";
-import Button from "../../components/Shared/Button";
+import Button from "../../components/Common/Button";
 import {useRouter} from "next/router";
 
 const list = [
@@ -30,14 +30,14 @@ export default function Specialties({ employees }) {
             <Wrapper>
                 <SidebarLinks>
                     {list.map((item, id) =>
-                        <div
+                        <a
                             key={id}
                             onClick={() => selectPost(item)}
                             className={item === currentPost ? 'active' : ''}
                         >
                             {item}
-                        </div>)}
-                    <div>Аттестация педагогов</div>
+                        </a>)}
+                    <a>Аттестация педагогов</a>
                 </SidebarLinks>
                 <div className='items'>
                     <Content>
@@ -52,9 +52,14 @@ export default function Specialties({ employees }) {
 const Wrapper = styled.div`
   display: flex;
   
+  @media (max-width: 768px) {
+    flex-wrap: wrap;
+  }
+  
   .items {
     margin-bottom: 100px;
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
     align-items: center;
   }

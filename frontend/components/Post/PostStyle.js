@@ -19,6 +19,15 @@ export const PostText = styled.div`
   line-height: 27px;
   letter-spacing: -0.01em;
   color: #000000;
+  max-width: 800px;
+  
+  img {
+    width: 100%;
+  }
+  
+  a {
+    text-decoration: underline;
+  }
 `
 
 export const PostDate = styled.div`

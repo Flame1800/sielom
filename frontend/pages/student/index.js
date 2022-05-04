@@ -1,9 +1,9 @@
 import MainLayout from "../../layouts/MainLayout";
 import {API} from "../../libs/API";
-import MainHeader from "../../components/Shared/MainHeader";
+import MainHeader from "../../components/Common/MainHeader";
 import styled from "styled-components";
 import {Title} from "../../styles/homeStyle";
-import LongLink from "../../components/Shared/LongLink";
+import LongLink from "../../components/Common/LongLink";
 import Link from "next/link";
 import {Tooltip} from "@mui/material";
 

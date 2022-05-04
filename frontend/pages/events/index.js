@@ -2,7 +2,7 @@ import EventCard from "../../components/Card/EventCard";
 import MainLayout from "../../layouts/MainLayout";
 import FilterBuildings from "../../components/FilterBuildings";
 import {API} from "../../libs/API";
-import MainHeader from "../../components/Shared/MainHeader";
+import MainHeader from "../../components/Common/MainHeader";
 import styled from "styled-components";
 
 

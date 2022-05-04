@@ -10,4 +10,9 @@ export const SpecialityPageTitle = styled.div`
     margin-bottom: 50px;
     position: relative;
     z-index: 2;
+  
+    @media (max-width: 768px) {
+      font-size: 28px;
+      line-height: 36px;
+    }
 `
