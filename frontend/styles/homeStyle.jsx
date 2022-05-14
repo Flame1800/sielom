@@ -24,61 +24,6 @@ export const Title = styled.div`
   }
 `
 
-
-export const Specialties = styled.div`
-  margin-top: 190px;
-  min-height: 500px;
-  margin-bottom: 250px;
-  
-  .list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .header {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    height: 60px;
-    margin-bottom: 60px;
-    border-bottom: 1px solid ${baseTheme.colors.light};
-    padding-bottom: 30px;
-  }
-  
-  .header-flex {
-    margin-left: 20px;
-    align-items: center;
-    display: flex;
-    flex-wrap: wrap;
-    padding-bottom: 20px;
-    margin-bottom: 10px;
-    overflow: auto;
-
-    &::-webkit-scrollbar {
-      width: 0;
-    }
-
-    .name {
-      font-weight: 600;
-      font-size: 14px;
-      line-height: 11px;
-      letter-spacing: 0.75px;
-      color: #3E3E3E;
-      white-space: nowrap;
-      margin-left: 5px;
-      margin-right: 20px;
-      margin-bottom: 5px;
-    }
-    
-    .filter {
-      display: flex;
-      margin-top: 10px;
-    }
-  }
-`
-
 export const Infographics = styled.div`
   margin-bottom: 230px;
   

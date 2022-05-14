@@ -46,3 +46,40 @@ export const SidebarLinks = styled.div`
     color: #785100;
   }
 `
+
+export const ButtonStyle = styled.button`
+  background: ${({outline}) => !outline ? baseTheme.colors.gold : ''};
+  border-radius: 13px;
+  height: 55px;
+  padding: 20px 50px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  color: #46371a;
+  font-size: 18px;
+  max-width: 400px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.2s;
+  white-space: nowrap;
+  border: ${baseTheme.colors.gold} 2px solid;
+
+  &:disabled {
+    background: #cecece;
+    border: #cecece 2px solid;
+    cursor: default;
+  }
+
+  &:hover {
+
+    &:disabled {
+      background: #cecece;
+      border: #cecece 2px solid;
+      cursor: default;
+    }
+
+    color: #3E3E3E;
+    background: none;
+    border: ${baseTheme.colors.gold} 2px solid;
+  }
+`

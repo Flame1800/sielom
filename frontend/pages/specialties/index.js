@@ -4,6 +4,7 @@ import MainHeader from "../../components/Common/MainHeader";
 import SpecCard from "../../components/Specialtity/SpecCard";
 import styled from "styled-components";
 import {baseTheme} from "../../styles/theme";
+import SpecialityCardsHolder from "../../components/Specialtity/SpecialityCardsHolder";
 
 
 export default function Specialties({ specialties }) {
@@ -11,7 +12,7 @@ export default function Specialties({ specialties }) {
         <MainLayout>
             <MainHeader>СПЕЦИАЛЬНОСТИ</MainHeader>
             <Content>
-                {specialties.map(item => <SpecCard key={item.id} entity={item} />)}
+                <SpecialityCardsHolder specialties={specialties}/>
             </Content>
         </MainLayout>
     )

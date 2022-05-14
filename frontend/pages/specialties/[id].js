@@ -22,12 +22,13 @@ import PlacesWorkBlock from "../../components/Specialtity/PromoPageComponents/Pl
 import Reviews from "../../components/Specialtity/PromoPageComponents/Reviews";
 import Link from "next/link";
 import React from "react";
-import {baseTheme} from "../../styles/theme";
 import JivoButton from "../../components/Common/JivoButton";
 
 export default function Specialties({ entity }) {
     const img  = entity.attributes.cover?.data ? process.env.API_URL + entity.attributes.cover.data[0].attributes.url : null
     const {attributes} = entity
+
+    console.log(attributes)
 
     return (
         <MainLayout>

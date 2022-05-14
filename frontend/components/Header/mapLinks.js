@@ -37,7 +37,7 @@ const mapLinks = [
                 main: makeLink("Сервисы", ""),
                 links: [
                     makeLink("Личный кабинет", "/profile/login"),
-                    makeLink("Расписание", "/timetable"),
+                    makeLink("Расписание", `${API.url}/timetable`),
                 ]
             },
             {
