@@ -10,8 +10,6 @@ const PromoList = ({list, title}) => {
         return null;
     }
 
-    console.log(list)
-
     return (
         <Wrapper>
             <SpecialityPageTitle>

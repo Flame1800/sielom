@@ -1,9 +1,10 @@
 import React from 'react';
 import styled from "styled-components";
+import {API} from "../../libs/API";
 
 const ButtonSchedule = () => {
     return (
-        <Wrapper target="_blank" href='https://new.sielom.ru/timetable'>
+        <Wrapper target="_blank" href={`http://milkankt.beget.tech/obrazovanie/raspisanie-zanjatii`}>
             Расписание
         </Wrapper>
     );
@@ -11,7 +12,7 @@ const ButtonSchedule = () => {
 
 const Wrapper = styled.a`
   position: relative;
-  right: 30px;
+  margin-left: 10px;
   border: 2px solid #EABC5D;
   border-radius: 6px;
   font-weight: 600;

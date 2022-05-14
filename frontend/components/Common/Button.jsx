@@ -5,7 +5,7 @@ const Button = ({children, outline}) => {
     return <Wrapper outline={outline}>{children}</Wrapper>
 }
 
-const Wrapper = styled.div`
+const Wrapper = styled.button`
   background: ${({outline}) => !outline ? baseTheme.colors.gold : ''};
   border-radius: 13px;
   height: 55px;

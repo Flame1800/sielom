@@ -24,7 +24,29 @@ API.getNewPost = (id) => axios(`${url}/news/${id}?populate=*`)
 
 
 API.getSpecialties = () => axios(`${url}/specialties?populate=*&filters[type][$eq]=speciality`)
-API.getSpecialty = (id) => axios(`${url}/specialties/${id}?populate=*`)
+
+const query = qs.stringify({
+    populate: [
+        'technologies',
+        'technologies.icon',
+        'tags',
+        'advantages',
+        'cover',
+        'durations',
+        'promo_list',
+        'questions',
+        'quote',
+        'resume',
+        'reviews',
+        'salary',
+        'training_plan',
+        'work_places',
+        'works',
+        'works.image',
+    ],
+})
+
+API.getSpecialty = (id) => axios(`${url}/specialties/${id}?${query}`)
 
 API.getEmployeeRoles = () => axios(`${url}/employee-roles?populate=*`)
 

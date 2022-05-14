@@ -45,8 +45,10 @@ const Wrapper = styled.div`
   .title-cont {
     margin-bottom: 50px;
     
-    img {
-      width: 100%;
+    @media (max-width: 600px) {
+      img {
+        width: 100%;
+      }
     }
   }
 

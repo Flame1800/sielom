@@ -21,6 +21,7 @@ import Footer from "../components/Footer";
 import Banner from "../components/HomePage/Banner/Banner";
 import CardsCarouselWrapper from "../components/HomePage/CardsCarouselWrapper";
 import {SwiperSlide} from "swiper/react";
+import SpecialityCardsHolder from "../components/Specialtity/SpecialityCardsHolder";
 
 SwiperCore.use([Navigation, Autoplay]);
 
@@ -33,9 +34,8 @@ export default function Home({events, news, specialties}) {
         </Head>
         <Header />
 
-      {/* -------------------- Баннер -------------------- */}
+        {/* -------------------- Баннер -------------------- */}
         <Banner />
-      {/* -------------------- Конец секции -------------------- */}
 
         {/* ------ Секция инфографики ----- */}
         <Infographics>
@@ -62,7 +62,6 @@ export default function Home({events, news, specialties}) {
                 </div>
             </DefaultSection>
         </Infographics>
-        {/* -------------------- Конец секции -------------------- */}
 
 
         {/* ------ Секция мероприятий и новостей ----- */}
@@ -79,8 +78,6 @@ export default function Home({events, news, specialties}) {
             })}
         </CardsCarouselWrapper>}
 
-        {/* -------------------- Конец секции -------------------- */}
-
         {events.length > 0  && <CardsCarouselWrapper title="Новости" btnText="Все новости">
             {news.map((post, i) => {
                 if (i < 16) {
@@ -93,29 +90,8 @@ export default function Home({events, news, specialties}) {
             })}
         </CardsCarouselWrapper>}
 
-        {/* -------------------- Конец секции -------------------- */}
-
-
-        {/* ------ Секция программ обучения ----- */}
-        <Specialties>
-            <DefaultSection>
-                <div className='header'>
-                    <Title>Программы обучения</Title>
-                    <div className='header-flex'>
-                        <div className='name'>на базе:</div>
-                        <div className="filter">
-                            <TagButton>Всех классов</TagButton>
-                            <TagButton>9 классов</TagButton>
-                            <TagButton>11 классов</TagButton>
-                        </div>
-                    </div>
-                </div>
-                <div className="list">
-                    {specialties.map(item => <SpecCard key={item.id} entity={item} />)}
-                </div>
-            </DefaultSection>
-        </Specialties>
-
+        {/* ------ Секция специальностей ----- */}
+        <SpecialityCardsHolder specialties={specialties} />
 
         {/* ------ Секция партнеров ----- */}
         <Partners>
@@ -124,7 +100,6 @@ export default function Home({events, news, specialties}) {
             <a href="http://sielom.ru/pages/stopcorrupt.html"><img alt='partner' src='/img/offical-partner-3.png' /></a>
             <a href="https://obrnadzor.gov.ru/"><img alt='partner' src='/img/offical-partner-4.png' /></a>
         </Partners>
-        {/* -------------------- Конец секции -------------------- */}
         <Footer />
     </>
   );
