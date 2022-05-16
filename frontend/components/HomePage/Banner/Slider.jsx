@@ -8,7 +8,7 @@ import Link from "next/link";
 import "swiper/css";
 import "swiper/css/effect-fade";
 import "swiper/css/navigation";
-import "swiper/css/pagination";
+import {ButtonStyle} from "../../../styles/sharedStyle";
 
 
 const Slider = () => {
@@ -22,27 +22,22 @@ const Slider = () => {
     return (
             <SliderStyle>
                 <Swiper
-                    pagination={{
-                        type: "fraction",
-                    }}
-                    effect={"fade"}
                     navigation={true}
-                    modules={[Pagination, Navigation, EffectFade]}
+                    modules={[ Navigation, EffectFade]}
                     loop={true}
                     autoplay={{delay: 10000}}
                 >
                     {slides.map(slide =>
                         <SwiperSlide key={slide.id}>
-                            <img src={`${process.env.API_URL}${slide.attributes.cover.data.attributes.url}`} alt="img"/>
-                            {slide.attributes.link
-                                ?  (
-                                    <Link href={slide.attributes.link}>
-                                        <a className="text">
-                                            {slide.attributes.name}
-                                        </a>
-                                    </Link>
-                                )
-                                : <div className='text'>{slide.attributes.name}</div>
+                            <SlideImg bg={`${process.env.API_URL}${slide.attributes.cover.data.attributes.url}`} alt="img"/>
+                            {slide.attributes.link &&
+                                        <div className="text">
+                                            <Link href={slide.attributes.link}>
+                                                <a>
+                                                    <ButtonStyle>Подробнее</ButtonStyle>
+                                                </a>
+                                            </Link>
+                                        </div>
                             }
                         </SwiperSlide>
                     )}
@@ -51,101 +46,76 @@ const Slider = () => {
     );
 };
 
+const SlideImg = styled.div`
+  background: ${({bg}) => `url(${bg})`} no-repeat;
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-position-x: 50%;
+  background-position-y: 50%;
+
+  @media (max-width: 1500px) {
+    background-size: contain;
+
+  }
+`
+
 const SliderStyle = styled.div`
-    max-width: 660px;
-    width: 100%;
-  
-  
+  width: 100%;
+
   .text {
     display: flex;
-    justify-content: start;
-    bottom: 45px;
-    margin-left: 210px;
-    margin-top: 55px;
+    justify-content: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 20px;
+    width: 100%;
+  }
+
+  .swiper {
     background: #fff;
-    
-    @media (max-width: 425px) {
-      margin-left: 130px;
+    height: 70vh;
+    display: flex;
+    overflow: hidden;
+
+    @media (max-width: 1900px) {
+      height: 60vh;
+    }
+
+    @media (max-width: 1600px) {
+      height: 50vh;
+    }
+
+    @media (max-width: 1000px) {
+      height: 30vh;
     }
   }
 
-    .swiper {
-      background: #fff;
-      height: 50vh;
-      display: flex;
-      overflow: hidden;
-    }
 
-    .swiper-wrapper {
-      display: flex;
-    }
+  .swiper-button-next {
+    color: #000 !important;
+    background: #fff;
+    padding: 40px 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.18);
+  }
 
-    .swiper-slide {
-      padding: 25px;
-    }
-  
-    .swiper-pagination {
-      width: fit-content;
-      position: absolute;
-      left: 25%;
-      bottom: 8%;
-      font-size: 22px;
+  .swiper-button-prev {
+    color: #000 !important;
+    background: #fff;
+    padding: 40px 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.18);
+  }
 
-      @media (max-width: 768px) {
-        display: none;
-      }
-    }
-
-    .swiper-button-next {
-      color: #fff !important;
-      width: 70px;
-      left: 90px;
-      bottom: 35px !important;
-      top: 86%;
-      margin-top: 0;
-      transition: .2s;
-
-      &:hover {
-        opacity: 0.5;
-      }
-
-      &:after {
-        content: "";
-        width: 37px;
-        height: 37px;
-        background: url('/img/small-arrow.svg') no-repeat;
-        background-size: cover;
-
-      }
-    }
-
-    .swiper-button-prev {
-      color: #fff !important;
-      width: 70px;
-      left: 30px;
-      top: 86%;
-      margin-top: 0;
-      transition: .2s;
-
-      &:hover {
-        opacity: 0.5;
-      }
-
-      &:after {
-        content: "";
-        width: 37px;
-        height: 37px;
-        transform: rotate(180deg);
-        background: url('/img/small-arrow.svg') no-repeat;
-      }
-    }
-
-    .swiper-slide img {
-      display: block;
-      width: 100%;
-      object-fit: cover;
-      height: 80%;
-    }
+  .swiper-slide img {
+    display: block;
+    width: 90%;
+    margin: 0 auto;
+    height: 100%;
+    object-fit: contain;
+  }
 `
 
 export default Slider;
