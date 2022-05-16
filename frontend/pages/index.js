@@ -48,7 +48,7 @@ export default function Home({events, news, specialties}) {
                         </div>
                         <div className="card">
                             <div className="value">515</div>
-                            <div className="description">Студентов на бюджетных местах</div>
+                            <div className="description">Бюджетных мест</div>
                         </div>
                         <div className="card">
                             <div className="value">21</div>

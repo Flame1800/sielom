@@ -50,8 +50,8 @@ export const SidebarLinks = styled.div`
 export const ButtonStyle = styled.button`
   background: ${({outline}) => !outline ? baseTheme.colors.gold : ''};
   border-radius: 13px;
-  height: 55px;
-  padding: 20px 50px;
+  height: 45px;
+  padding: 20px 40px;
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -79,7 +79,7 @@ export const ButtonStyle = styled.button`
     }
 
     color: #3E3E3E;
-    background: none;
+    background: #fff;
     border: ${baseTheme.colors.gold} 2px solid;
   }
 `
