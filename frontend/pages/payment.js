@@ -16,7 +16,7 @@ const Payment = () => {
     return (
         <MainLayout>
             <Content>
-                <MainHeader>ОНЛАЙН ОПЛАТА</MainHeader>
+                <div className='title'>ОНЛАЙН ОПЛАТА</div>
                 <div className="sub-title">
                     Ознакомьтесь с информацией перед оплатой
                 </div>
@@ -61,7 +61,7 @@ const Payment = () => {
                             <ButtonStyle onSubmit={() => {}} >Оплатить услуги</ButtonStyle>
 
                             </a>
-                        : <ButtonStyle onSubmit={() => {}} disabled>Оплатить услуги</ButtonStyle>
+                        : <a><ButtonStyle onSubmit={() => {}} disabled>Оплатить услуги</ButtonStyle></a>
                     }
                 </div>
             </Content>
@@ -74,9 +74,24 @@ const Content = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  
+  a {
+    width: fit-content;
+    margin: 0 auto;
+  }
 
+  .title {
+    text-align: center;
+    font-weight: 700;
+    margin-top: 40px;
+    font-size: 60px;
+    
+    @media (max-width: 768px) {
+      font-size: 35px;      
+    }
+  }
+  
   .sub-title {
-    margin-top: -25px;
     width: 360px;
     text-align: center;
     font-weight: 500;
