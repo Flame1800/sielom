@@ -63,6 +63,9 @@ API.getCommissonPage = () => axios(`${url}/reception-campain`)
 API.getGraduatePages = () => axios(`${url}/posts?filters[category][slug][$eq]=graduate&populate=*`)
 API.getEmploymentPage = () => axios(`${url}/employment`)
 
+API.getCoursesPage = () => axios(`${url}/course`)
+API.getCourses = () => axios(`${url}/specialties?populate=*`)
+
 API.getPageBySlug = slug => axios(encodeURI(`${url}/posts?populate=*&filters[slug][$eq]=${slug}`))
 
 
