@@ -27,8 +27,7 @@ import JivoButton from "../../components/Common/JivoButton";
 export default function Specialties({ entity }) {
     const img  = entity.attributes.cover?.data ? process.env.API_URL + entity.attributes.cover.data[0].attributes.url : null
     const {attributes} = entity
-
-    console.log(attributes)
+    const isCourse = attributes.education_type === 'courses'
 
     return (
         <MainLayout>
@@ -41,11 +40,11 @@ export default function Specialties({ entity }) {
                               title="YouTube video player" frameBorder="0"
                               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                               allowFullScreen className='cover' />
-                    : <img className="cover" width="80%" src={img} alt='cover' />
+                    : <img className="cover" width="80%" src={img ? img : '/img/placeholder.png'} alt='cover' />
                 }
 
                 <div className='buttons'>
-                    <Link href="/reception-campain/info?post=Подача%20документов">
+                    <Link href={isCourse ? "https://trudvsem.ru/educational-programs" : "/reception-campain/info?post=Подача%20документов"}>
                         <a>
                             <Button>Подать заявку</Button>
                         </a>
@@ -67,7 +66,7 @@ export default function Specialties({ entity }) {
                 <Advantages advantages={attributes.advantages} />
                 <Reviews reviews={attributes.reviews} />
                 <Resume resume={attributes.resume} />
-                {attributes.full_description && <Diploma />}
+                {!isCourse && <Diploma />}
                 <PromoBlock speciality={attributes} />
                 <Questions questions={attributes.questions} />
             </Blocks>
@@ -80,7 +79,6 @@ const Banner = styled.div`
   margin: 0 auto;
   max-width: 1000px;
   width: 100%;
-  min-height: 100vh;
   height: 100%;
   padding-top: 40px;
   display: flex;

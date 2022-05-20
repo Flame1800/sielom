@@ -3,7 +3,7 @@ import styled from "styled-components";
 import {baseTheme} from "../../../styles/theme";
 
 const PlacesWorkBlock = ({is_business_speciality, work_places}) => {
-    if (!work_places && !is_business_speciality) {
+    if (!work_places || !is_business_speciality) {
         return null
     }
 

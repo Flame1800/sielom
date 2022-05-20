@@ -7,13 +7,14 @@ const SpecCard = ({entity}) => {
 
     const {attributes} = entity
     const img  = attributes.cover.data ? process.env.API_URL + attributes.cover.data[0].attributes.url : null
+    const isCourse = attributes.education_type === 'courses'
 
     return (
         <Wrapper imgUrl={img}>
             <Link href={`/specialties/${entity.id}`} >
                 <a className='container'>
                     <div className="info">
-                        <div className='title'>{attributes.name}</div>
+                        <div className={isCourse ? "title title_small" : 'title'}>{attributes.name}</div>
                         <div>
                             <div className="tags">
                                 {attributes.durations.find(item => item.class === 'nine') && <Tag>9 классов</Tag>}
@@ -23,7 +24,7 @@ const SpecCard = ({entity}) => {
                             </div>
                         </div>
                     </div>
-                    <img src={img} alt="Фото специальности"/>
+                    <img src={img ? img : '/img/placeholder.png'} className='cover' alt="Фото специальности"/>
                 </a>
             </Link>
         </Wrapper>
@@ -31,17 +32,20 @@ const SpecCard = ({entity}) => {
 }
 
 const Wrapper = styled.div`
+  width: 100%;
   max-width: 620px;
   margin: 20px 20px;
   background-size: cover;
-  
+  border-radius: 20px;
+  border: 1px solid #e5e5e5;
+
   .container {
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-between;
 
     @media (max-width: 768px) {
       flex-direction: column-reverse;
+      flex-wrap: wrap;
     }
   }
 
@@ -51,22 +55,40 @@ const Wrapper = styled.div`
     flex-direction: column;
     justify-content: space-between;
     width: 50%;
-    
+
     @media (max-width: 768px) {
       width: auto;
     }
-    
+
     .title {
       font-weight: 600;
       font-size: 25px;
       line-height: 30px;
       letter-spacing: -0.5px;
       margin-bottom: 20px;
+      
+      &_small {
+        font-size: 17px;
+        line-height: 22px;
+      }
     }
 
   }
 
-  img {
+  .placeholder-cover {
+    width: 50%;
+    min-width: 300px;
+    height: 265px;
+    object-fit: cover;
+    border: 20px solid #fff;
+    background: #E2E2E2;
+    border-radius: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .cover {
     width: 50%;
     min-width: 300px;
     height: 265px;

@@ -6,7 +6,11 @@ import styled from "styled-components";
 import {baseTheme} from "../../styles/theme";
 
 const SpecialityCardsHolder = ({specialties}) => {
-    const [currentSpecialties, setSpecialties] = React.useState(specialties)
+    const cleanSpecialites = specialties.filter(item => {
+        return item.attributes.type === "speciality"
+    })
+
+    const [currentSpecialties, setSpecialties] = React.useState(cleanSpecialites)
     const [mode, setMode] = React.useState('all')
 
     const selectSpecialty = (mode) => {
@@ -21,7 +25,6 @@ const SpecialityCardsHolder = ({specialties}) => {
         })
 
         return setSpecialties(result)
-
     }
 
 

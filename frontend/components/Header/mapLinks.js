@@ -26,7 +26,6 @@ const mapLinks = [
             {
                 main: makeLink("", "/"),
                 links: [
-                    makeLink("Курсы", "site/courses"),
                     makeLink("Перечень документов для поступления", "/reception-campain/info?postId=9"),
                     makeLink("Повышение квалификации", "http://sielom.ru/dopobr/povyshenie-kvalifikacii"),
                     makeLink("Профессиональная переподготовка", "http://sielom.ru/dopobr/professionalnaja-perepodgotovka"),
@@ -71,7 +70,7 @@ const mapLinks = [
         content: [],
     },
     {
-        link: makeLink("Курсы", "/site/courses"),
+        link: makeLink("Курсы", "/courses"),
         content: [],
     },
 ];
