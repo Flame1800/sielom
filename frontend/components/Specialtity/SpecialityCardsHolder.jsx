@@ -52,7 +52,7 @@ const SpecialityCardsHolder = ({specialties}) => {
 
 
 const Specialties = styled.div`
-  margin-top: 100px;
+  margin-top: 200px;
   min-height: 500px;
   margin-bottom: 250px;
   

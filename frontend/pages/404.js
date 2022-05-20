@@ -11,7 +11,7 @@ export default function NotFound() {
         <MainLayout>
             <Content>
                 <div className="title">Страница не найдена</div>
-                <div className="tag">4<span className='gold'>0</span>4</div>
+                <div className="tag">404</div>
                 <div onClick={() => router.back()}>
                     <Button>Вернуться назад</Button>
                 </div>
@@ -45,8 +45,6 @@ const Content = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 190px;
-    border: 9px solid ${baseTheme.colors.black};
     color: ${baseTheme.colors.black};
     padding: 34px 0;
     font-size: 144px;
