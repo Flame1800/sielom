@@ -24,13 +24,7 @@ const SpecCard = ({entity}) => {
                             </div>
                         </div>
                     </div>
-                    {img
-                        ? <img src={img} className='cover' alt="Фото специальности"/>
-                        : <div className='placeholder-cover'>
-                            <div className="bg">
-                                <img src="/img/opacity-logo.svg" alt="no photo"/>
-                            </div>
-                        </div>}
+                    <img src={img ? img : '/img/placeholder.png'} className='cover' alt="Фото специальности"/>
                 </a>
             </Link>
         </Wrapper>
@@ -38,6 +32,7 @@ const SpecCard = ({entity}) => {
 }
 
 const Wrapper = styled.div`
+  width: 100%;
   max-width: 620px;
   margin: 20px 20px;
   background-size: cover;
@@ -46,11 +41,11 @@ const Wrapper = styled.div`
 
   .container {
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-between;
 
     @media (max-width: 768px) {
       flex-direction: column-reverse;
+      flex-wrap: wrap;
     }
   }
 

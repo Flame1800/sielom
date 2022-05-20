@@ -40,7 +40,7 @@ export default function Specialties({ entity }) {
                               title="YouTube video player" frameBorder="0"
                               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                               allowFullScreen className='cover' />
-                    : <img className="cover" width="80%" src={img} alt='cover' />
+                    : <img className="cover" width="80%" src={img ? img : '/img/placeholder.png'} alt='cover' />
                 }
 
                 <div className='buttons'>
