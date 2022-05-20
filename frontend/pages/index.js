@@ -22,6 +22,7 @@ import Banner from "../components/HomePage/Banner/Banner";
 import CardsCarouselWrapper from "../components/HomePage/CardsCarouselWrapper";
 import {SwiperSlide} from "swiper/react";
 import SpecialityCardsHolder from "../components/Specialtity/SpecialityCardsHolder";
+import Mission from "../components/HomePage/Mission";
 
 SwiperCore.use([Navigation, Autoplay]);
 
@@ -36,6 +37,7 @@ export default function Home({events, news, specialties}) {
 
         {/* -------------------- Баннер -------------------- */}
         <Banner />
+
 
         {/* ------ Секция инфографики ----- */}
         <Infographics>
@@ -62,6 +64,9 @@ export default function Home({events, news, specialties}) {
                 </div>
             </DefaultSection>
         </Infographics>
+
+        {/* ------ Миссия института ----- */}
+        <Mission />
 
 
         {/* ------ Секция мероприятий и новостей ----- */}

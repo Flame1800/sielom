@@ -80,7 +80,7 @@ const CardsCarouselWrapper = ({children, title, btnText}) => {
 };
 
 const EventsAndNews = styled.div`
-  margin-bottom: 200px;
+  margin-bottom: 80px;
 
   .header {
     height: 150px;

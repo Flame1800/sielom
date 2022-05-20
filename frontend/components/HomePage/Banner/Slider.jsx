@@ -2,14 +2,15 @@ import React from 'react';
 import styled from "styled-components";
 import {API} from "../../../libs/API";
 import { Swiper, SwiperSlide  } from "swiper/react";
-import { Pagination, Navigation, EffectFade } from "swiper";
+import SwiperCore, { Navigation, EffectFade, Autoplay  } from "swiper";
 import Link from "next/link";
 
 import "swiper/css";
 import "swiper/css/effect-fade";
 import "swiper/css/navigation";
-import {ButtonStyle} from "../../../styles/sharedStyle";
 
+
+SwiperCore.use([Autoplay]);
 
 const Slider = () => {
     const [slides, setSlides] = React.useState([])
@@ -25,7 +26,7 @@ const Slider = () => {
                     navigation={true}
                     modules={[ Navigation, EffectFade]}
                     loop={true}
-                    autoplay={{delay: 10000}}
+                    autoplay={{delay: 7000}}
                 >
                     {slides.map(slide =>
                         <SwiperSlide key={slide.id}>
@@ -33,9 +34,7 @@ const Slider = () => {
                             {slide.attributes.link &&
                                         <div className="text">
                                             <Link href={slide.attributes.link}>
-                                                <a>
-                                                    <ButtonStyle>Подробнее</ButtonStyle>
-                                                </a>
+                                                <a>Подробнее</a>
                                             </Link>
                                         </div>
                             }
@@ -48,11 +47,14 @@ const Slider = () => {
 
 const SlideImg = styled.div`
   background: ${({bg}) => `url(${bg})`} no-repeat;
+  background-color: #f8f8f8;
   height: 100%;
   width: 100%;
-  background-size: cover;
+  background-size: contain;
   background-position-x: 50%;
   background-position-y: 50%;
+  border-left: 1px #fff solid;
+  border-right: 1px #fff solid;
 
   @media (max-width: 1500px) {
     background-size: contain;
@@ -62,6 +64,7 @@ const SlideImg = styled.div`
 
 const SliderStyle = styled.div`
   width: 100%;
+  background: #000;
 
   .text {
     display: flex;
@@ -69,8 +72,25 @@ const SliderStyle = styled.div`
     position: absolute;
     left: 0;
     right: 0;
-    bottom: 20px;
+    bottom: 40px;
     width: 100%;
+    
+    a {
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 700;
+      transition: .2s;
+      background: #fff;
+      color: #000;
+      box-shadow: 0 2px 10px -2px rgba(0, 0, 0, 0.18);
+      
+      &:hover {
+        background: #000;
+        color: #fff;
+      }
+
+    }
   }
 
   .swiper {
@@ -82,11 +102,7 @@ const SliderStyle = styled.div`
     @media (max-width: 1900px) {
       height: 60vh;
     }
-
-    @media (max-width: 1600px) {
-      height: 50vh;
-    }
-
+    
     @media (max-width: 1000px) {
       height: 30vh;
     }
@@ -96,17 +112,36 @@ const SliderStyle = styled.div`
   .swiper-button-next {
     color: #000 !important;
     background: #fff;
-    padding: 40px 20px;
-    border-radius: 20px;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
     box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.18);
+    
+    &::after {
+      content: '';
+      background: url('/img/small-arrow.svg');
+      width: 30px;
+      height: 30px;
+      background-size: cover;
+    }
   }
 
   .swiper-button-prev {
     color: #000 !important;
     background: #fff;
-    padding: 40px 20px;
-    border-radius: 20px;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
     box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.18);
+
+    &::after {
+      content: '';
+      background: url('/img/small-arrow.svg');
+      width: 30px;
+      height: 30px;
+      background-size: cover;
+      transform: rotate(180deg);
+    }
   }
 
   .swiper-slide img {

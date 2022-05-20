@@ -13,11 +13,14 @@ const Technologies = ({technologies}) => {
             <div className="items">
                 {technologies.map(item =>
                     <div className='item'>
-                        <img
+                        {item.icon?.data && <img
                             src={process.env.API_URL + item.icon.data.attributes.url}
                             alt='logo'
+                            width={30}
+                            height={35}
                             className='logo'
-                        />
+                        />}
+
                         <div className="name">{item.name}</div>
                     </div>)}
             </div>

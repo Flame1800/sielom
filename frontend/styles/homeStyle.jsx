@@ -25,8 +25,7 @@ export const Title = styled.div`
 `
 
 export const Infographics = styled.div`
-  margin-bottom: 230px;
-  
+  margin-bottom: 100px;
 
   .info-cards {
     margin-top: 30px;
@@ -34,10 +33,6 @@ export const Infographics = styled.div`
     justify-content: space-between;
     align-items: flex-start;
     flex-wrap: wrap;
-    
-    @media (max-width: 768px) {
-      justify-content: center;
-    }
 
     .no-card {
       border: none !important;
@@ -65,6 +60,22 @@ export const Infographics = styled.div`
         line-height: 22px;
         letter-spacing: -0.02em;
         color: #3E3E3E;
+      }
+    }
+
+    @media (max-width: 768px) {
+      justify-content: center;
+
+      .info-cards {
+        margin-top: 0;
+      }
+      
+      .card {
+        padding: 20px 10px;
+        
+        .value {
+          font-size: 32px;
+        }
       }
     }
   }
