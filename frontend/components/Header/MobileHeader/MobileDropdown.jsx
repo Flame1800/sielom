@@ -3,7 +3,7 @@ import styled from "styled-components";
 import {baseTheme} from "../../../styles/theme";
 import MetaHeaderInfo from "../MetaHeaderInfo";
 import NavLinks from "../NavLinks/NavLinks";
-import ButtonSchedule from "../ButtonSchedule";
+import SpecialButtons from "../SpecialButtons";
 import mapLinks from "../mapLinks";
 import Link from "../NavLinks/Link";
 import MobileLinks from "./MobileLinks";
@@ -16,7 +16,7 @@ const MobileDropdown = () => {
             <img src="/img/menu-icon.svg" alt="menu" className="button" onClick={() => setDrop(!drop)} />
             {drop &&
                 <div className="dropdown">
-                    <ButtonSchedule />
+                    <SpecialButtons />
                     <MobileLinks />
                     <div className="meta-mobile">
                         <MetaHeaderInfo />

@@ -47,7 +47,6 @@ const query = qs.stringify({
 })
 
 API.getSpecialty = (id) => axios(`${url}/specialties/${id}?${query}`)
-
 API.getEmployeeRoles = () => axios(`${url}/employee-roles?populate=*`)
 
 API.getPage = (id) => axios(`${url}/posts/${id}?populate=*`)
@@ -71,3 +70,22 @@ API.getPageBySlug = slug => axios(encodeURI(`${url}/posts?populate=*&filters[slu
 
 API.getEmployees = (category) =>
     axios(encodeURI(`${url}/employees?sort&filters[category][name][$eq]=${category ? category : 'Руководство'}&populate=*`))
+
+
+API.getSchedule = () => {
+    const query = qs.stringify({
+        populate: [
+            'fullTimeSchedule',
+            'fullTimeSchedule.files',
+            'distantSchedule',
+            'distantSchedule.files',
+            'partTimeScheduleFiles',
+            'sessionDates'
+        ],
+    },
+        {
+            encodeValuesOnly: true,
+        })
+
+    return axios(`${url}/schedule?${query}`)
+}
