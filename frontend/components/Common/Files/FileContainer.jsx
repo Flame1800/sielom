@@ -2,14 +2,14 @@ import React from 'react';
 import styled from "styled-components";
 import FileHolder from "./FileHolder";
 
-const FileContainer = ({files}) => {
+const FileContainer = ({files, title}) => {
     if (!files.data) {
         return null
     }
 
     return (
         <Wrapper>
-            <div className="title-files">Документы</div>
+            <div className="title-files">{title || "Документы"}</div>
             <div className="files">
                 {files.data.map(file => {
                     return (
@@ -22,7 +22,7 @@ const FileContainer = ({files}) => {
 };
 
 const Wrapper = styled.div`
-  margin-top: 100px;
+  margin-top: 80px;
   
   .title-files {
     font-size: 20px;

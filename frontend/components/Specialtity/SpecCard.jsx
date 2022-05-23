@@ -14,15 +14,16 @@ const SpecCard = ({entity}) => {
             <Link href={`/specialties/${entity.id}`} >
                 <a className='container'>
                     <div className="info">
-                        <div className={isCourse ? "title title_small" : 'title'}>{attributes.name}</div>
-                        <div>
-                            <div className="tags">
+                        <div className={isCourse ? "title-card title-card_small" : 'title'}>{attributes.name}</div>
+                        {isCourse
+                            ? <div className="time">{attributes.time} ч</div>
+                            :                            <div className="tags">
                                 {attributes.durations.find(item => item.class === 'nine') && <Tag>9 классов</Tag>}
                                 {attributes.durations.find(item => item.class === 'eleven') && <Tag>11 классов</Tag>}
                                 {attributes.durations.find(item => item.form === 'full_time') && <Tag>очно</Tag>}
                                 {attributes.durations.find(item => item.form === 'distant') && <Tag>заочно</Tag>}
                             </div>
-                        </div>
+                        }
                     </div>
                     <img src={img ? img : '/img/placeholder.png'} className='cover' alt="Фото специальности"/>
                 </a>
@@ -60,13 +61,20 @@ const Wrapper = styled.div`
       width: auto;
     }
 
-    .title {
+    .time {
+      margin-left: 10px;
+      margin-bottom: 20px;
+      font-weight: 700;
+      color: #7e7e7e;
+    }
+
+    .title-card {
       font-weight: 600;
       font-size: 25px;
       line-height: 30px;
       letter-spacing: -0.5px;
       margin-bottom: 20px;
-      
+
       &_small {
         font-size: 17px;
         line-height: 22px;
@@ -87,7 +95,7 @@ const Wrapper = styled.div`
     justify-content: center;
     align-items: center;
   }
-  
+
   .cover {
     width: 50%;
     min-width: 300px;

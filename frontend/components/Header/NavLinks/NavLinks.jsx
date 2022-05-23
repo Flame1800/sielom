@@ -3,7 +3,7 @@ import mapLinks from "../mapLinks";
 import styled from "styled-components";
 import LinkComponent from "./Link";
 import {observer} from "mobx-react-lite";
-import ButtonSchedule from "../ButtonSchedule";
+import SpecialButtons from "../SpecialButtons";
 import Link from 'next/link'
 
 const NavLinks = () => {
@@ -13,7 +13,7 @@ const NavLinks = () => {
                     {mapLinks.map(({link, content}) =>
                             (<LinkComponent key={link.src} link={link} content={content} />))}
                 </div>
-                <ButtonSchedule />
+                <SpecialButtons />
             </LinksContainer>
     );
 };

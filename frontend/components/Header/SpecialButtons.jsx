@@ -2,15 +2,15 @@ import React from 'react';
 import styled from "styled-components";
 import Link from "next/link";
 
-const ButtonSchedule = () => {
+const SpecialButtons = () => {
     return (
         <>
             <Link href='/payment'>
                 <PayButton className='btn-payment'> Онлайн оплата</PayButton>
             </Link>
-            <Wrapper target="_blank" href={`http://milkankt.beget.tech/obrazovanie/raspisanie-zanjatii`}>
-                Расписание
-            </Wrapper>
+            <Link href='/schedule'>
+                <SheduleBtn>Расписание</SheduleBtn>
+            </Link>
         </>
 
     );
@@ -48,7 +48,7 @@ const PayButton = styled.a`
   }
 `
 
-const Wrapper = styled.a`
+const SheduleBtn = styled.a`
   position: relative;
   margin-left: 10px;
   border: 2px solid #EABC5D;
@@ -80,4 +80,4 @@ const Wrapper = styled.a`
   }
 `
 
-export default ButtonSchedule;
+export default SpecialButtons;

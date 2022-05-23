@@ -4,7 +4,6 @@ import {baseTheme} from "../../../styles/theme";
 import {API} from "../../../libs/API";
 
 const FileHolder = ({file}) => {
-    console.log(API.siteUrl)
     return (
         <Wrapper download target="_blank" href={API.url + file.url}>
             <img src="/img/file-icon.svg" alt="file-icon"/>
@@ -29,7 +28,7 @@ const Wrapper = styled.a`
   img {
     width: 35px;
     height: 35px;
-    margin-right: 10px;
+    margin-right: 3px;
   }
 `
 
