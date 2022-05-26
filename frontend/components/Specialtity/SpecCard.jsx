@@ -14,7 +14,7 @@ const SpecCard = ({entity}) => {
             <Link href={`/specialties/${entity.id}`} >
                 <a className='container'>
                     <div className="info">
-                        <div className={isCourse ? "title-card title-card_small" : 'title'}>{attributes.name}</div>
+                        <div className={isCourse ? "title-card title-card_small" : 'title-card'}>{attributes.name}</div>
                         {isCourse
                             ? <div className="time">{attributes.time} ч</div>
                             :                            <div className="tags">

@@ -47,7 +47,6 @@ const Slider = () => {
 
 const SlideImg = styled.div`
   background: ${({bg}) => `url(${bg})`} no-repeat;
-  background-color: #f8f8f8;
   height: 100%;
   width: 100%;
   background-size: contain;
@@ -64,7 +63,6 @@ const SlideImg = styled.div`
 
 const SliderStyle = styled.div`
   width: 100%;
-  background: #000;
 
   .text {
     display: flex;
