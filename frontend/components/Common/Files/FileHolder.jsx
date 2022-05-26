@@ -5,7 +5,7 @@ import {API} from "../../../libs/API";
 
 const FileHolder = ({file}) => {
     return (
-        <Wrapper download target="_blank" href={API.url + file.url}>
+        <Wrapper target="_blank" href={API.url + file.url}>
             <img src="/img/file-icon.svg" alt="file-icon"/>
             <p>{file.name}</p>
         </Wrapper>

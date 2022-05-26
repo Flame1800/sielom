@@ -52,7 +52,7 @@ API.getEmployeeRoles = () => axios(`${url}/employee-roles?populate=*`)
 API.getPage = (id) => axios(`${url}/posts/${id}?populate=*`)
 
 
-API.getSvedens = () => axios(`${url}/posts?filters[category][slug][$eq]=sveden&populate=*`)
+API.getSvedens = () => axios(`${url}/posts?filters[category][slug][$eq]=sveden&sort[0]=priority&populate=*`)
 API.getWordskills = () => axios(`${url}/posts?filters[category][slug][$eq]=wordskills&populate=*`)
 API.getEdProcess = () => axios(`${url}/posts?filters[category][slug][$eq]=educational-process&populate=*`)
 
@@ -66,6 +66,7 @@ API.getCoursesPage = () => axios(`${url}/course`)
 API.getCourses = () => axios(`${url}/specialties?populate=*`)
 
 API.getPageBySlug = slug => axios(encodeURI(`${url}/posts?populate=*&filters[slug][$eq]=${slug}`))
+API.getPageById = id => axios(encodeURI(`${url}/posts/${id}?populate=*`))
 
 
 API.getEmployees = (category) =>

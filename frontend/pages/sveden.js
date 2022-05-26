@@ -3,6 +3,8 @@ import React from "react";
 import PostPages from "../components/PostPages";
 
 export default function Sveden({posts}) {
+    console.log(posts)
+
     return <PostPages posts={posts} title="СВЕДЕНИЯ ОБ ОБРАЗОВАТЕЛЬНОЙ ОРГАНИЗАЦИИ" />
 }
 

@@ -6,7 +6,7 @@ import PagePost from "../../components/Common/PagePost";
 import styled from "styled-components";
 
 export default function SinglePage({post}) {
-
+    console.log(post)
     return (
         <MainLayout>
             <PostWrapper>
@@ -23,6 +23,6 @@ const PostWrapper = styled.div`
 
 
 SinglePage.getInitialProps = async ctx => {
-    const { data } = await API.getPageBySlug(ctx.query.slug)
-    return { post: data.data[0] }
+    const { data } = await API.getPageById(ctx.query.id)
+    return { post: data.data }
 }
