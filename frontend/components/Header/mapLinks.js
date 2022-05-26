@@ -1,4 +1,4 @@
-import {API, siteUrl} from "../../libs/API";
+import {API} from "../../libs/API";
 
 const makeLink = (name, src) => ({ src, name })
 
@@ -13,7 +13,7 @@ const mapLinks = [
                     makeLink("WordSkills", "/worldskills_russia"),
                     makeLink("Персонал", "/employees"),
                     makeLink("Контакты", "/site/contacts"),
-                    makeLink("Старый сайт", "http://sielom.ru/"),
+                    makeLink("Старый сайт", "https://old.sielom.ru"),
                 ]
             },
             {
@@ -27,9 +27,9 @@ const mapLinks = [
                 main: makeLink("", "/"),
                 links: [
                     makeLink("Перечень документов для поступления", "/reception-campain/info?postId=9"),
-                    makeLink("Повышение квалификации", "http://sielom.ru/dopobr/povyshenie-kvalifikacii"),
-                    makeLink("Профессиональная переподготовка", "http://sielom.ru/dopobr/professionalnaja-perepodgotovka"),
-                    makeLink("Семинары", "http://sielom.ru/dopobr/seminary"),
+                    makeLink("Повышение квалификации", "https://old.sielom.ru/dopobr/povyshenie-kvalifikacii"),
+                    makeLink("Профессиональная переподготовка", "https://old.sielom.ru/dopobr/professionalnaja-perepodgotovka"),
+                    makeLink("Семинары", "https://old.sielom.ru/dopobr/seminary"),
                 ]
             },
             {
@@ -56,7 +56,7 @@ const mapLinks = [
                 links: [
                     makeLink("Приёмная кампания", "/reception-campain/info"),
                     makeLink("Специальности", "/specialties"),
-                    makeLink("Архив приёмных кампаний", "http://sielom.ru/abi/priemnaja-kampanija-2021"),
+                    makeLink("Архив приёмных кампаний", "https://old.sielom.ru/abi/priemnaja-kampanija-2021"),
                 ]
             },
         ],
