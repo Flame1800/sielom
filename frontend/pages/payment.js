@@ -22,13 +22,17 @@ const Payment = () => {
                 </div>
                 <div className="links">
                     <Link href='/site/contacts' >
-                        <a href="">Контактные данные организации</a>
+                        <a>Контактные данные организации</a>
                     </Link>
                     <Link href='/sveden' >
-                        <a href="">Описание сферы деятельности</a>
+                        <a>Описание сферы деятельности</a>
                     </Link>
-                        <a href="http://milkankt.beget.tech/pages/soglashenie.html" target="_blank">Политика конфидициальности</a>
-                    <a href="http://milkankt.beget.tech/pages/politic.html" target="_blank">Пользовательское соглашение</a>
+                    <Link href='/site/polzovatelskoe-soglashenie' >
+                        <a>Пользовательское соглашение</a>
+                    </Link>
+                    <Link href='/site/politika-konfidencialnosti-personalnyh-dannyh' >
+                        <a>Политика конфидициальности</a>
+                    </Link>
                 </div>
                 <div className="license">
                     <b>Информация о защите ваших данных</b>
@@ -74,7 +78,7 @@ const Content = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  
+  margin-bottom: 200px;  
   a {
     width: fit-content;
     margin: 0 auto;

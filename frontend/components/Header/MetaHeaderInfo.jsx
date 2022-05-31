@@ -6,13 +6,6 @@ import {Tooltip} from "@mui/material";
 const MetaHeaderInfo = () => {
     return (
         <Wrapper>
-            <Tooltip title="Личный кабинет (в разработке)">
-                <a>
-                    <div className="user-button">
-                        <img src="/img/user-icon.svg" width={20} height={20}  />
-                    </div>
-                </a>
-            </Tooltip>
             <div className="left-side">
                 <a className='phone' href="tel:+7 (3462) 55-09-18">
                     <img src="/img/phone-icon.svg" alt='icon' />

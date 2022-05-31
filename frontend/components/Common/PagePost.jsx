@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import FileContainer from "./Files/FileContainer";
+import ArrowButton from "./ArrowButton";
 
 
 const PagePost = ({ post }) => {
@@ -22,7 +23,9 @@ const PagePost = ({ post }) => {
 const Content = styled.div`
   padding-bottom: 80px;
   max-width: 900px;
-  margin: 80px auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
   
   @media (max-width: 768px) {
     width: 100%;
@@ -34,7 +37,7 @@ const Content = styled.div`
     line-height: 38px;
     letter-spacing: -0.02em;
     color: #3E3E3E;
-    margin-bottom: 70px;
+    margin-bottom: 30px;
     
     @media (max-width: 768px) {
       font-size: 26px;

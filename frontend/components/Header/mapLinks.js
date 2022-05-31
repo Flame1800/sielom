@@ -30,6 +30,7 @@ const mapLinks = [
                     makeLink("Повышение квалификации", "https://old.sielom.ru/dopobr/povyshenie-kvalifikacii"),
                     makeLink("Профессиональная переподготовка", "https://old.sielom.ru/dopobr/professionalnaja-perepodgotovka"),
                     makeLink("Семинары", "https://old.sielom.ru/dopobr/seminary"),
+                    makeLink("СОНКО", "/site/sonko"),
                     makeLink("Справка 1С", "/site/help"),
                 ]
             },

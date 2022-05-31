@@ -1,14 +1,16 @@
 import Header from "../components/Header/Header";
 import styled from "styled-components";
 import Footer from "../components/Footer";
+import UpButton from "../components/UpButton";
 
 export default function MainLayout({ children, noFooter }) {
   return (
     <>
       <Header />
-      <Wrapper>
+        <UpButton/>
+        <Wrapper>
           {children}
-      </Wrapper>
+        </Wrapper>
         {!noFooter && <Footer />}
     </>
   );

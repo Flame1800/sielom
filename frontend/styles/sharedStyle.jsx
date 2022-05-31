@@ -13,14 +13,13 @@ export const SidebarLinks = styled.div`
   font-weight: 500;
   display: flex;
   flex-direction: column;
-  border-right: 1px solid #e3e3e3;
   margin-right: 20px;
   padding: 15px;
   height: 100%;
   margin-bottom: 30px;
   bottom: 30px;
   margin-top: 80px;
-  
+
   @media (max-width: 768px) {
     position: relative;
     margin-top: 0;
@@ -37,13 +36,17 @@ export const SidebarLinks = styled.div`
     padding: 8px;
 
     &:hover {
-      background: #fff4dd;
+      background: rgba(238, 238, 238, 0.5);
     }
   }
 
   .active {
     background: #fff4dd;
     color: #785100;
+
+    &:hover {
+      background: #fff4dd;
+    }
   }
 `
 

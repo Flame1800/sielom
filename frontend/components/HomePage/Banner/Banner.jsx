@@ -1,11 +1,8 @@
 import React from 'react';
 import styled from "styled-components";
 import Slider from "./Slider";
-import Link from "next/link";
 
 const Banner = () => {
-
-
 
     return (
             <HeroBlock>
@@ -18,9 +15,8 @@ const Banner = () => {
 
 
 const HeroBlock = styled.section`
-
   .content {
-    max-width: 1600px;
+    max-width: 1400px;
     margin: 0 auto;
 
     @media (max-width: 1500px) {
