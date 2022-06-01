@@ -50,7 +50,6 @@ const LinkWrapper = styled.a`
   font-weight: 600;
   cursor: pointer;
   user-select: none;
-  text-transform: uppercase;
 
   &:last-child {
     margin-right: 0;
