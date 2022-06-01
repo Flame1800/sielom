@@ -29,7 +29,8 @@ const Wrapper = styled.a`
     letter-spacing: -0.01em;
     text-transform: uppercase;
     color: #3d3d3d;
-    margin-left: 15px;
+    margin-left: 10px;
+    margin-bottom: 5px;
   }
 `
 

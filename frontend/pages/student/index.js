@@ -23,24 +23,23 @@ export default function Events({posts}) {
                             <a className="link">
                                 <img src="/img/arrow-45.png" alt="arrow-icon" className="icon"/>
                                 <p>
-                                    Мероприятия
+                                    Мероприятия института
                                 </p>
                             </a>
                     </Link>
-                   <Tooltip title='в разработке'>
-                     <a className="link">
-                        <img src="/img/arrow-45.png" alt="arrow-icon" className="icon"/>
-                         <p>
-                             Студенческое самоуправление
-                         </p>
-                    </a>
-                   </Tooltip>
-
+                    <Link href='/site/stipendii-i-inye-vidy-materialьnoj-podderzhki-obuchayushihsya'>
+                        <a className="link">
+                            <img src="/img/arrow-45.png" alt="arrow-icon" className="icon"/>
+                            <p>
+                                Стипендии и материальная поддержка
+                            </p>
+                        </a>
+                    </Link>
                     <Tooltip title='в разработке'>
                      <a className="link">
                         <img src="/img/arrow-45.png" alt="arrow-icon" className="icon"/>
                          <p>
-                             Мы в проектах
+                             Студенческие проекты
                          </p>
                      </a>
                     </Tooltip>

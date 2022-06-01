@@ -1,10 +1,6 @@
-import Link from 'next/link'
-import moment from "moment";
-import {CardCategoryName, CardCover, CardParamsBlock, CardTitle, CardWrapper} from "./cardStyle";
-import CardDateParameter from "./CardDateParameter";
+import {CardCategoryName, CardTitle, CardWrapper} from "./cardStyle";
 import styled from "styled-components";
-import {Tooltip} from "@mui/material";
-
+import Link from 'next/link'
 
 const PersonCard = ({entity}) => {
     const coverImg = entity.attributes?.photo.data
@@ -14,13 +10,13 @@ const PersonCard = ({entity}) => {
     return (
         <CardWrapper>
             <Wrapper cover={coverImg}>
-                <div>
+                <Link href={`/employees/${entity.id}`}>
                     <a>
                         <div className='photo'  />
                         <CardCategoryName>{entity.attributes.position}</CardCategoryName>
                         <CardTitle>{entity.attributes.name}</CardTitle>
                     </a>
-                </div>
+                </Link>
                 <div className='contact'>
                     <a href={`tel:${entity.attributes.phone}`}>{entity.attributes.phone}</a>
                 </div>

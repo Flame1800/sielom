@@ -11,6 +11,12 @@ import MobileLinks from "./MobileLinks";
 const MobileDropdown = () => {
     const [drop, setDrop] = React.useState(false)
 
+    React.useEffect(() => {
+        if (document) {
+            document.body.style.overflow = drop ? 'hidden' : 'auto'
+        }
+    }, [drop])
+
     return (
         <Wrapper>
             <img src="/img/menu-icon.svg" alt="menu" className="button" onClick={() => setDrop(!drop)} />
@@ -51,6 +57,7 @@ const Wrapper = styled.div`
     color: #000;
     z-index: 9;
     overflow: scroll;
+    min-height: 100vh;
     
     .meta-mobile {
       margin-top: 100px;

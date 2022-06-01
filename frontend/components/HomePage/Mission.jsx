@@ -1,10 +1,11 @@
 import React from 'react';
 import styled from "styled-components";
+import {baseTheme} from "../../styles/theme";
 
 const Mission = () => {
     return (
         <Wrapper>
-            <div className="title">МИССИЯ СИУЭП</div>
+            <div className="mission-title">МИССИЯ СИУЭП</div>
             <div className="sub-title">
                 Готовить <b>профессионалов</b> для рынка способных в условиях конкуренции
             </div>
@@ -47,29 +48,29 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  
-  .title {
+
+  .mission-title {
     font-weight: 700;
-    font-size: 6em;
+    font-size: 4em;
     line-height: 102px;
     text-align: center;
     text-transform: uppercase;
-    color: #3E3E3E;
+    color: #76DD6D;
   }
-  
+
   .sub-title {
     font-weight: 500;
-    font-size: 1.5em;
-    line-height: 28px;
+    font-size: 1em;
+    line-height: 30px;
     text-align: center;
     color: #3E3E3E;
     max-width: 660px;
-    
+
     b {
-      color: #3B66FF;
+      color: #3b2f26;
     }
   }
-  
+
   .cards {
     display: flex;
     flex-wrap: wrap;
@@ -84,7 +85,7 @@ const Wrapper = styled.div`
     }
 
     @media (min-width: 1200px) {
-      
+
       .card-3 {
         position: relative;
         bottom: -50px;
@@ -95,8 +96,6 @@ const Wrapper = styled.div`
         bottom: -100px;
       }
     }
-
-  
 
 
     .card {
@@ -113,7 +112,7 @@ const Wrapper = styled.div`
       padding: 30px 10px;
       margin-top: 30px;
 
-      
+
       .check {
         border-radius: 50%;
         width: 40px;
@@ -123,7 +122,7 @@ const Wrapper = styled.div`
         justify-content: center;
         align-items: center;
       }
-      
+
       .text {
         text-align: center;
         margin-top: 15px;
@@ -134,7 +133,7 @@ const Wrapper = styled.div`
       }
     }
   }
-  
+
   .img-students {
     position: relative;
     z-index: 2;

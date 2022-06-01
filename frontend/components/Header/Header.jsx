@@ -23,7 +23,6 @@ const Header = () => {
               <MobileDropdown />
           </Content>
         </Wrapper>
-
         <Dropdown />
       </>
 );
@@ -36,9 +35,9 @@ const Wrapper = styled.div`
   align-items: center;
   position: sticky;
   top: -1px;
-  background: rgb(255, 255, 255);
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(50px);
   z-index: 10;
-  border-bottom: 1px solid ${baseTheme.colors.light};
 `
 
 const Content = styled.div`

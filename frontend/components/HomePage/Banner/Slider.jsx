@@ -8,6 +8,7 @@ import Link from "next/link";
 import "swiper/css";
 import "swiper/css/effect-fade";
 import "swiper/css/navigation";
+import {baseTheme} from "../../../styles/theme";
 
 
 SwiperCore.use([Autoplay]);
@@ -72,19 +73,19 @@ const SliderStyle = styled.div`
     right: 0;
     bottom: 40px;
     width: 100%;
-    
+
     a {
-      padding: 10px 20px;
-      border-radius: 10px;
+      padding: 10px 60px;
       font-size: 15px;
-      font-weight: 700;
+      font-weight: 600;
       transition: .2s;
       background: #fff;
-      color: #000;
-      box-shadow: 0 2px 10px -2px rgba(0, 0, 0, 0.18);
-      
+      border-radius: 5px;
+      color: ${baseTheme.colors.black};
+      box-shadow: 0 1px 15px -3px rgba(0, 0, 0, 0.38);
+
       &:hover {
-        background: #000;
+        background: ${baseTheme.colors.black};
         color: #fff;
       }
 
@@ -100,7 +101,7 @@ const SliderStyle = styled.div`
     @media (max-width: 1900px) {
       height: 60vh;
     }
-    
+
     @media (max-width: 1000px) {
       height: 30vh;
     }
@@ -114,7 +115,7 @@ const SliderStyle = styled.div`
     width: 50px;
     height: 50px;
     box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.18);
-    
+
     &::after {
       content: '';
       background: url('/img/small-arrow.svg');

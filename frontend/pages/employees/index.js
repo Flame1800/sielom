@@ -37,7 +37,9 @@ export default function Specialties({ employees }) {
                         >
                             {item}
                         </a>)}
-                    <a>Аттестация педагогов</a>
+                    <a target="_blank" href="https://old.sielom.ru/attestat_pedagog/1-attestacija-pedagogov.html">
+                        Аттестация педагогов
+                    </a>
                 </SidebarLinks>
                 <div className='items'>
                     <Content>

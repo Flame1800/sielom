@@ -69,9 +69,10 @@ API.getPageBySlug = slug => axios(encodeURI(`${url}/posts?populate=*&filters[slu
 API.getPageById = id => axios(encodeURI(`${url}/posts/${id}?populate=*`))
 
 
-API.getEmployees = (category) =>
-    axios(encodeURI(`${url}/employees?sort&filters[category][name][$eq]=${category ? category : 'Руководство'}&populate=*`))
+API.getEmployees = (category= 'Руководство') =>
+    axios(encodeURI(`${url}/employees?sort&filters[category][name][$eq]=${category}&populate=*`))
 
+API.getEmployer = (id) => axios(encodeURI(`${url}/employees/${id}?&populate=*`))
 
 API.getSchedule = () => {
     const query = qs.stringify({
