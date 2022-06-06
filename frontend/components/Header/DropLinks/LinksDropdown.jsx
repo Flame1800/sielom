@@ -52,9 +52,11 @@ const Wrapper = styled.div`
   width: 100%;
   padding-top: 45px;
   padding-bottom: 45px;
-  background: rgb(255, 255, 255);
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(50px);
   z-index: 10;
-  box-shadow: 1px 14px 22px rgba(0, 0, 0, 0.07);
+  box-shadow: 1px 24px 22px rgba(0, 0, 0, 0.07);
+  border-top: 1px solid #e3e3e3;
   position: fixed;
 
   .map {

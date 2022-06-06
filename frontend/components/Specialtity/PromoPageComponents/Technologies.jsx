@@ -34,6 +34,10 @@ const Wrapper = styled.div`
   padding: 30px;
   border-radius: 20px;
   background: #EAF9FF;
+  
+  .logo {
+    object-fit: contain;
+  }
 
   .title {
     font-weight: 500;
