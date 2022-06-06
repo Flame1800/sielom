@@ -5,7 +5,7 @@ import styled from "styled-components";
 const buildings = [
     {
         id: 0,
-        name: "Все корпуса"
+        name: "Все корпусы"
     },
     {
         id: 1,

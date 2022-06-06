@@ -10,7 +10,6 @@ export default function Events({ events }) {
   return (
       <MainLayout>
           <MainHeader>МЕРОПРИЯТИЯ</MainHeader>
-          <FilterBuildings clickHandler={() => {}} />
           <Content>
               {events.map(event => <EventCard key={event.id} event={event} />)}
           </Content>

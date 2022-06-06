@@ -60,7 +60,7 @@ const Tape = styled.div`
   }
   
   .list {
-    overflow: scroll;
+    overflow-x: scroll;
     display: flex;
 
     &::-webkit-scrollbar {

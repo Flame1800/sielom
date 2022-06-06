@@ -5,7 +5,7 @@ import {baseTheme} from "../../styles/theme";
 const Mission = () => {
     return (
         <Wrapper>
-            <div className="mission-title">МИССИЯ СИУЭП</div>
+            <div className="mission-title">МИССИЯ СИЭУиП</div>
             <div className="sub-title">
                 Готовить <b>профессионалов</b> для рынка способных в условиях конкуренции
             </div>
@@ -54,7 +54,6 @@ const Wrapper = styled.div`
     font-size: 4em;
     line-height: 102px;
     text-align: center;
-    text-transform: uppercase;
     color: #76DD6D;
   }
 

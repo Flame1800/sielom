@@ -34,8 +34,9 @@ const Wrapper = styled.div`
   display: flex;
   align-items: center;
   position: sticky;
-  top: -1px;
+  top: 0;
   background: rgba(255, 255, 255, 0.82);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.14);
   backdrop-filter: blur(50px);
   z-index: 10;
 `

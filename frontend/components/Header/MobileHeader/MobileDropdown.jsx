@@ -47,7 +47,8 @@ const Wrapper = styled.div`
   }
   
   .dropdown {
-    background: #fff;
+    background: rgba(255, 255, 255, 0.82);
+    backdrop-filter: blur(50px);
     width: 100%;
     bottom: 0;
     left: 0;
