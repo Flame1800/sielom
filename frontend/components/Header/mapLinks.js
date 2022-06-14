@@ -11,7 +11,7 @@ const mapLinks = [
                 links: [
                     makeLink("Сведения об образовательной организации", "/sveden"),
                     makeLink("WordSkills", "/worldskills_russia"),
-                    makeLink("Персонал", "/employees"),
+                    makeLink("Образовательные стандарты", "/site/obrazovatelьnye-standarty"),
                     makeLink("Контакты", "/site/contacts"),
                     makeLink("Старый сайт", "https://old.sielom.ru"),
                 ]

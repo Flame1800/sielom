@@ -35,9 +35,8 @@ const Wrapper = styled.div`
   align-items: center;
   position: sticky;
   top: 0;
-  background: rgba(255, 255, 255, 0.82);
+  background: rgb(255, 255, 255);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.14);
-  backdrop-filter: blur(50px);
   z-index: 10;
 `
 
