@@ -34,21 +34,20 @@ const MobileDropdown = () => {
 };
 
 const Wrapper = styled.div`
-  
+
   .button {
     width: 30px;
     height: 30px;
     margin-left: 20px;
     transform: scale(-1, 1);
   }
-  
+
   @media (min-width: 1350px) {
     display: none;
   }
-  
+
   .dropdown {
-    background: rgba(255, 255, 255, 0.82);
-    backdrop-filter: blur(50px);
+    background: rgb(255, 255, 255);
     width: 100%;
     bottom: 0;
     left: 0;
@@ -59,7 +58,7 @@ const Wrapper = styled.div`
     z-index: 9;
     overflow: scroll;
     min-height: 100vh;
-    
+
     .meta-mobile {
       margin-top: 100px;
       margin-left: -40px;

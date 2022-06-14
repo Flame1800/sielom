@@ -1,44 +1,46 @@
-import React from 'react';
-import {API} from "../../libs/API";
+import React from "react";
+import { API } from "../../libs/API";
 import Specialties from "./index";
 import MainLayout from "../../layouts/MainLayout";
 import styled from "styled-components";
 import ArrowButton from "../../components/Common/ArrowButton";
 
-const Employer = ({employer}) => {
-    const coverImg = employer.attributes?.photo.data
-        ? `${process.env.API_URL}${employer.attributes.photo?.data?.attributes.url}`
-        : "/img/photo-holder.svg"
+const Employer = ({ employer }) => {
+  const coverImg = employer.attributes?.photo.data
+    ? `${process.env.API_URL}${employer.attributes.photo?.data?.attributes.url}`
+    : "/img/photo-holder.svg";
 
-    return (
-        <MainLayout>
-            <Wrapper cover={coverImg}>
-                <ArrowButton back>назад</ArrowButton>
-                <div className="header">
-                    <div className="portrait"/>
-                    <div className="info">
-                        <div className="naming">
-                            <div className="name">{employer.attributes.name}</div>
-                            <div className="position">{employer.attributes.position}</div>
-                        </div>
-                        <div className="contacts">
-                            <div className="item">
-                                <div className="caption">Телефон</div>
-                                <div className="value">{employer.attributes.phone}</div>
-                            </div>
-                            <div className="item">
-                                <div className="caption">Почта</div>
-                                <div className="value">{employer.attributes.email}</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="body">
-                    <div dangerouslySetInnerHTML={{ __html: employer.attributes.biography }}></div>
-                </div>
-            </Wrapper>
-        </MainLayout>
-    );
+  return (
+    <MainLayout>
+      <Wrapper cover={coverImg}>
+        <ArrowButton back>назад</ArrowButton>
+        <div className="header">
+          <div className="portrait" />
+          <div className="info">
+            <div className="naming">
+              <div className="name">{employer.attributes.name}</div>
+              <div className="position">{employer.attributes.position}</div>
+            </div>
+            <div className="contacts">
+              <div className="item">
+                <div className="caption">Телефон</div>
+                <div className="value">{employer.attributes.phone}</div>
+              </div>
+              <div className="item">
+                <div className="caption">Почта</div>
+                <div className="value">{employer.attributes.email}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="body">
+          <div
+            dangerouslySetInnerHTML={{ __html: employer.attributes.biography }}
+          ></div>
+        </div>
+      </Wrapper>
+    </MainLayout>
+  );
 };
 
 const Wrapper = styled.div`
@@ -47,7 +49,7 @@ const Wrapper = styled.div`
   margin-top: 60px;
 
   .header {
-    margin-top: 40px;
+    margin-top: 100px;
     margin-bottom: 30px;
     display: flex;
     flex-wrap: wrap;
@@ -69,6 +71,7 @@ const Wrapper = styled.div`
       font-size: 18px;
       margin-top: 10px;
       margin-bottom: 30px;
+      max-width: 300px;
     }
 
     .contacts {
@@ -86,7 +89,7 @@ const Wrapper = styled.div`
         }
 
         .value {
-          color: #3E3E3E;
+          color: #3e3e3e;
           font-weight: 600;
           font-size: 18px;
           line-height: 27px;
@@ -97,8 +100,8 @@ const Wrapper = styled.div`
     .portrait {
       height: 300px;
       width: 280px;
-      border-radius: 50% 50% 0 0;
-      background: url(${({cover}) => cover}) no-repeat;
+      border-radius: 10px;
+      background: url(${({ cover }) => cover}) no-repeat;
       background-size: cover;
       margin-right: 30px;
     }
@@ -110,11 +113,11 @@ const Wrapper = styled.div`
     margin-top: 56px;
     line-height: 28px;
   }
-`
+`;
 
 Employer.getInitialProps = async (ctx) => {
-    const { data } = await API.getEmployer(ctx.query.id)
-    return { employer: data.data }
-}
+  const { data } = await API.getEmployer(ctx.query.id);
+  return { employer: data.data };
+};
 
 export default Employer;
