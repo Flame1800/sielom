@@ -1,38 +1,36 @@
 import MainLayout from "../../layouts/MainLayout";
-import {API} from "../../libs/API";
+import { API } from "../../libs/API";
 import styled from "styled-components";
 import React from "react";
 import PostPages from "../../components/PostPages";
 import MainHeader from "../../components/Common/MainHeader";
-import {baseTheme} from "../../styles/theme";
+import { baseTheme } from "../../styles/theme";
 import Button from "../../components/Common/Button";
 import Link from "next/link";
 import JivoButton from "../../components/Common/JivoButton";
+import Head from "next/head";
 
 const Post = ({ posts, commission }) => {
-
-
-    return (
-        <MainLayout>
-            <Wrapper>
-                <MainHeader>Приемная кампания</MainHeader>
-                <div className="buttons">
-                    <JivoButton>
-                        Задать вопрос
-                    </JivoButton>
-                    <Link href='/specialties'>
-                        <a>
-                            <Button>Специальности</Button>
-                        </a>
-                    </Link>
-                </div>
-                <PostPages notLayout posts={posts} />
-            </Wrapper>
-        </MainLayout>
-    )
-}
-
-
+  return (
+    <MainLayout>
+      <Head>
+        <title> Приемная кампания - СИУЭиП</title>
+      </Head>
+      <Wrapper>
+        <MainHeader>Приемная кампания</MainHeader>
+        <div className="buttons">
+          <JivoButton>Задать вопрос</JivoButton>
+          <Link href="/specialties">
+            <a>
+              <Button>Специальности</Button>
+            </a>
+          </Link>
+        </div>
+        <PostPages notLayout posts={posts} />
+      </Wrapper>
+    </MainLayout>
+  );
+};
 
 const Wrapper = styled.div`
   .commission {
@@ -62,25 +60,24 @@ const Wrapper = styled.div`
       }
     }
   }
-  
+
   .buttons {
     margin-top: 40px;
     display: flex;
     flex-wrap: wrap;
-    
-    > div, > a {
+
+    > div,
+    > a {
       margin: 10px;
     }
   }
-`
+`;
 
+Post.getInitialProps = async (ctx) => {
+  const posts = await API.getReceptionCampainPages();
+  const commission = await API.getCommissonPage();
 
-Post.getInitialProps = async ctx => {
-    const posts = await API.getReceptionCampainPages()
-    const commission = await API.getCommissonPage()
+  return { posts: posts.data.data, commission: commission.data.data };
+};
 
-    return { posts: posts.data.data, commission: commission.data.data  }
-}
-
-
-export default Post
+export default Post;

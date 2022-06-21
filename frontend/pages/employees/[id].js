@@ -4,6 +4,7 @@ import Specialties from "./index";
 import MainLayout from "../../layouts/MainLayout";
 import styled from "styled-components";
 import ArrowButton from "../../components/Common/ArrowButton";
+import Head from "next/head";
 
 const Employer = ({ employer }) => {
   const coverImg = employer.attributes?.photo.data
@@ -12,6 +13,9 @@ const Employer = ({ employer }) => {
 
   return (
     <MainLayout>
+      <Head>
+        <title>{employer.attributes.name} - СИУЭиП</title>
+      </Head>
       <Wrapper cover={coverImg}>
         <ArrowButton back>назад</ArrowButton>
         <div className="header">
@@ -22,14 +26,18 @@ const Employer = ({ employer }) => {
               <div className="position">{employer.attributes.position}</div>
             </div>
             <div className="contacts">
-              <div className="item">
-                <div className="caption">Телефон</div>
-                <div className="value">{employer.attributes.phone}</div>
-              </div>
-              <div className="item">
-                <div className="caption">Почта</div>
-                <div className="value">{employer.attributes.email}</div>
-              </div>
+              {employer.attributes.phone && (
+                <div className="item">
+                  <div className="caption">Телефон</div>
+                  <div className="value">{employer.attributes.phone}</div>
+                </div>
+              )}
+              {employer.attributes.email && (
+                <div className="item">
+                  <div className="caption">Почта</div>
+                  <div className="value">{employer.attributes.email}</div>
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -98,12 +106,12 @@ const Wrapper = styled.div`
     }
 
     .portrait {
-      height: 300px;
+      height: 270px;
       width: 280px;
-      border-radius: 10px;
       background: url(${({ cover }) => cover}) no-repeat;
       background-size: cover;
       margin-right: 30px;
+      margin-top: 15px;
     }
   }
 

@@ -1,36 +1,55 @@
-import Link from 'next/link'
+import Link from "next/link";
 import styled from "styled-components";
 import Tag from "../Common/Tag";
 
+const SpecCard = ({ entity }) => {
+  const { attributes } = entity;
+  const img = attributes.cover.data
+    ? process.env.API_URL + attributes.cover.data[0].attributes.url
+    : null;
+  const isCourse = attributes.education_type === "courses";
 
-const SpecCard = ({entity}) => {
-
-    const {attributes} = entity
-    const img  = attributes.cover.data ? process.env.API_URL + attributes.cover.data[0].attributes.url : null
-    const isCourse = attributes.education_type === 'courses'
-
-    return (
-        <Wrapper imgUrl={img}>
-            <Link href={`/specialties/${entity.id}`} >
-                <a className='container'>
-                    <div className="info">
-                        <div className={isCourse ? "title-card title-card_small" : 'title-card'}>{attributes.name}</div>
-                        {isCourse
-                            ? <div className="time">{attributes.time} ч</div>
-                            :                            <div className="tags">
-                                {attributes.durations.find(item => item.class === 'nine') && <Tag>9 классов</Tag>}
-                                {attributes.durations.find(item => item.class === 'eleven') && <Tag>11 классов</Tag>}
-                                {attributes.durations.find(item => item.form === 'full_time') && <Tag>очно</Tag>}
-                                {attributes.durations.find(item => item.form === 'distant') && <Tag>заочно</Tag>}
-                            </div>
-                        }
-                    </div>
-                    <img src={img ? img : '/img/placeholder.png'} className='cover' alt="Фото специальности"/>
-                </a>
-            </Link>
-        </Wrapper>
-    )
-}
+  return (
+    <Wrapper imgUrl={img}>
+      <Link href={`/specialties/${entity.id}`}>
+        <a className="container">
+          <div className="info">
+            <div
+              className={
+                isCourse ? "title-card title-card_small" : "title-card"
+              }
+            >
+              {attributes.name}
+            </div>
+            {isCourse ? (
+              <div className="time">{attributes.time} ч</div>
+            ) : (
+              <div className="tags">
+                {attributes.durations.find((item) => item.class === "nine") && (
+                  <Tag>9 классов</Tag>
+                )}
+                {attributes.durations.find(
+                  (item) => item.class === "eleven"
+                ) && <Tag>11 классов</Tag>}
+                {attributes.durations.find(
+                  (item) => item.form === "full_time"
+                ) && <Tag>очно</Tag>}
+                {attributes.durations.find(
+                  (item) => item.form === "distant"
+                ) && <Tag>заочно</Tag>}
+              </div>
+            )}
+          </div>
+          <img
+            src={img ? img : "/img/placeholder.png"}
+            className="cover"
+            alt="Фото специальности"
+          />
+        </a>
+      </Link>
+    </Wrapper>
+  );
+};
 
 const Wrapper = styled.div`
   width: 100%;
@@ -66,6 +85,7 @@ const Wrapper = styled.div`
       margin-bottom: 20px;
       font-weight: 700;
       color: #7e7e7e;
+      font-size: 20px;
     }
 
     .title-card {
@@ -80,7 +100,6 @@ const Wrapper = styled.div`
         line-height: 22px;
       }
     }
-
   }
 
   .placeholder-cover {
@@ -89,7 +108,7 @@ const Wrapper = styled.div`
     height: 265px;
     object-fit: cover;
     border: 20px solid #fff;
-    background: #E2E2E2;
+    background: #e2e2e2;
     border-radius: 35px;
     display: flex;
     justify-content: center;
@@ -110,9 +129,7 @@ const Wrapper = styled.div`
       padding: 0;
       border-radius: 15px;
     }
-
   }
+`;
 
-`
-
-export default SpecCard
+export default SpecCard;

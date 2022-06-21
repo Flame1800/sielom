@@ -1,5 +1,5 @@
 import MainLayout from "../../layouts/MainLayout";
-import {API} from "../../libs/API";
+import { API } from "../../libs/API";
 import MainHeader from "../../components/Common/MainHeader";
 import styled from "styled-components";
 import ArrowButton from "../../components/Common/ArrowButton";
@@ -23,56 +23,88 @@ import Reviews from "../../components/Specialtity/PromoPageComponents/Reviews";
 import Link from "next/link";
 import React from "react";
 import JivoButton from "../../components/Common/JivoButton";
+import Head from "next/head";
 
 export default function Specialties({ entity }) {
-    const img  = entity.attributes.cover?.data ? process.env.API_URL + entity.attributes.cover.data[0].attributes.url : null
-    const {attributes} = entity
-    const isCourse = attributes.education_type === 'courses'
+  const img = entity.attributes.cover?.data
+    ? process.env.API_URL + entity.attributes.cover.data[0].attributes.url
+    : null;
+  const { attributes } = entity;
+  const isCourse = attributes.education_type === "courses";
 
-    return (
-        <MainLayout>
-            <Banner>
-                <ArrowButton back>назад</ArrowButton>
-                <div className="main-title">{attributes.name}</div>
-                {
-                    attributes.video_link
-                    ? <iframe width="80%" height="400" src={attributes.video_link}
-                              title="YouTube video player" frameBorder="0"
-                              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                              allowFullScreen className='cover' />
-                    : <img className="cover" width="80%" src={img ? img : '/img/placeholder.png'} alt='cover' />
-                }
+  return (
+    <MainLayout>
+      <Head>
+        <title> {attributes?.name} - СИУЭиП</title>
+      </Head>
+      <Banner>
+        <ArrowButton back>назад</ArrowButton>
+        <div className="main-title">{attributes.name}</div>
+        {attributes.video_link ? (
+          <iframe
+            width="80%"
+            height="400"
+            src={attributes.video_link}
+            title="YouTube video player"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            className="cover"
+          />
+        ) : (
+          <img
+            className="cover"
+            width="80%"
+            src={img ? img : "/img/placeholder.png"}
+            alt="cover"
+          />
+        )}
 
-                <div className='buttons'>
-                    <Link href={isCourse ? "https://trudvsem.ru/educational-programs" : "/reception-campain/info?post=Подача%20документов"}>
-                        <a>
-                            <Button>Подать заявку</Button>
-                        </a>
-                    </Link>
-                    <JivoButton>Задать вопрос</JivoButton>
-                </div>
-                <EducationForm durations={attributes.durations} />
-            </Banner>
-            <Blocks>
-                <Quote quote={attributes.quote} />
-                <div className="description" dangerouslySetInnerHTML={{ __html: attributes.full_description }} />
-                <Technologies technologies={attributes.technologies} />
-                <TrainingPlan training_plan={attributes.training_plan} />
-                <PromoList list={attributes.promo_list} title={attributes.promo_list_name} />
-                <BannerBlock banner_text={attributes.banner_text} />
-                <WorksBlock works={attributes.works} />
-                <PlacesWorkBlock work_places={attributes.work_places} is_business_speciality={attributes.is_business_speciality} />
-                <SecialistSalary salary={attributes.salary} />
-                <Advantages advantages={attributes.advantages} />
-                <Reviews reviews={attributes.reviews} />
-                <Resume resume={attributes.resume} />
-                {!isCourse && <Diploma />}
-                <PromoBlock speciality={attributes} />
-                <Questions questions={attributes.questions} />
-            </Blocks>
-            <ArrowButton back>назад</ArrowButton>
-        </MainLayout>
-    )
+        <div className="buttons">
+          <Link
+            href={
+              isCourse
+                ? "https://trudvsem.ru/educational-programs"
+                : "/reception-campain/info?post=Подача%20документов"
+            }
+          >
+            <a>
+              <Button>Подать заявку</Button>
+            </a>
+          </Link>
+          <JivoButton>Задать вопрос</JivoButton>
+        </div>
+        <EducationForm durations={attributes.durations} />
+      </Banner>
+      <Blocks>
+        <Quote quote={attributes.quote} />
+        <div
+          className="description"
+          dangerouslySetInnerHTML={{ __html: attributes.full_description }}
+        />
+        <Technologies technologies={attributes.technologies} />
+        <TrainingPlan training_plan={attributes.training_plan} />
+        <PromoList
+          list={attributes.promo_list}
+          title={attributes.promo_list_name}
+        />
+        <BannerBlock banner_text={attributes.banner_text} />
+        <WorksBlock works={attributes.works} />
+        <PlacesWorkBlock
+          work_places={attributes.work_places}
+          is_business_speciality={attributes.is_business_speciality}
+        />
+        <SecialistSalary salary={attributes.salary} />
+        <Advantages advantages={attributes.advantages} />
+        <Reviews reviews={attributes.reviews} />
+        <Resume resume={attributes.resume} />
+        {!isCourse && <Diploma />}
+        <PromoBlock speciality={attributes} />
+        <Questions questions={attributes.questions} />
+      </Blocks>
+      <ArrowButton back>назад</ArrowButton>
+    </MainLayout>
+  );
 }
 
 const Banner = styled.div`
@@ -84,7 +116,7 @@ const Banner = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  
+
   .main-title {
     font-style: normal;
     text-align: center;
@@ -93,25 +125,26 @@ const Banner = styled.div`
     line-height: 61px;
     letter-spacing: -1.5px;
     margin-top: 40px;
-    color: #3E3E3E;
-    
+    color: #3e3e3e;
+
     @media (max-width: 768px) {
       font-size: 6em;
       line-height: 1em;
     }
   }
-  
+
   .buttons {
     margin-top: 30px;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    
-    > div, > a {
+
+    > div,
+    > a {
       margin: 10px 15px;
     }
   }
-  
+
   .cover {
     height: 400px;
     object-fit: cover;
@@ -119,7 +152,7 @@ const Banner = styled.div`
     margin-bottom: 30px;
     border-radius: 20px;
   }
-`
+`;
 
 const Blocks = styled.div`
   width: 100%;
@@ -136,17 +169,17 @@ const Blocks = styled.div`
     line-height: 46px;
     letter-spacing: -0.25px;
     max-width: 1000px;
-    color: #3E3E3E;
+    color: #3e3e3e;
     width: 100%;
-    
+
     @media (max-width: 768px) {
       font-size: 18px;
       line-height: 29px;
     }
   }
-`
+`;
 
 Specialties.getInitialProps = async (ctx) => {
-    const { data } = await API.getSpecialty(ctx.query.id)
-    return { entity: data.data }
-}
+  const { data } = await API.getSpecialty(ctx.query.id);
+  return { entity: data.data };
+};
