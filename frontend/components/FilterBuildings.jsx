@@ -1,11 +1,11 @@
 import React from "react";
-import TagButton from "./Shared/TagButton";
+import TagButton from "./Common/TagButton";
 import styled from "styled-components";
 
 const buildings = [
     {
         id: 0,
-        name: "Все корпуса"
+        name: "Все корпусы"
     },
     {
         id: 1,
@@ -48,6 +48,8 @@ const Wrapper = styled.div`
   display: flex;
   margin-top: 50px;
   margin-bottom: 35px;
+  overflow: auto;
+  border-radius: 35px;
 `
 
 export default FilterBuildings

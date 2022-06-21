@@ -5,7 +5,7 @@ const Button = ({children, outline}) => {
     return <Wrapper outline={outline}>{children}</Wrapper>
 }
 
-const Wrapper = styled.div`
+const Wrapper = styled.button`
   background: ${({outline}) => !outline ? baseTheme.colors.gold : ''};
   border-radius: 13px;
   height: 55px;
@@ -19,8 +19,8 @@ const Wrapper = styled.div`
   font-weight: 500;
   cursor: pointer;
   transition: 0.2s;
+  white-space: nowrap;
   border:  ${baseTheme.colors.gold} 2px solid;
-  filter: drop-shadow(0px 0px 10px #FFC953);
 
   &:hover {
     color: #3E3E3E;

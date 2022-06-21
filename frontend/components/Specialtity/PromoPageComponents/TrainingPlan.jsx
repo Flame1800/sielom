@@ -44,6 +44,12 @@ const Wrapper = styled.div`
   
   .title-cont {
     margin-bottom: 50px;
+    
+    @media (max-width: 600px) {
+      img {
+        width: 100%;
+      }
+    }
   }
 
   .title {
@@ -75,6 +81,10 @@ const Wrapper = styled.div`
       background-size: cover;
       width: 175px;
       height: 85px;
+      
+      @media (max-width: 1300px) {
+        display: none;
+      }
     }
 
     &:after {
@@ -86,6 +96,10 @@ const Wrapper = styled.div`
       background-size: cover;
       width: 85px;
       height: 120px;
+
+      @media (max-width: 1300px) {
+        display: none;
+      }
     }
   }
 `

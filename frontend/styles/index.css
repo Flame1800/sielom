@@ -17,14 +17,11 @@ a {
 }
 
 .post-md {
+    margin: 0 auto;
+    max-width: 900px;
     font-size: 15px;
     line-height: 27px;
 }
-
-.post-md h4 {
-    font-size: 20px !important;
-}
-
 
 .post-md a {
     text-decoration: underline;
@@ -32,9 +29,6 @@ a {
     font-weight: 500;
 }
 
-.post-md p {
-    margin-top: 10px;
-}
 
 .post-md li {
     margin-left: 40px;
@@ -42,13 +36,14 @@ a {
 
 .post-md table {
     font-size: 12px;
-    background-color: #b1b1b1;
     margin-top: 20px;
 }
 
-.post-md td {
-    background: #fff;
-    border: none !important;
+@media (max-width: 768px) {
+    .post-md table, .post-md .table {
+        overflow: scroll;
+        max-width: 90vw;
+    }
 }
 
 .post-md img {

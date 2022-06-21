@@ -3,7 +3,7 @@ import styled from "styled-components";
 import {baseTheme} from "../../../styles/theme";
 
 const PlacesWorkBlock = ({is_business_speciality, work_places}) => {
-    if (!work_places && !is_business_speciality) {
+    if (!work_places || !is_business_speciality) {
         return null
     }
 
@@ -36,8 +36,9 @@ const PlacesWorkBlock = ({is_business_speciality, work_places}) => {
 
 const Wrapper = styled.div`
   margin-top: 200px;
-  width: 1000px;
-
+  max-width: 1000px;
+  width: 100%;
+  
   .head .title {
     font-weight: 600;
     font-size: 30px;
@@ -47,10 +48,11 @@ const Wrapper = styled.div`
 
   .business-block {
     margin-top: 40px;
-    width: 60%;
+    max-width: 600px;
     background: #D3ECFF;
     border-radius: 21px;
     padding: 30px;
+    
 
     .caption {
       margin-top: 30px;
@@ -67,8 +69,8 @@ const Wrapper = styled.div`
     margin-top: 20px;
 
     .card {
-      padding: 30px;
-      height: 55px;
+      padding: 20px;
+      min-height: 55px;
       background: #3a3a3a;
       border-radius: 10px;
       display: flex;
@@ -79,7 +81,7 @@ const Wrapper = styled.div`
       .name {
         font-weight: 400;
         font-size: 24px;
-        line-height: 45px;
+        line-height: 34px;
         letter-spacing: -1px;
         color: #ffffff;
       }

@@ -13,13 +13,15 @@ const Technologies = ({technologies}) => {
             <div className="items">
                 {technologies.map(item =>
                     <div className='item'>
-                        {/*<img*/}
-                        {/*    src={process.env.API_URL + item.icon.data.attributes.url}*/}
-                        {/*    alt='logo'*/}
-                        {/*    className='logo'*/}
-                        {/*/>*/}
-                        <div className="name">{item.name}</div>
+                        {item.icon?.data && <img
+                            src={process.env.API_URL + item.icon.data.attributes.url}
+                            alt='logo'
+                            width={30}
+                            height={35}
+                            className='logo'
+                        />}
 
+                        <div className="name">{item.name}</div>
                     </div>)}
             </div>
         </Wrapper>
@@ -32,6 +34,10 @@ const Wrapper = styled.div`
   padding: 30px;
   border-radius: 20px;
   background: #EAF9FF;
+  
+  .logo {
+    object-fit: contain;
+  }
 
   .title {
     font-weight: 500;
@@ -47,8 +53,13 @@ const Wrapper = styled.div`
   .items {
     display: flex;
     flex-wrap: wrap;
+    
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
 
     .item {
+      margin: 10px 0;
       display: flex;
 
       img {

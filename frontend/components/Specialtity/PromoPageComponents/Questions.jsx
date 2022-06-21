@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from "styled-components";
 import {SpecialityPageTitle} from "../speciality-page-style";
-import LongLink from "../../Shared/LongLink";
+import LongLink from "../../Common/LongLink";
 
 const Questions = ({questions}) => {
     const [openTape, setTape] = React.useState(null)
@@ -35,11 +35,16 @@ const Wrapper = styled.div`
   max-width: 1000px;
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   margin-bottom: 160px;
   
   .questions {
     width: 50%;
+    
+    @media (max-width: 768px) {
+      width: 100%;
+    }
   }
   
   .answer {

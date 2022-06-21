@@ -1,15 +1,21 @@
 import styled from "styled-components";
 
 export const CardWrapper = styled.div`
-  margin: 15px;
+  margin: 15px 15px 45px 15px;
   max-width: 300px;
-  min-width: 220px;
+  min-width: 280px;
   width: 100%;
 
   img {
     margin-right: 8px;
     width: 20px;
     height: 20px;
+  }
+  
+  @media (max-width: 640px) {
+    max-width: 90%;
+    padding: 0 20px;
+    margin: 15px auto 45px auto;
   }
 `
 
@@ -56,9 +62,9 @@ export const CardParameterWrap = styled.div`
   align-items: center;
   width: 100%;
   font-style: normal;
-  font-weight: normal;
+  font-weight: 600;
   font-size: 14px;
   line-height: 17px;
   margin-bottom: 10px;
-  color: #3E3E3E;
+  color: #6b6b6b;
 `

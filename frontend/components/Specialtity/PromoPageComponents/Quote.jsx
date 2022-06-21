@@ -25,7 +25,7 @@ const Quote = ({quote}) => {
 const Wrapper = styled.div`
   margin-top: 50px;
   margin-bottom: 150px;
-  width: 667px;
+  max-width: 667px;
   font-style: italic;
 
   .line {

@@ -13,6 +13,12 @@ const Wrapper = styled.div`
   text-transform: uppercase;
   color: #3e3e3e;
   margin-bottom: 40px;
+  
+  @media (max-width: 768px) {
+    font-size: 8em;
+    margin-bottom: 0;
+    line-height: 38px;
+  }
 `
 
 export default MainHeader

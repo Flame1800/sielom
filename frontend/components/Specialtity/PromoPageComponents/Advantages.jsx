@@ -21,7 +21,10 @@ const Advantages = ({ advantages }) => {
                             <div className="caption">{item.description}</div>
                     </div>
                 )}
-                {/*<div className="big-shape" />*/}
+                <div className="blue-shape" />
+                <div className="big-shape" />
+                <div className="green-shape" />
+                <div className="red-shape" />
             </div>
         </Wrapper>
     )
@@ -30,6 +33,42 @@ const Advantages = ({ advantages }) => {
 const Wrapper = styled.div`
   margin-top: 200px;
   position: relative;
+  width: 100%;
+  max-width: 1000px;
+
+  .red-shape {
+    position: absolute;
+    top: 15%;
+    right: -20%;
+    border-radius: 50%;
+    z-index: -7;
+    width: 686px;
+    height: 674.57px;
+    background: linear-gradient(180.24deg, #FC4343 0.21%, #FFFFFF 89.45%);
+    pointer-events: none;
+  }
+  
+  .blue-shape {
+    position: absolute;
+    width: 600px;
+    height: 590px;
+    top: 35%;
+    left: -40%;
+    border-radius: 50%;
+    z-index: -5;
+    background: linear-gradient(180deg, #1E78E9 0%, #FFFFFF 100%);
+  }
+  
+  .green-shape {
+    top: 50%;
+    right: -30%;
+    position: absolute;
+    border-radius: 50%;
+    width: 485px;
+    height: 477px;
+    z-index: -5;
+    background: linear-gradient(180deg, #FFF967 0%, #3ECB0C 100%);
+  }
 
   .big-shape {
     top: 250px;
@@ -56,9 +95,9 @@ const Wrapper = styled.div`
       flex-direction: column;
       justify-content: space-between;
       padding: 40px;
-      background: rgb(255, 255, 255);
-      border: 1px solid #d7d7d7;
+      background: rgba(255, 255, 255, 0.57);
       box-shadow: 0 5px 10px 3px rgba(60, 62, 63, 0.11);
+      backdrop-filter: blur(15px);
 
 
       .num {
@@ -78,7 +117,6 @@ const Wrapper = styled.div`
         font-size: 30px;
         line-height: 37px;
         color: #000000;
-        width: 60%;
       }
 
       .caption {
@@ -87,7 +125,6 @@ const Wrapper = styled.div`
         font-size: 18px;
         line-height: 31px;
         color: #000000;
-        width: 60%;
       }
     }
   }

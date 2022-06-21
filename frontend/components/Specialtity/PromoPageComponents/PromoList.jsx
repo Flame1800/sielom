@@ -4,7 +4,7 @@ import {baseTheme} from "../../../styles/theme";
 
 // Список который полностью изменяется в админке (промо контент)
 
-const PromoList = ({list}) => {
+const PromoList = ({list, title}) => {
 
     if (list.length === 0) {
         return null;
@@ -13,8 +13,8 @@ const PromoList = ({list}) => {
     return (
         <Wrapper>
             <SpecialityPageTitle>
-                Основные дисциплины
-                <img src="/img/title-line.png" alt="line" className="line"/>
+                {title}
+                <img src="/img/title-line.png" alt="line" width="100%" className="line"/>
             </SpecialityPageTitle>
             <div className="items">
                 {list.map(item =>
@@ -39,17 +39,29 @@ const Wrapper = styled.div`
     margin-bottom: 45px;
     z-index: -1;
     position: relative;
+    width: 100%;
   }
   
     .items {
       display: flex;
       flex-wrap: wrap;
-      
+
+
+      @media (max-width: 768px) {
+        flex-direction: column;
+
+      }
+
+
       .item {
         display: flex;
         width: 50%;
         margin-bottom: 35px;
         
+        @media (max-width: 768px) {
+            width: 100%;
+        }
+    
         .marker {
           margin-top: 15px;
           width: 16px;

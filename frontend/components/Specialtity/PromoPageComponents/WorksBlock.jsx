@@ -23,13 +23,21 @@ const WorksBlock = ({works}) => {
             </div>
             <div className="cards">
                 <Swiper
-                    slidesPerView={3}
+                    slidesPerView={1}
                     spaceBetween={30}
                     pagination={{
                         clickable: true,
                     }}
                     modules={[Pagination]}
                     className="mySwiper"
+                    breakpoints={{
+                        900: {
+                            slidesPerView: 3
+                        },
+                        500: {
+                            slidesPerView: 2
+                        }
+                    }}
                 >
                 {works.map(work => {
                     return (
@@ -49,7 +57,8 @@ const WorksBlock = ({works}) => {
 
 const Wrapper = styled.div`
   margin-top: 200px;
-  width: 1000px;
+  max-width: 1000px;
+  width: 100%;
   
   .swiper-pagination-bullet {
     background: #000 !important;  
@@ -70,10 +79,11 @@ const Wrapper = styled.div`
   
   .cards {
     margin-top: 55px;
-    width: 1000px;
     overflow: hidden;
     
     .card {
+      max-width: 320px;
+      margin: 30px auto;
       height: 351px;
       background: #F1F1F1;
       border-radius: 26px;

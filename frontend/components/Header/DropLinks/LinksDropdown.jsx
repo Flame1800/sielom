@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import {baseTheme} from "../../../styles/theme";
-import LinkWrapper from "../../Shared/LinkWrapper";
+import LinkWrapper from "../../Common/LinkWrapper";
 import React from "react";
 import navigationStore from "../../../stores/navigationStore";
 import {observer} from "mobx-react-lite";
@@ -54,7 +54,9 @@ const Wrapper = styled.div`
   padding-bottom: 45px;
   background: rgb(255, 255, 255);
   z-index: 10;
-  box-shadow: 1px 14px 22px rgba(0, 0, 0, 0.07);
+  box-shadow: 1px 24px 22px rgba(0, 0, 0, 0.07);
+  border-top: 1px solid #e3e3e3;
+  position: fixed;
 
   .map {
     width: 100%;
@@ -63,7 +65,6 @@ const Wrapper = styled.div`
     display: grid;
     grid-template-columns: 25% 25% 25% 25%;
   }
-
 `
 
 const NavColumn = styled.div`

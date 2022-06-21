@@ -18,7 +18,7 @@ const LinkComponent = ({link, content}) => {
         }
     }
 
-    if (link.name === 'common') {
+    if (link.src === 'common') {
         return (
             <LinkWrapper onClick={(e) => openDropDown(e)}>
                 <img src="/img/menu-icon.svg" alt=""/>
@@ -45,7 +45,7 @@ const LinkComponent = ({link, content}) => {
 
 const LinkWrapper = styled.a`
   font-size: 13px;
-  margin-right: 30px;
+  margin-right: 20px;
   color: ${baseTheme.colors.black};
   font-weight: 600;
   cursor: pointer;
