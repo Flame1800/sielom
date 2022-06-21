@@ -1,89 +1,92 @@
-import React from 'react';
+import React from "react";
 import MainLayout from "../layouts/MainLayout";
-import {Title} from "../styles/homeStyle";
 import MainHeader from "../components/Common/MainHeader";
-import {API} from "../libs/API";
-import Events from "./news";
+import { API } from "../libs/API";
 import FileContainer from "../components/Common/Files/FileContainer";
 import styled from "styled-components";
 import FileHolder from "../components/Common/Files/FileHolder";
-import {baseTheme} from "../styles/theme";
+import { baseTheme } from "../styles/theme";
+import Head from "next/head";
 
-const Schedule = ({schedule}) => {
-    console.log(schedule)
-    return (
-        <MainLayout>
-            <MainHeader>Расписание</MainHeader>
-            <Wrapper className="content">
-                <FileContainer files={schedule.partTimeScheduleFiles} title="Очно-заочная форма обучения" />
-                <FileContainer files={schedule.sessionDates} title="Сроки сессии для заочного отделения" />
+const Schedule = ({ schedule }) => {
+  console.log(schedule);
+  return (
+    <MainLayout>
+      <Head>
+        <title>Расписание - СИУЭиП</title>
+      </Head>
+      <MainHeader>Расписание</MainHeader>
+      <Wrapper className="content">
+        <FileContainer
+          files={schedule.partTimeScheduleFiles}
+          title="Очно-заочная форма обучения"
+        />
+        <FileContainer
+          files={schedule.sessionDates}
+          title="Сроки сессии для заочного отделения"
+        />
 
-                <div className="schedule-data">
-                    <div className="title">Очная форма обучения</div>
-                    <div className="schedule-columns">
-                        {schedule.fullTimeSchedule.map(item => {
-                            if (!item.files.data) return null
+        <div className="schedule-data">
+          <div className="title">Очная форма обучения</div>
+          <div className="schedule-columns">
+            {schedule.fullTimeSchedule.map((item) => {
+              if (!item.files.data) return null;
 
-                            return (
-                                <div className="column">
-                                    <div className="column-head">
-                                        <div className="coll-name">{item.name}</div>
-                                        <div className="coll-caption">{item.caption}</div>
-                                    </div>
-                                    <div className="files">
-                                        {item.files.data.map(file => {
-                                            return (
-                                                <FileHolder file={file.attributes} key={file.id} />
-                                            )
-                                        })}
-                                    </div>
-                                </div>
-                            )
-                        })}
-                    </div>
+              return (
+                <div className="column">
+                  <div className="column-head">
+                    <div className="coll-name">{item.name}</div>
+                    <div className="coll-caption">{item.caption}</div>
+                  </div>
+                  <div className="files">
+                    {item.files.data.map((file) => {
+                      return (
+                        <FileHolder file={file.attributes} key={file.id} />
+                      );
+                    })}
+                  </div>
                 </div>
+              );
+            })}
+          </div>
+        </div>
 
-                <div className="schedule-data">
-                    <div className="title">Заочная форма обучения</div>
-                    <div className="schedule-columns">
-                        {schedule.distantSchedule.map(item => {
-                            if (!item.files.data) return null
+        <div className="schedule-data">
+          <div className="title">Заочная форма обучения</div>
+          <div className="schedule-columns">
+            {schedule.distantSchedule.map((item) => {
+              if (!item.files.data) return null;
 
-                            return (
-                                <div className="column">
-                                    <div className="column-head">
-                                        <div className="coll-name">{item.name}</div>
-                                        <div className="coll-caption">{item.caption}</div>
-                                    </div>
-                                    <div className="files">
-                                        {item.files.data.map(file => {
-                                            return (
-                                                <FileHolder file={file.attributes} key={file.id} />
-                                            )
-                                        })}
-                                    </div>
-                                </div>
-                            )
-                        })}
-                    </div>
+              return (
+                <div className="column">
+                  <div className="column-head">
+                    <div className="coll-name">{item.name}</div>
+                    <div className="coll-caption">{item.caption}</div>
+                  </div>
+                  <div className="files">
+                    {item.files.data.map((file) => {
+                      return (
+                        <FileHolder file={file.attributes} key={file.id} />
+                      );
+                    })}
+                  </div>
                 </div>
-
-
-            </Wrapper>
-
-        </MainLayout>
-    );
+              );
+            })}
+          </div>
+        </div>
+      </Wrapper>
+    </MainLayout>
+  );
 };
 
-
 Schedule.getInitialProps = async () => {
-    const { data } = await API.getSchedule()
-    return { schedule: data.data.attributes }
-}
+  const { data } = await API.getSchedule();
+  return { schedule: data.data.attributes };
+};
 
 const Wrapper = styled.div`
   .schedule-data {
-
     p {
       font-size: 13px;
       color: #858585;
@@ -122,13 +125,12 @@ const Wrapper = styled.div`
       .coll-caption {
         font-size: 17px;
         line-height: 22px;
-        color: #7B7B7B;
+        color: #7b7b7b;
       }
     }
   }
 
   @media (max-width: 600px) {
-
     .title {
       text-align: center;
     }
@@ -137,7 +139,6 @@ const Wrapper = styled.div`
       justify-content: center;
     }
   }
-`
-
+`;
 
 export default Schedule;

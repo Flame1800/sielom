@@ -1,21 +1,24 @@
 import MainLayout from "../../layouts/MainLayout";
-import {API} from "../../libs/API";
+import { API } from "../../libs/API";
 import MainHeader from "../../components/Common/MainHeader";
-import SpecCard from "../../components/Specialtity/SpecCard";
 import styled from "styled-components";
-import {baseTheme} from "../../styles/theme";
-import SpecialityCardsHolder from "../../components/Specialtity/SpecialityCardsHolder";
 
+import SpecialityCardsHolder from "../../components/Specialtity/SpecialityCardsHolder";
+import Head from "next/head";
+import React from "react";
 
 export default function Specialties({ specialties }) {
-    return (
-        <MainLayout>
-            <MainHeader>СПЕЦИАЛЬНОСТИ</MainHeader>
-            <Content>
-                <SpecialityCardsHolder specialties={specialties}/>
-            </Content>
-        </MainLayout>
-    )
+  return (
+    <MainLayout>
+      <Head>
+        <title> Специальности - СИУЭиП</title>
+      </Head>
+      <MainHeader>СПЕЦИАЛЬНОСТИ</MainHeader>
+      <Content>
+        <SpecialityCardsHolder specialties={specialties} />
+      </Content>
+    </MainLayout>
+  );
 }
 
 const Content = styled.div`
@@ -24,9 +27,9 @@ const Content = styled.div`
   margin-left: -10px;
   margin-top: 60px;
   padding-top: 20px;
-`
+`;
 
 Specialties.getInitialProps = async () => {
-    const { data } = await API.getSpecialties()
-    return { specialties: data.data }
-}
+  const { data } = await API.getSpecialties();
+  return { specialties: data.data };
+};

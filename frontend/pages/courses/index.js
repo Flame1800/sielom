@@ -1,53 +1,63 @@
 import MainLayout from "../../layouts/MainLayout";
-import {API} from "../../libs/API";
+import { API } from "../../libs/API";
 import MainHeader from "../../components/Common/MainHeader";
 import styled from "styled-components";
 import React from "react";
-import {ButtonStyle} from "../../styles/sharedStyle";
+import { ButtonStyle } from "../../styles/sharedStyle";
 import SpecCard from "../../components/Specialtity/SpecCard";
+import Head from "next/head";
 
 export default function Graduate({ specialties, content }) {
-    const cleanSpecialites = specialties.filter(item => {
-        console.log(item.attributes)
-        return item.attributes.education_type === "courses"
-    })
+  const cleanSpecialites = specialties.filter((item) => {
+    console.log(item.attributes);
+    return item.attributes.education_type === "courses";
+  });
 
-
-    return (
-        <MainLayout>
-            <MainHeader>КУРСЫ</MainHeader>
-            <Header>
-                <div className='content'>
-                    <div className="text">
-                        Пройди <b>бесплатное</b> обучение в рамках федерального проекта «Содействие занятости» национального
-                        проекта «Демография» и получи востребованные навыки
-                    </div>
-                    <a href="#courses">
-                        <ButtonStyle>Перейти к курсам</ButtonStyle>
-                    </a>
-                </div>
-                <img src="/img/courses-bg.jpg" alt='cover' />
-            </Header>
-            <Content>
-                <div className='description'>
-                    <div className='title'>{content.attributes.title}</div>
-                    <div className='body' dangerouslySetInnerHTML={{ __html: content.attributes.body }} />
-                </div>
-                <div id="courses" className="title">Курсы</div>
-                <div className="list">
-                    {cleanSpecialites.map(item => <SpecCard key={item.id} entity={item} />)}
-                </div>
-            </Content>
-        </MainLayout>
-    )
+  return (
+    <MainLayout>
+      <Head>
+        <title>Курсы - СИУЭиП</title>
+      </Head>
+      <MainHeader>КУРСЫ</MainHeader>
+      <Header>
+        <div className="content">
+          <div className="text">
+            Пройди <b>бесплатное</b> обучение в рамках федерального проекта
+            «Содействие занятости» национального проекта «Демография» и получи
+            востребованные навыки
+          </div>
+          <a href="#courses">
+            <ButtonStyle>Перейти к курсам</ButtonStyle>
+          </a>
+        </div>
+        <img src="/img/courses-bg.jpg" alt="cover" />
+      </Header>
+      <Content>
+        <div className="description">
+          <div className="title">{content.attributes.title}</div>
+          <div
+            className="body"
+            dangerouslySetInnerHTML={{ __html: content.attributes.body }}
+          />
+        </div>
+        <div id="courses" className="title">
+          Курсы
+        </div>
+        <div className="list">
+          {cleanSpecialites.map((item) => (
+            <SpecCard key={item.id} entity={item} />
+          ))}
+        </div>
+      </Content>
+    </MainLayout>
+  );
 }
 
-
-Graduate.getInitialProps = async ctx => {
-    const specialties = await API.getCourses()
-    const content = await API.getCoursesPage()
-    return { specialties: specialties.data.data, content: content.data.data }
-}
+Graduate.getInitialProps = async (ctx) => {
+  const specialties = await API.getCourses();
+  const content = await API.getCoursesPage();
+  return { specialties: specialties.data.data, content: content.data.data };
+};
 
 const Header = styled.div`
   margin-top: 60px;
@@ -59,42 +69,40 @@ const Header = styled.div`
     display: flex;
     flex-wrap: wrap;
   }
-  
+
   .text {
     font-style: normal;
     font-weight: 500;
     font-size: 30px;
     line-height: 39px;
     letter-spacing: -1.25px;
-    color: #3E3E3E;
+    color: #3e3e3e;
     margin-bottom: 40px;
-    
+
     @media (max-width: 726px) {
       font-size: 20px;
     }
   }
 
-
   img {
     border-radius: 20px;
     width: 100%;
   }
-`
+`;
 
 const Content = styled.div`
-
   .title {
     font-size: 40px;
     font-weight: 600;
     margin-left: 20px;
   }
-  
+
   .list {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
   }
-  
+
   .description {
     max-width: 1000px;
     margin-bottom: 40px;
@@ -116,7 +124,6 @@ const Content = styled.div`
       @media (max-width: 768px) {
         font-size: 9em;
       }
-
     }
 
     .body {
@@ -126,5 +133,4 @@ const Content = styled.div`
       margin-left: 30px;
     }
   }
-`
-
+`;

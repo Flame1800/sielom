@@ -1,6 +1,5 @@
 import styled from "styled-components";
-import {baseTheme} from "./theme";
-
+import { baseTheme } from "./theme";
 
 export const SidebarLinks = styled.div`
   position: sticky;
@@ -16,7 +15,6 @@ export const SidebarLinks = styled.div`
   margin-right: 20px;
   padding: 15px;
   height: 100%;
-  margin-bottom: 30px;
   bottom: 30px;
   margin-top: 80px;
 
@@ -31,9 +29,9 @@ export const SidebarLinks = styled.div`
   a {
     cursor: pointer;
     margin-bottom: 10px;
-    transition: .1s;
+    transition: 0.1s;
     border-radius: 10px;
-    padding: 8px;
+    padding: 10px;
 
     &:hover {
       background: rgba(238, 238, 238, 0.5);
@@ -48,10 +46,10 @@ export const SidebarLinks = styled.div`
       background: #fff4dd;
     }
   }
-`
+`;
 
 export const ButtonStyle = styled.button`
-  background: ${({outline}) => !outline ? baseTheme.colors.gold : ''};
+  background: ${({ outline }) => (!outline ? baseTheme.colors.gold : "")};
   border-radius: 13px;
   height: 45px;
   padding: 20px 40px;
@@ -74,15 +72,14 @@ export const ButtonStyle = styled.button`
   }
 
   &:hover {
-
     &:disabled {
       background: #cecece;
       border: #cecece 2px solid;
       cursor: default;
     }
 
-    color: #3E3E3E;
+    color: #3e3e3e;
     background: #fff;
     border: ${baseTheme.colors.gold} 2px solid;
   }
-`
+`;

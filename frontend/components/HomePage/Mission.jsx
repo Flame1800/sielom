@@ -1,43 +1,48 @@
-import React from 'react';
+import React from "react";
 import styled from "styled-components";
-import {baseTheme} from "../../styles/theme";
+import { baseTheme } from "../../styles/theme";
 
 const Mission = () => {
-    return (
-        <Wrapper>
-            <div className="mission-title">МИССИЯ СИЭУиП</div>
-            <div className="sub-title">
-                Готовить <b>профессионалов</b> для рынка способных в условиях конкуренции
-            </div>
-            <div className="cards">
-                <div className="card card-1">
-                    <div className="check">
-                        <img src="/img/green-check.svg" alt="check-icon"/>
-                    </div>
-                    <div className="text">
-                        Адаптировать и внедрять основные и новые виды деятельности по своей квалификации
-                    </div>
-                </div>
-                <div className="card">
-                    <div className="check">
-                        <img src="/img/green-check.svg" alt="check-icon"/>
-                    </div>
-                    <div className="text">
-                        Преобразовывать социальную среду
-                    </div>
-                </div>
-                <div className="card card-3">
-                    <div className="check">
-                        <img src="/img/green-check.svg" alt="check-icon"/>
-                    </div>
-                    <div className="text">
-                        Владеть информационными технологиями, развивающими цифровую экономику
-                    </div>
-                </div>
-            </div>
-            <img src="/img/students-mission.png" className='img-students' alt="students"/>
-        </Wrapper>
-    );
+  return (
+    <Wrapper>
+      <h1 className="mission-title">МИССИЯ СИЭУиП</h1>
+      <div className="sub-title">
+        Готовить <b>профессионалов</b> для рынка способных в условиях
+        конкуренции
+      </div>
+      <div className="cards">
+        <div className="card card-1">
+          <div className="check">
+            <img src="/img/green-check.svg" alt="check-icon" />
+          </div>
+          <div className="text">
+            Адаптировать и внедрять основные и новые виды деятельности по своей
+            квалификации
+          </div>
+        </div>
+        <div className="card">
+          <div className="check">
+            <img src="/img/green-check.svg" alt="check-icon" />
+          </div>
+          <div className="text">Преобразовывать социальную среду</div>
+        </div>
+        <div className="card card-3">
+          <div className="check">
+            <img src="/img/green-check.svg" alt="check-icon" />
+          </div>
+          <div className="text">
+            Владеть информационными технологиями, развивающими цифровую
+            экономику
+          </div>
+        </div>
+      </div>
+      <img
+        src="/img/students-mission.png"
+        className="img-students"
+        alt="students"
+      />
+    </Wrapper>
+  );
 };
 
 const Wrapper = styled.div`
@@ -54,7 +59,7 @@ const Wrapper = styled.div`
     font-size: 4em;
     line-height: 102px;
     text-align: center;
-    color: #76DD6D;
+    color: #76dd6d;
   }
 
   .sub-title {
@@ -62,7 +67,7 @@ const Wrapper = styled.div`
     font-size: 1em;
     line-height: 30px;
     text-align: center;
-    color: #3E3E3E;
+    color: #3e3e3e;
     max-width: 660px;
 
     b {
@@ -84,7 +89,6 @@ const Wrapper = styled.div`
     }
 
     @media (min-width: 1200px) {
-
       .card-3 {
         position: relative;
         bottom: -50px;
@@ -96,12 +100,11 @@ const Wrapper = styled.div`
       }
     }
 
-
     .card {
       width: 285px;
       height: 213px;
-      background: #FFFFFF;
-      border: 2px solid #6B6B6B;
+      background: #ffffff;
+      border: 2px solid #6b6b6b;
       border-radius: 24px;
       display: flex;
       align-items: center;
@@ -111,12 +114,11 @@ const Wrapper = styled.div`
       padding: 30px 10px;
       margin-top: 30px;
 
-
       .check {
         border-radius: 50%;
         width: 40px;
         height: 40px;
-        background: #76DD6D;
+        background: #76dd6d;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -140,7 +142,6 @@ const Wrapper = styled.div`
     width: 90%;
   }
 
-
   @media (max-width: 500px) {
     .title {
       font-size: 35px;
@@ -158,6 +159,6 @@ const Wrapper = styled.div`
       justify-content: center !important;
     }
   }
-`
+`;
 
 export default Mission;
