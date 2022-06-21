@@ -14,7 +14,7 @@ export default function Graduate({ posts, content }) {
   return (
     <MainLayout>
       <Head>
-        <title>Выпускнику - СИУЭиП</title>
+        <title>Выпускнику - СИЭУиП</title>
       </Head>
       <MainHeader>Выпускнику</MainHeader>
       <Header>

@@ -16,7 +16,7 @@ export default function Graduate({ specialties, content }) {
   return (
     <MainLayout>
       <Head>
-        <title>Курсы - СИУЭиП</title>
+        <title>Курсы - СИЭУиП</title>
       </Head>
       <MainHeader>КУРСЫ</MainHeader>
       <Header>

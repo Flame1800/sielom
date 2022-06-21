@@ -13,7 +13,7 @@ const Schedule = ({ schedule }) => {
   return (
     <MainLayout>
       <Head>
-        <title>Расписание - СИУЭиП</title>
+        <title>Расписание - СИЭУиП</title>
       </Head>
       <MainHeader>Расписание</MainHeader>
       <Wrapper className="content">

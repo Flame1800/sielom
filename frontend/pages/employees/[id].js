@@ -14,7 +14,7 @@ const Employer = ({ employer }) => {
   return (
     <MainLayout>
       <Head>
-        <title>{employer.attributes.name} - СИУЭиП</title>
+        <title>{employer.attributes.name} - СИЭУиП</title>
       </Head>
       <Wrapper cover={coverImg}>
         <ArrowButton back>назад</ArrowButton>

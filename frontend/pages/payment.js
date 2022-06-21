@@ -15,7 +15,7 @@ const Payment = () => {
   return (
     <MainLayout>
       <Head>
-        <title>Онлайн оплата - СИУЭиП</title>
+        <title>Онлайн оплата - СИЭУиП</title>
       </Head>
       <Content>
         <div className="title">ОНЛАЙН ОПЛАТА</div>

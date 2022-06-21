@@ -14,7 +14,7 @@ export default function NewsPost({ post, posts }) {
   return (
     <MainLayout>
       <Head>
-        <title>{post.attributes.title} - СИУЭиП</title>
+        <title>{post.attributes.title} - СИЭУиП</title>
       </Head>
       <PostWrapper>
         <div>

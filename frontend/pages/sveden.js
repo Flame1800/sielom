@@ -7,7 +7,7 @@ export default function Sveden({ posts }) {
   return (
     <>
       <Head>
-        <title>Сведения об образовательной организации - СИУЭиП</title>
+        <title>Сведения об образовательной организации - СИЭУиП</title>
       </Head>
       <PostPages
         posts={posts}

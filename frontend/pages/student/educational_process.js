@@ -7,7 +7,7 @@ export default function Sveden({ posts }) {
   return (
     <>
       <Head>
-        <title> Учебный процесс - СИУЭиП</title>
+        <title> Учебный процесс - СИЭУиП</title>
       </Head>
       <PostPages posts={posts} title="Учебный процесс" />
     </>

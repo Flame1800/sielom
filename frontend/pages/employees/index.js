@@ -23,7 +23,7 @@ export default function Specialties({ employees }) {
   return (
     <MainLayout>
       <Head>
-        <title>Персонал - СИУЭиП</title>
+        <title>Персонал -СИЭУиПП</title>
       </Head>
       <MainHeader>Персонал</MainHeader>
       <Wrapper>

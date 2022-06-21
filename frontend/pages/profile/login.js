@@ -11,7 +11,7 @@ export default function NotFound() {
   return (
     <MainLayout>
       <Head>
-        <title> Авторизация - СИУЭиП</title>
+        <title> Авторизация - СИЭУиП</title>
       </Head>
       <Content>
         <div>
