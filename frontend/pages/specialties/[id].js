@@ -35,7 +35,7 @@ export default function Specialties({ entity }) {
   return (
     <MainLayout>
       <Head>
-        <title> {attributes?.name} - СИУЭиП</title>
+        <title> {attributes?.name} - СИЭУиП</title>
       </Head>
       <Banner>
         <ArrowButton back>назад</ArrowButton>

@@ -23,7 +23,7 @@ export default function Event({ event, events }) {
   return (
     <MainLayout>
       <Head>
-        <title>{attributes.title} - СИУЭиП</title>
+        <title>{attributes.title} - СИЭУиП</title>
       </Head>
       <PostWrapper>
         <div>

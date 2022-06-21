@@ -14,7 +14,7 @@ const Post = ({ posts, commission }) => {
   return (
     <MainLayout>
       <Head>
-        <title> Приемная кампания - СИУЭиП</title>
+        <title> Приемная кампания - СИЭУиП</title>
       </Head>
       <Wrapper>
         <MainHeader>Приемная кампания</MainHeader>

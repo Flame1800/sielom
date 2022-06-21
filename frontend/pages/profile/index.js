@@ -10,7 +10,7 @@ export default function NotFound() {
   return (
     <MainLayout noFooter>
       <Head>
-        <title> Личный кабинет - СИУЭиП</title>
+        <title> Личный кабинет - СИЭУиП</title>
       </Head>
       <Content>
         <div className="title">

@@ -11,7 +11,7 @@ export default function Events({ events }) {
   return (
     <MainLayout>
       <Head>
-        <title>Мероприятия - СИУЭиП</title>
+        <title>Мероприятия - СИЭУиП</title>
       </Head>
       <MainHeader>МЕРОПРИЯТИЯ</MainHeader>
       <Content>

@@ -10,7 +10,7 @@ export default function SinglePage({ post }) {
   return (
     <MainLayout>
       <Head>
-        <title>{post.attributes?.name || "Пост"} - СИУЭиП</title>
+        <title>{post.attributes?.name || "Пост"} - СИЭУиП</title>
       </Head>
       <PostWrapper>
         <ArrowButton back>назад</ArrowButton>

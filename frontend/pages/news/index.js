@@ -10,7 +10,7 @@ export default function Events({ news }) {
   return (
     <MainLayout>
       <Head>
-        <title>Новости - СИУЭиП</title>
+        <title>Новости - СИЭУиП</title>
       </Head>
       <MainHeader>НОВОСТИ</MainHeader>
       <Content>

@@ -13,7 +13,7 @@ export default function Events({ posts }) {
   return (
     <MainLayout>
       <Head>
-        <title> Студенту - СИУЭиП</title>
+        <title> Студенту - СИЭУиП</title>
       </Head>
       <MainHeader>Студенту</MainHeader>
       <Header>

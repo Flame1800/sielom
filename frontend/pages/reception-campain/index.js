@@ -13,7 +13,7 @@ const ReceptionCampain = ({ posts, commission }) => {
   return (
     <MainLayout>
       <Head>
-        <title> Поступающим - СИУЭиП</title>
+        <title> Поступающим - СИЭУиП</title>
       </Head>
       <Wrapper>
         <MainHeader>поступающим</MainHeader>

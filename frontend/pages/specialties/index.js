@@ -11,7 +11,7 @@ export default function Specialties({ specialties }) {
   return (
     <MainLayout>
       <Head>
-        <title> Специальности - СИУЭиП</title>
+        <title> Специальности - СИЭУиП</title>
       </Head>
       <MainHeader>СПЕЦИАЛЬНОСТИ</MainHeader>
       <Content>
