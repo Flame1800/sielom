@@ -32,10 +32,10 @@ const SpecCard = ({ entity }) => {
                   (item) => item.class === "eleven"
                 ) && <Tag>11 классов</Tag>}
                 {attributes.durations.find(
-                  (item) => item.form === "full_time"
+                  (item) => item.education_form === "full_time"
                 ) && <Tag>очно</Tag>}
                 {attributes.durations.find(
-                  (item) => item.form === "distant"
+                  (item) => item.education_form === "distant"
                 ) && <Tag>заочно</Tag>}
               </div>
             )}
