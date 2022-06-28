@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_specialties_disciplines",
+  "info": {
+    "displayName": "promo_list",
+    "icon": "list-ul",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    }
+  }
+}

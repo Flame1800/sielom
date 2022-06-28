@@ -4,7 +4,7 @@
   "info": {
     "singularName": "new-post",
     "pluralName": "news",
-    "displayName": "News",
+    "displayName": "Новости",
     "description": ""
   },
   "options": {
@@ -29,13 +29,36 @@
       "type": "richtext"
     },
     "cover": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos"
-      ],
+      ]
+    },
+    "date": {
+      "type": "datetime"
+    },
+    "files": {
       "type": "media",
-      "multiple": false
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "post",
+        "event"
+      ],
+      "default": "post"
     }
   }
 }

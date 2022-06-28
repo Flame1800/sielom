@@ -4,7 +4,7 @@
   "info": {
     "singularName": "specialty",
     "pluralName": "specialties",
-    "displayName": "Программы обучения",
+    "displayName": "Специальности",
     "description": ""
   },
   "options": {
@@ -16,10 +16,7 @@
       "type": "string"
     },
     "description": {
-      "type": "string"
-    },
-    "duration": {
-      "type": "string"
+      "type": "text"
     },
     "cover": {
       "type": "media",
@@ -31,7 +28,131 @@
         "videos"
       ]
     },
-    "subtitle": {
+    "code": {
+      "type": "string"
+    },
+    "tags": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::specialties-prop.specialties-prop",
+      "inversedBy": "programmy_obucheniyas"
+    },
+    "durations": {
+      "displayName": "duration",
+      "type": "component",
+      "repeatable": true,
+      "component": "duration.duration"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "speciality",
+        "courses"
+      ],
+      "required": false,
+      "default": "speciality"
+    },
+    "budget_places": {
+      "type": "integer"
+    },
+    "places": {
+      "type": "integer"
+    },
+    "full_cost": {
+      "type": "string"
+    },
+    "year_cost": {
+      "type": "string"
+    },
+    "technologies": {
+      "type": "component",
+      "repeatable": true,
+      "component": "specialties.technologies"
+    },
+    "training_plan": {
+      "type": "component",
+      "repeatable": true,
+      "component": "specialties.training-plan"
+    },
+    "promo_list": {
+      "type": "component",
+      "repeatable": true,
+      "component": "specialties.disciplines"
+    },
+    "salary": {
+      "type": "component",
+      "repeatable": true,
+      "component": "specialties.salary"
+    },
+    "resume": {
+      "type": "component",
+      "repeatable": false,
+      "component": "specialties.resume"
+    },
+    "questions": {
+      "type": "component",
+      "repeatable": true,
+      "component": "common.questions"
+    },
+    "video": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "full_description": {
+      "type": "richtext"
+    },
+    "promo_list_name": {
+      "type": "string"
+    },
+    "advantages": {
+      "type": "component",
+      "repeatable": true,
+      "component": "specialties.advantages"
+    },
+    "quote": {
+      "type": "component",
+      "repeatable": false,
+      "component": "specialties.quote"
+    },
+    "banner_text": {
+      "type": "string"
+    },
+    "works": {
+      "type": "component",
+      "repeatable": true,
+      "component": "specialties.works"
+    },
+    "is_business_speciality": {
+      "type": "boolean"
+    },
+    "work_places": {
+      "type": "component",
+      "repeatable": true,
+      "component": "specialties.work-places"
+    },
+    "reviews": {
+      "type": "component",
+      "repeatable": true,
+      "component": "specialties.reviews"
+    },
+    "video_link": {
+      "type": "string"
+    },
+    "education_type": {
+      "type": "enumeration",
+      "enum": [
+        "speciality",
+        "courses"
+      ]
+    },
+    "time": {
       "type": "string"
     }
   }

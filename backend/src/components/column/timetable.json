@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_column_timetables",
+  "info": {
+    "displayName": "timetable",
+    "icon": "list"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "caption": {
+      "type": "string"
+    },
+    "files": {
+      "allowedTypes": [
+        "files"
+      ],
+      "type": "media",
+      "multiple": true
+    }
+  }
+}

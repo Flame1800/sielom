@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_specialties_technologies",
+  "info": {
+    "displayName": "technologies",
+    "icon": "screwdriver"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "icon": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

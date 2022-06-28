@@ -1,0 +1,30 @@
+{
+  "kind": "singleType",
+  "collectionName": "employments",
+  "info": {
+    "singularName": "employment",
+    "pluralName": "employments",
+    "displayName": "Трудоустройство"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "body": {
+      "type": "richtext"
+    },
+    "images": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "type": "media",
+      "multiple": true
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "kind": "singleType",
+  "collectionName": "reception_campains",
+  "info": {
+    "singularName": "reception-campain",
+    "pluralName": "reception-campains",
+    "displayName": "Страница приёмной компании",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "address": {
+      "type": "string"
+    },
+    "email": {
+      "type": "email"
+    },
+    "worktime": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    }
+  }
+}

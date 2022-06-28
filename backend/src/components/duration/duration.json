@@ -1,0 +1,38 @@
+{
+  "collectionName": "components_duration_durations",
+  "info": {
+    "displayName": "duration",
+    "icon": "hamsa",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "class": {
+      "type": "enumeration",
+      "enum": [
+        "nine",
+        "eleven"
+      ]
+    },
+    "duration": {
+      "type": "string"
+    },
+    "common_places": {
+      "type": "integer"
+    },
+    "budget_places": {
+      "type": "integer"
+    },
+    "target_places": {
+      "type": "integer"
+    },
+    "education_form": {
+      "type": "enumeration",
+      "enum": [
+        "full_time",
+        "distant",
+        "part_time"
+      ]
+    }
+  }
+}

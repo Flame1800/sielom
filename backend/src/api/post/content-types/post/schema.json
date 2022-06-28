@@ -4,7 +4,7 @@
   "info": {
     "singularName": "post",
     "pluralName": "posts",
-    "displayName": "post",
+    "displayName": "Страницы",
     "description": ""
   },
   "options": {
@@ -34,6 +34,9 @@
     },
     "slug": {
       "type": "string"
+    },
+    "priority": {
+      "type": "integer"
     }
   }
 }

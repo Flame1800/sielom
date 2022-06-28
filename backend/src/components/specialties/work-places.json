@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_specialties_work_places",
+  "info": {
+    "displayName": "work_places",
+    "icon": "location-arrow"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    }
+  }
+}

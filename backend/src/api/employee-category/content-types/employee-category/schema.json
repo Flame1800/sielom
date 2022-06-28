@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "employee_categories",
+  "info": {
+    "singularName": "employee-category",
+    "pluralName": "employee-categories",
+    "displayName": "Категории сотрудников",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "employes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::employee.employee",
+      "mappedBy": "category"
+    }
+  }
+}

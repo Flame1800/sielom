@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "specialties_props",
+  "info": {
+    "singularName": "specialties-prop",
+    "pluralName": "specialties-props",
+    "displayName": "Параметры программ обучения",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "duration",
+        "form"
+      ]
+    },
+    "programmy_obucheniyas": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::specialty.specialty",
+      "mappedBy": "tags"
+    }
+  }
+}

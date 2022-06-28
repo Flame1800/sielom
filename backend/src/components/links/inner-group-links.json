@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_links_inner_group_links",
+  "info": {
+    "displayName": "innerGroupLinks",
+    "icon": "tasks",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "collLinks": {
+      "type": "component",
+      "repeatable": true,
+      "component": "links.link"
+    }
+  }
+}

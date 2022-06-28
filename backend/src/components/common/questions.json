@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_common_questions",
+  "info": {
+    "displayName": "questions",
+    "icon": "question"
+  },
+  "options": {},
+  "attributes": {
+    "question": {
+      "type": "string"
+    },
+    "answer": {
+      "type": "text"
+    }
+  }
+}

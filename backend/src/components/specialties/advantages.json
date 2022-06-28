@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_specialties_advantages",
+  "info": {
+    "displayName": "advantages",
+    "icon": "check-square"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_specialties_salaries",
+  "info": {
+    "displayName": "salary",
+    "icon": "money-bill"
+  },
+  "options": {},
+  "attributes": {
+    "value": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    }
+  }
+}

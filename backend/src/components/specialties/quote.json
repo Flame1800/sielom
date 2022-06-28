@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_specialties_quotes",
+  "info": {
+    "displayName": "quote",
+    "icon": "quote-right"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "text"
+    },
+    "author": {
+      "type": "string"
+    }
+  }
+}

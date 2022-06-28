@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_common_link_groups",
+  "info": {
+    "displayName": "linkGroup",
+    "icon": "list-ol",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "mainLink": {
+      "type": "component",
+      "repeatable": false,
+      "component": "links.link"
+    },
+    "collLinks": {
+      "type": "component",
+      "repeatable": true,
+      "component": "links.link"
+    }
+  }
+}

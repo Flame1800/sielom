@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_specialties_resumes",
+  "info": {
+    "displayName": "resume",
+    "icon": "user-graduate"
+  },
+  "options": {},
+  "attributes": {
+    "speciality": {
+      "type": "string"
+    },
+    "salary": {
+      "type": "string"
+    },
+    "work_schedule": {
+      "type": "string"
+    },
+    "work_expirence": {
+      "type": "string"
+    },
+    "skills": {
+      "type": "richtext"
+    }
+  }
+}

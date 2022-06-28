@@ -34,11 +34,15 @@
         "videos"
       ]
     },
-    "division": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::division.division",
-      "inversedBy": "events"
+    "files": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
     }
   }
 }

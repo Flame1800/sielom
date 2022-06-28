@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_specialties_training_plans",
+  "info": {
+    "displayName": "training_plan",
+    "icon": "file-alt",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "content": {
+      "type": "richtext"
+    },
+    "course": {
+      "type": "string"
+    }
+  }
+}

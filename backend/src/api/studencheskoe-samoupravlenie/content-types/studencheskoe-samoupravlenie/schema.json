@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "studencheskoe_samoupravlenies",
+  "info": {
+    "singularName": "studencheskoe-samoupravlenie",
+    "pluralName": "studencheskoe-samoupravlenies",
+    "displayName": "Студенческое самоуправление",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "number": {
+      "type": "string"
+    },
+    "body": {
+      "type": "text"
+    },
+    "cover": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    }
+  }
+}

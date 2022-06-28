@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_specialties_works",
+  "info": {
+    "displayName": "works",
+    "icon": "hammer"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}
