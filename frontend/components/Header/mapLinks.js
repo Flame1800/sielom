@@ -48,7 +48,10 @@ const mapLinks = [
       },
       {
         main: makeLink("Сервисы", ""),
-        links: [makeLink("Расписание", `/schedule`)],
+        links: [
+          makeLink("Расписание", `/schedule`),
+          makeLink("Онлайн оплата", `/payment`),
+        ],
       },
       {
         main: makeLink("", ""),
