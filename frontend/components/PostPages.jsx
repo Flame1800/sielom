@@ -17,7 +17,6 @@ export default function PostPages({ posts, title, notLayout = false }) {
   };
 
   React.useEffect(() => {
-    console.log(router.query.postId === 90);
     if (router.query.postId === String(90)) {
       router.push("/employees");
     }

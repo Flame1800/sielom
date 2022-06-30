@@ -20,7 +20,7 @@ const CardsCarouselWrapper = ({ children, title, btnText }) => {
         <div className="header">
           <div className="left-header">
             <h1 className="title">{title}</h1>
-            <Link href={title === "Новости" ? `/news` : `/events`}>
+            <Link href="/news">
               <a>
                 <div className="btn-more">
                   {btnText ? btnText : "Узнать больше"}

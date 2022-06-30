@@ -17,15 +17,13 @@ a {
 }
 
 .post-md {
-    margin: 0 auto;
     max-width: 900px;
-    font-size: 15px;
+    font-size: 17px;
     line-height: 27px;
 }
 
 .post-md a {
     text-decoration: underline;
-    line-height: 30px;
     font-weight: 500;
 }
 
@@ -37,6 +35,7 @@ a {
 .post-md table {
     font-size: 12px;
     margin-top: 20px;
+    line-height: 17px !important;
 }
 
 @media (max-width: 768px) {
@@ -48,4 +47,14 @@ a {
 
 .post-md img {
     width: 100%;
+}
+
+
+.special {
+    width: 100%;
+    height: 100px;
+    position: fixed;
+    top: 100px;
+    z-index: 1000;
+    background: #fff;
 }

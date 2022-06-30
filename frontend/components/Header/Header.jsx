@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { baseTheme } from "../../styles/theme";
 import React from "react";
 import Dropdown from "./DropLinks/LinksDropdown";
 import MetaHeaderInfo from "./MetaHeaderInfo";
@@ -7,7 +6,6 @@ import Logo from "./Logo";
 import NavLinks from "./NavLinks/NavLinks";
 import { observer } from "mobx-react-lite";
 import MobileDropdown from "./MobileHeader/MobileDropdown";
-import Head from "next/head";
 
 const Header = () => {
   return (

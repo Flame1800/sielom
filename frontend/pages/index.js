@@ -5,7 +5,7 @@ import { DefaultSection, Infographics, Partners } from "../styles/homeStyle";
 import NewsCard from "../components/Card/NewsCard";
 import Head from "next/head";
 import SwiperCore, { Navigation, Autoplay } from "swiper";
-
+import Link from "next/link";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/autoplay";
@@ -26,6 +26,7 @@ export default function Home({ events, news, specialties }) {
       </Head>
 
       {/* -------------------- Баннер -------------------- */}
+
       <Banner />
 
       {/* ------ Секция инфографики ----- */}
@@ -55,26 +56,15 @@ export default function Home({ events, news, specialties }) {
       </Infographics>
 
       {/* ------ Миссия института ----- */}
+
       <Mission />
 
       {/* ------ Секция мероприятий и новостей ----- */}
-
-      {events.length > 0 && (
-        <CardsCarouselWrapper title="Мероприятия" btnText="Все мероприятия">
-          {events.map((event, i) => {
-            if (i < 16) {
-              return (
-                <SwiperSlide key={event.id}>
-                  <EventCard event={event} />
-                </SwiperSlide>
-              );
-            }
-          })}
-        </CardsCarouselWrapper>
-      )}
-
-      {events.length > 0 && (
-        <CardsCarouselWrapper title="Новости" btnText="Все новости">
+      {news.length > 0 && (
+        <CardsCarouselWrapper
+          title="Мероприятия и новости"
+          btnText="Все записи"
+        >
           {news.map((post, i) => {
             if (i < 16) {
               return (
@@ -96,13 +86,15 @@ export default function Home({ events, news, specialties }) {
           <img alt="partner" src="/img/offical-partner-1.png" />
         </a>
         <a href="https://edu.gov.ru">
-          <img alt="partner" src="/img/offical-partner-2.png" />
-        </a>
-        <a href="http://sielom.ru/pages/stopcorrupt.html">
-          <img alt="partner" src="/img/offical-partner-3.png" />
-        </a>
-        <a href="https://obrnadzor.gov.ru/">
           <img alt="partner" src="/img/offical-partner-4.png" />
+        </a>
+        <Link href="/site/stopcorrupt">
+          <a>
+            <img alt="partner" src="/img/offical-partner-2.png" />
+          </a>
+        </Link>
+        <a href="https://obrnadzor.gov.ru/">
+          <img alt="partner" src="/img/offical-partner-3.png" />
         </a>
       </Partners>
     </MainLayout>

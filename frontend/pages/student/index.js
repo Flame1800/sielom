@@ -25,16 +25,16 @@ export default function Events({ posts }) {
       </Header>
       <Content>
         <div className="fast-links">
-          <Link href="/events">
-            <a className="link">
-              <img src="/img/arrow-45.png" alt="arrow-icon" className="icon" />
-              <p>Мероприятия института</p>
-            </a>
-          </Link>
           <Link href="/site/stipendii-i-inye-vidy-materialьnoj-podderzhki-obuchayushihsya">
             <a className="link">
               <img src="/img/arrow-45.png" alt="arrow-icon" className="icon" />
-              <p>Стипендии и материальная поддержка</p>
+              <p>Стипендии</p>
+            </a>
+          </Link>
+          <Link href="/news">
+            <a className="link">
+              <img src="/img/arrow-45.png" alt="arrow-icon" className="icon" />
+              <p>Мероприятия и новости</p>
             </a>
           </Link>
           <Tooltip title="в разработке">
@@ -51,7 +51,7 @@ export default function Events({ posts }) {
               {posts.map((post) => (
                 <Link
                   key={post.id}
-                  href={`student/educational_process?post=${post.attributes.name}`}
+                  href={`student/educational_process?postId=${post.id}`}
                 >
                   <a>
                     <LongLink>{post.attributes.name}</LongLink>
@@ -129,8 +129,8 @@ const Content = styled.div`
       padding: 40px 25px;
       font-style: normal;
       font-weight: bold;
-      font-size: 42px;
-      line-height: 59px;
+      font-size: 45px;
+      line-height: 55px;
       letter-spacing: -0.05em;
       color: #3e3e3e;
       transition: 0.2s;

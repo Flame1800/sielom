@@ -6,6 +6,10 @@ const EducationForm = ({ durations }) => {
     (item) => item.education_form === "full_time"
   );
   const distant = durations.filter((item) => item.education_form === "distant");
+  const partTime = durations.filter(
+    (item) => item.education_form === "part_time"
+  );
+
   const mapClass = (classItem) =>
     `На базе ${classItem === "nine" ? 9 : 11} классов`;
 
@@ -30,6 +34,19 @@ const EducationForm = ({ durations }) => {
             <div className="form">Заочно</div>
             <div className="items">
               {distant.map((item) => (
+                <div className="item">
+                  <div className="class">{mapClass(item.class)}:</div>
+                  <Tag>{item.duration}</Tag>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+        {partTime.length > 0 && (
+          <div className="param">
+            <div className="form">Очно-заочно</div>
+            <div className="items">
+              {partTime.map((item) => (
                 <div className="item">
                   <div className="class">{mapClass(item.class)}:</div>
                   <Tag>{item.duration}</Tag>

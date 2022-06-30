@@ -1,5 +1,6 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
 import { ServerStyleSheet } from "styled-components";
+import React from "react";
 
 class MyDocument extends Document {
   static async getInitialProps(ctx) {
@@ -32,6 +33,9 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
+          {/*/!* Jquery *!/*/}
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js" />
+          <link rel="stylesheet" href="/letsee/letsee.css" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <link rel="icon" href="/favicon.ico" />
           <link rel="preconnect" href="https://fonts.googleapis.com" />

@@ -10,9 +10,9 @@ export default function Events({ news }) {
   return (
     <MainLayout>
       <Head>
-        <title>Новости - СИЭУиП</title>
+        <title>Мероприятия и новости - СИЭУиП</title>
       </Head>
-      <MainHeader>НОВОСТИ</MainHeader>
+      <MainHeader>Мероприятия и новости</MainHeader>
       <Content>
         {news.map((post) => (
           <NewsCard key={post.id} post={post} />

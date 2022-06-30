@@ -10,6 +10,15 @@ const url = process.env.API_HOST_PROD;
 API.siteUrl = `${process.env.API_URL}/`;
 API.url = `${process.env.API_URL}`;
 
+API.paymentStartSession = (query) =>
+  axios.post(`https://sandbox.payler.com/gapi/StartSession?${query}`, {
+    headers: {
+      "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Headers": "*",
+    },
+  });
+
 API.getSlides = () => axios(`${url}/hero-slides?populate=*`);
 
 API.createRule = (post) => axios.post(`${url}/rules`, { data: post });
@@ -71,6 +80,9 @@ API.getCommissonPage = () => axios(`${url}/reception-campain`);
 API.getGraduatePages = () =>
   axios(`${url}/posts?filters[category][slug][$eq]=graduate&populate=*`);
 API.getEmploymentPage = () => axios(`${url}/employment`);
+
+API.getVacancies = () => axios(`${url}/vacancies`);
+API.getVacancy = (id) => axios(`${url}/vacancies/${id}`);
 
 API.getCoursesPage = () => axios(`${url}/course`);
 API.getCourses = () => axios(`${url}/specialties?populate=*`);

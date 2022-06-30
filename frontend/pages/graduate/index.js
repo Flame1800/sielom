@@ -5,8 +5,8 @@ import styled from "styled-components";
 import { Title } from "../../styles/homeStyle";
 import LongLink from "../../components/Common/LongLink";
 import React from "react";
-import { Tooltip } from "@mui/material";
 import Head from "next/head";
+import Link from "next/link";
 
 export default function Graduate({ posts, content }) {
   const [activePost, setPost] = React.useState(null);
@@ -27,25 +27,32 @@ export default function Graduate({ posts, content }) {
       </Header>
       <Content>
         <div className="fast-links">
-          <a href="#work" className="link">
-            <img src="/img/arrow-45.png" alt="arrow-icon" className="icon" />
-            Трудоустройство
-          </a>
-          <a
-            href="http://sielom.ru/vipusknikam/vakansii-vipusknikam"
-            className="link"
-          >
-            <img src="/img/arrow-45.png" alt="arrow-icon" className="icon" />
-            Вакансии для выпускников
-          </a>
-          <Tooltip title="В разработке">
+          <Link href="/graduate/vacancies">
             <a className="link">
               <img src="/img/arrow-45.png" alt="arrow-icon" className="icon" />
-              Сотрудничество с СурГУ
+              Вакансии для выпускников
             </a>
-          </Tooltip>
+          </Link>
+          <Link href="/news/225">
+            <a className="link">
+              <img src="/img/arrow-45.png" alt="arrow-icon" className="icon" />
+              Номинации и вручение дипломов
+            </a>
+          </Link>
+          <a href="#links" className="link">
+            <img src="/img/arrow-45.png" alt="arrow-icon" className="icon" />
+            Полезные материалы
+          </a>
         </div>
-        <div className="link-group">
+        <div id="work" className="employment">
+          <div className="title">{content.attributes.name}</div>
+          <div
+            className="body"
+            dangerouslySetInnerHTML={{ __html: content.attributes.body }}
+          />
+        </div>
+
+        <div className="link-group" id="links">
           <div className="group">
             <Title>Полезные материалы</Title>
             <div className="links">
@@ -70,14 +77,6 @@ export default function Graduate({ posts, content }) {
               ))}
             </div>
           </div>
-          <img src="/img/spring-elem.svg" alt="img" className="spring" />
-        </div>
-        <div id="work" className="employment">
-          <div className="title">{content.attributes.name}</div>
-          <div
-            className="body"
-            dangerouslySetInnerHTML={{ __html: content.attributes.body }}
-          />
         </div>
       </Content>
     </MainLayout>
@@ -93,7 +92,7 @@ Graduate.getInitialProps = async (ctx) => {
 const Header = styled.div`
   margin-top: 60px;
   display: grid;
-  margin-bottom: 120px;
+  margin-bottom: 30px;
   grid-template-columns: 50% 50%;
 
   @media (max-width: 700px) {
@@ -104,7 +103,7 @@ const Header = styled.div`
   .text {
     font-style: normal;
     font-weight: 500;
-    font-size: 30px;
+    font-size: 26px;
     line-height: 39px;
     letter-spacing: -1.25px;
     color: #3e3e3e;
@@ -125,7 +124,7 @@ const Content = styled.div`
   .fast-links {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 120px;
+    margin-bottom: 30px;
     width: 100%;
 
     @media (max-width: 1300px) {
@@ -139,8 +138,8 @@ const Content = styled.div`
       position: relative;
       display: flex;
       align-items: flex-end;
-      border: 1px solid #b1b1b1;
-      height: 303px;
+      border: 1px solid #3e3e3e;
+      height: 260px;
       padding: 40px 25px;
       font-style: normal;
       font-weight: bold;
@@ -193,18 +192,7 @@ const Content = styled.div`
       }
     }
 
-    .spring {
-      position: absolute;
-      right: 30px;
-      top: 100px;
-
-      @media (max-width: 768px) {
-        display: none;
-      }
-    }
-
     .group {
-      max-width: 666px;
       width: 100%;
 
       .links {
@@ -214,18 +202,16 @@ const Content = styled.div`
   }
 
   .employment {
-    padding-top: 120px;
-    margin-bottom: 100px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 80%;
+    padding-top: 90px;
+    width: 100%;
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
-    background: #f6f6f6;
+    align-items: center;
+    background: #eef6ff;
     border-radius: 20px;
-    color: #494949;
+    color: #1c3e64;
+    text-align: left;
+    margin-bottom: 140px;
 
     @media (max-width: 768px) {
       width: 100%;
@@ -233,6 +219,7 @@ const Content = styled.div`
     }
 
     .title {
+      max-width: 800px;
       font-size: 60px;
       font-weight: 500;
       margin-bottom: 60px;

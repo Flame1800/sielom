@@ -47,6 +47,9 @@ const SpecialityCardsHolder = ({ specialties }) => {
             <div onClick={() => selectSpecialty("distant")}>
               <TagButton active={mode === "distant"}>Заочно</TagButton>
             </div>
+            <div onClick={() => selectSpecialty("part_time")}>
+              <TagButton active={mode === "part_time"}>Очно-заочно</TagButton>
+            </div>
           </div>
         </div>
         <div className="list">

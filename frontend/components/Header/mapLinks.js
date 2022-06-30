@@ -4,7 +4,7 @@ const makeLink = (name, src) => ({ src, name });
 
 const mapLinks = [
   {
-    link: makeLink("Общее", "common"),
+    link: makeLink("Институт", "institut"),
     content: [
       {
         main: makeLink("", "/"),
@@ -21,10 +21,7 @@ const mapLinks = [
       },
       {
         main: makeLink("Медиа", ""),
-        links: [
-          makeLink("Новости", "/news"),
-          makeLink("Календарь мероприятий", "/events"),
-        ],
+        links: [makeLink("Новости и мероприятия", "/news")],
       },
       {
         main: makeLink("", "/"),

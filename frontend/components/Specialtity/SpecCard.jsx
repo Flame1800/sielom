@@ -37,6 +37,9 @@ const SpecCard = ({ entity }) => {
                 {attributes.durations.find(
                   (item) => item.education_form === "distant"
                 ) && <Tag>заочно</Tag>}
+                {attributes.durations.find(
+                  (item) => item.education_form === "part_time"
+                ) && <Tag>очно-заочно</Tag>}
               </div>
             )}
           </div>

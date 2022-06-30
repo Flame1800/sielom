@@ -48,6 +48,14 @@ export const SidebarLinks = styled.div`
   }
 `;
 
+export const InputStyled = styled.input`
+  border: 2px solid ${baseTheme.colors.light};
+  border-radius: 10px;
+  padding: 10px 20px;
+  margin: 10px 5px;
+  font-size: 18px;
+`;
+
 export const ButtonStyle = styled.button`
   background: ${({ outline }) => (!outline ? baseTheme.colors.gold : "")};
   border-radius: 13px;

@@ -69,7 +69,7 @@ export default function Specialties({ entity }) {
             }
           >
             <a>
-              <Button>Подать заявку</Button>
+              <Button>Подать заявление</Button>
             </a>
           </Link>
           <JivoButton>Задать вопрос</JivoButton>

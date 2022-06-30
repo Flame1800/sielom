@@ -1,13 +1,11 @@
 import React from "react";
-import MainLayout from "../layouts/MainLayout";
 import styled from "styled-components";
-import { ButtonStyle } from "../styles/sharedStyle";
 import Link from "next/link";
 import Head from "next/head";
+import MainLayout from "../../layouts/MainLayout";
+import PaymentForm from "../../components/Payment/PaymentForm";
 
 const Payment = () => {
-  const [activeButton, setActiveButton] = React.useState(false);
-
   return (
     <MainLayout>
       <Head>
@@ -52,38 +50,7 @@ const Payment = () => {
             Sprl.
           </p>
         </div>
-        <p className="agreement">
-          <input
-            type="checkbox"
-            checked={activeButton}
-            onChange={(e) => setActiveButton(e.target.checked)}
-            name="pay"
-            value="pay"
-          />
-          Я согласен с <a href="/">политикой конфиденциальности сайта </a>и
-          ознакомился со всей информацией перед оплатой.
-        </p>
-        <div className="payment-box">
-          <img
-            className="methods"
-            src="/img/payment-methods.png"
-            alt="png logo banks"
-          />
-          {activeButton ? (
-            <a
-              target="_blank"
-              href="https://securepayments.sberbank.ru/payment/docsite/payform-1.html?token=vartvnr9ai2dk36ch4afur8rke&ask=amount&ask=email&ask=description&ask=%7B%22name%22:%22PLATELSHIK%22,%22placeholder%22:%22ФИО%20плательщика%22,%22label%22:%22ФИО%20плательщика%22%7D&ask=%7B%22name%22:%22STUDENT%22,%22placeholder%22:%22ФИО%20студента%22,%22label%22:%22ФИО%20студента%22%7D&ask=%7B%22name%22:%22KURS%22,%22placeholder%22:%22Укажите%20номер%20курса%22,%22label%22:%22Номер%20курса%22%7D&ask=%7B%22name%22:%22DOGOVOR%22,%22placeholder%22:%22№%20вашего%20договора%22,%22label%22:%22Номер%20договора%22%7D"
-            >
-              <ButtonStyle onSubmit={() => {}}>Оплатить услуги</ButtonStyle>
-            </a>
-          ) : (
-            <a>
-              <ButtonStyle onSubmit={() => {}} disabled>
-                Оплатить услуги
-              </ButtonStyle>
-            </a>
-          )}
-        </div>
+        <PaymentForm />
       </Content>
     </MainLayout>
   );
@@ -182,16 +149,6 @@ const Content = styled.div`
       margin-right: 5px;
       width: 16px;
       height: 16px;
-    }
-  }
-
-  .payment-box {
-    display: flex;
-    flex-direction: column;
-    margin-top: 20px;
-
-    .methods {
-      margin-bottom: 30px;
     }
   }
 `;

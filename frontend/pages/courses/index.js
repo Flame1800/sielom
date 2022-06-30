@@ -6,10 +6,10 @@ import React from "react";
 import { ButtonStyle } from "../../styles/sharedStyle";
 import SpecCard from "../../components/Specialtity/SpecCard";
 import Head from "next/head";
+import Courses from "../../components/Courses/Courses";
 
 export default function Graduate({ specialties, content }) {
   const cleanSpecialites = specialties.filter((item) => {
-    console.log(item.attributes);
     return item.attributes.education_type === "courses";
   });
 
@@ -26,27 +26,16 @@ export default function Graduate({ specialties, content }) {
             «Содействие занятости» национального проекта «Демография» и получи
             востребованные навыки
           </div>
-          <a href="#courses">
-            <ButtonStyle>Перейти к курсам</ButtonStyle>
-          </a>
         </div>
-        <img src="/img/courses-bg.jpg" alt="cover" />
       </Header>
       <Content>
+        <Courses courses={cleanSpecialites} />
         <div className="description">
           <div className="title">{content.attributes.title}</div>
           <div
             className="body"
             dangerouslySetInnerHTML={{ __html: content.attributes.body }}
           />
-        </div>
-        <div id="courses" className="title">
-          Курсы
-        </div>
-        <div className="list">
-          {cleanSpecialites.map((item) => (
-            <SpecCard key={item.id} entity={item} />
-          ))}
         </div>
       </Content>
     </MainLayout>
@@ -61,9 +50,7 @@ Graduate.getInitialProps = async (ctx) => {
 
 const Header = styled.div`
   margin-top: 60px;
-  display: grid;
   margin-bottom: 120px;
-  grid-template-columns: 50% 50%;
 
   @media (max-width: 700px) {
     display: flex;
@@ -83,11 +70,6 @@ const Header = styled.div`
       font-size: 20px;
     }
   }
-
-  img {
-    border-radius: 20px;
-    width: 100%;
-  }
 `;
 
 const Content = styled.div`
@@ -97,14 +79,8 @@ const Content = styled.div`
     margin-left: 20px;
   }
 
-  .list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
   .description {
-    max-width: 1000px;
+    margin-top: 100px;
     margin-bottom: 40px;
     display: flex;
     flex-direction: column;
