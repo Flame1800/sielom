@@ -1,34 +1,21 @@
-import MainLayout from "../../layouts/MainLayout";
-import { API } from "../../libs/API";
-import MainHeader from "../../components/Common/MainHeader";
-import styled from "styled-components";
-import NewsCard from "../../components/Card/NewsCard";
+import Layout from "../../components/Layouts/Layout";
+import { API } from "../../helpers/API";
 import Head from "next/head";
 import React from "react";
+import Posts from "../../components/Screens/Posts/Posts";
 
-export default function Events({ news }) {
+export default function NewsAndEvents({ news }) {
   return (
-    <MainLayout>
+    <Layout>
       <Head>
         <title>Мероприятия и новости - СИЭУиП</title>
       </Head>
-      <MainHeader>Мероприятия и новости</MainHeader>
-      <Content>
-        {news.map((post) => (
-          <NewsCard key={post.id} post={post} />
-        ))}
-      </Content>
-    </MainLayout>
+      <Posts posts={news} />
+    </Layout>
   );
 }
 
-const Content = styled.div`
-  margin-top: 60px;
-  display: flex;
-  flex-wrap: wrap;
-`;
-
-Events.getInitialProps = async () => {
+NewsAndEvents.getInitialProps = async () => {
   const { data } = await API.getNews();
   return { news: data.data };
 };

@@ -1,12 +1,12 @@
 import React from "react";
-import { API } from "../../../libs/API";
+import { API } from "../../../helpers/API";
 import Index from "./index";
-import MainLayout from "../../../layouts/MainLayout";
+import Layout from "../../../components/Layouts/Layout";
 import styled from "styled-components";
 
 const Vacancy = ({ vacancy }) => {
   return (
-    <MainLayout>
+    <Layout>
       <Wrapper>
         <div className="title">{vacancy.attributes.name}</div>
         <div className="post-md">
@@ -15,7 +15,7 @@ const Vacancy = ({ vacancy }) => {
           />
         </div>
       </Wrapper>
-    </MainLayout>
+    </Layout>
   );
 };
 

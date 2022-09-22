@@ -1,14 +1,14 @@
 import React from "react";
-import { API } from "../../../libs/API";
+import { API } from "../../../helpers/API";
 import Link from "next/link";
-import MainLayout from "../../../layouts/MainLayout";
+import Layout from "../../../components/Layouts/Layout";
 import styled from "styled-components";
-import MainHeader from "../../../components/Common/MainHeader";
+import MainHeader from "../../../components/UI/MainHeader";
 
 const Index = ({ vacancies }) => {
   console.log(vacancies);
   return (
-    <MainLayout>
+    <Layout>
       <Wrapper>
         <MainHeader>Вакансии</MainHeader>
         <div className="list">
@@ -26,7 +26,7 @@ const Index = ({ vacancies }) => {
           })}
         </div>
       </Wrapper>
-    </MainLayout>
+    </Layout>
   );
 };
 

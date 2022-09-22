@@ -2,12 +2,12 @@ import React from "react";
 import styled from "styled-components";
 import Link from "next/link";
 import Head from "next/head";
-import MainLayout from "../../layouts/MainLayout";
+import Layout from "../../components/Layouts/Layout";
 import PaymentForm from "../../components/Payment/PaymentForm";
 
 const Payment = () => {
   return (
-    <MainLayout>
+    <Layout>
       <Head>
         <title>Онлайн оплата - СИЭУиП</title>
       </Head>
@@ -52,7 +52,7 @@ const Payment = () => {
         </div>
         <PaymentForm />
       </Content>
-    </MainLayout>
+    </Layout>
   );
 };
 

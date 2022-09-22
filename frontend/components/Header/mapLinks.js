@@ -1,4 +1,4 @@
-import { API } from "../../libs/API";
+import { API } from "../../helpers/API";
 
 const makeLink = (name, src) => ({ src, name });
 

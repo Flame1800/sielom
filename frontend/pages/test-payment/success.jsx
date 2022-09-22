@@ -1,7 +1,7 @@
 import React from "react";
-import MainLayout from "../../layouts/MainLayout";
+import Layout from "../../components/Layouts/Layout";
 import styled from "styled-components";
-import Button from "../../components/Common/Button";
+import Button from "../../components/UI/Button";
 import Link from "next/link";
 import Head from "next/head";
 
@@ -9,7 +9,7 @@ const Payment = () => {
   const [activeButton, setActiveButton] = React.useState(false);
 
   return (
-    <MainLayout>
+    <Layout>
       <Head>
         <title>Онлайн оплата - СИЭУиП</title>
       </Head>
@@ -23,7 +23,7 @@ const Payment = () => {
           </a>
         </Link>
       </Content>
-    </MainLayout>
+    </Layout>
   );
 };
 

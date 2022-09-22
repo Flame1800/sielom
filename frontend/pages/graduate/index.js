@@ -1,9 +1,9 @@
-import MainLayout from "../../layouts/MainLayout";
-import { API } from "../../libs/API";
-import MainHeader from "../../components/Common/MainHeader";
+import Layout from "../../components/Layouts/Layout";
+import { API } from "../../helpers/API";
+import MainHeader from "../../components/UI/MainHeader";
 import styled from "styled-components";
 import { Title } from "../../styles/homeStyle";
-import LongLink from "../../components/Common/LongLink";
+import LongLink from "../../components/UI/LongLink";
 import React from "react";
 import Head from "next/head";
 import Link from "next/link";
@@ -12,7 +12,7 @@ export default function Graduate({ posts, content }) {
   const [activePost, setPost] = React.useState(null);
 
   return (
-    <MainLayout>
+    <Layout>
       <Head>
         <title>Выпускнику - СИЭУиП</title>
       </Head>
@@ -79,7 +79,7 @@ export default function Graduate({ posts, content }) {
           </div>
         </div>
       </Content>
-    </MainLayout>
+    </Layout>
   );
 }
 

@@ -9,7 +9,7 @@ import {
 } from "./cardStyle";
 import CardPlaceParameter from "./CardPlaceParameter";
 import CardDateParameter from "./CardDateParameter";
-import normalizeDate from "../../libs/normalizeDate";
+import normalizeDate from "../../helpers/normalizeDate";
 
 const NewsCard = ({ post }) => {
   const date = normalizeDate(post.attributes.date);

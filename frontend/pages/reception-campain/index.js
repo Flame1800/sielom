@@ -1,66 +1,25 @@
-import MainLayout from "../../layouts/MainLayout";
-import { API } from "../../libs/API";
+import Layout from "../../components/Layouts/Layout";
+import { API } from "../../helpers/API";
 import Link from "next/link";
 import {} from "../../styles/homeStyle";
-import MainHeader from "../../components/Common/MainHeader";
 import styled from "styled-components";
 import { baseTheme } from "../../styles/theme";
-import LongLink from "../../components/Common/LongLink";
 import Head from "next/head";
 import React from "react";
+import ReceptionCampaign from "../../components/Screens/ReceptionCampaign/ReceptionCampaign";
 
-const ReceptionCampain = ({ posts, commission }) => {
+const ReceptionCampaignPage = (props) => {
   return (
-    <MainLayout>
+    <Layout>
       <Head>
         <title> Поступающим - СИЭУиП</title>
       </Head>
-      <Wrapper>
-        <MainHeader>поступающим</MainHeader>
-        <div className="commission">
-          <div>
-            <div className="title">Контакты приемной комисии</div>
-            <div className="items">
-              <div className="item">
-                <div className="name">Адресс: </div>
-                {commission.attributes.address}
-              </div>
-              <div className="item">
-                <div className="name">Номера телефона: </div>
-                {commission.attributes.phone}
-              </div>
-              <div className="item">
-                <div className="name">Эл. почта:</div>
-                {commission.attributes.email}
-              </div>
-              <div className="item">
-                <div className="name">Время работы:</div>
-                {commission.attributes.worktime}
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="pages">
-          {posts.map((post, id) => {
-            return (
-              <Link
-                href={`reception-campain/info?post=${post.attributes.name}`}
-              >
-                <a>
-                  <LongLink>
-                    {id + 1}. {post.attributes.name}
-                  </LongLink>
-                </a>
-              </Link>
-            );
-          })}
-        </div>
-      </Wrapper>
-    </MainLayout>
+      <ReceptionCampaign {...props} />
+    </Layout>
   );
 };
 
-ReceptionCampain.getInitialProps = async (ctx) => {
+ReceptionCampaignPage.getInitialProps = async () => {
   const posts = await API.getReceptionCampainPages();
   const commission = await API.getCommissonPage();
 

@@ -1,28 +1,19 @@
-import MainLayout from "../../layouts/MainLayout";
-import { API } from "../../libs/API";
+import Layout from "../../components/Layouts/Layout";
+import { API } from "../../helpers/API";
 import React from "react";
-import ArrowButton from "../../components/Common/ArrowButton";
-import PagePost from "../../components/Common/PagePost";
-import styled from "styled-components";
 import Head from "next/head";
+import SinglePost from "../../components/Screens/SinglePost/SinglePost";
 
 export default function SinglePage({ post }) {
   return (
-    <MainLayout>
+    <Layout>
       <Head>
         <title> {post.attributes?.name || "..."} - СИЭУиП</title>
       </Head>
-      <PostWrapper>
-        <ArrowButton back>назад</ArrowButton>
-        <PagePost post={post} />
-      </PostWrapper>
-    </MainLayout>
+      <SinglePost post={post} />
+    </Layout>
   );
 }
-
-const PostWrapper = styled.div`
-  margin-top: 50px;
-`;
 
 SinglePage.getInitialProps = async (ctx) => {
   const { data } = await API.getPageBySlug(ctx.query.slug);

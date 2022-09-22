@@ -1,9 +1,9 @@
-import MainLayout from "../layouts/MainLayout";
-import MainHeader from "./Common/MainHeader";
+import Layout from "./Layouts/Layout";
+import MainHeader from "./UI/MainHeader";
 import styled from "styled-components";
 import React from "react";
 import { SidebarLinks } from "../styles/sharedStyle";
-import PagePost from "./Common/PagePost";
+import PagePost from "./UI/PagePost";
 import { useRouter } from "next/router";
 
 export default function PostPages({ posts, title, notLayout = false }) {
@@ -55,7 +55,7 @@ export default function PostPages({ posts, title, notLayout = false }) {
     return content;
   }
 
-  return <MainLayout>{content}</MainLayout>;
+  return <Layout>{content}</Layout>;
 }
 
 const Wrapper = styled.div`

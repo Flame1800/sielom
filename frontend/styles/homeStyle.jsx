@@ -23,7 +23,7 @@ export const Title = styled.h1`
   }
 `;
 
-export const Infographics = styled.div`
+export const InfographicsStyle = styled.div`
   margin-bottom: 100px;
 
   .info-cards {
@@ -80,7 +80,7 @@ export const Infographics = styled.div`
   }
 `;
 
-export const Partners = styled.div`
+export const PartnersStyle = styled.div`
   max-width: 1320px;
   margin: 150px auto;
   padding: 0 20px;

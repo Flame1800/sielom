@@ -1,7 +1,7 @@
-import { API } from "../libs/API";
+import { API } from "../helpers/API";
 import React from "react";
-import PostPages from "../components/PostPages";
 import Head from "next/head";
+import WordSkillsPage from "../components/Screens/WordSkillsPage/WordSkillsPage";
 
 export default function Sveden({ posts }) {
   return (
@@ -9,7 +9,7 @@ export default function Sveden({ posts }) {
       <Head>
         <title>WorldSkills Russia - СИЭУиП</title>
       </Head>
-      <PostPages posts={posts} title="WorldSkills Russia" />
+      <WordSkillsPage posts={posts} />
     </>
   );
 }

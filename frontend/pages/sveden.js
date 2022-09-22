@@ -1,7 +1,7 @@
-import { API } from "../libs/API";
+import { API } from "../helpers/API";
 import React from "react";
-import PostPages from "../components/PostPages";
 import Head from "next/head";
+import InstituteInfo from "../components/Screens/InstituteInfo/InstituteInfo";
 
 export default function Sveden({ posts }) {
   return (
@@ -9,10 +9,7 @@ export default function Sveden({ posts }) {
       <Head>
         <title>Сведения об образовательной организации - СИЭУиП</title>
       </Head>
-      <PostPages
-        posts={posts}
-        title="СВЕДЕНИЯ ОБ ОБРАЗОВАТЕЛЬНОЙ ОРГАНИЗАЦИИ"
-      />
+      <InstituteInfo posts={posts} />
     </>
   );
 }

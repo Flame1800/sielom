@@ -3,7 +3,7 @@ import Link from "next/link";
 import { ButtonStyle, InputStyled } from "../../styles/sharedStyle";
 import styled from "styled-components";
 import { useRouter } from "next/router";
-import { API } from "../../libs/API";
+import { API } from "../../helpers/API";
 import qs from "qs";
 
 const PaymentForm = () => {

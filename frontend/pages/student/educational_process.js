@@ -1,4 +1,4 @@
-import { API } from "../../libs/API";
+import { API } from "../../helpers/API";
 import React from "react";
 import PostPages from "../../components/PostPages";
 import Head from "next/head";

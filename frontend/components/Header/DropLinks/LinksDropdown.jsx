@@ -1,51 +1,50 @@
 import styled from "styled-components";
-import {baseTheme} from "../../../styles/theme";
-import LinkWrapper from "../../Common/LinkWrapper";
+import { baseTheme } from "../../../styles/theme";
+import LinkWrapper from "../../UI/LinkWrapper";
 import React from "react";
 import navigationStore from "../../../stores/navigationStore";
-import {observer} from "mobx-react-lite";
+import { observer } from "mobx-react-lite";
 
 const MenuHeader = () => {
-    const {getDropLink, setDropLink} = navigationStore
+  const { getDropLink, setDropLink } = navigationStore;
 
-   React.useEffect(() => {
-           document.addEventListener('click', () => setDropLink(null))
-           return () => {
-               document.removeEventListener('click',() => setDropLink(null))
-           }
-    }, []);
+  React.useEffect(() => {
+    document.addEventListener("click", () => setDropLink(null));
+    return () => {
+      document.removeEventListener("click", () => setDropLink(null));
+    };
+  }, []);
 
-    if (!getDropLink()) {
-        return null
-    }
+  if (!getDropLink()) {
+    return null;
+  }
 
-    return (
-        <Wrapper onClick={e => e.stopPropagation()}>
-            <div className='map'>
-                {getDropLink().content.map((column, id) => (
-                    <NavColumn key={id} >
-                        <div className='title' onClick={() => setDropLink(null)}>
-                            {column.main.src.length > 0
-                            ?   <LinkWrapper href={column.main.src}>
-                                    {column.main.name}
-                                </LinkWrapper>
-                            :  <div>{column.main.name}</div>}
-
-                        </div>
-                        <div className="link">
-                            {column.links.map((link, id) => (
-                                    <LinkWrapper key={id} href={link.src}>
-                                        <div onClick={() => setDropLink(null)}>
-                                            {link.name}
-                                        </div>
-                                    </LinkWrapper>
-                            ))}
-                        </div>
-                    </NavColumn>
-                ))}
+  return (
+    <Wrapper onClick={(e) => e.stopPropagation()}>
+      <div className="map">
+        {getDropLink().content.map((column, id) => (
+          <NavColumn key={id}>
+            <div className="title" onClick={() => setDropLink(null)}>
+              {column.main.src.length > 0 ? (
+                <LinkWrapper href={column.main.src}>
+                  {column.main.name}
+                </LinkWrapper>
+              ) : (
+                <div>{column.main.name}</div>
+              )}
             </div>
-        </Wrapper>
-    );
+            <div className="link">
+              {column.links.map((link, id) => (
+                <LinkWrapper key={id} href={link.src}>
+                  <div onClick={() => setDropLink(null)}>{link.name}</div>
+                </LinkWrapper>
+              ))}
+            </div>
+          </NavColumn>
+        ))}
+      </div>
+    </Wrapper>
+  );
 };
 
 const Wrapper = styled.div`
@@ -65,20 +64,20 @@ const Wrapper = styled.div`
     display: grid;
     grid-template-columns: 25% 25% 25% 25%;
   }
-`
+`;
 
 const NavColumn = styled.div`
   margin-right: 40px;
 
   .title {
     margin-bottom: 5px;
-    
+
     div {
       font-weight: 600;
       font-size: 14px;
       line-height: 17px;
       text-transform: uppercase;
-      color: #3E3E3E;
+      color: #3e3e3e;
     }
 
     a {
@@ -86,7 +85,7 @@ const NavColumn = styled.div`
       font-size: 14px;
       line-height: 17px;
       text-transform: uppercase;
-      color: #3E3E3E;
+      color: #3e3e3e;
 
       &:hover {
         color: #939393;
@@ -104,7 +103,7 @@ const NavColumn = styled.div`
       font-weight: 500;
       font-size: 14px;
       line-height: 21px;
-      color: #3E3E3E;
+      color: #3e3e3e;
       transition: 0.1s;
 
       &:hover {
@@ -112,6 +111,6 @@ const NavColumn = styled.div`
       }
     }
   }
-`
+`;
 
 export default observer(MenuHeader);

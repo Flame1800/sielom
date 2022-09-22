@@ -1,9 +1,9 @@
-import MainLayout from "../../layouts/MainLayout";
-import { API } from "../../libs/API";
-import MainHeader from "../../components/Common/MainHeader";
+import Layout from "../../components/Layouts/Layout";
+import { API } from "../../helpers/API";
+import MainHeader from "../../components/UI/MainHeader";
 import styled from "styled-components";
 import { Title } from "../../styles/homeStyle";
-import LongLink from "../../components/Common/LongLink";
+import LongLink from "../../components/UI/LongLink";
 import Link from "next/link";
 import { Tooltip } from "@mui/material";
 import Head from "next/head";
@@ -11,7 +11,7 @@ import React from "react";
 
 export default function Events({ posts }) {
   return (
-    <MainLayout>
+    <Layout>
       <Head>
         <title> Студенту - СИЭУиП</title>
       </Head>
@@ -63,7 +63,7 @@ export default function Events({ posts }) {
           <img src="/img/spring-elem.png" alt="img" className="spring" />
         </div>
       </Content>
-    </MainLayout>
+    </Layout>
   );
 }
 
