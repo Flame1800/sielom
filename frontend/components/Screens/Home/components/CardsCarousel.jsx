@@ -23,7 +23,7 @@ const CardsCarousel = ({ children, title, btnText }) => {
             <Link href="/news">
               <a>
                 <div className="btn-more">
-                  {btnText ? btnText : "Узнать больше"}
+                  {btnText ? btnText : "Подробнее"}
                 </div>
               </a>
             </Link>

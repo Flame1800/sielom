@@ -11,11 +11,11 @@ const Infographics = () => {
         <div className="content">
           <div className="info-cards">
             <div className="card">
-              <div className="value">3326</div>
+              <div className="value">4194</div>
               <div className="description">Студентов</div>
             </div>
             <div className="card">
-              <div className="value">515</div>
+              <div className="value">725</div>
               <div className="description">Бюджетных мест</div>
             </div>
             <div className="card">

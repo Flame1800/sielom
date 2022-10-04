@@ -1,27 +1,21 @@
-import React from 'react';
+import React from "react";
 import styled from "styled-components";
 import Slider from "./Slider";
 
 const Banner = () => {
-
-    return (
-            <HeroBlock>
-                <div className="content">
-                    <Slider/>
-                </div>
-            </HeroBlock>
-    );
+  return (
+    <HeroBlock>
+      <Slider />
+    </HeroBlock>
+  );
 };
 
-
 const HeroBlock = styled.section`
-  .content {
-    max-width: 1400px;
-    margin: 0 auto;
+  max-width: 1400px;
+  margin-bottom: 90px;
 
-    @media (max-width: 1500px) {
-      max-width: 100vw;
-    }
+  @media (max-width: 1500px) {
+    max-width: 100vw;
   }
 `;
 

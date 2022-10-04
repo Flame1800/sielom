@@ -34,13 +34,16 @@ const Slider = () => {
               bg={`${process.env.API_URL}${slide.attributes.cover.data.attributes.url}`}
               alt="img"
             />
-            {slide.attributes.link && (
-              <div className="text">
-                <Link href={slide.attributes.link}>
-                  <a>Подробнее</a>
-                </Link>
-              </div>
-            )}
+            <Footer>
+              <TextStyle>{slide.attributes.description}</TextStyle>
+              {slide.attributes.link && (
+                <Button>
+                  <Link href={slide.attributes.link}>
+                    <a>Подробнее</a>
+                  </Link>
+                </Button>
+              )}
+            </Footer>
           </SwiperSlide>
         ))}
       </Swiper>
@@ -48,9 +51,54 @@ const Slider = () => {
   );
 };
 
+const Footer = styled.div`
+  position: absolute;
+  bottom: 0;
+  height: 110px;
+  width: 100%;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
+
+const TextStyle = styled.div`
+  margin-top: 10px;
+  text-align: center;
+  font-weight: 400;
+  font-size: 20px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  width: 85%;
+`;
+
+const Button = styled.div`
+  margin-left: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  width: 20%;
+  font-size: 16px;
+  font-weight: 600;
+  transition: 0.2s;
+  background: #414141;
+  border-radius: 10px;
+  cursor: pointer;
+
+  a {
+    color: #fff;
+  }
+
+  &:hover {
+    background: #8c8c8c;
+  }
+`;
+
 const SlideImg = styled.div`
   background: ${({ bg }) => `url(${bg})`} no-repeat;
-  height: 100%;
+  height: 90%;
   width: 100%;
   background-size: contain;
   background-position-x: 50%;
@@ -66,40 +114,14 @@ const SlideImg = styled.div`
 const SliderStyle = styled.div`
   width: 100%;
 
-  .text {
-    display: flex;
-    justify-content: center;
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 40px;
-    width: 100%;
-
-    a {
-      padding: 10px 60px;
-      font-size: 15px;
-      font-weight: 600;
-      transition: 0.2s;
-      background: #fff;
-      border-radius: 5px;
-      color: ${baseTheme.colors.black};
-      box-shadow: 0 1px 15px -3px rgba(0, 0, 0, 0.38);
-
-      &:hover {
-        background: ${baseTheme.colors.black};
-        color: #fff;
-      }
-    }
-  }
-
   .swiper {
     background: #fff;
-    height: 70vh;
+    height: 85vh;
     display: flex;
     overflow: hidden;
 
     @media (max-width: 1900px) {
-      height: 60vh;
+      height: 85vh;
     }
 
     @media (max-width: 1000px) {
