@@ -4,13 +4,13 @@ import React from "react";
 import Head from "next/head";
 import Specialty from "../../components/Screens/Specialties/Specialty";
 
-export default function SpecialtyPage(props) {
+export default function SpecialtyPage({ entity }) {
   return (
     <Layout>
       <Head>
-        <title> {attributes?.name} - СИЭУиП</title>
+        <title> {entity?.attributes?.name} - СИЭУиП</title>
       </Head>
-      <Specialty {...props} />
+      <Specialty entity={entity} />
     </Layout>
   );
 }

@@ -1,7 +1,5 @@
 import Layout from "../../components/Layouts/Layout";
 import { API } from "../../helpers/API";
-import styled from "styled-components";
-import { baseTheme } from "../../styles/theme";
 import Head from "next/head";
 import React from "react";
 import ReceptionCampaign from "../../components/Screens/ReceptionCampaign/ReceptionCampaign";

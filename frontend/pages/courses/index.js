@@ -4,7 +4,7 @@ import React from "react";
 import Head from "next/head";
 import Courses from "../../components/Screens/Courses/Courses";
 
-export default function Graduate(props) {
+export default function CoursesPage(props) {
   return (
     <Layout>
       <Head>
@@ -15,7 +15,7 @@ export default function Graduate(props) {
   );
 }
 
-Graduate.getInitialProps = async (ctx) => {
+CoursesPage.getInitialProps = async () => {
   const specialties = await API.getCourses();
   const content = await API.getCoursesPage();
   return { specialties: specialties.data.data, content: content.data.data };

@@ -3,7 +3,7 @@ import React from "react";
 import Head from "next/head";
 import WordSkillsPage from "../components/Screens/WordSkillsPage/WordSkillsPage";
 
-export default function Sveden({ posts }) {
+export default function WordSkills({ posts }) {
   return (
     <>
       <Head>
@@ -14,7 +14,7 @@ export default function Sveden({ posts }) {
   );
 }
 
-Sveden.getInitialProps = async () => {
+WordSkills.getInitialProps = async () => {
   const posts = await API.getWordskills();
 
   return {

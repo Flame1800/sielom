@@ -5,7 +5,7 @@ import Layout from "../../../components/Layouts/Layout";
 import styled from "styled-components";
 import MainHeader from "../../../components/UI/MainHeader";
 
-const Index = ({ vacancies }) => {
+const Vacancies = ({ vacancies }) => {
   console.log(vacancies);
   return (
     <Layout>
@@ -48,9 +48,9 @@ const Wrapper = styled.div`
   }
 `;
 
-Index.getInitialProps = async (ctx) => {
+Vacancies.getInitialProps = async (ctx) => {
   const vacancies = await API.getVacancies();
   return { vacancies: vacancies.data.data };
 };
 
-export default Index;
+export default Vacancies;

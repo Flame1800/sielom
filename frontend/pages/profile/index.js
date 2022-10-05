@@ -3,7 +3,7 @@ import Head from "next/head";
 import React from "react";
 import Profile from "../../components/Screens/Profile/Profile";
 
-export default function NotFound() {
+export default function ProfilePage() {
   return (
     <Layout noFooter>
       <Head>

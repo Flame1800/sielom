@@ -2,8 +2,9 @@ import React from "react";
 import Layout from "../components/Layouts/Layout";
 import { API } from "../helpers/API";
 import Head from "next/head";
+import Schedule from "../components/Screens/Schedule/Schedule";
 
-const Schedule = ({ schedule }) => {
+const SchedulePage = ({ schedule }) => {
   console.log(schedule);
   return (
     <Layout>
@@ -15,9 +16,9 @@ const Schedule = ({ schedule }) => {
   );
 };
 
-Schedule.getInitialProps = async () => {
+SchedulePage.getInitialProps = async () => {
   const { data } = await API.getSchedule();
   return { schedule: data.data.attributes };
 };
 
-export default Schedule;
+export default SchedulePage;
