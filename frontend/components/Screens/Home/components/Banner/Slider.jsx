@@ -19,7 +19,7 @@ const Slider = () => {
     const slidesRequest = await API.getSlides();
     setSlides(slidesRequest.data.data);
   }, []);
-
+  console.log(slides);
   return (
     <SliderStyle>
       <Swiper
@@ -37,11 +37,11 @@ const Slider = () => {
             <Footer>
               <TextStyle>{slide.attributes.description}</TextStyle>
               {slide.attributes.link && (
-                <Button>
-                  <Link href={slide.attributes.link}>
-                    <a>Подробнее</a>
-                  </Link>
-                </Button>
+                <Link href={slide.attributes.link}>
+                  <Button href={slide.attributes.link}>
+                    <>Подробнее</>
+                  </Button>
+                </Link>
               )}
             </Footer>
           </SwiperSlide>
@@ -73,7 +73,7 @@ const TextStyle = styled.div`
   width: 85%;
 `;
 
-const Button = styled.div`
+const Button = styled.a`
   margin-left: 20px;
   display: flex;
   align-items: center;
@@ -86,10 +86,7 @@ const Button = styled.div`
   background: #414141;
   border-radius: 10px;
   cursor: pointer;
-
-  a {
-    color: #fff;
-  }
+  color: #fff;
 
   &:hover {
     background: #8c8c8c;

@@ -5,11 +5,11 @@ import SpecialitiesContent from "../../Specialtity/SpecialitiesContent";
 import Mission from "./components/Mission";
 import Banner from "./components/Banner/Banner";
 
-const Home = ({ specialties, news }) => {
+const Home = ({ specialties, news, statistics }) => {
   return (
     <>
       <Banner />
-      <Infographics />
+      <Infographics statistics={statistics} />
       <Mission />
       <News news={news} />
       <SpecialitiesContent specialties={specialties} />

@@ -38,6 +38,8 @@ API.getAttestationTeacher = (teacher) =>
 API.getSpecialties = () =>
   axios(`${url}/specialties?populate=*&filters[type][$eq]=speciality`);
 
+API.getStatistics = () => axios(`${url}/statistic?populate=*`);
+
 const query = qs.stringify({
   populate: [
     "technologies",

@@ -18,9 +18,11 @@ export default function HomePage(props) {
 HomePage.getInitialProps = async () => {
   const news = await API.getNews();
   const specialties = await API.getSpecialties();
+  const statistics = await API.getStatistics();
 
   return {
     news: news.data.data,
     specialties: specialties.data.data,
+    statistics: statistics.data.data,
   };
 };
