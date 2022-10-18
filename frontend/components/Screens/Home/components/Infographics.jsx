@@ -13,8 +13,8 @@ const Infographics = ({ statistics }) => {
             {statistics.attributes.info.map((item) => {
               return (
                 <div className="card">
-                  <div className="value">{item.title}</div>
-                  <div className="description">{item.number}</div>
+                  <div className="value">{item.number}</div>
+                  <div className="description">{item.title}</div>
                 </div>
               );
             })}
