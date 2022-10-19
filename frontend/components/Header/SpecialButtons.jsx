@@ -40,7 +40,7 @@ const PayButton = styled.a`
     right: 0;
     width: 300px;
     height: 40px;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
     margin-left: auto;
     margin-right: auto;
     font-size: 16px;
@@ -76,6 +76,7 @@ const SheduleBtn = styled.a`
     font-size: 16px;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 15px;
   }
 
   &:hover {

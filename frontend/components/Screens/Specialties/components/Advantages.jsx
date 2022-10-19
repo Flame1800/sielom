@@ -17,10 +17,10 @@ const Advantages = ({ advantages }) => {
             <div className="caption">{item.description}</div>
           </div>
         ))}
-        <div className="blue-shape" />
-        <div className="big-shape" />
-        <div className="green-shape" />
-        <div className="red-shape" />
+        <div className="shape blue-shape" />
+        <div className="shape big-shape" />
+        <div className="shape green-shape" />
+        <div className="shape red-shape" />
       </div>
     </Wrapper>
   );
@@ -77,6 +77,25 @@ const Wrapper = styled.div`
     background: linear-gradient(180deg, #ffbb2f 0%, #ff564b 100%);
   }
 
+  @media screen and (max-width: 800px) {
+    .shape {
+      width: 190px;
+      height: 140px;
+    }
+
+    .red-shape {
+      left: 60px;
+    }
+
+    .big-shape {
+      left: 50px;
+    }
+
+    .green-shape {
+      left: 40px;
+    }
+  }
+
   .cards {
     max-width: 1000px;
     width: 100%;
@@ -104,6 +123,7 @@ const Wrapper = styled.div`
       }
 
       .title {
+        word-break: break-word;
         margin-top: 25px;
         margin-bottom: 16px;
         font-style: normal;
@@ -111,6 +131,7 @@ const Wrapper = styled.div`
         font-size: 30px;
         line-height: 37px;
         color: #000000;
+        max-width: 100%;
       }
 
       .caption {

@@ -35,6 +35,15 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
 
+  @media (max-width: 1350px) {
+    right: 0;
+    width: 300px;
+    margin-bottom: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 16px;
+  }
+
   &:hover {
     background: rgba(215, 215, 215, 0.3);
   }
