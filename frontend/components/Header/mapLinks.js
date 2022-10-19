@@ -17,7 +17,6 @@ const mapLinks = [
           ),
           makeLink("Контакты", "/site/contacts"),
           makeLink("Старый сайт", "https://old.sielom.ru"),
-          makeLink("Пыть-яхский межотраслевой колледж", "/pytyach-college"),
         ],
       },
       {
@@ -54,6 +53,7 @@ const mapLinks = [
       {
         main: makeLink("", ""),
         links: [
+          makeLink("Пыть-яхский межотраслевой колледж", "/pytyach-college"),
           makeLink("Лагерь JoyCamp", `/site/joy-camp`),
           makeLink("Первичная аккредитация", `/site/pervichnaya-akkreditaciya`),
         ],

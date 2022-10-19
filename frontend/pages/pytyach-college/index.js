@@ -29,7 +29,7 @@ const Content = styled.div`
 `;
 
 CollegeNews.getInitialProps = async () => {
-  const { data } = await API.getNews();
+  const { data } = await API.getCollegeNews();
   return { news: data.data };
 };
 
