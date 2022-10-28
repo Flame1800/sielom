@@ -99,12 +99,21 @@ API.getPageBySlug = (slug) =>
   axios(encodeURI(`${url}/posts?populate=*&filters[slug][$eq]=${slug}`));
 API.getPageById = (id) => axios(encodeURI(`${url}/posts/${id}?populate=*`));
 
-API.getEmployees = (category = "Руководство") =>
-  axios(
+API.getEmployees = (category = "Руководство") => {
+  if (category !== "Руководство") {
+    return axios(
+      encodeURI(
+        `${url}/employees?sort[0]=name:asc&filters[category][name][$eq]=${category}&populate=*`
+      )
+    );
+  }
+
+  return axios(
     encodeURI(
       `${url}/employees?sort[0]=rank&filters[category][name][$eq]=${category}&populate=*`
     )
   );
+};
 
 API.getEmployer = (id) =>
   axios(encodeURI(`${url}/employees/${id}?&populate=*`));
