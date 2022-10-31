@@ -5,7 +5,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import styled from "styled-components";
-import { API } from "../../../../../helpers/API";
+import { API } from "../../../../helpers/API";
 import Link from "next/link";
 
 SwiperCore.use([Autoplay]);
