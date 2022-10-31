@@ -106,7 +106,11 @@ const Wrapper = styled.div`
     display: block;
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
+
+    @media screen and (max-width: 1260px) {
+      object-fit: contain;
+    }
   }
 
   .text {
@@ -118,11 +122,11 @@ const Wrapper = styled.div`
     font-size: 17px;
     font-weight: 500;
     border-radius: 20px;
-    background: #fff;
+    background: rgba(255, 255, 255, 0.87);
     min-width: 60px;
 
     &:hover {
-      background: rgba(217, 217, 217, 0.53);
+      background: #fff;
     }
 
     img {
