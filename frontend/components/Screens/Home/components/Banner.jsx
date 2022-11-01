@@ -95,7 +95,6 @@ const Wrapper = styled.div`
   .swiper-slide {
     text-align: center;
     font-size: 18px;
-    background: rgba(231, 231, 231, 0.27);
     height: 100%;
     display: flex;
     justify-content: center;
@@ -106,11 +105,7 @@ const Wrapper = styled.div`
     display: block;
     width: 100%;
     height: 100%;
-    object-fit: cover;
-
-    @media screen and (max-width: 1260px) {
-      object-fit: contain;
-    }
+    object-fit: contain;
   }
 
   .text {

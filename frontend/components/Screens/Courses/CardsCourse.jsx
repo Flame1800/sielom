@@ -25,7 +25,7 @@ const CardsCourse = ({ courses }) => {
 
   return (
     <Wrapper>
-      <div className="title-courses">Колличество: {entries?.length ?? 0}</div>
+      <div className="title-courses">Количество: {entries?.length ?? 0}</div>
       <div className="filter">
         {renderFilter("all", "Все")}
         {renderFilter("short", "Краткосрочные")}
