@@ -103,14 +103,14 @@ API.getEmployees = (category = "Руководство") => {
   if (category !== "Руководство") {
     return axios(
       encodeURI(
-        `${url}/employees?sort[0]=name:asc&filters[category][name][$eq]=${category}&populate=*`
+        `${url}/employees?sort[0]=rank&sort[1]=name:asc&filters[category][name][$eq]=${category}&populate=*`
       )
     );
   }
 
   return axios(
     encodeURI(
-      `${url}/employees?sort[0]=rank&filters[category][name][$eq]=${category}&populate=*`
+      `${url}/employees?sort[0]=rank&sort[1]=name:asc&filters[category][name][$eq]=${category}&populate=*`
     )
   );
 };

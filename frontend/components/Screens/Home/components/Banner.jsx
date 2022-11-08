@@ -34,12 +34,14 @@ const Slider = () => {
               src={`${process.env.API_URL}${slide.attributes.cover.data.attributes.url}`}
               alt="img"
             />
-            <Link href={slide.attributes.link}>
-              <a href={slide.attributes.link} className="text">
-                {slide.attributes.description || "Подробнее"}
-                <img src="/img/link.svg" alt="link" />
-              </a>
-            </Link>
+            {slide.attributes.link && (
+              <Link href={slide.attributes.link}>
+                <a href={slide.attributes.link} className="text">
+                  {slide.attributes.description || "Подробнее"}
+                  <img src="/img/link.svg" alt="link" />
+                </a>
+              </Link>
+            )}
           </SwiperSlide>
         ))}
       </Swiper>

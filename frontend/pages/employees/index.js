@@ -8,7 +8,7 @@ export default function EmployersPage({ employers }) {
   return (
     <Layout>
       <Head>
-        <title>Персонал -СИЭУиПП</title>
+        <title>Персонал -СИЭУиП</title>
       </Head>
       <Employers employers={employers} />
     </Layout>
