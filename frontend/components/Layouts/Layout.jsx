@@ -7,7 +7,6 @@ export default function Layout({ children, noFooter }) {
   return (
     <>
       <Header />
-      <UpButton />
       <Wrapper>{children}</Wrapper>
       {!noFooter && <Footer />}
     </>

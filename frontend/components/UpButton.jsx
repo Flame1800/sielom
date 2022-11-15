@@ -26,7 +26,7 @@ const ButtonWrapper = styled.div`
   border-radius: 50%;
   position: fixed;
   bottom: 60px;
-  left: 60px;
+  right: 60px;
   cursor: pointer;
   z-index: 8;
   box-shadow: 0 10px 38px 0 rgba(34, 36, 25, 0.2);

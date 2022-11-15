@@ -38,7 +38,7 @@ API.getAttestationTeacher = (teacher) =>
   axios(`${url}/attestations?filters[slug][$eq]=${teacher}`);
 
 API.getSpecialties = () =>
-  axios(`${url}/specialties?populate=*&filters[type][$eq]=speciality`);
+  axios(`${url}/specialties?sort[0]=code&populate=*&filters[type][$eq]=speciality`);
 
 API.getStatistics = () => axios(`${url}/statistic?populate=*`);
 

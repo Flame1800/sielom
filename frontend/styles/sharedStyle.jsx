@@ -3,20 +3,38 @@ import { baseTheme } from "./theme";
 
 export const SidebarLinks = styled.div`
   position: sticky;
-  top: 100px;
+  top: 140px;
   min-width: 300px;
   max-width: 300px;
+  max-height: 50vh;
+  overflow: auto;
   width: 100%;
   font-size: 14px;
   line-height: 24px;
   font-weight: 500;
   display: flex;
   flex-direction: column;
-  margin-right: 20px;
+  margin-right: 40px;
   padding: 15px;
   height: 100%;
   bottom: 30px;
-  margin-top: 80px;
+  margin-top: 40px;
+  border-bottom: 1px solid #efefef;
+  border-top: 1px solid #efefef;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: #efefef;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #cbcbcb;
+    border-radius: 5px;
+  }
+
 
   @media (max-width: 768px) {
     position: relative;

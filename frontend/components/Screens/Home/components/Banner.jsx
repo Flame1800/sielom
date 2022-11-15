@@ -34,7 +34,7 @@ const Slider = () => {
               src={`${process.env.API_URL}${slide.attributes.cover.data.attributes.url}`}
               alt="img"
             />
-            {slide.attributes.link && (
+            {slide.attributes?.link && (
               <Link href={slide.attributes.link}>
                 <a href={slide.attributes.link} className="text">
                   {slide.attributes.description || "Подробнее"}

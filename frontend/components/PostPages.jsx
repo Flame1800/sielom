@@ -1,7 +1,7 @@
 import Layout from "./Layouts/Layout";
 import MainHeader from "./UI/MainHeader";
 import styled from "styled-components";
-import React from "react";
+import React, {useRef} from "react";
 import { SidebarLinks } from "../styles/sharedStyle";
 import PagePost from "./UI/PagePost";
 import { useRouter } from "next/router";
@@ -17,6 +17,10 @@ export default function PostPages({ posts, title, notLayout = false }) {
   };
 
   React.useEffect(() => {
+    if (window) {
+      window.scrollTo({top: 0})
+    }
+
     if (router.query.postId === String(90)) {
       router.push("/employees");
     }

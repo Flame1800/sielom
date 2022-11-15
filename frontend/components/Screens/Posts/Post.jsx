@@ -6,31 +6,32 @@ import PostCover from "../../Post/PostCover";
 import FileContainer from "../../UI/Files/FileContainer";
 import NewsCard from "../../Card/NewsCard";
 import styled from "styled-components";
+import _ from 'lodash'
+import Gallery from "./Gallery";
 
 const Post = ({ post, posts }) => {
+
+    console.log(post)
   return (
     <>
       <PostWrapper>
-        <div>
+        <PostContent>
           <ArrowButton back>назад</ArrowButton>
           <PostTitle>{post.attributes.title}</PostTitle>
           {post.attributes.date && (
             <PostDate>{normalizeDate(post.attributes.date)}</PostDate>
           )}
-          <PostCover entity={post} />
+            {post.attributes.images?.data ? <Gallery images={post.attributes.images.data} /> : <PostCover entity={post} />}
           <PostText>
-            <div dangerouslySetInnerHTML={{ __html: post.attributes.body }} />
+            <div className="post-md" dangerouslySetInnerHTML={{ __html: post.attributes.body }} />
           </PostText>
           <FileContainer files={post.attributes.files} />
-        </div>
+        </PostContent>
       </PostWrapper>
       <Tape>
         <div className="title">Читайте также:</div>
         <div className="list">
-          {posts.map((post, id) => {
-            if (id > 3) {
-              return null;
-            }
+            {_.shuffle(posts).slice(0, 4).map((post, id) => {
             return <NewsCard post={post} />;
           })}
         </div>
@@ -44,6 +45,10 @@ const PostWrapper = styled.div`
   margin: 50px auto;
   max-width: 800px;
 `;
+
+const PostContent = styled.div`
+  max-width: 100%;
+`
 
 const Tape = styled.div`
   margin-top: 200px;
