@@ -2,13 +2,15 @@ import React from "react";
 import MainHeader from "../../UI/MainHeader";
 import FileContainer from "../../UI/Files/FileContainer";
 import FileHolder from "../../UI/Files/FileHolder";
-import { Wrapper } from "./Schedule.style";
+import {AppBtn, Head, Wrapper} from "./Schedule.style";
 
 const Schedule = ({ schedule }) => {
   return (
-    <>
-      <MainHeader>Расписание</MainHeader>
       <Wrapper className="content">
+        <Head>
+          <MainHeader>Расписание</MainHeader>
+          <AppBtn href='/timetable'>Интерактивное расписание</AppBtn>
+        </Head>
         <FileContainer
           files={schedule.partTimeScheduleFiles}
           title="Очно-заочная форма обучения"
@@ -68,7 +70,6 @@ const Schedule = ({ schedule }) => {
           </div>
         </div>
       </Wrapper>
-    </>
   );
 };
 

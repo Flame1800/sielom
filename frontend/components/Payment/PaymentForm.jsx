@@ -8,14 +8,12 @@ import qs from "qs";
 
 const PaymentForm = () => {
   const [agreeCheck, setAgreeCheck] = React.useState(false);
-  const [payer, setPayer] = React.useState("");
-  const [student, setStudent] = React.useState("");
-  const [course, setCourse] = React.useState("");
-  const [contract, setContract] = React.useState("");
-  const [amount, setAmount] = React.useState("");
+  const [payer, setPayer] = React.useState("payer");
+  const [student, setStudent] = React.useState("student");
+  const [course, setCourse] = React.useState("1");
+  const [contract, setContract] = React.useState("4321");
+  const [amount, setAmount] = React.useState("120000");
   const [error, setError] = React.useState("");
-
-  const router = useRouter();
 
   const formHandler = async () => {
     setError("");

@@ -37,12 +37,12 @@ export default function Events({ posts }) {
               <p>Мероприятия и новости</p>
             </a>
           </Link>
-          <Tooltip title="в разработке">
+          <Link href="/site/edu-payment">
             <a className="link">
               <img src="/img/arrow-45.png" alt="arrow-icon" className="icon" />
-              <p>Студенческие проекты</p>
+              <p>Оплата обучения</p>
             </a>
-          </Tooltip>
+          </Link>
         </div>
         <div className="link-group">
           <div className="group">
