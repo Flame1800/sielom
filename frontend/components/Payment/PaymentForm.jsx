@@ -41,13 +41,13 @@ const PaymentForm = () => {
       amount,
     };
     const orderId = 24;
-    const queryString = qs.stringify({
+    const queryString = {
       key: "bef28076-fabd-4b6c-b20f-ac200d83a57a",
       order_id: orderId,
       amount: amount * 60,
       type: "OneStep",
       return_url_success: `http://localhost:3000/test-payment/success?order_id=${orderId}`,
-    });
+    };
 
     const startSession = await API.paymentStartSession(queryString);
 

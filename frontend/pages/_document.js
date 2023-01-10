@@ -62,7 +62,6 @@ class MyDocument extends Document {
             href="/search/opensearch"
             title="Поиск на Сургутский институт экономики, управления и права"
           />
-
           {/* Yandex.Metrika counter*/}
           <script
             dangerouslySetInnerHTML={{

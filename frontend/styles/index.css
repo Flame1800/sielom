@@ -16,6 +16,8 @@ a {
     color: black;
 }
 
+/* Стили редактора Markdown в постах */
+
 .post-md {
     max-width: 900px;
     font-size: 17px;
@@ -27,6 +29,10 @@ a {
     font-weight: 500;
 }
 
+.post-md p {
+    margin-bottom: 15px;
+}
+
 
 .post-md li {
     margin-left: 40px;
@@ -36,6 +42,12 @@ a {
     font-size: 12px;
     margin-top: 20px;
     line-height: 17px !important;
+}
+
+.post-md td {
+    border: 1px solid hsl(0, 0%, 90%);
+    padding: 10px;
+    text-align: center;
 }
 
 @media (max-width: 768px) {

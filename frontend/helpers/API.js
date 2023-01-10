@@ -11,9 +11,10 @@ API.siteUrl = `${process.env.API_URL}/`;
 API.url = `${process.env.API_URL}`;
 
 API.paymentStartSession = (query) =>
-  axios.post(`https://sandbox.payler.com/gapi/StartSession?${query}`, {
+  axios.post(`https://sandbox.payler.com/gapi/StartSession`, {
+    data: query,
     headers: {
-      "Content-Type": "application/json",
+      "Content-Type": "application/x‑www‑form‑urlencoded",
       "Access-Control-Allow-Origin": "*",
       "Access-Control-Allow-Headers": "*",
     },
