@@ -51,8 +51,21 @@ const Slider = () => {
 
 const Wrapper = styled.div`
   width: 100%;
-  height: 60vh;
+  height: 720px;
   max-height: 720px;
+  
+  @media screen and (max-width: 1320px) {
+    height: 600px;
+  }
+
+  @media screen and (max-width: 880px) {
+    height: 400px;
+  }
+
+
+  @media screen and (max-width: 650px) {
+    height: 250px;
+  }
 
   .swiper {
     width: 100%;
@@ -115,8 +128,8 @@ const Wrapper = styled.div`
     align-items: center;
     position: absolute;
     bottom: 15px;
-    padding: 10px 20px;
-    font-size: 17px;
+    padding: 7px 14px;
+    font-size: 14px;
     font-weight: 500;
     border-radius: 20px;
     background: rgba(255, 255, 255, 0.87);
