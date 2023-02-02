@@ -74,6 +74,13 @@ API.getSvedens = () =>
   );
 API.getWordskills = () =>
   axios(`${url}/posts?filters[category][slug][$eq]=wordskills&populate=*`);
+  
+API.getIkar = () =>
+  axios(`${url}/posts?filters[category][slug][$eq]=ikar&populate=*`);
+  
+API.getMedical = () =>
+  axios(`${url}/posts?filters[category][slug][$eq]=medical&populate=*`);  
+    
 API.getEdProcess = () =>
   axios(
     `${url}/posts?filters[category][slug][$eq]=educational-process&populate=*`
