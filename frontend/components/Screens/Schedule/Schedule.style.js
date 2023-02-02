@@ -19,16 +19,16 @@ export const AppBtn = styled.a`
   justify-content: center;
   align-items: center;
   border-radius: 10px;
-  border: 1px solid #444444;
   color: #444444;
   font-weight: 500;
   font-size: 18px;
   padding: 0 20px;
   cursor: pointer;
   transition: 0.2s;
+  background: ${baseTheme.colors.gold};
 
   &:hover {
-    background: #ffda93;
+    background: #d5a139;
   }
 
   @media (max-width: 600px) {

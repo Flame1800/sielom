@@ -21,6 +21,7 @@ const Gallery = ({images}) => {
                 modules={[Navigation, Pagination, A11y]}
                 spaceBetween={50}
                 slidesPerView={1}
+                slidesPerGroup={1}
                 navigation
                 pagination={{ clickable: true }}
                 scrollbar={{ draggable: true }}

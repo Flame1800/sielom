@@ -27,7 +27,6 @@ export const InfographicsStyle = styled.div`
   margin-bottom: 100px;
 
   .info-cards {
-    margin-top: 30px;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
