@@ -17,6 +17,11 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   min-height: 99vh;
+  
+  
+  @media screen and (max-width: 1340px) {
+    display: block;
+  }
 `
 
 const Wrapper = styled.main`
