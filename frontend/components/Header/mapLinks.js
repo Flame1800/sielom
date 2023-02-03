@@ -16,7 +16,7 @@ const mapLinks = [
             "/site/obrazovatelьnye-standarty"
           ),
           makeLink("Контакты", "/site/contacts"),
-          makeLink("Медицинская организация", "/medical"),
+          makeLink("Медицинская деятельность", "/medical"),
           makeLink("Региональный ресурсный центр соревнований ИКаР", "/ikar"),
           makeLink("Старый сайт", "https://old.sielom.ru"),
         ],

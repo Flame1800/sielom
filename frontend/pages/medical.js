@@ -7,7 +7,7 @@ export default function Medical({ posts }) {
   return (
     <>
       <Head>
-        <title>Медицинская организация</title>
+        <title>Медицинская деятельность</title>
       </Head>
       <MedicalPage posts={posts} />
     </>
