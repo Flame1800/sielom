@@ -4,14 +4,4 @@ module.exports = {
     API_HOST_PROD: "https://sielom.ru/api",
     API_URL: "https://sielom.ru",
   },
-  images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "sielom.ru",
-        port: "",
-        pathname: "/uploads/**",
-      },
-    ],
-  },
 };
