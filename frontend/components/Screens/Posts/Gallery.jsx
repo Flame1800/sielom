@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navigation, Pagination, A11y } from 'swiper';
+import { Navigation, Pagination } from 'swiper';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -18,10 +18,8 @@ const Gallery = ({images}) => {
     return (
         <Wrapper>
             <Swiper
-                modules={[Navigation, Pagination, A11y]}
-                spaceBetween={50}
+                modules={[Navigation, Pagination]}
                 slidesPerView={1}
-                slidesPerGroup={1}
                 navigation
                 pagination={{ clickable: true }}
                 scrollbar={{ draggable: true }}
