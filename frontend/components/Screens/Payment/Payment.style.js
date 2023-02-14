@@ -8,7 +8,6 @@ export const Content = styled.div`
   margin-bottom: 200px;
   a {
     width: fit-content;
-    margin: 0 auto;
   }
 
   .title {

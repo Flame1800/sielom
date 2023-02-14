@@ -24,14 +24,17 @@ a {
     line-height: 27px;
 }
 
+.post-md h1, h2, h3, h4, h5 {
+    margin-top: 25px;
+}
+
 .post-md a {
     text-decoration: underline;
     font-weight: 500;
 }
 
 .post-md p {
-    margin-bottom: 8px;
-    margin-top: 8px;
+    margin-top: 20p;
 }
 
 
@@ -48,7 +51,6 @@ a {
 .post-md td {
     border: 1px solid hsl(0, 0%, 90%);
     padding: 10px;
-    text-align: center;
 }
 
 @media (max-width: 768px) {
