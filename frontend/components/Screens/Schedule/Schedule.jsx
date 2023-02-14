@@ -20,30 +20,30 @@ const Schedule = ({ schedule }) => {
           title="Сроки сессии для заочного отделения"
         />
 
-        {/*<div className="schedule-data">*/}
-        {/*  <div className="title">Очная форма обучения</div>*/}
-        {/*  <div className="schedule-columns">*/}
-        {/*    {schedule.fullTimeSchedule.map((item) => {*/}
-        {/*      if (!item.files.data) return null;*/}
+        <div className="schedule-data">
+          <div className="title">Очная форма обучения</div>
+          <div className="schedule-columns">
+            {schedule.fullTimeSchedule.map((item) => {
+              if (!item.files.data) return null;
 
-        {/*      return (*/}
-        {/*        <div className="column">*/}
-        {/*          <div className="column-head">*/}
-        {/*            <div className="coll-name">{item.name}</div>*/}
-        {/*            <div className="coll-caption">{item.caption}</div>*/}
-        {/*          </div>*/}
-        {/*          <div className="files">*/}
-        {/*            {item.files.data.map((file) => {*/}
-        {/*              return (*/}
-        {/*                <FileHolder file={file.attributes} key={file.id} />*/}
-        {/*              );*/}
-        {/*            })}*/}
-        {/*          </div>*/}
-        {/*        </div>*/}
-        {/*      );*/}
-        {/*    })}*/}
-        {/*  </div>*/}
-        {/*</div>*/}
+              return (
+                <div className="column">
+                  <div className="column-head">
+                    <div className="coll-name">{item.name}</div>
+                    <div className="coll-caption">{item.caption}</div>
+                  </div>
+                  <div className="files">
+                    {item.files.data.map((file) => {
+                      return (
+                        <FileHolder file={file.attributes} key={file.id} />
+                      );
+                    })}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
 
         <div className="schedule-data">
           <div className="title">Заочная форма обучения</div>
