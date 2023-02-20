@@ -4,7 +4,6 @@ import FileContainer from "./Files/FileContainer";
 import ArrowButton from "./ArrowButton";
 
 const PagePost = ({ post }) => {
-  console.log(post);
   return (
     <Content>
       {post && (

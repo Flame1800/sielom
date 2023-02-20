@@ -87,9 +87,9 @@ API.getEdProcess = () =>
     `${url}/posts?filters[category][slug][$eq]=educational-process&populate=*`
   );
 
-API.getReceptionCampainPages = () =>
+API.getReceptionCampainPages = (year) =>
   axios(
-    `${url}/posts?filters[category][slug][$eq]=reception-campain&populate=*&sort[0]=priority`
+    `${url}/posts?filters[category][slug][$eq]=reception-campain-${year}&populate=*&sort[0]=priority`
   );
 API.getCommissonPage = () => axios(`${url}/reception-campain`);
 

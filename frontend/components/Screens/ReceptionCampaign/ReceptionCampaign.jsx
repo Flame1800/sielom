@@ -5,7 +5,7 @@ import LongLink from "../../UI/LongLink";
 
 const ReceptionCampaign = ({ posts, commission }) => {
   return (
-    <Wrapper>
+    <>
       <MainHeader>поступающим</MainHeader>
       <div className="commission">
         <div>
@@ -33,7 +33,7 @@ const ReceptionCampaign = ({ posts, commission }) => {
       <div className="pages">
         {posts.map((post, id) => {
           return (
-            <Link href={`reception-campain/info?post=${post.attributes.name}`}>
+            <Link href={`reception-campain-${year}/info?post=${post.attributes.name}`}>
               <a>
                 <LongLink>
                   {id + 1}. {post.attributes.name}
@@ -43,7 +43,7 @@ const ReceptionCampaign = ({ posts, commission }) => {
           );
         })}
       </div>
-    </Wrapper>
+    </>
   );
 };
 

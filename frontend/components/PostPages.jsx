@@ -11,7 +11,7 @@ export default function PostPages({ posts, title, notLayout = false }) {
   const [currentPost, setCurrentPost] = React.useState(posts[0]);
 
   const selectPost = (post) => {
-    router.push(`${router.pathname}/?postId=${post.id}`, undefined, {
+    router.push(`${router.asPath.split("?")[0]}/?postId=${post.id}`, undefined, {
       shallow: true,
     });
   };

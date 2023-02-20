@@ -7,10 +7,10 @@ import PostPages from "../../PostPages";
 import styled from "styled-components";
 import { baseTheme } from "../../../styles/theme";
 
-const Info = ({ posts }) => {
+const Info = ({ posts, year }) => {
   return (
     <Wrapper>
-      <MainHeader>Приемная кампания</MainHeader>
+      <MainHeader>Приемная кампания {year}</MainHeader>
       <div className="buttons">
         <JivoButton>Задать вопрос</JivoButton>
         <Link href="/specialties">
