@@ -21,9 +21,6 @@ export default function PostPages({ posts, title, notLayout = false }) {
       window.scrollTo({top: 0})
     }
 
-    if (router.query.postId === String(90)) {
-      router.push("/employees");
-    }
 
     const loadedPost = router.query.postId
       ? posts.find(({ id }) => id === Number(router.query.postId))
