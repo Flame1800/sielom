@@ -16,6 +16,11 @@ const Payment = () => {
 
       <div className="title">ОНЛАЙН ОПЛАТА</div>
       <div className="sub-title">Ознакомьтесь с информацией перед оплатой</div>
+        <Link href="/news/325">
+            <a>
+                <AlertMessage><b>!</b>Объявление студентам! Дубликаты чеков/квитанций за оплату.</AlertMessage>
+            </a>
+        </Link>
         <AlertBlock>
             <Title>Могут возникать ошибки при оплате</Title>
             <p>
@@ -80,6 +85,25 @@ const Payment = () => {
     </Content>
   );
 };
+
+
+const AlertMessage = styled.div`
+  border-radius: 10px;
+  background: rgba(255, 140, 0, 0.18);
+  font-size: 17px;
+  margin-top: 50px;
+  padding: 20px 40px;
+  font-weight: 500;
+  border: 1px solid #ff8400;
+
+  b {
+    color: #ff8400;
+    font-size: 30px;
+    font-weight: 600;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+`
 
 const AlertBlock = styled.div`
   margin: 40px 0;
