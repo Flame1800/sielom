@@ -64,7 +64,8 @@
     "remark-gfm": "^3.0.1",
     "styled-components": "^5.3.3",
     "styled-jsx": "^5.0.2",
-    "swiper": "^7.4.1"
+    "swiper": "^7.4.1",
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.2.6",

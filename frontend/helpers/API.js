@@ -10,16 +10,6 @@ const url = process.env.API_HOST_PROD;
 API.siteUrl = `${process.env.API_URL}/`;
 API.url = `${process.env.API_URL}`;
 
-API.paymentStartSession = (query) =>
-  axios.post(`https://sandbox.payler.com/gapi/StartSession`, {
-    data: query,
-    headers: {
-      "Content-Type": "application/x‑www‑form‑urlencoded",
-      "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Headers": "*",
-    },
-  });
-
 API.getSlides = () => axios(`${url}/hero-slides?populate=*`);
 
 API.createRule = (post) => axios.post(`${url}/rules`, { data: post });

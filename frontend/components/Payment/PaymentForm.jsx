@@ -5,6 +5,7 @@ import styled from "styled-components";
 import { useRouter } from "next/router";
 import { API } from "../../helpers/API";
 import qs from "qs";
+import createPayment from "./createPayment";
 
 const PaymentForm = () => {
   const [agreeCheck, setAgreeCheck] = React.useState(false);
@@ -14,10 +15,14 @@ const PaymentForm = () => {
   const [contract, setContract] = React.useState("4321");
   const [amount, setAmount] = React.useState("120000");
   const [error, setError] = React.useState("");
+  const router = useRouter()
 
-  const formHandler = async () => {
-    setError("");
-    const allValuesFull = payer && student && course && contract && amount;
+  const formHandler = async (e) => {
+    e.preventDefault()
+
+
+    setError("")
+    const allValuesFull = payer && student && course && contract && amount
 
     if (!allValuesFull || !agreeCheck) {
       if (!allValuesFull) {
@@ -29,7 +34,6 @@ const PaymentForm = () => {
           "Ознакомтесь с политикой конфиденциальности сайта и поставтье галочку"
         );
       }
-
       return;
     }
 
@@ -39,21 +43,14 @@ const PaymentForm = () => {
       course,
       contract,
       amount,
-    };
-    const orderId = 24;
-    const queryString = {
-      key: "bef28076-fabd-4b6c-b20f-ac200d83a57a",
-      order_id: orderId,
-      amount: amount * 60,
-      type: "OneStep",
-      return_url_success: `http://localhost:3000/test-payment/success?order_id=${orderId}`,
+      fee: 0
     };
 
-    const startSession = await API.paymentStartSession(queryString);
+    const startSession = await createPayment(form);
 
     const orderPayment = startSession.data;
     console.log(orderPayment);
-    // router.push("https://yandex.ru/");
+    router.push(orderPayment.formUrl)
   };
 
   return (
@@ -61,7 +58,7 @@ const PaymentForm = () => {
       <div className="sub-title">
         Заполните форму для того что бы перейти к оплате
       </div>
-      <div className="form">
+      <form className="form" onSubmit={formHandler}>
         <InputStyled
           value={payer}
           onInput={({ target }) => setPayer(target.value)}
@@ -94,25 +91,26 @@ const PaymentForm = () => {
           type="text"
           placeholder="Сумма платежа, без пробелов"
         />
-      </div>
-      <p className="agreement" onClick={() => setAgreeCheck(!agreeCheck)}>
-        <input type="checkbox" checked={agreeCheck} />
-        <p>
-          Я согласен с
-          <Link href="/site/politika-konfidencialnosti-personalnyh-dannyh">
-            <a> политикой конфиденциальности сайта </a>
-          </Link>
-          и ознакомился со всей информацией перед оплатой.
+        <p className="agreement" onClick={() => setAgreeCheck(!agreeCheck)}>
+          <input type="checkbox" checked={agreeCheck} />
+          <p>
+            Я согласен с
+            <Link href="/site/politika-konfidencialnosti-personalnyh-dannyh">
+              <a> политикой конфиденциальности сайта </a>
+            </Link>
+            и ознакомился со всей информацией перед оплатой.
+          </p>
         </p>
-      </p>
-      <div className="payment-box">
-        <img
-          className="methods"
-          src="/img/payment-methods.png"
-          alt="png logo banks"
-        />
-      </div>
-      <ButtonStyle onClick={formHandler}>Оплатить услуги</ButtonStyle>
+        <div className="payment-box">
+          <img
+              className="methods"
+              src="/img/payment-methods.png"
+              alt="png logo banks"
+          />
+        </div>
+        <ButtonStyle>Оплатить услуги</ButtonStyle>
+      </form>
+
       {error.length !== 0 && <div className="error">{error}</div>}
     </Wrapper>
   );
@@ -132,11 +130,11 @@ const Wrapper = styled.div`
     flex-direction: column;
     margin-bottom: 30px;
     margin-top: 20px;
-    width: 80%;
+    width: 100%;
+    align-items: center;
   }
 
   .error {
-    margin-top: 20px;
     font-size: 16px;
     color: red;
     font-weight: 500;
@@ -159,7 +157,9 @@ const Wrapper = styled.div`
     border-bottom: 1px solid #b1b1b1;
     display: flex;
     justify-content: center;
-    margin: 0 auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
     cursor: pointer;
 
     a {

@@ -35,7 +35,7 @@ const SpecialitiesContent = ({ specialties }) => {
       <DefaultSection>
         <div className="header">
           <Title>
-            <b>{currentSpecialties.length}</b> Специальностей
+            Специальности · <b>{currentSpecialties.length}</b>
           </Title>
           <div className="header-flex">
             <div onClick={() => selectSpecialty("all")}>

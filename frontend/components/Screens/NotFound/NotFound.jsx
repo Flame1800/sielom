@@ -3,6 +3,7 @@ import Button from "../../UI/Button";
 import styled from "styled-components";
 import { baseTheme } from "../../../styles/theme";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 const NotFound = () => {
   const router = useRouter();
@@ -11,9 +12,11 @@ const NotFound = () => {
     <Content>
       <div className="title">Страница не найдена</div>
       <div className="tag">404</div>
-      <div onClick={() => router.back()}>
-        <Button>Вернуться назад</Button>
-      </div>
+      <Link href="/">
+          <a href="/">
+              <Button>На главную</Button>
+          </a>
+      </Link>
     </Content>
   );
 };
