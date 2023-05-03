@@ -9,11 +9,12 @@ import createPayment from "./createPayment";
 
 const PaymentForm = () => {
   const [agreeCheck, setAgreeCheck] = React.useState(false);
-  const [payer, setPayer] = React.useState("payer");
-  const [student, setStudent] = React.useState("student");
+  const [email, setEmail] = React.useState("mrr@sielom.ru");
+  const [payer, setPayer] = React.useState("Иванов Иван Иванович");
+  const [student, setStudent] = React.useState("Максимов Максим Тестовый");
   const [course, setCourse] = React.useState("1");
-  const [contract, setContract] = React.useState("4321");
-  const [amount, setAmount] = React.useState("120000");
+  const [contract, setContract] = React.useState("2233");
+  const [amount, setAmount] = React.useState("5");
   const [error, setError] = React.useState("");
   const router = useRouter()
 
@@ -43,13 +44,13 @@ const PaymentForm = () => {
       course,
       contract,
       amount,
+      email,
       fee: 0
     };
 
     const startSession = await createPayment(form);
 
     const orderPayment = startSession.data;
-    console.log(orderPayment);
     router.push(orderPayment.formUrl)
   };
 
@@ -59,6 +60,20 @@ const PaymentForm = () => {
         Заполните форму для того что бы перейти к оплате
       </div>
       <form className="form" onSubmit={formHandler}>
+        <InputStyled
+            value={amount}
+            onInput={({ target }) =>
+                setAmount(target.value.replace(/[^0-9\.]/g, ""))
+            }
+            type="text"
+            placeholder="Сумма платежа, без пробелов"
+        />
+        <InputStyled
+            value={email}
+            onInput={({ target }) => setEmail(target.value)}
+            type="email"
+            placeholder="Email"
+        />
         <InputStyled
           value={payer}
           onInput={({ target }) => setPayer(target.value)}
@@ -83,14 +98,7 @@ const PaymentForm = () => {
           type="text"
           placeholder="Номер договора"
         />
-        <InputStyled
-          value={amount}
-          onInput={({ target }) =>
-            setAmount(target.value.replace(/[^0-9\.]/g, ""))
-          }
-          type="text"
-          placeholder="Сумма платежа, без пробелов"
-        />
+
         <p className="agreement" onClick={() => setAgreeCheck(!agreeCheck)}>
           <input type="checkbox" checked={agreeCheck} />
           <p>
@@ -132,6 +140,10 @@ const Wrapper = styled.div`
     margin-top: 20px;
     width: 100%;
     align-items: center;
+    
+    input  {
+      width: 100%;
+    }
   }
 
   .error {

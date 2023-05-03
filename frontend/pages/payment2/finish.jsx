@@ -9,26 +9,35 @@ import getPaymentStatus from "../../components/Payment/getPaymentStatus";
 import getAtolToken from "../../components/Payment/getAtolToken";
 import loadAtolPaymentReceipt from "../../components/Payment/loadAtolPaymentReceipt";
 import getPaymentReceipt from "../../components/Payment/getPaymentReceipt";
-import moment from "moment";
+
+const additionalValues = {
+    courseNumber: "Номер курса",
+    student: "Студент",
+    payer: "Плательщик",
+    documentNumber: "Номер договора",
+    email: "Email",
+    service: "Услуга"
+}
 
 const Payment = () => {
-  const [loading, setLoading] = useState(true );
+  const [loading, setLoading] = useState(false );
   const [paymentData, setPaymentData] = useState(null);
   const [receipt, setReceipt] = useState(null)
-
+    const [error, setError] = useState(false)
 
   const router = useRouter();
 
-  const { paymentId, requestId, status } = router.query
+  const { paymentId, requestId } = router.query
 
-    const loadPaymentReceipt = async () => {
+    const loadPaymentReceipt = async (data) => {
+        if (error && !paymentData) return;
+        setLoading(true)
 
         try {
             const tokenData = await getAtolToken()
             const {token} = tokenData.data
-            console.log(token)
 
-            const sellDataResponse = await loadAtolPaymentReceipt(token)
+            const sellDataResponse = await loadAtolPaymentReceipt(token, data)
 
             if (!sellDataResponse.data.error) {
                 setTimeout(async () => {
@@ -37,7 +46,6 @@ const Payment = () => {
                     setLoading(false)
                 }, 5000)
             }
-
         } catch (e) {
             console.error(e.message)
         }
@@ -49,9 +57,12 @@ const Payment = () => {
         (async () => {
             try {
                 const response = await getPaymentStatus({paymentId, requestId});
-                await loadPaymentReceipt()
-
                 setPaymentData(response.data);
+                if (response.data.status === "FAILED") {
+                    return setError(true)
+                }
+                await loadPaymentReceipt(response.data)
+
             } catch(e) {
                 console.log(e);
             }
@@ -65,12 +76,9 @@ const Payment = () => {
 
   return (
     <Layout>
-      <Head>
-        <title>Онлайн оплата - СИЭУиП</title>
-      </Head>
+      <Head><title>Онлайн оплата - СИЭУиП</title></Head>
       <Content>
           {paymentData ? titleText : <span className="title">Загрузка...</span>}
-          {/*<button onClick={loadPaymentReceipt}>Load Payment receipt</button>*/}
           {paymentData && <div className="payment-info">
               <p className='info-item'>{paymentData.details.resultDescription}</p>
               <hr/>
@@ -79,17 +87,14 @@ const Payment = () => {
               <p className='info-item'><b>Коммисия</b> {paymentData.fee} руб.</p>
               <p className='info-item'><b>Карта</b> {paymentData.details.maskedPan} {paymentData.details.paymentSystem}</p>
               {Object.entries(paymentData.additionalInfo).map(([key, value]) => {
-                  return  <p className='info-item'><b>{key}</b> {value}</p>
+                  return  <p className='info-item'><b>{additionalValues[key]}</b> {value}</p>
               })}
-              {loading
-                  ? <div className='loader'>Загрузка чека...</div>
-                  : <a className='receipt' target="_blank" href={receipt}>Получить чек</a>}
+              {loading && <div className='loader'>Загрузка чека...</div>}
+              {!loading && receipt && <a className='receipt' target="_blank" href={receipt}>Получить чек</a>}
           </div>}
-          {!loading && <Link href="/">
-              <a>
-                  <Button>На главную</Button>
-              </a>
-          </Link>}
+          <Link href="/">
+              <a><Button>На главную</Button></a>
+          </Link>
       </Content>
     </Layout>
   );
@@ -111,20 +116,23 @@ const Content = styled.div`
     padding: 20px;
     text-align: center;
     border-radius: 10px;
-    background: #ffe4ad;
+    border: 2px solid #5c5c5c;
+    font-size: 18px;
+    margin-top: 60px;
   }
 
   .receipt {
     padding: 20px;
     border-radius: 10px;
-    background: #231b09;
-    margin-top: 20px;
+    background: #454545;
+    margin-top: 60px;
     width: 100%;
     cursor: pointer;
     font-weight: 500;
     color: #fff;
     display: flex;
     justify-content: center;
+    font-size: 18px;
   }
 
   .title {
@@ -165,91 +173,6 @@ const Content = styled.div`
         font-weight: 400;
         color: gray;
       }
-    }
-
-  }
-
-  .sub-title {
-    width: 360px;
-    text-align: center;
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 24px;
-    color: #5f5f5f;
-  }
-
-  .links {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    margin-top: 40px;
-    margin-bottom: 25px;
-    color: #3e3e3e;
-    font-weight: 500;
-
-    a {
-      text-decoration: underline;
-      margin-top: 15px;
-      font-size: 14px;
-    }
-  }
-
-  .license {
-    margin-top: 10px;
-    margin-bottom: 50px;
-    background: #f4f4f4;
-    border: 1px solid #dddddd;
-    border-radius: 15px;
-    padding: 30px 40px;
-    overflow: auto;
-    height: 320px;
-    font-size: 16px;
-    line-height: 30px;
-    max-width: 600px;
-
-    &::-webkit-scrollbar {
-      opacity: 1;
-      width: 6px;
-    }
-
-    &::-webkit-scrollbar-thumb {
-      background: #d8d8d8;
-      border-radius: 10px;
-      width: 1px;
-    }
-  }
-
-  .agreement {
-    text-align: center;
-    max-width: 500px;
-    font-weight: 500;
-    font-size: 13px;
-    line-height: 20px;
-    letter-spacing: 0.75px;
-    color: #000000;
-    padding-bottom: 30px;
-    border-bottom: 1px solid #b1b1b1;
-
-    a {
-      text-decoration: underline;
-      font-weight: 600;
-      color: midnightblue;
-    }
-
-    input {
-      margin-right: 5px;
-      width: 16px;
-      height: 16px;
-    }
-  }
-
-  .payment-box {
-    display: flex;
-    flex-direction: column;
-    margin-top: 20px;
-
-    .methods {
-      margin-bottom: 30px;
     }
   }
 `;
