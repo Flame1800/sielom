@@ -43,5 +43,5 @@ export default (token, data) => {
         }
     }
 
-    return axios.post(`/api/payment/atol/sell?token=${token}`, receipt)
+    return axios.post(`/next-api/payment/atol/sell?token=${token}`, receipt)
 }
