@@ -4,7 +4,6 @@ import { Swiper } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import styled from "styled-components";
 
 const breakpoints = {
   // when window width is >= 640px

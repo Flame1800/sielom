@@ -3,24 +3,22 @@ import Link from "next/link";
 import { ButtonStyle, InputStyled } from "../../styles/sharedStyle";
 import styled from "styled-components";
 import { useRouter } from "next/router";
-import { API } from "../../helpers/API";
-import qs from "qs";
 import createPayment from "./createPayment";
 
 const PaymentForm = () => {
   const [agreeCheck, setAgreeCheck] = React.useState(false);
-  const [email, setEmail] = React.useState("mrr@sielom.ru");
-  const [payer, setPayer] = React.useState("Иванов Иван Иванович");
-  const [student, setStudent] = React.useState("Максимов Максим Тестовый");
-  const [course, setCourse] = React.useState("1");
-  const [contract, setContract] = React.useState("2233");
-  const [amount, setAmount] = React.useState("5");
+  const [email, setEmail] = React.useState("");
+  const [payer, setPayer] = React.useState("");
+  const [student, setStudent] = React.useState("");
+  const [course, setCourse] = React.useState("");
+  const [contract, setContract] = React.useState("");
+  const [amount, setAmount] = React.useState("");
   const [error, setError] = React.useState("");
   const router = useRouter()
 
+
   const formHandler = async (e) => {
     e.preventDefault()
-
 
     setError("")
     const allValuesFull = payer && student && course && contract && amount
@@ -38,6 +36,7 @@ const PaymentForm = () => {
       return;
     }
 
+
     const form = {
       payer,
       student,
@@ -45,6 +44,7 @@ const PaymentForm = () => {
       contract,
       amount,
       email,
+      domainAddress: window.location.origin,
       fee: 0
     };
 
@@ -53,6 +53,7 @@ const PaymentForm = () => {
     const orderPayment = startSession.data;
     router.push(orderPayment.formUrl)
   };
+
 
   return (
     <Wrapper>

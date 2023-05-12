@@ -30,16 +30,16 @@ const CardsCarousel = ({ children, title, btnText }) => {
           </div>
           <div className="arrows">
             <img
-              alt="prev"
-              src="/img/small-arrow.svg"
-              className="arrow prev"
-              ref={navigationPrevRef}
+                alt="prev"
+                src="/img/small-arrow.svg"
+                className="arrow prev"
+                ref={navigationPrevRef}
             />
             <img
-              alt="prev"
-              src="/img/small-arrow.svg"
-              className="arrow next"
-              ref={navigationNextRef}
+                alt="prev"
+                src="/img/small-arrow.svg"
+                className="arrow next"
+                ref={navigationNextRef}
             />
           </div>
         </div>
@@ -65,6 +65,30 @@ const EventsAndNews = styled.div`
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
+
+
+    .arrows {
+      display: flex;
+
+      @media (max-width: 600px) {
+        display: none;
+      }
+
+      .arrow {
+        padding: 10px;
+        cursor: pointer;
+        transition: 0.2s;
+
+        &:hover {
+          opacity: 0.5;
+        }
+      }
+
+      .prev {
+        margin-right: 10px;
+        transform: rotate(180deg);
+      }
+    }
 
     @media (max-width: 600px) {
       align-items: center;
@@ -116,29 +140,6 @@ const EventsAndNews = styled.div`
       &:hover {
         background: #3e3e3e;
         color: #fff;
-      }
-    }
-
-    .arrows {
-      display: flex;
-
-      @media (max-width: 600px) {
-        display: none;
-      }
-
-      .arrow {
-        padding: 10px;
-        cursor: pointer;
-        transition: 0.2s;
-
-        &:hover {
-          opacity: 0.5;
-        }
-      }
-
-      .prev {
-        margin-right: 10px;
-        transform: rotate(180deg);
       }
     }
   }

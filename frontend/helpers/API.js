@@ -20,6 +20,8 @@ API.getEvents = () => axios(`${url}/events?populate=*&sort[0]=start_date:desc`);
 API.getEvent = (id) => axios(`${url}/events/${id}?populate=*`);
 
 API.getNews = () => axios(`${url}/news?populate=*&sort[0]=date:desc`);
+API.getAds = () => axios(`${url}/afs?populate=*&sort[0]=date:desc`);
+API.getAd = (id) => axios(`${url}/afs/${id}?populate=*&sort[0]=date:desc`);
 API.getCollegeNews = () =>
   axios(`${url}/news?populate=*&sort[0]=date:desc&filters[tags][id][$eq]=1`);
 API.getNewPost = (id) => axios(`${url}/news/${id}?populate=*`);

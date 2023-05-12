@@ -81,8 +81,6 @@ export const InfographicsStyle = styled.div`
 
 export const PartnersStyle = styled.div`
   max-width: 1320px;
-  margin: 150px auto;
-  padding: 0 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;

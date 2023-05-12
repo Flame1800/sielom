@@ -49,7 +49,7 @@ const Mission = () => {
 const Wrapper = styled.div`
   max-width: 1000px;
   width: 100%;
-  margin: 90px auto 170px auto;
+  margin: 90px auto 140px auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -60,7 +60,8 @@ const Wrapper = styled.div`
     font-size: 4em;
     line-height: 102px;
     text-align: center;
-    color: #76dd6d;
+    color: #383838;
+    margin-bottom: 20px;
   }
 
   .sub-title {

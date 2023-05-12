@@ -3,7 +3,7 @@ const { v4: uuidv4 } = require('uuid');
 
 export default function handler(req, res) {
     if (req.method === 'POST') {
-        const { amount, fee, payer, student, course, contract, email } = req.body
+        const { amount, fee, payer, student, course, contract, email, domainAddress } = req.body
 
         let data = JSON.stringify({
             "requestId": uuidv4(),
@@ -13,8 +13,8 @@ export default function handler(req, res) {
             "fee": fee,
             "currency": "RUB",
             "locale": "en_US",
-            "finishPaymentUrl": `http://localhost:3000/payment2/finish`,
-            "notificationUrl": `http://localhost:3000/api/payment/recive`,
+            "finishPaymentUrl": `${domainAddress}/payment2/finish`,
+            "notificationUrl": `${domainAddress}/api/payment/recive`,
             "additionalInfo": {
                 service: `Образовательная услуга. Договор №${contract}`,
                 email,

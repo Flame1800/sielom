@@ -1,12 +1,8 @@
 import React from 'react';
-import { Navigation, Pagination } from 'swiper';
-
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Splide, SplideSlide } from '@splidejs/react-splide';
 
 // Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
+import '@splidejs/react-splide/css';
 import styled from "styled-components";
 
 
@@ -17,26 +13,31 @@ const Gallery = ({images}) => {
 
     return (
         <Wrapper>
-            <Swiper
-                modules={[Navigation, Pagination]}
-                slidesPerView={1}
-                navigation
-                pagination={{ clickable: true }}
-                scrollbar={{ draggable: true }}
-                onSwiper={(swiper) => console.log(swiper)}
-            >
+            <Slider>
                 {images.map(image => {
-                   return (<SwiperSlide>
+                   return (<SplideSlide>
                            <img
                                src={`${process.env.API_URL}${image.attributes.url}`}
                                alt={image.attributes.alternativeText}
                            />
-                    </SwiperSlide>)
+                    </SplideSlide>)
                 })}
-            </Swiper>
+            </Slider>
         </Wrapper>
     );
 };
+
+const Slider = styled(Splide)`
+  max-width: 800px;
+  height: 600px;
+
+  img {
+    width: 100%;
+    height: 600px;
+    object-fit: contain;
+    background: #000;
+  }
+`
 
 const Wrapper = styled.div`
   height: 600px;

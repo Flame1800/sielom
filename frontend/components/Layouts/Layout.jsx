@@ -26,6 +26,7 @@ const Container = styled.div`
 
 const Wrapper = styled.main`
   max-width: 1320px;
+  width: 100%;
   margin: auto;
   min-height: 60vh;
   font-size: 1vw;

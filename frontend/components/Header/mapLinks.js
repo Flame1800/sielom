@@ -23,7 +23,10 @@ const mapLinks = [
       },
       {
         main: makeLink("Медиа", ""),
-        links: [makeLink("Новости и мероприятия", "/news")],
+        links: [
+          makeLink("Новости и мероприятия", "/news"),
+          makeLink("Объявления", "/ads"),
+        ],
       },
       {
         main: makeLink("", "/"),

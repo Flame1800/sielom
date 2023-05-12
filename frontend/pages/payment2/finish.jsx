@@ -85,7 +85,9 @@ const Payment = () => {
               <p className='info-item'><b>Номер оплаты</b> {paymentData.paymentId}</p>
               <p className='info-item'><b>Сумма</b> {paymentData.amount} руб.</p>
               <p className='info-item'><b>Коммисия</b> {paymentData.fee} руб.</p>
-              <p className='info-item'><b>Карта</b> {paymentData.details.maskedPan} {paymentData.details.paymentSystem}</p>
+              <p className='info-item'><b>Карта</b>
+                  {paymentData.details.maskedPan} {paymentData.details.paymentSystem}
+              </p>
               {Object.entries(paymentData.additionalInfo).map(([key, value]) => {
                   return  <p className='info-item'><b>{additionalValues[key]}</b> {value}</p>
               })}
