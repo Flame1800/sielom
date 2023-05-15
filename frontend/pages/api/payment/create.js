@@ -14,14 +14,14 @@ export default function handler(req, res) {
             "currency": "RUB",
             "locale": "en_US",
             "finishPaymentUrl": `${domainAddress}/payment2/finish`,
-            "notificationUrl": `${domainAddress}/api/payment/recive`,
+            "notificationUrl": `${domainAddress}/next-api/payment/receive`,
             "additionalInfo": {
-                service: `Образовательная услуга. Договор №${contract}`,
-                email,
-                payer,
-                student,
-                courseNumber: course,
-                documentNumber: contract,
+                "Услуга": `Образовательная услуга. Договор №${contract}`,
+                "Email": email,
+                "Плательщик": payer,
+                "Студент": student,
+                "Номер курса": course,
+                "Номер доумента": contract
             }
         });
 

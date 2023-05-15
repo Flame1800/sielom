@@ -10,15 +10,6 @@ import getAtolToken from "../../components/Payment/getAtolToken";
 import loadAtolPaymentReceipt from "../../components/Payment/loadAtolPaymentReceipt";
 import getPaymentReceipt from "../../components/Payment/getPaymentReceipt";
 
-const additionalValues = {
-    courseNumber: "Номер курса",
-    student: "Студент",
-    payer: "Плательщик",
-    documentNumber: "Номер договора",
-    email: "Email",
-    service: "Услуга"
-}
-
 const Payment = () => {
   const [loading, setLoading] = useState(false );
   const [paymentData, setPaymentData] = useState(null);
@@ -89,10 +80,11 @@ const Payment = () => {
                   {paymentData.details.maskedPan} {paymentData.details.paymentSystem}
               </p>
               {Object.entries(paymentData.additionalInfo).map(([key, value]) => {
-                  return  <p className='info-item'><b>{additionalValues[key]}</b> {value}</p>
+                  return  <p className='info-item'><b>{key}</b> {value}</p>
               })}
               {loading && <div className='loader'>Загрузка чека...</div>}
               {!loading && receipt && <a className='receipt' target="_blank" href={receipt}>Получить чек</a>}
+                <p>Если чек не появился нажмите еще раз</p>
           </div>}
           <Link href="/">
               <a><Button>На главную</Button></a>

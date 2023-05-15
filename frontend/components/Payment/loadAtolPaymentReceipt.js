@@ -10,8 +10,8 @@ export default (token, data) => {
         "external_id": uuidv4(),
         "receipt": {
             "client": {
-                "email": additionalInfo.email,
-                "name": additionalInfo.name,
+                "email": additionalInfo["Email"],
+                "name": additionalInfo["Плательщик"],
             },
             "company": {
                 "email": "sielom@yandex.ru",
@@ -21,7 +21,7 @@ export default (token, data) => {
             },
             "items": [
                 {
-                    "name": additionalInfo.service,
+                    "name": additionalInfo["Услуга"],
                     "price": amount,
                     "quantity": 1.0,
                     "measure": 0,
