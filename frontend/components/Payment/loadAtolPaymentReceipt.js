@@ -5,6 +5,8 @@ import moment from 'moment';
 export default (token, data) => {
     const {additionalInfo, amount} = data
 
+    const itemName = `${additionalInfo["Услуга"]}. Договор №${additionalInfo["Номер доумента"]}. Студент: ${additionalInfo["Студент"]}.${additionalInfo['Номер курса']} Курс`
+
     const receipt = {
         "timestamp": moment().format('DD.MM.yyyy HH:mm:ss'),
         "external_id": uuidv4(),
@@ -14,21 +16,21 @@ export default (token, data) => {
                 "name": additionalInfo["Плательщик"],
             },
             "company": {
-                "email": "sielom@yandex.ru",
+                "email": "ars478999@yandex.ru",
                 "sno": "osn",
                 "inn": "8602269910",
                 "payment_address": "https://sielom.ru"
             },
             "items": [
                 {
-                    "name": additionalInfo["Услуга"],
+                    "name": itemName,
                     "price": amount,
                     "quantity": 1.0,
                     "measure": 0,
                     "sum": amount,
                     "payment_method": "full_payment",
                     "vat": {
-                        "type": "vat20",
+                        "type": "vat0",
                     }
                 }
             ],

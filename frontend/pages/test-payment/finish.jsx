@@ -65,6 +65,22 @@ const Payment = () => {
         ? <span className="title success">Оплата была успешно <br/> произведена</span>
         : <span className="title fail">Оплата не произведена <br/> произошла ошибка</span>
 
+
+    if (!paymentId && !requestId) {
+        return (
+            <Layout>
+                <Head><title>Онлайн оплата - СИЭУиП</title></Head>
+                <Content>
+                    <span className="title">Ошибка. <br /> Не найден id платежа.</span>
+                    <br />
+                    <Link href="/">
+                        <a><Button>На главную</Button></a>
+                    </Link>
+                </Content>
+            </Layout>
+        )
+    }
+
   return (
     <Layout>
       <Head><title>Онлайн оплата - СИЭУиП</title></Head>

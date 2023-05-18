@@ -1,7 +1,6 @@
 import Header from "../Header/Header";
 import styled from "styled-components";
 import Footer from "../Footer";
-import UpButton from "../UpButton";
 
 export default function Layout({ children, noFooter }) {
   return (
