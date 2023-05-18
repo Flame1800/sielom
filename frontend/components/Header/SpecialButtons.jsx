@@ -8,7 +8,7 @@ import EyeButton from "./EyeButton";
 const SpecialButtons = () => {
   return (
     <>
-      <Link href="/test-payment">
+      <Link href="/payment">
         <PayButton href='/payment'>Онлайн оплата</PayButton>
       </Link>
       <Link href="/schedule">
