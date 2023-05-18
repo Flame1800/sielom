@@ -2,6 +2,11 @@ const axios = require("axios");
 const { v4: uuidv4 } = require('uuid');
 
 export default function handler(req, res) {
+    const auth = {
+        username: process.env.SNGB_LOGIN,
+        password: process.env.SNGB_PASSWORD
+    }
+
     if (req.method === 'POST') {
         const { amount, fee, payer, student, course, contract, email, domainAddress } = req.body
 
@@ -13,10 +18,10 @@ export default function handler(req, res) {
             "fee": fee,
             "currency": "RUB",
             "locale": "en_US",
-            "finishPaymentUrl": `${domainAddress}/payment2/finish`,
+            "finishPaymentUrl": `${domainAddress}/payment/finish`,
             "notificationUrl": `${domainAddress}/next-api/payment/receive`,
             "additionalInfo": {
-                "Услуга": `Образовательная услуга. Договор №${contract}`,
+                "Услуга": `Образовательная услуга`,
                 "Email": email,
                 "Плательщик": payer,
                 "Студент": student,
@@ -27,16 +32,13 @@ export default function handler(req, res) {
 
         let config = {
             method: 'post',
-            url: 'https://ecm.sngb.ru/rp-test/api/v1/payment',
+            url: `${process.env.SNGB_API}/payment`,
             headers: {
                 'X-Terminal-Id': 'EC376301',
                 'Content-Type': 'application/json',
             },
             data,
-            auth: {
-                username: 3763,
-                password: "eac9941270b3865a83df1882ba3c8179030a3e27"
-            }
+            auth
         };
 
         axios.request(config)

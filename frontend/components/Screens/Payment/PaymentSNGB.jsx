@@ -4,9 +4,8 @@ import { ButtonStyle } from "../../../styles/sharedStyle";
 import { dataInfo } from "./dataDefendInfo";
 import { Content } from "./Payment.style";
 import styled from "styled-components";
+import PaymentForm from "../../Payment/PaymentForm";
 
-const linkPay =
-  "https://securepayments.sberbank.ru/payment/docsite/payform-1.html?token=vartvnr9ai2dk36ch4afur8rke&ask=amount&ask=email&ask=description&ask=%7B%22name%22:%22PLATELSHIK%22,%22placeholder%22:%22ФИО%20плательщика%22,%22label%22:%22ФИО%20плательщика%22%7D&ask=%7B%22name%22:%22STUDENT%22,%22placeholder%22:%22ФИО%20студента%22,%22label%22:%22ФИО%20студента%22%7D&ask=%7B%22name%22:%22KURS%22,%22placeholder%22:%22Укажите%20номер%20курса%22,%22label%22:%22Номер%20курса%22%7D&ask=%7B%22name%22:%22DOGOVOR%22,%22placeholder%22:%22№%20вашего%20договора%22,%22label%22:%22Номер%20договора%22%7D";
 
 const Payment = () => {
   const [activeButton, setActiveButton] = React.useState(false);
@@ -21,19 +20,6 @@ const Payment = () => {
                 <AlertMessage><b>!</b>Объявление студентам! Дубликаты чеков/квитанций за оплату.</AlertMessage>
             </a>
         </Link>
-        <AlertBlock>
-            <Title>Могут возникать ошибки при оплате</Title>
-            <p>
-                Оплата производится через сервисы Сбера.
-                В ближайшее время все онлайн-сервисы Сбера будут переведены на работу с применением сертификатов Минцифры России.
-                Для бесперебойного и безопасного доступа к веб-ресурсам Сбера настоятельно рекомендуем установить
-                на свои устройства сертификаты или яндекс браузер, поддерживающий отечественные сертификаты.
-            </p>
-            <Flex>
-                <BtnInstallCerf href={'https://www.sberbank.com/ru/certificates/windows'}>Установить сертификаты</BtnInstallCerf>
-                <BtnInstallBrowser href={'https://browser.yandex.ru/'}>Установить Яндекс браузер</BtnInstallBrowser>
-            </Flex>
-        </AlertBlock>
       <div className="links">
         <Link href="/site/contacts">
           <a>Контактные данные организации</a>
@@ -53,35 +39,7 @@ const Payment = () => {
         <hr />
         <p>{dataInfo}</p>
       </div>
-      <p className="agreement">
-        <input
-          type="checkbox"
-          checked={activeButton}
-          onChange={(e) => setActiveButton(e.target.checked)}
-          name="pay"
-          value="pay"
-        />
-        Я согласен с <a href="/">политикой конфиденциальности сайта </a>и
-        ознакомился со всей информацией перед оплатой.
-      </p>
-      <div className="payment-box">
-        <img
-          className="methods"
-          src="/img/payment-methods.png"
-          alt="png logo banks"
-        />
-        {activeButton ? (
-          <a target="_blank" href={linkPay}>
-            <ButtonStyle onSubmit={() => {}}>Оплатить услуги</ButtonStyle>
-          </a>
-        ) : (
-          <a>
-            <ButtonStyle onSubmit={() => {}} disabled>
-              Оплатить услуги
-            </ButtonStyle>
-          </a>
-        )}
-      </div>
+        <PaymentForm />
     </Content>
   );
 };

@@ -9,10 +9,10 @@ const SpecialButtons = () => {
   return (
     <>
       <Link href="/payment">
-        <PayButton> Онлайн оплата</PayButton>
+        <PayButton href='/payment'>Онлайн оплата</PayButton>
       </Link>
       <Link href="/schedule">
-        <SheduleBtn>Расписание</SheduleBtn>
+        <SheduleBtn href='/schedule'>Расписание</SheduleBtn>
       </Link>
       <EyeButton />
     </>

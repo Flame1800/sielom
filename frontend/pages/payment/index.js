@@ -1,7 +1,7 @@
 import React from "react";
-import Layout from "../components/Layouts/Layout";
+import Layout from "../../components/Layouts/Layout";
 import Head from "next/head";
-import Payment from "../components/Screens/Payment/Payment";
+import PaymentSNGB from "../../components/Screens/Payment/PaymentSNGB";
 
 const PaymentPage = () => {
   return (
@@ -9,7 +9,7 @@ const PaymentPage = () => {
       <Head>
         <title>Онлайн оплата - СИЭУиП</title>
       </Head>
-      <Payment />
+      <PaymentSNGB />
     </Layout>
   );
 };

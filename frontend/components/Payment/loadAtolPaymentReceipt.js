@@ -16,7 +16,7 @@ export default (token, data) => {
             "company": {
                 "email": "sielom@yandex.ru",
                 "sno": "osn",
-                "inn": "5544332219",
+                "inn": "8602269910",
                 "payment_address": "https://sielom.ru"
             },
             "items": [
@@ -27,7 +27,6 @@ export default (token, data) => {
                     "measure": 0,
                     "sum": amount,
                     "payment_method": "full_payment",
-                    "payment_object": 1,
                     "vat": {
                         "type": "vat20",
                     }
