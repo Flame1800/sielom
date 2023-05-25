@@ -12,7 +12,6 @@ export default function handler(req, res) {
 
         let data = JSON.stringify({
             "requestId": uuidv4(),
-            "needConfirmation": true,
             "nonPaymentOperation": false,
             "amount": amount,
             "fee": fee,

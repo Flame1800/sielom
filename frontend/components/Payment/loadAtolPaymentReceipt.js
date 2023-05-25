@@ -5,7 +5,7 @@ import moment from 'moment';
 export default (token, data) => {
     const {additionalInfo, amount} = data
 
-    const itemName = `${additionalInfo["Услуга"]}. Договор №${additionalInfo["Номер доумента"]}. Студент: ${additionalInfo["Студент"]}. ${additionalInfo['Номер курса']} Курс`
+    const itemName = `${additionalInfo["Услуга"]}. Договор №${additionalInfo["Номер доумента"]}. Студент: ${additionalInfo["Студент"]}. Курс ${additionalInfo['Номер курса']} `
 
     const receipt = {
         "timestamp": moment().format('DD.MM.yyyy HH:mm:ss'),
