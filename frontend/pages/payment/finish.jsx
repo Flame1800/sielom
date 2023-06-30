@@ -10,6 +10,7 @@ import getAtolToken from "../../components/Payment/getAtolToken";
 import loadAtolPaymentReceipt from "../../components/Payment/loadAtolPaymentReceipt";
 import getPaymentReceipt from "../../components/Payment/getPaymentReceipt";
 
+// Эеран завершения оплаты
 const Payment = () => {
   const [loading, setLoading] = useState(false )
   const [paymentData, setPaymentData] = useState(null)
@@ -65,6 +66,22 @@ const Payment = () => {
         ? <span className="title success">Оплата была успешно <br/> произведена</span>
         : <span className="title fail">Оплата не произведена <br/> произошла ошибка</span>
 
+
+    if (!paymentId && !requestId) {
+        return (
+            <Layout>
+                <Head><title>Онлайн оплата - СИЭУиП</title></Head>
+                <Content>
+                    <span className="title">Ошибка. <br /> Не найден id платежа.</span>
+                    <br />
+                    <Link href="/">
+                        <a><Button>На главную</Button></a>
+                    </Link>
+                </Content>
+            </Layout>
+        )
+    }
+
   return (
     <Layout>
       <Head><title>Онлайн оплата - СИЭУиП</title></Head>
@@ -84,7 +101,9 @@ const Payment = () => {
               })}
               {loading && <div className='loader'>Загрузка чека...</div>}
               {!loading && receipt && <a className='receipt' target="_blank" href={receipt}>Получить чек</a>}
-                <p>Если чек не появился нажмите еще раз</p>
+              <p>Если чек не появился нажмите еще раз</p>
+              <br />
+              <p>Чек придет на почту которую вы указали в форме</p>
           </div>}
           <Link href="/">
               <a><Button>На главную</Button></a>

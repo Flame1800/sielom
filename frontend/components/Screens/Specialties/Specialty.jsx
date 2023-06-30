@@ -19,6 +19,7 @@ import Diploma from "./components/Diploma";
 import PromoBlock from "./components/PromoBlock";
 import Questions from "./components/Questions";
 import styled from "styled-components";
+import moment from "moment";
 
 const Specialty = ({ entity }) => {
   const img = entity.attributes.cover?.data
@@ -57,7 +58,7 @@ const Specialty = ({ entity }) => {
             href={
               isCourse
                 ? "https://trudvsem.ru/educational-programs"
-                : "/reception-campain/info?post=Подача%20документов"
+                : `/reception-campain/${moment().year()}/info?post=Подача%20документов`
             }
           >
             <a>

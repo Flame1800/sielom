@@ -16,9 +16,7 @@ const SpecCard = ({ entity }) => {
         <a className="container">
           <div className="info">
             <div
-              className={
-                isCourse ? "title-card title-card_small" : "title-card"
-              }
+              className={isCourse ? "title-card title-card_small" : "title-card"}
             >
               {attributes.name}
             </div>
