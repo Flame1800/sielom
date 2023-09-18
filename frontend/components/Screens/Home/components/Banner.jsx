@@ -7,16 +7,31 @@ import "swiper/css/navigation";
 import styled from "styled-components";
 import { API } from "../../../../helpers/API";
 import Link from "next/link";
+import {observer} from "mobx-react-lite";
 
 SwiperCore.use([Autoplay]);
 
-const Slider = () => {
+const Slider = ({isSecondCollege}) => {
   const [slides, setSlides] = React.useState([]);
 
+
+
   React.useEffect(async () => {
-    const slidesRequest = await API.getSlides();
+    let slidesRequest;
+
+    if (isSecondCollege) {
+      slidesRequest = await API.getSecondCollegeSlides();
+    } else {
+      slidesRequest = await API.getSlides();
+    }
+
     setSlides(slidesRequest.data.data);
+
   }, []);
+
+  if (!slides.length && isSecondCollege) {
+    return null;
+  }
 
   return (
     <Wrapper>
@@ -147,4 +162,4 @@ const Wrapper = styled.div`
   }
 `;
 
-export default Slider;
+export default observer(Slider);

@@ -13,6 +13,11 @@ const Wrapper = styled.div`
   text-transform: uppercase;
   color: #3e3e3e;
   margin-bottom: 40px;
+
+  a {
+    font-size: 16px;
+    text-decoration: underline;
+  }
   
   @media (max-width: 768px) {
     font-size: 8em;

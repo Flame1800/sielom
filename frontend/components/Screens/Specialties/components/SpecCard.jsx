@@ -61,18 +61,9 @@ const Wrapper = styled.div`
   border-radius: 20px;
   position: relative;
   overflow: hidden;
-  background: rgba(255, 255, 255, 0.57);
+  border: 1px solid #d3d3d3;
+  
 
-  .white {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border: 1px solid;
-    background: url(${props => props.imgUrl}) no-repeat;
-    background-size: cover;
-    filter: blur(50px);
-    z-index: -1;
-  }
 
   .container {
     display: flex;

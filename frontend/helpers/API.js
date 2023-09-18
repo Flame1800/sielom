@@ -11,6 +11,7 @@ API.siteUrl = `${process.env.API_URL}/`;
 API.url = `${process.env.API_URL}`;
 
 API.getSlides = () => axios(`${url}/hero-slides?populate=*`);
+API.getSecondCollegeSlides = () => axios(`${url}/pith-yakh-slides?populate=*`);
 
 API.createRule = (post) => axios.post(`${url}/rules`, { data: post });
 API.getRules = () => axios(`${url}/rules?populate=*`);
@@ -70,6 +71,9 @@ API.getWordskills = () =>
   
 API.getIkar = () =>
   axios(`${url}/posts?filters[category][slug][$eq]=ikar&populate=*`);
+
+API.getSvedensSecondCollege = () =>
+  axios(`${url}/posts?filters[category][slug][$eq]=sveden-pith-yakh&populate=*`);
   
 API.getMedical = () =>
   axios(`${url}/posts?filters[category][slug][$eq]=medical&populate=*`);  
@@ -128,6 +132,8 @@ API.getSchedule = () => {
         "distantSchedule.files",
         "partTimeScheduleFiles",
         "sessionDates",
+        "OZFO",
+        "OZFO.files"
       ],
     },
     {

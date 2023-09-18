@@ -3,11 +3,11 @@ import styled from "styled-components";
 import Link from "next/link";
 import { Tooltip } from "@mui/material";
 import navigationStore from "../../stores/navigationStore";
+import EyeButton from "./EyeButton";
 
 const MetaHeaderInfo = () => {
   return (
     <Wrapper>
-      <div className="left-side">
         <a className="phone" href="tel:+7 (3462) 55-09-18">
           <img src="/img/phone-icon.svg" alt="icon" />
           +7 (3462) 55-09-18
@@ -23,7 +23,7 @@ const MetaHeaderInfo = () => {
             <img src="/img/mail-icon.svg" alt="icon" />
           </a>
         </div>
-      </div>
+        <EyeButton />
     </Wrapper>
   );
 };
@@ -31,6 +31,7 @@ const MetaHeaderInfo = () => {
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
 
   .user-button {
     margin-right: 20px;
@@ -43,16 +44,12 @@ const Wrapper = styled.div`
     align-items: center;
   }
 
-  .left-side {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
+
 
     .social {
       display: flex;
       align-items: center;
       height: 20px;
-      margin-top: 5px;
 
       a {
         display: flex;
@@ -75,6 +72,7 @@ const Wrapper = styled.div`
         width: 18px;
       }
 
+      margin-right: 37px;
       display: flex;
       align-items: center;
       font-weight: bold;
@@ -82,7 +80,7 @@ const Wrapper = styled.div`
       line-height: 15px;
       color: #5f5f5f;
     }
-  }
+  
 `;
 
 export default MetaHeaderInfo;

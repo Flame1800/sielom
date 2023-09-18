@@ -48,7 +48,7 @@ const MenuHeader = () => {
 };
 
 const Wrapper = styled.div`
-  margin-top: 102px;
+  margin-top: 112px;
   width: 100%;
   padding-top: 45px;
   padding-bottom: 45px;

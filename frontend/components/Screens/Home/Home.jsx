@@ -8,15 +8,17 @@ import Banner from "./components/Banner";
 import Partners from "./components/Partners";
 
 const Home = ({ specialties, news, statistics, ads }) => {
+  console.log(ads)
+
   return (
     <>
       <Banner />
       <Infographics statistics={statistics} />
       <Mission />
-        <News news={news} />
-        {ads.length === 0 && <Ads ads={ads} />}
+      <News news={news} />
+      <Ads ads={ads} />
       <SpecialitiesContent specialties={specialties} />
-        <Partners />
+      <Partners />
     </>
   );
 };

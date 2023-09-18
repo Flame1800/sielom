@@ -13,7 +13,6 @@ const NavLinks = () => {
                     {mapLinks.map(({link, content}) =>
                             (<LinkComponent key={link.src} link={link} content={content} />))}
                 </div>
-                <SpecialButtons />
             </LinksContainer>
     );
 };

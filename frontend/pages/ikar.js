@@ -3,6 +3,7 @@ import React from "react";
 import Head from "next/head";
 import IkarPage from "../components/Screens/IkarPage/IkarPage";
 
+
 export default function Ikar({ posts }) {
   return (
     <>

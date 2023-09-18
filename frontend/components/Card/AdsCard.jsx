@@ -17,7 +17,6 @@ const NewsCard = ({ post }) => {
     ? `${process.env.API_URL}${post.attributes.cover?.data?.attributes.url}`
     : false;
 
-  console.log(post.attributes.type);
 
   return (
     <CardWrapper>

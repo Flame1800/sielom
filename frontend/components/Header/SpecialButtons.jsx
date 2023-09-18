@@ -7,81 +7,74 @@ import EyeButton from "./EyeButton";
 
 const SpecialButtons = () => {
   return (
-    <>
+    <Links>
       <Link href="/payment">
         <PayButton href='/payment'>Онлайн оплата</PayButton>
       </Link>
       <Link href="/schedule">
         <SheduleBtn href='/schedule'>Расписание</SheduleBtn>
       </Link>
-      <EyeButton />
-    </>
+    </Links>
   );
 };
 
-const PayButton = styled.a`
-  position: relative;
-  margin-left: 30px;
-  border: 2px solid #2e2a5d;
-  border-radius: 6px;
-  font-weight: 600;
-  font-size: 13px;
-  line-height: 10px;
-  color: #2e2a5d;
-  padding: 9px 18px;
-  transition: 0.3s;
-  cursor: pointer;
+const Links = styled.div`
   display: flex;
-  justify-content: center;
   align-items: center;
-  width: 150px;
+  gap: 30px;
+  flex-wrap: wrap;
+`
+
+const PayButton = styled.a`
+  color: var(--Blue, #2E2A5D);
+  font-feature-settings: 'clig' off, 'liga' off;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 0.75px;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
 
   @media (max-width: 1350px) {
-    right: 0;
-    width: 300px;
-    height: 40px;
-    margin-bottom: 15px;
-    margin-left: auto;
-    margin-right: auto;
-    font-size: 16px;
+    margin: 0 auto;
+    width: 100%;
+    font-size: 15px;
+    border: 2px solid #2E2A5D;
+    padding: 10px 5px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
   }
 
   &:hover {
-    background: #2e2a5d;
-    color: #fff;
+    color: #908dcd;
   }
 `;
 
 const SheduleBtn = styled.a`
-  position: relative;
-  margin-left: 10px;
-  border: 2px solid #eabc5d;
-  border-radius: 6px;
-  font-weight: 600;
+  color: #D69000;
+  font-feature-settings: 'clig' off, 'liga' off;
   font-size: 13px;
-  line-height: 10px;
-  color: #543b09;
-  padding: 5px 15px;
-  width: 150px;
-  transition: 0.3s;
-  cursor: pointer;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 0.75px;
   display: flex;
-  justify-content: center;
   align-items: center;
 
   @media (max-width: 1350px) {
-    right: 0;
-    width: 300px;
-    height: 40px;
-    font-size: 16px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 15px;
+    width: 100%;
+    margin: 0 auto;
+    font-size: 15px;
+    text-align: center;
+    border: 2px solid #D69000;
+    padding: 10px 5px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
   }
 
   &:hover {
-    background: #eabc5d;
-    color: #000000;
+    color: #9b6900;
   }
 `;
 

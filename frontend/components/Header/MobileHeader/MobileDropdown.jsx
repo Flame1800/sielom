@@ -61,7 +61,6 @@ const Wrapper = styled.div`
 
     .meta-mobile {
       margin-top: 100px;
-      margin-left: -40px;
       display: flex;
       justify-content: center;
     }

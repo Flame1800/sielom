@@ -8,7 +8,7 @@ const Logo = () => {
       <Wrapper href="/">
         <img src="/img/logo-sielom.svg" alt="Logo" />
         <h1 className="name">
-          Сургутский институт экономики, управления и права
+          Сургутский институт <br /> экономики, управления <br/> и права
         </h1>
       </Wrapper>
     </Link>
@@ -20,15 +20,18 @@ const Wrapper = styled.a`
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  
+  img {
+    width: 70px;
+    height: 65px;
+  }
 
   .name {
-    max-width: 190px;
-    width: 100%;
-    flex-grow: inherit;
+    font-size: 10px;
+    font-style: normal;
     font-weight: 600;
-    font-size: 12px;
-    line-height: 15px;
-    letter-spacing: -0.01em;
+    line-height: normal;
+    letter-spacing: -0.1px;
     text-transform: uppercase;
     color: #3d3d3d;
     margin-left: 10px;

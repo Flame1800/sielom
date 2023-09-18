@@ -7,7 +7,7 @@ import Link from "next/link";
 import styled from "styled-components";
 
 const Ads = ({ads}) => {
-
+    console.log(ads)
     if (ads.length < 4) {
         return  <ListWrapper>
             <div className="header">
@@ -20,9 +20,11 @@ const Ads = ({ads}) => {
                         </a>
                     </Link>
             </div>
-            {ads.map((post) => {
-            return <AdsCard post={post} />
-            })}
+            <div className="items">
+                {ads.map((post) => {
+                    return <AdsCard post={post} />
+                })}
+            </div>
         </ListWrapper>
     }
 
@@ -46,11 +48,18 @@ const Ads = ({ads}) => {
 };
 
 const ListWrapper = styled.div`
+  .items {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
   .header {
     height: 150px;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+    
+
     
     .title {
       font-size: 28px;
@@ -62,7 +71,7 @@ const ListWrapper = styled.div`
       margin-right: 35px;
       margin-top: 20px;
     }
-
+    
     .btn-more {
       margin-top: 20px;
       border: 2px solid #3e3e3e;

@@ -26,26 +26,20 @@ const JivoButton = ({ children }) => {
 
 const Wrapper = styled.div`
   cursor: pointer;
-  height: 32px;
   border-radius: 5px;
-  margin-left: 10px;
+  margin-left: 20px;
   padding: 5px 10px;
-  border: 2px solid #d7d7d7;
   display: flex;
   justify-content: center;
   align-items: center;
 
-  @media (max-width: 1350px) {
-    right: 0;
-    width: 300px;
-    margin-bottom: 15px;
-    margin-left: auto;
-    margin-right: auto;
-    font-size: 16px;
-  }
-
   &:hover {
     background: rgba(215, 215, 215, 0.3);
+  }
+  
+  @media (max-width: 350px) {
+    margin-left: 0;
+    margin-top: 20px;
   }
 `;
 

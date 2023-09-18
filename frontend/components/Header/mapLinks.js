@@ -10,31 +10,19 @@ const mapLinks = [
         main: makeLink("", "/"),
         links: [
           makeLink("Сведения об образовательной организации", "/sveden"),
-          makeLink("WordSkills", "/worldskills_russia"),
-          makeLink(
-            "Образовательные стандарты",
-            "/site/obrazovatelьnye-standarty"
-          ),
-          makeLink("Контакты", "/site/contacts"),
-          makeLink("Медицинская деятельность", "/medical"),
-          makeLink("Региональный ресурсный центр соревнований ИКаР", "/ikar"),
-          makeLink("Старый сайт", "https://old.sielom.ru"),
-        ],
-      },
-      {
-        main: makeLink("Медиа", ""),
-        links: [
-          makeLink("Новости и мероприятия", "/news"),
-          makeLink("Объявления", "/ads"),
-        ],
-      },
-      {
-        main: makeLink("", "/"),
-        links: [
           makeLink(
             "Перечень документов для поступления",
             "/reception-campain/info?postId=9"
           ),
+          makeLink("Медицинская деятельность", "/medical"),
+          makeLink("Старый сайт", "https://old.sielom.ru"),
+          makeLink("Контакты", "/site/contacts"),
+        ],
+      },
+      {
+        main: makeLink("Дополнительное образование", ""),
+        links: [
+
           makeLink(
             "Повышение квалификации",
             "https://old.sielom.ru/dopobr/povyshenie-kvalifikacii"
@@ -45,24 +33,23 @@ const mapLinks = [
           ),
           makeLink("Семинары", "https://old.sielom.ru/dopobr/seminary"),
           makeLink("СОНКО", "/site/sonko"),
-          makeLink("Справка 1С", "/site/help"),
         ],
       },
       {
-        main: makeLink("Сервисы", ""),
+        main: makeLink("Чемпионатное движние", ""),
         links: [
-          makeLink("Расписание", `/schedule`),
-          makeLink("Онлайн оплата", `/payment`),
+          makeLink("WordSkills", "/worldskills_russia"),
+          makeLink("Региональный ресурсный центр соревнований ИКаР", "/ikar"),
         ],
       },
       {
         main: makeLink("", ""),
         links: [
-          makeLink("Пыть-Яхский межотраслевой колледж", "/pytyach-college"),
           makeLink("Лагерь JoyCamp", `/site/joy-camp`),
           makeLink("Первичная аккредитация", `/site/pervichnaya-akkreditaciya`),
+          makeLink("Справка 1С", "/site/help"),
         ],
-      },
+      }
     ],
   },
   {
@@ -91,6 +78,10 @@ const mapLinks = [
   },
   {
     link: makeLink("Курсы", "/courses"),
+    content: [],
+  },
+  {
+    link: makeLink("Пыть-Яхский колледж", "/pytyach-college"),
     content: [],
   },
 ];
