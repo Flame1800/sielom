@@ -1,7 +1,6 @@
 import React from 'react';
 import CardsCarousel from "./CardsCarousel";
 import {SwiperSlide} from "swiper/react";
-import NewsCard from "../../../Card/NewsCard";
 import AdsCard from "../../../Card/AdsCard";
 import Link from "next/link";
 import styled from "styled-components";

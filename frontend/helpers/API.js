@@ -21,8 +21,8 @@ API.getEvents = () => axios(`${url}/events?populate=*&sort[0]=start_date:desc`);
 API.getEvent = (id) => axios(`${url}/events/${id}?populate=*`);
 
 API.getNews = () => axios(`${url}/news?populate=*&sort[0]=date:desc`);
-API.getAds = () => axios(`${url}/afs?populate=*&sort[0]=date:desc`);
-API.getAd = (id) => axios(`${url}/afs/${id}?populate=*&sort[0]=date:desc`);
+API.getAds = () => axios(`${url}/afs?populate=*&sort[0]=date:desc&sort[1]=createdAt:desc`);
+API.getAd = (id) => axios(`${url}/afs/${id}?populate=*&sort[0]=date:asc`);
 API.getCollegeNews = () =>
   axios(`${url}/news?populate=*&sort[0]=date:desc&filters[tags][id][$eq]=1`);
 API.getNewPost = (id) => axios(`${url}/news/${id}?populate=*`);
@@ -66,15 +66,17 @@ API.getSvedens = () =>
   axios(
     `${url}/posts?filters[category][slug][$eq]=sveden&sort[0]=priority&populate=*`
   );
+
+API.getSvedensSecondCollege = () =>
+    axios(`${url}/posts?filters[category][slug][$eq]=sveden-pith-yakh&populate=*&sort[0]=priority`);
+
 API.getWordskills = () =>
   axios(`${url}/posts?filters[category][slug][$eq]=wordskills&populate=*`);
   
 API.getIkar = () =>
   axios(`${url}/posts?filters[category][slug][$eq]=ikar&populate=*`);
 
-API.getSvedensSecondCollege = () =>
-  axios(`${url}/posts?filters[category][slug][$eq]=sveden-pith-yakh&populate=*`);
-  
+
 API.getMedical = () =>
   axios(`${url}/posts?filters[category][slug][$eq]=medical&populate=*`);  
     
@@ -133,10 +135,12 @@ API.getSchedule = () => {
         "partTimeScheduleFiles",
         "sessionDates",
         "OZFO",
-        "OZFO.files"
+        "OZFO.files",
+        "pythYakhCollege ",
+        "pythYakhCollege.files"
       ],
     },
-    {
+      {
       encodeValuesOnly: true,
     }
   );

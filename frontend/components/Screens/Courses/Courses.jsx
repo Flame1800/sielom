@@ -10,15 +10,15 @@ const Courses = ({ specialties, content }) => {
   return (
     <>
       <MainHeader>КУРСЫ</MainHeader>
-      <Header>
-        <div className="content">
-          <div className="text">
-            Пройди <b>бесплатное</b> обучение в рамках федерального проекта
-            «Содействие занятости» национального проекта «Демография» и получи
-            востребованные навыки
-          </div>
-        </div>
-      </Header>
+      {/*<Header>*/}
+      {/*  <div className="content">*/}
+      {/*    <div className="text">*/}
+      {/*      Пройди <b>бесплатное</b> обучение в рамках федерального проекта*/}
+      {/*      «Содействие занятости» национального проекта «Демография» и получи*/}
+      {/*      востребованные навыки*/}
+      {/*    </div>*/}
+      {/*  </div>*/}
+      {/*</Header>*/}
       <Content>
         <CardsCourse courses={cleanSpecialties} />
         <div className="description">

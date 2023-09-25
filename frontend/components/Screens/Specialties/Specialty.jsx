@@ -54,17 +54,17 @@ const Specialty = ({ entity }) => {
         )}
 
         <div className="buttons">
-          <Link
-            href={
-              isCourse
-                ? "https://trudvsem.ru/educational-programs"
-                : `/reception-campain/${moment().year()}/info?post=Подача%20документов`
-            }
+          {!isCourse && <Link
+              href={
+                isCourse
+                    ? "https://trudvsem.ru/educational-programs"
+                    : `/reception-campain/${moment().year()}/info?post=Подача%20документов`
+              }
           >
             <a>
               <Button>Подать заявление</Button>
             </a>
-          </Link>
+          </Link>}
           <JivoButton>Задать вопрос</JivoButton>
         </div>
         <EducationForm durations={attributes.durations} />

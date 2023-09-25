@@ -8,6 +8,9 @@ const Schedule = ({ schedule }) => {
 
     const scheduleBlock = (files) => {
         return files.map((item) => {
+                    if (!item.files.data) {
+                        return null;
+                    }
 
                     return (
                         <div className="column">
@@ -20,11 +23,34 @@ const Schedule = ({ schedule }) => {
                                     return (
                                         <FileHolder file={file.attributes} key={file.id} />
                                     );
-                                }) ?? <><br /><p>Нет файлов</p></>}
+                                })}
                             </div>
                         </div>
                     );
                 });
+    }
+
+    const createScheduleBlock = (name, data) => {
+        const files = data.reduce((acc, block) => {
+            if (!block.files.data) {
+                return acc;
+            }
+
+            return [...acc, ...block.files.data]
+        }, [])
+
+        if (files.length === 0) {
+            return null;
+        }
+
+        return (
+            <div className="schedule-data">
+                <div className="title">{name}</div>
+                <div className="schedule-columns">
+                    {scheduleBlock(data)}
+                </div>
+            </div>
+        )
     }
 
   return (
@@ -41,28 +67,10 @@ const Schedule = ({ schedule }) => {
           files={schedule.sessionDates}
           title="Сроки сессии для заочного отделения"
         />
-
-        <div className="schedule-data">
-          <div className="title">Очная форма обучения</div>
-          <div className="schedule-columns">
-              {scheduleBlock(schedule.fullTimeSchedule)}
-          </div>
-        </div>
-
-        <div className="schedule-data">
-          <div className="title">Заочная форма обучения</div>
-          <div className="schedule-columns">
-              {scheduleBlock(schedule.distantSchedule)}
-          </div>
-        </div>
-
-          <div className="schedule-data">
-              <div className="title">ОЗФО</div>
-              <div className="schedule-columns">
-                  {scheduleBlock(schedule.OZFO)}
-              </div>
-          </div>
-
+          {createScheduleBlock("Очная форма обучения", schedule.fullTimeSchedule)}
+          {createScheduleBlock("Заочная форма обучения", schedule.distantSchedule)}
+          {createScheduleBlock("Расписание Пыть-Яхского колледжа", schedule.pythYakhCollege)}
+          {createScheduleBlock("ОЗФО", schedule.OZFO)}
       </Wrapper>
   );
 };

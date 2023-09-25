@@ -12,7 +12,7 @@ import CardDateParameter from "./CardDateParameter";
 import normalizeDate from "../../helpers/normalizeDate";
 
 const NewsCard = ({ post }) => {
-  const date = normalizeDate(post.attributes.date);
+  const date = normalizeDate(post.attributes.date ?? post.attributes.createdAt);
   const coverImg = post.attributes.cover.data
     ? `${process.env.API_URL}${post.attributes.cover?.data?.attributes.url}`
     : false;
@@ -25,7 +25,7 @@ const NewsCard = ({ post }) => {
           <CardCover cover={coverImg} />
           <CardTitle>{post.attributes.title}</CardTitle>
           <CardParamsBlock>
-            {post.attributes.date && <CardDateParameter date={date} />}
+            {<CardDateParameter date={date} />}
           </CardParamsBlock>
         </a>
       </Link>
