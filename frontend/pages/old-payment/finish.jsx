@@ -55,7 +55,7 @@ const Payment = () => {
                 await loadPaymentReceipt(response.data)
 
             } catch(e) {
-                console.log(e);
+                console.error(e);
             }
         })()
     }, [router.query])

@@ -5,7 +5,6 @@ import Head from "next/head";
 import Employer from "../../components/Screens/Employers/Employer";
 
 const EmployerPage = ({ employer }) => {
-  console.log("employer render");
   return (
     <Layout>
       <Head>

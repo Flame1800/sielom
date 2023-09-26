@@ -11,7 +11,6 @@ import Gallery from "./Gallery";
 
 const Post = ({ post, posts }) => {
 
-    console.log(post)
   return (
     <>
       <PostWrapper>

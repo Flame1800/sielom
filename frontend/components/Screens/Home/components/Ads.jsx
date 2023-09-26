@@ -6,7 +6,6 @@ import Link from "next/link";
 import styled from "styled-components";
 
 const Ads = ({ads}) => {
-    console.log(ads)
     if (ads.length < 4) {
         return  <ListWrapper>
             <div className="header">

@@ -5,7 +5,6 @@ import Head from "next/head";
 import Schedule from "../components/Screens/Schedule/Schedule";
 
 const SchedulePage = ({ schedule }) => {
-  console.log(schedule);
   return (
     <Layout>
       <Head>

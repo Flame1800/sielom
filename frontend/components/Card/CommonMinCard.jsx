@@ -12,7 +12,6 @@ const EventCard = ({post}) => {
         ? `${process.env.API_URL}${post.attributes.cover?.data?.attributes.url}`
         : false
 
-    console.log(post)
     return (
         <Wrapper>
             <Link href={`/${post.attributes.start_date ? "events" : "news"}/${post.id}`}>

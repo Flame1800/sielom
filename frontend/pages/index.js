@@ -3,8 +3,7 @@ import React from "react";
 import Head from "next/head";
 import Layout from "../components/Layouts/Layout";
 import Home from "../components/Screens/Home/Home";
-
-export default function HomePage(props) {
+function HomePage(props) {
   return (
     <Layout>
       <Head>
@@ -28,3 +27,5 @@ HomePage.getInitialProps = async () => {
     statistics: statistics.data.data,
   };
 };
+
+export  default HomePage;

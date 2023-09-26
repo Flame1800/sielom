@@ -6,7 +6,6 @@ import styled from "styled-components";
 import MainHeader from "../../../components/UI/MainHeader";
 
 const Vacancies = ({ vacancies }) => {
-  console.log(vacancies);
   return (
     <Layout>
       <Wrapper>

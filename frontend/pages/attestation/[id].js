@@ -4,7 +4,6 @@ import Attestation from "../../components/Screens/Attestation/Attestation";
 import Layout from "../../components/Layouts/Layout";
 
 export default function AttestationTeacherPage({ post }) {
-  console.log(post);
   return (
     <Layout>
       <Head>

@@ -8,7 +8,6 @@ import Banner from "./components/Banner";
 import Partners from "./components/Partners";
 
 const Home = ({ specialties, news, statistics, ads }) => {
-  console.log(ads)
 
   return (
     <>
