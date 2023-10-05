@@ -11,6 +11,9 @@ const SpecialButtons = () => {
       <Link href="/payment">
         <PayButton href='/payment'>Онлайн оплата</PayButton>
       </Link>
+      <Link href="/profile">
+        <PayButton href='/profile'>Личный кабинет</PayButton>
+      </Link>
       <Link href="/schedule">
         <SheduleBtn href='/schedule'>Расписание</SheduleBtn>
       </Link>
