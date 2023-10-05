@@ -1,9 +1,9 @@
-import Layout from "../../components/Layouts/Layout";
-import { API } from "../../helpers/API";
-import MainHeader from "../../components/UI/MainHeader";
+import Layout from "../../../components/Layouts/Layout";
+import { API } from "../../../helpers/API";
+import MainHeader from "../../../components/UI/MainHeader";
 import styled from "styled-components";
-import { Title } from "../../styles/homeStyle";
-import LongLink from "../../components/UI/LongLink";
+import { Title } from "../../../styles/homeStyle";
+import LongLink from "../../../components/UI/LongLink";
 import Link from "next/link";
 import Head from "next/head";
 import React from "react";
@@ -12,54 +12,36 @@ export default function Events({ posts }) {
   return (
     <Layout>
       <Head>
-        <title> Студенту - СИЭУиП</title>
+        <title> Студенту - Пыть-Яхский межотраслевой колледж</title>
       </Head>
-      <MainHeader>Студенту</MainHeader>
+      <MainHeader>Студенту Пыть-Яхского колледжа</MainHeader>
       <Header>
         <div className="text">
           Расписание, стипендии, учебные программы, информация об оценках и
           экзаменах в одном месте
         </div>
-        <img src="/img/student-bg.png"></img>
+        {/*<img src="/img/student-bg.png"></img>*/}
       </Header>
       <Content>
         <div className="fast-links">
-          <Link href="/site/stipendii-i-inye-vidy-materialьnoj-podderzhki-obuchayushihsya">
+          <Link href="/site/1">
             <a className="link">
               <img src="/img/arrow-45.png" alt="arrow-icon" className="icon" />
               <p>Стипендии</p>
             </a>
           </Link>
-          <Link href="/news">
+          <Link href="/pytyach-college/student/educational_process">
             <a className="link">
               <img src="/img/arrow-45.png" alt="arrow-icon" className="icon" />
-              <p>Мероприятия и новости</p>
+              <p>Учебный процесс</p>
             </a>
           </Link>
-          <Link href="/site/edu-payment">
+          <Link href="/site/edu-payment-pythyakh">
             <a className="link">
               <img src="/img/arrow-45.png" alt="arrow-icon" className="icon" />
               <p>Оплата обучения</p>
             </a>
           </Link>
-        </div>
-        <div className="link-group">
-          <div className="group">
-            <Title>Учебный процесс</Title>
-            <div className="links">
-              {posts.map((post) => (
-                <Link
-                  key={post.id}
-                  href={`student/educational_process?postId=${post.id}`}
-                >
-                  <a>
-                    <LongLink>{post.attributes.name}</LongLink>
-                  </a>
-                </Link>
-              ))}
-            </div>
-          </div>
-          <img src="/img/spring-elem.png" alt="img" className="spring" />
         </div>
       </Content>
     </Layout>

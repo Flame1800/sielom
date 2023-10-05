@@ -3,6 +3,7 @@ import { baseTheme } from "../styles/theme";
 import "../styles/index.css";
 import { observer } from "mobx-react-lite";
 import React from "react";
+import ErrorBoundary from "../components/ErrorBoundary";
 
 
 function MyApp({ Component, pageProps }) {
@@ -16,7 +17,9 @@ function MyApp({ Component, pageProps }) {
         height={3}
         showOnShallow={true}
       />
-      <Component {...pageProps} />
+        <ErrorBoundary>
+            <Component {...pageProps} />
+        </ErrorBoundary>
     </>
   );
 }
