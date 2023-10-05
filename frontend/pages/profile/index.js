@@ -1,9 +1,9 @@
 import React from "react";
-import Layout from "../components/Layouts/Layout";
+import Layout from "../../components/Layouts/Layout";
 import Head from "next/head";
 import styled from "styled-components";
-import { AppBtn } from "../components/Screens/Schedule/Schedule.style";
-import MainHeader from "../components/UI/MainHeader";
+import { AppBtn } from "../../components/Screens/Schedule/Schedule.style";
+import MainHeader from "../../components/UI/MainHeader";
 
 const SchedulePage = () => {
 
