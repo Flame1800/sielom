@@ -17,7 +17,10 @@ const SchedulePage = () => {
         <MainHeader>Личный кабинет</MainHeader>
         <AppBtn target="_blank" href='https://learn.sielom.ru'>Личный кабинет преподавателя и студента</AppBtn>
           <BotBlock>
-              <BotLink target="_blank" href='https://t.me/sielom_helper_bot'>Электронный журнал</BotLink>
+              <BotLink target="_blank" href='https://t.me/sielom_helper_bot'>
+                  <Image src='/img/tg-logo.svg' width={20} height={20} />
+                  Электронный журнал
+              </BotLink>
               <Image src="/img/qr-link-bot.svg" width={205} height={205} />
           </BotBlock>
       </Content>
@@ -45,10 +48,12 @@ export const Content = styled.div`
 `
 
 const BotBlock = styled.div`
-  max-width: 320px;
+  max-width: 340px;
+  width: 100%;
   height: 370px;
   display: flex;
   flex-direction: column;
+  align-items: center;
   padding: 20px;
   border-radius: 18px;
   border: 3px solid #229ED9;
@@ -57,6 +62,7 @@ const BotBlock = styled.div`
 
 export const BotLink = styled.a`
   height: 55px;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -69,6 +75,8 @@ export const BotLink = styled.a`
   transition: 0.2s;
   background: #E3F6FF;
   margin-bottom: 40px;
+  gap: 15px;  
+
 
   &:hover {
     background: #a3def9;
