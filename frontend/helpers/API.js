@@ -10,6 +10,8 @@ const url = process.env.API_HOST_PROD;
 API.siteUrl = `${process.env.API_URL}/`;
 API.url = `${process.env.API_URL}`;
 
+API.getStudentPythYakhPage = () => axios(`${url}/student-pyth-yakh?populate=*`)
+
 API.getSlides = () => axios(`${url}/hero-slides?populate=*`);
 API.getSecondCollegeSlides = () => axios(`${url}/pith-yakh-slides?populate=*`);
 
@@ -84,6 +86,11 @@ API.getEdProcess = () =>
   axios(
     `${url}/posts?filters[category][slug][$eq]=educational-process&populate=*`
   );
+
+API.getEdProcessPythYakh = () =>
+    axios(
+        `${url}/posts?filters[category][slug][$eq]=educational-process-pyth-yakh&populate=*`
+    );
 
 API.getReceptionCampainPages = (year) =>
   axios(

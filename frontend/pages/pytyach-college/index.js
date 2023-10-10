@@ -17,7 +17,10 @@ const CollegeNews = ({ news }) => {
       <MainHeader>
         Пыть-яхский межотраслевой колледж 
         <br />
-        <Link href='pytyach-college/sveden'><a>Сведения об образовательной организации</a></Link>
+          <Links>
+              <Link href='pytyach-college/sveden'><a>Сведения об образовательной организации</a></Link>
+              {/*<Link href='pytyach-college/student'><a>Студенту</a></Link>*/}
+          </Links>
       </MainHeader>
       <Banner isSecondCollege={true} />
       <Content>
@@ -28,6 +31,11 @@ const CollegeNews = ({ news }) => {
     </Layout>
   );
 };
+
+const Links = styled.div`
+  display: flex;
+  gap: 20px;
+`
 
 const Content = styled.div`
   margin-top: 60px;
