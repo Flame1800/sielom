@@ -4,7 +4,7 @@ const makeLink = (name, src) => ({ src, name });
 
 const mapLinks = [
   {
-    link: makeLink("Институт", "institut"),
+    link: makeLink("Институт", ""),
     content: [
       {
         main: makeLink("", "/"),
