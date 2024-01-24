@@ -13,7 +13,6 @@ const Home = ({ specialties, news, statistics, ads }) => {
     <>
       <Banner />
       <Infographics statistics={statistics} />
-      <Mission />
       <News news={news} />
       <Ads ads={ads} />
       <SpecialitiesContent specialties={specialties} />
