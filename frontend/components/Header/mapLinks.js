@@ -45,6 +45,7 @@ const mapLinks = [
       {
         main: makeLink("", ""),
         links: [
+          makeLink("МИССИЯ СИЭУиП", `/mission`),
           makeLink("Лагерь JoyCamp", `/site/joy-camp`),
           makeLink("Первичная аккредитация", `/site/pervichnaya-akkreditaciya`),
           makeLink("Справка 1С", "/site/help"),
