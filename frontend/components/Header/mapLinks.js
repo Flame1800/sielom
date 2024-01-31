@@ -59,7 +59,7 @@ const mapLinks = [
       {
         main: makeLink("Поступающим", ""),
         links: [
-          makeLink("Приёмная кампания", "/reception-campain/2023/info"),
+          makeLink("Приёмная кампания", "/reception-campain/2024/info"),
           makeLink("Специальности", "/specialties"),
           makeLink(
             "Архив приёмных кампаний",
