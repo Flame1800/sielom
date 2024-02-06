@@ -18,8 +18,7 @@ const CollegeNews = ({ news }) => {
         Пыть-яхский межотраслевой колледж 
         <br />
           <Links>
-              <Link href='pytyach-college/sveden'><a>Сведения об образовательной организации</a></Link>
-              {/*<Link href='pytyach-college/student'><a>Студенту</a></Link>*/}
+              <Link href='pytach-college/sveden'><a>Сведения об образовательной организации</a></Link>
           </Links>
       </MainHeader>
       <Banner isSecondCollege={true} />

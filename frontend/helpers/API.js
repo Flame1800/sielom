@@ -70,27 +70,27 @@ API.getSvedens = () =>
   );
 
 API.getSvedensSecondCollege = () =>
-    axios(`${url}/posts?filters[category][slug][$eq]=sveden-pith-yakh&populate=*&sort[0]=priority`);
+  axios(`${url}/posts?filters[category][slug][$eq]=sveden-pith-yakh&populate=*&sort[0]=priority`);
 
 API.getWordskills = () =>
   axios(`${url}/posts?filters[category][slug][$eq]=wordskills&populate=*`);
-  
+
 API.getIkar = () =>
   axios(`${url}/posts?filters[category][slug][$eq]=ikar&populate=*`);
 
 
 API.getMedical = () =>
-  axios(`${url}/posts?filters[category][slug][$eq]=medical&populate=*`);  
-    
+  axios(`${url}/posts?filters[category][slug][$eq]=medical&populate=*`);
+
 API.getEdProcess = () =>
   axios(
     `${url}/posts?filters[category][slug][$eq]=educational-process&populate=*`
   );
 
 API.getEdProcessPythYakh = () =>
-    axios(
-        `${url}/posts?filters[category][slug][$eq]=educational-process-pyth-yakh&populate=*`
-    );
+  axios(
+    `${url}/posts?filters[category][slug][$eq]=educational-process-pyth-yakh&populate=*`
+  );
 
 API.getReceptionCampainPages = (year) =>
   axios(
@@ -112,20 +112,28 @@ API.getPageBySlug = (slug) =>
   axios(encodeURI(`${url}/posts?populate=*&filters[slug][$eq]=${slug}`));
 API.getPageById = (id) => axios(encodeURI(`${url}/posts/${id}?populate=*`));
 
-API.getEmployees = (category = "Руководство") => {
-  if (category !== "Руководство") {
-    return axios(
-      encodeURI(
-        `${url}/employees?sort[0]=rank&sort[1]=name:asc&filters[category][name][$eq]=${category}&populate=*`
-      )
-    );
-  }
 
-  return axios(
-    encodeURI(
-      `${url}/employees?sort[0]=rank&sort[1]=name:asc&filters[category][name][$eq]=${category}&populate=*`
-    )
-  );
+API.getEmployees = (category = "Руководство", isPytachValue) => {
+
+
+  const query = qs.stringify({
+    filters: {
+      category: {
+        name: {
+          $eq: category
+        }
+      },
+      isPytach: {
+        $notNull: isPytachValue
+      }
+    },
+    sort: ['rank', 'name:asc'],
+    populate: "*"
+  }, {
+    encodeValuesOnly: true, // prettify URL
+  });
+
+  return axios(`${url}/employees?${query}`);
 };
 
 API.getEmployer = (id) =>
@@ -147,7 +155,7 @@ API.getSchedule = () => {
         "pythYakhCollege.files"
       ],
     },
-      {
+    {
       encodeValuesOnly: true,
     }
   );

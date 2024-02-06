@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Link from "next/link";
 
 const PersonCard = ({ entity }) => {
-  const coverImg = entity.attributes?.photo.data
+  const coverImg = entity.attributes?.photo?.data
     ? `${process.env.API_URL}${entity.attributes.photo?.data?.attributes.url}`
     : "/img/photo-holder.svg";
 

@@ -1,5 +1,3 @@
-import { API } from "../../helpers/API";
-
 const makeLink = (name, src) => ({ src, name });
 
 const mapLinks = [
@@ -82,7 +80,7 @@ const mapLinks = [
     content: [],
   },
   {
-    link: makeLink("Пыть-Яхский колледж", "/pytyach-college"),
+    link: makeLink("Пыть-Яхский колледж", "/pytach-college"),
     content: [],
   },
 ];

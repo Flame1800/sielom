@@ -1,7 +1,7 @@
 import { API } from "../../helpers/API";
 import React from "react";
 import Head from "next/head";
-import PostPages from "../../components/PostPages";
+import InstituteInfo from "../../components/Screens/InstituteInfo/InstituteInfo";
 
 
 export default function SvedenSecondCollege({ posts }) {
@@ -10,7 +10,7 @@ export default function SvedenSecondCollege({ posts }) {
       <Head>
         <title>Сведения об образовательной организации - ПЫТЬ-ЯХСКИЙ МЕЖОТРАСЛЕВОЙ КОЛЛЕДЖ</title>
       </Head>
-      <PostPages posts={posts} title={"Сведения об образовательной организации - ПЫТЬ-ЯХСКИЙ МЕЖОТРАСЛЕВОЙ КОЛЛЕДЖ"} />
+      <InstituteInfo isPytach={true} posts={posts} title={"Сведения об образовательной организации - ПЫТЬ-ЯХСКИЙ МЕЖОТРАСЛЕВОЙ КОЛЛЕДЖ"} />
     </>
   );
 }

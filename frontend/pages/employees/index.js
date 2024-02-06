@@ -8,7 +8,7 @@ export default function EmployersPage({ employers }) {
   return (
     <Layout>
       <Head>
-        <title>Персонал -СИЭУиП</title>
+        <title>Персонал - СИЭУиП</title>
       </Head>
       <Employers employers={employers} />
     </Layout>
@@ -16,6 +16,6 @@ export default function EmployersPage({ employers }) {
 }
 
 EmployersPage.getInitialProps = async (ctx) => {
-  const { data } = await API.getEmployees(ctx.query.category);
+  const { data } = await API.getEmployees(ctx.query.category, false);
   return { employers: data.data };
 };
