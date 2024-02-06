@@ -5,18 +5,18 @@ const Footer = () => {
     <FooterTag>
       {/*Yandex.Metrika informer*/}
       <a
-        href="https://metrika.yandex.ru/stat/?id=52013204&amp;from=informer"
+        href="https://metrika.yandex.ru/stat/?id=96380617&amp;from=informer"
         target="_blank"
         rel="no
         follow"
       >
         <img
-          src="https://informer.yandex.ru/informer/52013204/3_0_FFFFFFFF_EFEFEFFF_0_pageviews"
+          src="https://informer.yandex.ru/informer/96380617/3_0_FFFFFFFF_EFEFEFFF_0_pageviews"
           style={{ width: "88px", height: "31px", border: "0" }}
           alt="Яндекс.Метрика"
           title="Яндекс.Метрика: данные за сегодня (просмотры, визиты и уникальные посетители)"
           className="ym-advanced-informer"
-          data-cid="52013204"
+          data-cid="96380617"
           data-lang="ru"
         />
       </a>
