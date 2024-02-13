@@ -1,10 +1,8 @@
-import { API } from "../../helpers/API";
-
 const makeLink = (name, src) => ({ src, name });
 
 const mapLinks = [
   {
-    link: makeLink("Институт", "institut"),
+    link: makeLink("Институт", ""),
     content: [
       {
         main: makeLink("", "/"),
@@ -59,7 +57,7 @@ const mapLinks = [
       {
         main: makeLink("Поступающим", ""),
         links: [
-          makeLink("Приёмная кампания", "/reception-campain/2023/info"),
+          makeLink("Приёмная кампания", "/reception-campain/2024/info"),
           makeLink("Специальности", "/specialties"),
           makeLink(
             "Архив приёмных кампаний",
@@ -82,7 +80,7 @@ const mapLinks = [
     content: [],
   },
   {
-    link: makeLink("Пыть-Яхский колледж", "/pytyach-college"),
+    link: makeLink("Пыть-Яхский колледж", "/pytach-college"),
     content: [],
   },
 ];

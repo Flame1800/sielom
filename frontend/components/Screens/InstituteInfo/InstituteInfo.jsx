@@ -7,7 +7,7 @@ import Layout from "../../Layouts/Layout";
 import styled from "styled-components";
 import Link from "next/link";
 
-const InstituteInfo = ({ posts }) => {
+const InstituteInfo = ({ posts, title, isPytach }) => {
   const router = useRouter();
   const [currentPost, setCurrentPost] = React.useState(posts[0]);
 
@@ -30,25 +30,27 @@ const InstituteInfo = ({ posts }) => {
 
   const content = (
       <>
-        <MainHeader>СВЕДЕНИЯ ОБ ОБРАЗОВАТЕЛЬНОЙ ОРГАНИЗАЦИИ</MainHeader>
+        <MainHeader>{title ?? "СВЕДЕНИЯ ОБ ОБРАЗОВАТЕЛЬНОЙ ОРГАНИЗАЦИИ"}</MainHeader>
         <Wrapper>
           <SidebarLinks>
             {posts.map((post, i) => {
               const isActive = post.id === currentPost.id ? "active" : "";
+              const isEmployeesLinkPlace = i === 4 || (posts.length < 5 && i === posts.length - 1);
+              const employesLink = isPytach ? "/pytach-college/employees" : "/employees";
 
               return (
                   <>
                     <a
-                        className={isActive}
-                        onClick={() => selectPost(post)}
-                        key={post.id}
+                      className={isActive}
+                      onClick={() => selectPost(post)}
+                      key={post.id}
                     >
                       {post?.attributes?.name}
                     </a>
-                    {i === 4 &&
-                        <Link href='/employees'>
-                          <a>Руководство. Педагогический (научно-педагогический) состав</a>
-                        </Link>}
+                    {isEmployeesLinkPlace &&
+                      <Link href={employesLink}>
+                        <a>Руководство. Педагогический (научно-педагогический) состав</a>
+                      </Link>}
                   </>
               );
             })}

@@ -8,40 +8,32 @@ import Link from "next/link";
 import Head from "next/head";
 import React from "react";
 
-export default function Events({ posts }) {
+export default function Events({ page }) {
+    const {links, title, description} = page.attributes
+
   return (
     <Layout>
       <Head>
-        <title> Студенту - Пыть-Яхский межотраслевой колледж</title>
+        <title>{title}</title>
       </Head>
-      <MainHeader>Студенту Пыть-Яхского колледжа</MainHeader>
+      <MainHeader>{title}</MainHeader>
       <Header>
         <div className="text">
-          Расписание, стипендии, учебные программы, информация об оценках и
-          экзаменах в одном месте
+            {description}
         </div>
-        {/*<img src="/img/student-bg.png"></img>*/}
       </Header>
       <Content>
         <div className="fast-links">
-          <Link href="/site/1">
-            <a className="link">
-              <img src="/img/arrow-45.png" alt="arrow-icon" className="icon" />
-              <p>Стипендии</p>
-            </a>
-          </Link>
-          <Link href="/pytyach-college/student/educational_process">
-            <a className="link">
-              <img src="/img/arrow-45.png" alt="arrow-icon" className="icon" />
-              <p>Учебный процесс</p>
-            </a>
-          </Link>
-          <Link href="/site/edu-payment-pythyakh">
-            <a className="link">
-              <img src="/img/arrow-45.png" alt="arrow-icon" className="icon" />
-              <p>Оплата обучения</p>
-            </a>
-          </Link>
+            {links.map(link => {
+                return (
+                    <Link href={link.link}>
+                        <a className="link">
+                            <img src="/img/arrow-45.png" alt="arrow-icon" className="icon" />
+                            <p>{link.name}</p>
+                        </a>
+                    </Link>
+                )
+            })}
         </div>
       </Content>
     </Layout>
@@ -49,10 +41,10 @@ export default function Events({ posts }) {
 }
 
 Events.getInitialProps = async () => {
-  const posts = await API.getEdProcess();
+  const page = await API.getStudentPythYakhPage();
 
   return {
-    posts: posts.data.data,
+    page: page.data.data,
   };
 };
 

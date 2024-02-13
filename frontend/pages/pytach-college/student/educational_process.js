@@ -7,7 +7,7 @@ export default function Sveden({ posts }) {
   return (
     <>
       <Head>
-        <title> Учебный процесс - Пыть-яхский межотраслевой колледж</title>
+        <title>Учебный процесс - Пыть-яхский межотраслевой колледж</title>
       </Head>
       <PostPages posts={posts} title="Учебный процесс" />
     </>
@@ -15,7 +15,7 @@ export default function Sveden({ posts }) {
 }
 
 Sveden.getInitialProps = async () => {
-  const posts = await API.getEdProcess();
+  const posts = await API.getEdProcessPythYakh();
 
   return {
     posts: posts.data.data,
