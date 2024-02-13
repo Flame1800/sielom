@@ -10,7 +10,7 @@ import getAtolToken from "../../components/Payment/getAtolToken";
 import loadAtolPaymentReceipt from "../../components/Payment/loadAtolPaymentReceipt";
 import getPaymentReceipt from "../../components/Payment/getPaymentReceipt";
 
-// Эеран завершения оплаты
+// Экран завершения оплаты
 const Payment = () => {
   const [loading, setLoading] = useState(false)
   const [paymentData, setPaymentData] = useState(null)
@@ -34,13 +34,16 @@ const Payment = () => {
       if (!sellDataResponse.data.error) {
         setTimeout(async () => {
           const { data } = await getPaymentReceipt(sellDataResponse.data.uuid, token)
+          
+          if (data?.payload?.ofd_receipt_url) {
+            setReceipt(data.payload.ofd_receipt_url)
+          }
 
-          setReceipt(data.payload.ofd_receipt_url)
           setLoading(false)
         }, 5000)
       }
     } catch (e) {
-      console.error("Atol err: ", e);
+      console.error("ATOL ERROR: ", e);
     }
   }
 
@@ -51,7 +54,7 @@ const Payment = () => {
       try {
         const response = await getPaymentStatus({ paymentId, requestId });
         setPaymentData(response.data);
-        if (response.data.status !== "SUCCESS") {
+        if (response.data.status !== 'SUCCESS') {
           setError(true);
         } else {
           await loadPaymentReceipt(response.data)

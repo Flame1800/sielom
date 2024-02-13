@@ -8,8 +8,6 @@ import PaymentForm from "../../Payment/PaymentForm";
 
 
 const Payment = () => {
-  const [activeButton, setActiveButton] = React.useState(false);
-
   return (
     <Content>
 
