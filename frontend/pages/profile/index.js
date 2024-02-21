@@ -15,11 +15,11 @@ const SchedulePage = () => {
       </Head>
       <Content>
         <MainHeader>Личный кабинет</MainHeader>
-        <AppBtn target="_blank" href='https://learn.sielom.ru'>Личный кабинет преподавателя и студента</AppBtn>
+        <AppBtn target="_blank" href='https://learn.sielom.ru'>Электронные курсы</AppBtn>
           <BotBlock>
               <BotLink target="_blank" href='https://t.me/sielom_helper_bot'>
                   <Image src='/img/tg-logo.svg' width={20} height={20} />
-                  Электронный журнал
+                  Личный кабинет
               </BotLink>
               <Image src="/img/qr-link-bot.svg" width={205} height={205} />
           </BotBlock>
