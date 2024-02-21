@@ -3,9 +3,6 @@ const qs = require("qs");
 
 export const API = {};
 
-const prodHost = process.env.API_HOST_PROD;
-const devHost = process.env.API_HOST_DEV;
-
 const url = process.env.API_HOST_PROD;
 API.siteUrl = `${process.env.API_URL}/`;
 API.url = `${process.env.API_URL}`;
@@ -30,6 +27,8 @@ API.getCollegeNews = () =>
 API.getNewPost = (id) => axios(`${url}/news/${id}?populate=*`);
 
 API.getAttestationPage = () => axios(`${url}/attestation-page`);
+API.getAttestationPageSecondCollege = () => axios(`${url}/attestation-pytach`);
+
 API.getAttestationTeacher = (teacher) =>
   axios(`${url}/attestations?filters[slug][$eq]=${teacher}`);
 

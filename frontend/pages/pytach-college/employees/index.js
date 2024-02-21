@@ -12,7 +12,7 @@ export default function EmployersPage({ employers }) {
       <Head>
         <title>Персонал - ПЫТЬ-ЯХСКИЙ МЕЖОТРАСЛЕВОЙ КОЛЛЕДЖ</title>
       </Head>
-      <Employers employers={employers} />
+      <Employers employers={employers} attestationLink={'/pytach-college/attestation'} />
     </Layout>
   );
 }

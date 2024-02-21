@@ -7,7 +7,7 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 const list = ["Руководство", "Сотрудники", "Педагоги"];
 
-const Employers = ({ employers }) => {
+const Employers = ({ employers, attestationLink }) => {
   const router = useRouter();
   const [currentPost, setCurrentPost] = React.useState(list[0]);
 
@@ -30,7 +30,7 @@ const Employers = ({ employers }) => {
               {item}
             </a>
           ))}
-          <Link href="/attestation">
+          <Link href={attestationLink ?? '/attestation'}>
             <a>Аттестация педагогов</a>
           </Link>
         </SidebarLinks>

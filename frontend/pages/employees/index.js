@@ -10,7 +10,7 @@ export default function EmployersPage({ employers }) {
       <Head>
         <title>Персонал - СИЭУиП</title>
       </Head>
-      <Employers employers={employers} />
+      <Employers employers={employers} attestationLink={'/attestation'} />
     </Layout>
   );
 }
