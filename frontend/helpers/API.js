@@ -112,7 +112,30 @@ API.getPageBySlug = (slug) =>
 API.getPageById = (id) => axios(encodeURI(`${url}/posts/${id}?populate=*`));
 
 
-API.getEmployees = (category = "Руководство", isPytachValue) => {
+API.getEmployees = (category = "Руководство", isPytach) => {
+
+  let isPytachFilter = {
+    $or: [
+      {
+        isPytach: {
+          $eq: false
+        }
+      },
+      {
+        isPytach: {
+          $null: true
+        }
+      }
+    ]
+  }
+
+  if (isPytach) {
+    isPytachFilter = {
+      isPytach: {
+        $eq: true
+      }
+    }
+  }
 
 
   const query = qs.stringify({
@@ -122,9 +145,7 @@ API.getEmployees = (category = "Руководство", isPytachValue) => {
           $eq: category
         }
       },
-      isPytach: {
-        $notNull: isPytachValue
-      }
+      ...isPytachFilter
     },
     sort: ['rank', 'name:asc'],
     populate: "*"
